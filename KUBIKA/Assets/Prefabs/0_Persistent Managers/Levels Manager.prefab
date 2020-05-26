@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5858080383342632990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5858080383342632991}
+  - component: {fileID: 5858080383342632984}
+  m_Layer: 0
+  m_Name: Levels Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5858080383342632991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858080383342632990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5858080383342632984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858080383342632990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbf4a6c3e0728f4eb064c678c8ef940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterList: []
+  biome1:
+  - {fileID: 4900000, guid: 939dd787c0870154cb65701eecf5bcb5, type: 3}
+  - {fileID: 4900000, guid: 4223c285d1712a5458a16ffcdd6a7605, type: 3}
+  - {fileID: 4900000, guid: 0deba879b8aec804585bd85cc0ece1c2, type: 3}
+  - {fileID: 4900000, guid: d5faa7c3f5f93fe4f9f206488cfa06ef, type: 3}
+  - {fileID: 4900000, guid: 1cf97fa0513c2324497299798bd38940, type: 3}
+  - {fileID: 4900000, guid: 52dd4fb9fda61a8438742a38a8369bd8, type: 3}
+  - {fileID: 4900000, guid: fafeea516c0559341acb8dc01fea6acb, type: 3}
+  - {fileID: 4900000, guid: c63353e304c0fa04fa6e453e126ac7e2, type: 3}
+  - {fileID: 4900000, guid: eb7d107d6e4641c43a6c41f1e942955e, type: 3}
+  - {fileID: 4900000, guid: 4c3373481f967fd43ac146e22a494e62, type: 3}
+  - {fileID: 4900000, guid: d8d92ded7f4d0e64d837e1d0303fef86, type: 3}
+  - {fileID: 4900000, guid: aeccdc74e379e7342b242a9a89159bc2, type: 3}
+  - {fileID: 4900000, guid: 052768ef0e7dcd04bbe3853fe996d0de, type: 3}
+  - {fileID: 4900000, guid: 4c553e802af10014b98090f8d4820990, type: 3}
+  - {fileID: 4900000, guid: 91ec66f3da9d4e6459b157ba52859990, type: 3}
+  - {fileID: 4900000, guid: 6e78d516e86c4c2469a7a68ebb79a0de, type: 3}
+  biome2: []
+  biome3: []
+  biome4: []
+  biome5: []
+  biome6: []
+  biome7: []
+  levelNames: []
+  playerLevelsInfo: []
+  testLevel: {fileID: 0}
+  testingKubiCode: Worl101
+  _levelFile: {fileID: 0}
+  _levelName: 
+  _levelBiome: 0
+  _Kubicode: 
+  _minimumMoves: 0
+  _lockRotate: 0

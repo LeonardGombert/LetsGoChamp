@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/_Kilian_Scene/_TestScene/MatrixScene.unity
+    guid: 31d8271fed62f2e44a74707462b586a3
+  - enabled: 1
+    path: Assets/Scenes/0_PersistentManager.unity
+    guid: 32e302b56b298c0469c1c3aded905cc5
+  - enabled: 1
+    path: Assets/Scenes/1_User Interface.unity
+    guid: e1d8665411ddb8b4bac19d9c30ba73fa
+  - enabled: 1
+    path: Assets/Scenes/2_World Map.unity
+    guid: 0e1fd3b740b03fb42860cc6edcd91106
+  - enabled: 1
+    path: Assets/Scenes/3_GameScene.unity
+    guid: a64f33025a6a5534d913d14bfdbeef01
+  - enabled: 1
+    path: Assets/Scenes/4_Win Scene.unity
+    guid: 41aba19b555d9aa458195fd4a1a548c5
+  - enabled: 1
+    path: Assets/Scenes/5_LevelEditor.unity
+    guid: faac58df56f481d4e9d270c92db3ef44
+  - enabled: 1
+    path: Assets/Scenes/6_CustomLevels.unity
+    guid: 802a24460e6c2bc4da4ad22525ae2304
+  - enabled: 1
+    path: Assets/Scenes/7_Credits.unity
+    guid: a492a3b216248b24cbc6f0fc5eda38cf
+  - enabled: 0
+    path: Assets/Scenes/_Kilian_Scene/_GAScene/_GATestScene.unity
+    guid: b6a8ea329f549924d8a3a0fba00c647d
+  m_configObjects: {}

@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: fleur1
+  m_Shader: {fileID: 4800000, guid: d1628cb3b741ec740a17868d4c317367, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _EdgeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emote:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InsideTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 9795fc09a7780284e93bbd67e48f57d6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Brightness: 0
+    - _Contrast: 1
+    - _DEBUG: 0
+    - _DEBUG2: 0
+    - _EdgeTexStrength: 0
+    - _EmissiveStrengh: 1
+    - _EmoteStrength: 0
+    - _GradientImpact: 0
+    - _GradientMUL: 0
+    - _GradientOffset: 0
+    - _GradientRadius: 0
+    - _GradientSoftness: 0
+    - _GradientStrength: 1
+    - _Hue: 0
+    - _InsideTexStrength: 0
+    - _OffsetPastilleX: 1
+    - _OffsetPastilleY: 1
+    - _Outline: 0
+    - _OutlineDotMul: 1
+    - _OutlineVertexMul: 1
+    - _OutlineVertexOffset: 1
+    - _Saturation: 1
+    m_Colors:
+    - _ColorOutline: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorOutlineTest: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorX: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorXMinus: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorY: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorYMinus: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorZ: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorZMinus: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientCenter: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientExterior: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientPoint: {r: 1, g: 1, b: 1, a: 1}
+    - _InsideColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}

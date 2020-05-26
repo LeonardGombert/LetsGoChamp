@@ -1,0 +1,134 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CubeMasterSmooth
+  m_Shader: {fileID: 4800000, guid: d1628cb3b741ec740a17868d4c317367, type: 3}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Pastille:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex:
+        m_Texture: {fileID: 2800000, guid: 47385c6bf8050da42943d0964497b401, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexTwo:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Brightness: 0.07
+    - _BumpScale: 1
+    - _Contrast: 1.15
+    - _Cutoff: 0.5
+    - _DEBUG: 0
+    - _DEBUG2: 0
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EmissiveStrengh: 5.27
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GradientImpact: 1
+    - _GradientMUL: 0.37
+    - _GradientOffset: -0.34
+    - _GradientRadius: 8.3
+    - _GradientSoftness: 14.5
+    - _GradientStrength: 0.9
+    - _Hue: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _OffsetPastille: 0
+    - _OffsetPastilleX: 0
+    - _OffsetPastilleY: 0
+    - _Outline: 0
+    - _OutlineDotMul: -0.18
+    - _OutlineVertexMul: 0.36
+    - _OutlineVertexOffset: -0.58
+    - _Parallax: 0.02
+    - _PastilleStrength: 0
+    - _PlayerRadius: 0
+    - _PlayerSoftness: 0
+    - _Saturation: 0.83
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _TexStrength: 0
+    - _TexTwoStrength: 0
+    - _TillingPastille: 1.35
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorOutline: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorOutlineTest: {r: 1, g: 0, b: 0, a: 1}
+    - _ColorTex: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorTwo: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorX: {r: 0.509434, g: 0.43974727, b: 0.44114068, a: 1}
+    - _ColorXMinus: {r: 0, g: 0, b: 0, a: 1}
+    - _ColorY: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorYMinus: {r: 0, g: 0, b: 0, a: 1}
+    - _ColorZ: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+    - _ColorZMinus: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EndBrigh: {r: 1, g: 1, b: 1, a: 1}
+    - _EndColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+    - _GradientCenter: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientExterior: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+    - _GradientPoint: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _PlayerGradientCenter: {r: 1, g: 1, b: 1, a: 1}
+    - _PlayerGradientExterior: {r: 1, g: 1, b: 1, a: 1}
+    - _PlayerPos: {r: 1, g: 1, b: 1, a: 1}

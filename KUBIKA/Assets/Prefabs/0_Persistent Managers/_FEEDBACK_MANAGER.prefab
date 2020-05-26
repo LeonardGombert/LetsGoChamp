@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6312514759644111014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6312514759644111012}
+  - component: {fileID: 6312514759644111013}
+  m_Layer: 0
+  m_Name: _FEEDBACK_MANAGER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6312514759644111012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312514759644111014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.7872148, y: -6.8537254, z: 3.3911037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6312514759644111013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6312514759644111014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30928fbcd9136de4eb6e0ff8b0fefb05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staticPack:
+  - {fileID: 11400000, guid: 968aeb44c3ff801498d16cb3ab096f8a, type: 2}
+  - {fileID: 11400000, guid: e02994fccacaf964da9d40799f3e4210, type: 2}
+  - {fileID: 11400000, guid: c0d79b8ab07ce4946b9dc6c247125f9f, type: 2}
+  - {fileID: 11400000, guid: 608f82d4f57732d48b057cff1d2991ff, type: 2}
+  - {fileID: 11400000, guid: e1c999feaed81cf4e9bef2b752eae030, type: 2}
+  - {fileID: 11400000, guid: 867b047e8f87f8e4abe2376b0b889c8f, type: 2}
+  staticIndex: 0
+  dynamicPack:
+  - {fileID: 11400000, guid: 562fd46ab5f55964d87a9d6c72ca78b5, type: 2}
+  dynamicIndex: 0
+  emotePack:
+  - {fileID: 11400000, guid: cf45d816791d22545a5425703ae107c6, type: 2}
+  emoteIndex: 0
+  fxPack:
+  - {fileID: 11400000, guid: cc007757f6d9cba4c862af4430e3f879, type: 2}
+  fxIndex: 0
+  actualPack: {fileID: 11400000, guid: 9acd8c5e77c2ea5478f8cad8797936ac, type: 2}
+  _BaseTex: {fileID: 0}
+  _BaseMesh: {fileID: 0}
+  _BaseColor: {r: 0, g: 0, b: 0, a: 0}
+  Base_Hue: 0
+  Base_Contrast: 0
+  Base_Saturation: 0
+  Base_Brightness: 0
+  _BetonTex: {fileID: 0}
+  _BetonMesh: {fileID: 0}
+  _BetonColor: {r: 0, g: 0, b: 0, a: 0}
+  Beton_Hue: 0
+  Beton_Contrast: 0
+  Beton_Saturation: 0
+  Beton_Brightness: 0
+  _ElevatorTex: {fileID: 0}
+  _ElevatorMesh: {fileID: 0}
+  _ElevatorColor: {r: 0, g: 0, b: 0, a: 0}
+  Elevator_Hue: 0
+  Elevator_Contrast: 0
+  Elevator_Saturation: 0
+  Elevator_Brightness: 0
+  _CounterTex: {fileID: 0}
+  _CounterMesh: {fileID: 0}
+  _CounterColor: {r: 0, g: 0, b: 0, a: 0}
+  Counter_Hue: 0
+  Counter_Contrast: 0
+  Counter_Saturation: 0
+  Counter_Brightness: 0
+  _RotatorsTex: {fileID: 0}
+  _RotatorsMesh: {fileID: 0}
+  _RotatorsColor: {r: 0, g: 0, b: 0, a: 0}
+  Rotators_Hue: 0
+  Rotators_Contrast: 0
+  Rotators_Saturation: 0
+  Rotators_Brightness: 0
+  _BombTex: {fileID: 0}
+  _BombMesh: {fileID: 0}
+  _BombColor: {r: 0, g: 0, b: 0, a: 0}
+  Bomb_Hue: 0
+  Bomb_Contrast: 0
+  Bomb_Saturation: 0
+  Bomb_Brightness: 0
+  _SwitchTex: {fileID: 0}
+  _SwitchMesh: {fileID: 0}
+  _SwitchColor: {r: 0, g: 0, b: 0, a: 0}
+  Switch_Hue: 0
+  Switch_Contrast: 0
+  Switch_Saturation: 0
+  Switch_Brightness: 0
+  _BallTex: {fileID: 0}
+  _BallMesh: {fileID: 0}
+  _BallColor: {r: 0, g: 0, b: 0, a: 0}
+  Ball_Hue: 0
+  Ball_Contrast: 0
+  Ball_Saturation: 0
+  Ball_Brightness: 0
+  _PastilleTex: {fileID: 0}
+  _PastilleMesh: {fileID: 0}
+  _PastilleColor: {r: 0, g: 0, b: 0, a: 0}
+  Pastille_Hue: 0
+  Pastille_Contrast: 0
+  Pastille_Saturation: 0
+  Pastille_Brightness: 0
+  _EmptyTex: {fileID: 0}
+  _EmptyMesh: {fileID: 0}
+  _FullTex: {fileID: 0}
+  _FullMesh: {fileID: 0}
+  _TopTex: {fileID: 0}
+  _TopMesh: {fileID: 0}
+  _CornerTex: {fileID: 0}
+  _CornerMesh: {fileID: 0}
+  _TripleTex: {fileID: 0}
+  _TripleMesh: {fileID: 0}
+  _QuadTex: {fileID: 0}
+  _QuadMesh: {fileID: 0}
+  _TextureColor: {r: 0, g: 0, b: 0, a: 0}
+  _Hue: 0
+  _Contrast: 0
+  _Saturation: 0
+  _Brightness: 0
+  _BaseEmoteTex: {fileID: 0}
+  _BetonEmoteTex: {fileID: 0}
+  _ElevatorEmoteTex: {fileID: 0}
+  _CounterEmoteTex: {fileID: 0}
+  _RotatorsEmoteTex: {fileID: 0}
+  _BombEmoteTex: {fileID: 0}
+  _SwitchEmoteTex: {fileID: 0}
+  _BallEmoteTex: {fileID: 0}
+  _PastilleEmoteTex: {fileID: 0}
