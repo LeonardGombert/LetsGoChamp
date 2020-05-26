@@ -18,11 +18,16 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
             _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
+            switchCubes = FindObjectsOfType<SwitchCube>();
         }
 
         void OnEnable()
         {
-            switchCubes = FindObjectsOfType<SwitchCube>();
+        }
+        public override void UndoProcedure()
+        {
+            base.UndoProcedure();
+            _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
         }
 
         // Update is called once per frame
@@ -33,7 +38,7 @@ namespace Kubika.Game
 
         private void CheckIfPressed()
         {
-            isPressed = AnyMoveableChecker(_DirectionCustom.up);
+            isPressed = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
             Debug.DrawRay(transform.position, Vector3.up, Color.green);
 
             if (isPressed == true && locked == false)

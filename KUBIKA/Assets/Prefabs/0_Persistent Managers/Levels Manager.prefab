@@ -61,16 +61,20 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 4c553e802af10014b98090f8d4820990, type: 3}
   - {fileID: 4900000, guid: 91ec66f3da9d4e6459b157ba52859990, type: 3}
   - {fileID: 4900000, guid: 6e78d516e86c4c2469a7a68ebb79a0de, type: 3}
-  biome2: []
-  biome3: []
-  biome4: []
+  biome2:
+  - {fileID: 4900000, guid: 50416ecec0b54774bacab1cfe18a9f98, type: 3}
+  - {fileID: 4900000, guid: b7ece702a05ccbe4b8a6fd8a07b51ab4, type: 3}
+  biome3:
+  - {fileID: 4900000, guid: 64450025e508d4f4d8857aaf9cf8d17d, type: 3}
+  biome4:
+  - {fileID: 4900000, guid: f49bc481713d04d4c9fd5fef4bedf512, type: 3}
   biome5: []
   biome6: []
   biome7: []
   levelNames: []
   playerLevelsInfo: []
   testLevel: {fileID: 0}
-  testingKubiCode: Worl101
+  testingKubiCode: Wor401
   _levelFile: {fileID: 0}
   _levelName: 
   _levelBiome: 0

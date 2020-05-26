@@ -118,6 +118,25 @@ namespace Kubika.Game
             }
         }
 
+        public override void HideCubeProcedure()
+        {
+            base.HideCubeProcedure();
+            _DataManager.instance.moveCube.Remove(this as _CubeMove);
+            _DataManager.instance.EndMoving.RemoveListener(ResetReadyToMove);
+            _DataManager.instance.StartFalling.RemoveListener(FallMoveFunction);
+            _DataManager.instance.EndSwipe.RemoveListener(ResetOutline);
+        }
+
+        public override void UndoProcedure()
+        {
+            base.UndoProcedure();
+            _DataManager.instance.moveCube.Add(this as _CubeMove);
+            _DataManager.instance.EndMoving.AddListener(ResetReadyToMove);
+            _DataManager.instance.StartFalling.AddListener(FallMoveFunction);
+            _DataManager.instance.EndSwipe.AddListener(ResetOutline);
+        }
+
+
 
         #region FALL
 

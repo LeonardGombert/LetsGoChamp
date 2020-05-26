@@ -93,23 +93,29 @@ namespace Kubika.Game
 
         public void EnableCube()
         {
-            ReviveCubeProcedure();
+            gameObject.SetActive(true);
+            UndoProcedure();
         }
 
         //gets called when you "hide"/"destroy a cube
-        void HideCubeProcedure()
+        public virtual void HideCubeProcedure()
         {
             _Grid.instance.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
             _Grid.instance.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
             _Grid.instance.kuboGrid[myIndex - 1].cubeOnPosition = null;
+
+            _DataManager.instance.baseCube.Remove(this);
+            _DataManager.instance.EndFalling.RemoveAllListeners();
         }
 
         // call when "reactivating" cubes
-        void ReviveCubeProcedure()
+        public virtual void UndoProcedure()
         {
             _Grid.instance.kuboGrid[myIndex - 1].cubeLayers = myCubeLayer;
             _Grid.instance.kuboGrid[myIndex - 1].cubeType = myCubeType;
             _Grid.instance.kuboGrid[myIndex - 1].cubeOnPosition = gameObject;
+
+            _DataManager.instance.baseCube.Add(this);
         }
 
 

@@ -81,6 +81,18 @@ namespace Kubika.Game
             }
         }
 
+        public override void HideCubeProcedure()
+        {
+            base.HideCubeProcedure();
+            _DataManager.instance.elevators.Remove(this as ElevatorCube);
+        }
+
+        public override void UndoProcedure()
+        {
+            base.UndoProcedure();
+            _DataManager.instance.elevators.Add(this as ElevatorCube);
+        }
+
         void CheckCubeType()
         {
             if(myCubeType == CubeTypes.GreenElevatorCube)

@@ -22,7 +22,7 @@ namespace Kubika.Game
         public override void Update()
         {
             base.Update();
-            Debug.Log("Cheking in " + myIndex + _DirectionCustom.LocalScanner(facingDirection));
+            //Debug.Log("Cheking in " + myIndex + _DirectionCustom.LocalScanner(facingDirection));
         }
 
         private void CheckForVictory()

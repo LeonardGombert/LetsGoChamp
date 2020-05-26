@@ -25,7 +25,8 @@
 
     ConcreteCube, //moveable layer
     BombCube, //moveable layer
-    TimerCube, //moveable layer
+
+    TimerCube, //full layer
 
     SwitchButton, //full layer
     SwitchCube, //moveable & full layer

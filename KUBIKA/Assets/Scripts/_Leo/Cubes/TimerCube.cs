@@ -21,6 +21,12 @@ namespace Kubika.Game
             _DataManager.instance.EndFalling.AddListener(CubeListener);
         }
 
+        public override void UndoProcedure()
+        {
+            base.UndoProcedure();
+            _DataManager.instance.EndFalling.AddListener(CubeListener);
+        }
+
         // Update is called once per frame
         public override void Update()
         {
@@ -51,7 +57,7 @@ namespace Kubika.Game
                 }
             }
 
-            if (timerValue >= 0)
+            if (timerValue > 0)
             {
                 // forget the cubes you've already registered (in case only 1 moves)
                 touchingCubeIndex.Clear();
@@ -71,7 +77,6 @@ namespace Kubika.Game
                         hasCubes = true;
                     }
                 }
-
             }
 
             else DisableCube();

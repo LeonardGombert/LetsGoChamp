@@ -1,7 +1,4 @@
-﻿using Kubika.Game;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Kubika.Game
 {
@@ -39,32 +36,39 @@ namespace Kubika.Game
 
         public bool VictoryChecker(int targetIndex)
         {
-            if (grid.kuboGrid[myIndex - 1 + targetIndex] != null)
+            if (myIndex - 1 + targetIndex < grid.kuboGrid.Length && myIndex - 1 + targetIndex >= 0)
             {
-                if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition != null)
+                if (grid.kuboGrid[myIndex - 1 + targetIndex] != null)
                 {
-                    if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeType >= CubeTypes.BaseVictoryCube
-                        && grid.kuboGrid[myIndex - 1 + targetIndex].cubeType <= CubeTypes.SwitchVictoryCube) return true;
+                    if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition != null)
+                    {
+                        if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeType >= CubeTypes.BaseVictoryCube
+                            && grid.kuboGrid[myIndex - 1 + targetIndex].cubeType <= CubeTypes.SwitchVictoryCube) return true;
+                        else return false;
+                    }
                     else return false;
+
                 }
                 else return false;
-
             }
             else return false;
         }
 
         public bool AnyMoveableChecker(int targetIndex)
         {
-            if (grid.kuboGrid[myIndex - 1 + targetIndex] != null)
+            if (myIndex - 1 + targetIndex < grid.kuboGrid.Length && myIndex - 1 + targetIndex >= 0)
             {
-                if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition != null)
+                if (grid.kuboGrid[myIndex - 1 + targetIndex] != null)
                 {
-                    if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeType >= CubeTypes.BaseVictoryCube
-                        && grid.kuboGrid[myIndex - 1 + targetIndex].cubeType <= CubeTypes.ChaosBall) return true;
+                    if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition != null)
+                    {
+                        if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition.gameObject.GetComponent<_CubeMove>() != null) return true;
+                        else return false;
+                    }
                     else return false;
+
                 }
                 else return false;
-
             }
             else return false;
         }

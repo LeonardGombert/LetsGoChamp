@@ -108,7 +108,7 @@ public class LevelEditorWindow : EditorWindow
 
         levelBiome = (Biomes)EditorGUILayout.EnumPopup("Level Biome is ", levelBiome);
 
-        _MaterialCentral.instance.staticIndex = levelBiome; //change the current biome
+        _MaterialCentral.instance.ChangeUniverse(levelBiome); //change the current biome
 
         lockRotate = EditorGUILayout.Toggle("Lock Rotation ?", lockRotate);
         miminumMoves = EditorGUILayout.IntField("Minimum Moves to Beat", miminumMoves);

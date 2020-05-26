@@ -14,20 +14,31 @@ namespace Kubika.Game
             base.Start();
 
             SetScanDirections();
+            _DataManager.instance.EndFalling.AddListener(CheckBlowUp);
         }
+
+        public override void UndoProcedure()
+        {
+            base.UndoProcedure();
+            _DataManager.instance.EndFalling.AddListener(CheckBlowUp);
+        }
+
 
         // Update is called once per frame
         public override void Update()
         {
             base.Update();
 
-            if(Input.GetKeyDown(KeyCode.F1)) BlowUp(); //replace with falling code
-            if (nbrCubeEmptyBelow > 1) /*&&hasFallen)*/ BlowUp();
-
             // if a chaos ball hits the mine cube
             /*if(Input.GetKeyDown(KeyCode.F2)) BlowAcross(myIndex - 1 + _DirectionCustom.right);
             if(Input.GetKeyDown(KeyCode.F3)) BlowAcross(myIndex - 1 + _DirectionCustom.forward);*/
             //BlowAcross();
+        }
+
+
+        void CheckBlowUp()
+        {
+            if (nbrCubeEmptyBelow > 1) BlowUp();
         }
 
         void BlowUp()
@@ -45,6 +56,8 @@ namespace Kubika.Game
                 RemoveCube(position);
                 if (!MatrixLimitCalcul(position, _DirectionCustom.down)) break;
             }
+
+            _DataManager.instance.EndFalling.RemoveListener(CheckBlowUp);
         }
 
         //for when the ball hits a mine
@@ -87,10 +100,11 @@ namespace Kubika.Game
             }
         }
 
-        void RemoveCube(int position)
+        void RemoveCube(int indexToDestroy)
         {
-            if (grid.kuboGrid[position - 1].cubeOnPosition != null)
-                grid.kuboGrid[position - 1].cubeOnPosition.GetComponent<_CubeBase>().DisableCube();
+            Debug.Log("Destroyed " + indexToDestroy);
+
+            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().DisableCube();
             else return;
         }
     }

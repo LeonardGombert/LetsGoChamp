@@ -14,7 +14,12 @@ namespace Kubika.Game
         {
             //call base.start AFTER assigning the cube's layers
             base.Start();
+            _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
+        }
 
+        public override void UndoProcedure()
+        {
+            base.UndoProcedure();
             _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
         }
 
