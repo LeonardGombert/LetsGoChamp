@@ -95,9 +95,9 @@ MonoBehaviour:
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
-  _ColorMin: {r: 0.47592562, g: 0.8773585, b: 0.53226703, a: 1}
-  _ColorMax: {r: 0.3836865, g: 0.8490566, b: 0.22027414, a: 1}
-  numberOfVariations: 4
+  _ColorMin: {r: 0.16862746, g: 0.69803923, b: 0.2784314, a: 1}
+  _ColorMax: {r: 0.45492256, g: 0.8679245, b: 0.30704877, a: 1}
+  numberOfVariations: 5
   _WindSpeed: 50
   _WindMouv: 0.01
   _WindOffset: 0.5

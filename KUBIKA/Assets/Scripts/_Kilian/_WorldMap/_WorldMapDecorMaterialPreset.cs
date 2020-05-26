@@ -31,7 +31,7 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-
+            SetMaterial();
         }
 
         public void SetMaterial()
