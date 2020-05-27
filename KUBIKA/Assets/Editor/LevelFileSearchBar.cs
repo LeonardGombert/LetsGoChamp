@@ -1,5 +1,6 @@
 ﻿using Kubika.Game;
 using Kubika.Saving;
+using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,10 @@ public class LevelFileSearchBar : EditorWindow
     Biomes loadLevelBiome;
     UnityEngine.Object[] loadLevelFiles;
 
+    private string path;
+    private string folder;
+    private string levelFolder;
+
     List<LevelFile> levelFiles = new List<LevelFile>();
     string levelName;
     string Kubicode;
@@ -21,7 +26,12 @@ public class LevelFileSearchBar : EditorWindow
     bool lockRotate;
     TextAsset levelTextFile;
 
-    [MenuItem("Tools/Level SearchBar")]
+    bool modifiyingFile;
+    bool hasFile;
+    LevelEditorData levelData;
+    string assetPath;
+
+     [MenuItem("Tools/Level SearchBar")]
     static void Init()
     {
         var window = GetWindow<LevelFileSearchBar>();
@@ -31,9 +41,32 @@ public class LevelFileSearchBar : EditorWindow
 
     private void OnGUI()
     {
-        DrawWindow();
-        GetInfo();
-        DrawInfo();
+        GUILayout.BeginHorizontal();
+
+        modifiyingFile = GUILayout.Toggle(modifiyingFile, "Modify File");
+
+        if (GUILayout.Button("Save Modifications"))
+        {
+            modifiyingFile = false;
+            hasFile = false;
+
+            SaveModifications();
+        }
+
+        GUILayout.EndHorizontal();
+
+        if (!modifiyingFile)
+        {
+            DrawWindow();
+            DrawInfo();
+
+            if (GUI.changed)
+            {
+                GetInfo();
+            }
+        }
+
+        else ModifyFile();
     }
 
     private void DrawWindow()
@@ -48,8 +81,9 @@ public class LevelFileSearchBar : EditorWindow
     }
 
     void GetInfo()
-    {string folder = "MainLevels";
-        string levelFolder = "";
+    {
+        folder = "MainLevels";
+        levelFolder = "";
         switch (loadLevelBiome)
         {
             case Biomes.Plains:
@@ -76,14 +110,14 @@ public class LevelFileSearchBar : EditorWindow
             default:
                 break;
         }
-        string path = Path.Combine(folder, levelFolder);
+
+        path = Path.Combine(folder, levelFolder);
         loadLevelFiles = Resources.LoadAll(path);
 
         //UnityEngine.Object[] loadLevelFiles = AssetDatabase.LoadAllAssetsAtPath(path);
 
         foreach (TextAsset file in loadLevelFiles)
         {
-            Debug.Log(file.name);
             levelFiles.Add(UserLevelFiles.ConvertToLevelInfo(file));
         }
 
@@ -109,5 +143,32 @@ public class LevelFileSearchBar : EditorWindow
         minimumMoves = EditorGUILayout.IntField("Minimum to Beat : ", minimumMoves);
         lockRotate = EditorGUILayout.Toggle("Rotate is Locked : ", lockRotate);
         levelTextFile = (TextAsset)EditorGUILayout.ObjectField(levelTextFile, typeof(UnityEngine.Object), true);
+    }
+
+    private void ModifyFile()
+    {
+        if (!hasFile)
+        {
+            assetPath = AssetDatabase.GetAssetPath(levelTextFile);
+            string json = File.ReadAllText(assetPath);
+            levelData = JsonUtility.FromJson<LevelEditorData>(json);
+            hasFile = true;
+        }
+
+        DrawInfo();
+    }
+
+    private void SaveModifications()
+    {
+        levelData.levelName = levelName;
+        levelData.Kubicode = Kubicode;
+        levelData.biome = levelBiome;
+        levelData.minimumMoves = minimumMoves;
+        levelData.lockRotate = lockRotate;
+
+        string json = JsonUtility.ToJson(levelData);
+        if (File.Exists(assetPath)) File.Delete(assetPath);
+        File.WriteAllText(assetPath, json);
+        AssetDatabase.RenameAsset(assetPath, levelName);
     }
 }

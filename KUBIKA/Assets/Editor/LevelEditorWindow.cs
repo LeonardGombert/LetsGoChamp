@@ -149,12 +149,12 @@ public class LevelEditorWindow : EditorWindow
 
         EditorGUILayout.Space(20);
 
-        if (GUILayout.Button("Save Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, lockRotate, miminumMoves);
+        if (GUILayout.Button("Save Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, levelBiome, lockRotate, miminumMoves);
     }
 
     private void SaveTestLevel()
     {
-        if (GUILayout.Button("Save Test Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, lockRotate, miminumMoves, true);
+        if (GUILayout.Button("Save Test Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, levelBiome, lockRotate, miminumMoves, true);
     }
 
 

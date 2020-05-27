@@ -52,7 +52,7 @@ namespace Kubika.Saving
             return levelData;
         }
 
-        public void DevSavingLevel(string levelName, string kubiCode, bool rotateLock, int minimumMoves = 0, bool testLevel = false)
+        public void DevSavingLevel(string levelName, string kubiCode, Biomes biome, bool rotateLock, int minimumMoves = 0, bool testLevel = false)
         {
             for (int i = 0; i < _Grid.instance.kuboGrid.Length; i++)
             {
@@ -80,6 +80,7 @@ namespace Kubika.Saving
 
             string json = JsonUtility.ToJson(levelData);
             string folder;
+            string levelFolder = GetLevelFolder(biome);
 
             if (!testLevel) folder = Application.dataPath + "/Resources/MainLevels";
             else folder = Application.dataPath + "/Resources/TestLevels";
@@ -91,7 +92,7 @@ namespace Kubika.Saving
 
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
-            string path = Path.Combine(folder, levelFile);
+            string path = Path.Combine(folder, levelFolder, levelFile);
 
             if (File.Exists(path)) File.Delete(path);
 
@@ -111,15 +112,13 @@ namespace Kubika.Saving
             levelData.lockRotate = currentLevelLockRotate;
             levelData.minimumMoves = currentMinimumMoves;
 
-            DevSavingLevel(currentOpenLevelName, currentKubicode, currentLevelLockRotate, currentMinimumMoves);
+            DevSavingLevel(currentOpenLevelName, currentKubicode, currentBiome, currentLevelLockRotate, currentMinimumMoves);
         }
 
-        public void DevLoadLevel(string levelName, Biomes biome)
+        public string GetLevelFolder(Biomes biome)
         {
-            Debug.Log("Dev is Loading a Level !");
-            string folder = Application.dataPath + "/Resources/MainLevels";
-            string levelFile = levelName + ".json";
             string levelFolder = "";
+
             switch (biome)
             {
                 case Biomes.Plains:
@@ -146,6 +145,16 @@ namespace Kubika.Saving
                 default:
                     break;
             }
+
+            return levelFolder;
+        }
+
+        public void DevLoadLevel(string levelName, Biomes biome)
+        {
+            Debug.Log("Dev is Loading a Level !");
+            string folder = Application.dataPath + "/Resources/MainLevels";
+            string levelFile = levelName + ".json";
+            string levelFolder = GetLevelFolder(biome);
 
             string path = Path.Combine(folder, levelFolder, levelFile);
 
@@ -249,7 +258,7 @@ namespace Kubika.Saving
         }
 
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)
-        {
+        { 
             finishedBuilding = false;
 
             grid = _Grid.instance;
