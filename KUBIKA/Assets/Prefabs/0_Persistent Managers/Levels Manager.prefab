@@ -64,17 +64,33 @@ MonoBehaviour:
   biome2:
   - {fileID: 4900000, guid: 50416ecec0b54774bacab1cfe18a9f98, type: 3}
   - {fileID: 4900000, guid: b7ece702a05ccbe4b8a6fd8a07b51ab4, type: 3}
+  - {fileID: 4900000, guid: 71a8ddb4eec486346b0c163d3bf5157d, type: 3}
+  - {fileID: 4900000, guid: 94c4a760c8dea2b488b8a0e6d42c4086, type: 3}
+  - {fileID: 4900000, guid: 2d69f8c76ea10594c83a948a5d6ef8df, type: 3}
+  - {fileID: 4900000, guid: cf5002fb17746344381840859eda95a8, type: 3}
+  - {fileID: 4900000, guid: eaeb0aa28c145c048b08e70938a5b809, type: 3}
   biome3:
   - {fileID: 4900000, guid: 64450025e508d4f4d8857aaf9cf8d17d, type: 3}
+  - {fileID: 4900000, guid: b7db21bdf3bd130419065362d2192bd7, type: 3}
+  - {fileID: 4900000, guid: 9d4657c5fb801a04e964af44db4e89ee, type: 3}
+  - {fileID: 4900000, guid: 63fe527f1f1aa804ab4ec07e19bd45fd, type: 3}
+  - {fileID: 4900000, guid: 87a95cc5ef60c5c4499e476b3204854e, type: 3}
+  - {fileID: 4900000, guid: 15f8ca93d35c7104888be2690969974c, type: 3}
   biome4:
   - {fileID: 4900000, guid: f49bc481713d04d4c9fd5fef4bedf512, type: 3}
-  biome5: []
+  - {fileID: 4900000, guid: 137a700f42001a74e9ebc7c79b68e28d, type: 3}
+  - {fileID: 4900000, guid: c7e0b0b65b2c03b40bdbe4ce69c238ac, type: 3}
+  - {fileID: 4900000, guid: bd191168064cccf438239f6ea4b240fa, type: 3}
+  - {fileID: 4900000, guid: 5b23befc4ccb2fc41b6d35ac27779ae5, type: 3}
+  - {fileID: 4900000, guid: ac195692547946845aab84c1b332d9a0, type: 3}
+  biome5:
+  - {fileID: 4900000, guid: 8f415c902a2865840810ebe9a9bce7d8, type: 3}
   biome6: []
   biome7: []
   levelNames: []
   playerLevelsInfo: []
   testLevel: {fileID: 0}
-  testingKubiCode: Wor401
+  testingKubiCode: Worl202
   _levelFile: {fileID: 0}
   _levelName: 
   _levelBiome: 0

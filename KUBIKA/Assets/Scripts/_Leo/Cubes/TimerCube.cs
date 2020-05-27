@@ -6,7 +6,7 @@ namespace Kubika.Game
 {
     public class TimerCube : _CubeScanner
     {
-        public int timerValue = 2;
+        public int timerValue;
         bool touchedCube;
 
         public List<int> touchingCubeIndex = new List<int>();

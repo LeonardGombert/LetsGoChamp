@@ -26,7 +26,7 @@
     ConcreteCube, //moveable layer
     BombCube, //moveable layer
 
-    TimerCube, //full layer
+    TimerCube,
 
     SwitchButton, //full layer
     SwitchCube, //moveable & full layer
@@ -36,6 +36,16 @@
     RotatorLocker, //full layer
 
     ChaosBall, //moveable layer
-    
-    Count //use to get the total count of enums
+
+    Count, //use to get the total count of enums
+
+    TimerCube1, //full layer
+    TimerCube2,
+    TimerCube3,
+    TimerCube4,
+    TimerCube5,
+    TimerCube6,
+    TimerCube7,
+    TimerCube8,
+    TimerCube9,
 }

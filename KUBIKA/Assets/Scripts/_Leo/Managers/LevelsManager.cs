@@ -185,7 +185,7 @@ namespace Kubika.Game
 
         public void RestartLevel()
         {
-            LoadLevel();
+            StartCoroutine(LoadLevel());
         }
     }
 }

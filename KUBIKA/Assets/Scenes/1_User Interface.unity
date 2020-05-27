@@ -919,6 +919,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 1880667868273897282, guid: aeba16e64b99beb4e9b36b4c00ad5635,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: GAME_Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880667868273897283, guid: aeba16e64b99beb4e9b36b4c00ad5635,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b6bfc1c6d86eb7648a5313e6eb745653,
+        type: 3}
     - target: {fileID: 1880667868313575876, guid: aeba16e64b99beb4e9b36b4c00ad5635,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

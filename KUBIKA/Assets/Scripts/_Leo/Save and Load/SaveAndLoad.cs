@@ -349,11 +349,70 @@ namespace Kubika.Saving
                         SetCubeInfo(bombCube as _CubeBase, CubeLayers.cubeMoveable, CubeTypes.BombCube, false);
                         break;
 
-                    case CubeTypes.TimerCube:
+                    #region // TIMER CUBE
+                    case CubeTypes.TimerCube1:
                         newCube.AddComponent(typeof(TimerCube));
                         TimerCube timerCube = newCube.GetComponent<TimerCube>();
                         SetCubeInfo(timerCube as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube, true);
+                        timerCube.timerValue = 1;
                         break;
+
+                    case CubeTypes.TimerCube2:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube2 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube2 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube2, true);
+                        timerCube2.timerValue = 2;
+                        break;
+
+                    case CubeTypes.TimerCube3:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube3 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube3 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube3, true);
+                        timerCube3.timerValue = 3;
+                        break;
+
+                    case CubeTypes.TimerCube4:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube4 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube4 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube4, true);
+                        timerCube4.timerValue = 4;
+                        break;
+
+                    case CubeTypes.TimerCube5:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube5 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube5 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube5, true);
+                        timerCube5.timerValue = 5;
+                        break;
+
+                    case CubeTypes.TimerCube6:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube6 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube6 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube6, true);
+                        timerCube6.timerValue = 6;
+                        break;
+
+                    case CubeTypes.TimerCube7:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube7 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube7 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube7, true);
+                        timerCube7.timerValue = 7;
+                        break;
+
+                    case CubeTypes.TimerCube8:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube8 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube8 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube8, true);
+                        timerCube8.timerValue = 8;
+                        break;
+
+                    case CubeTypes.TimerCube9:
+                        newCube.AddComponent(typeof(TimerCube));
+                        TimerCube timerCube9 = newCube.GetComponent<TimerCube>();
+                        SetCubeInfo(timerCube9 as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube9, true);
+                        timerCube9.timerValue = 9;
+                        break;
+                    #endregion CUBES
 
                     case CubeTypes.SwitchButton:
                         newCube.AddComponent(typeof(SwitchButton));

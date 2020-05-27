@@ -250,7 +250,7 @@ namespace Kubika.Game
                             _EmoteStrength = 1;
                         }
                         break;
-                    case CubeTypes.TimerCube:
+                    case CubeTypes.TimerCube1:
                         {
                             _MainTex = _MaterialCentral.instance.actualPack._CounterTex9; /////
                             _MainMesh = _MaterialCentral.instance.actualPack._CounterMesh;

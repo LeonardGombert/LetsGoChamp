@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,7 +23,7 @@ namespace Kubika.CustomLevelEditor
         int hitIndex;
         int moveWeight;
         _Grid grid;
-        
+
         _CubeBase currentHitCube;
 
         public CubeTypes currentCube;
@@ -218,65 +219,90 @@ namespace Kubika.CustomLevelEditor
 
         private void RotateCube(RaycastHit hit, Vector3 userInputPosition)
         {
-            currentHitCube = hit.collider.gameObject.GetComponent<_CubeBase>();
-            hitIndex = currentHitCube.myIndex;
-
-            Quaternion newRotation;
-
-            /*if (hitIndex != 0 && hit.collider.gameObject != null)
+            //if you haven't hit a Timer Cube
+            if(!IncrementTimer(hit))
             {
-                int rotationX = (int)CustomScaler.Scale((int)userInputPosition.x, 0, Camera.main.pixelWidth, -360, 360);
-                rotationX = rotationX / 10;
+                currentHitCube = hit.collider.gameObject.GetComponent<_CubeBase>();
+                hitIndex = currentHitCube.myIndex;
 
-                int rotationY = (int)CustomScaler.Scale((int)userInputPosition.y, 0, Camera.main.pixelHeight, -360, 360);
-                rotationY = rotationY / 10;
+                Quaternion newRotation;
 
-                if (rotationX % 9 * rotationDampen == 0)
+                /*if (hitIndex != 0 && hit.collider.gameObject != null)
                 {
-                    Vector3 rotationVector = new Vector3(rotationX * 10,
-                        hit.collider.gameObject.transform.rotation.y,
-                        hit.collider.gameObject.transform.rotation.z);
+                    int rotationX = (int)CustomScaler.Scale((int)userInputPosition.x, 0, Camera.main.pixelWidth, -360, 360);
+                    rotationX = rotationX / 10;
 
+                    int rotationY = (int)CustomScaler.Scale((int)userInputPosition.y, 0, Camera.main.pixelHeight, -360, 360);
+                    rotationY = rotationY / 10;
+
+                    if (rotationX % 9 * rotationDampen == 0)
+                    {
+                        Vector3 rotationVector = new Vector3(rotationX * 10,
+                            hit.collider.gameObject.transform.rotation.y,
+                            hit.collider.gameObject.transform.rotation.z);
+
+                        newRotation = Quaternion.Euler(rotationVector);
+
+                        Debug.Log(rotationVector);
+                        hit.collider.gameObject.transform.rotation = newRotation;
+                    }
+
+                    if (rotationY % 9 * rotationDampen == 0)
+                    {
+                        Vector3 rotationVector = new Vector3(hit.collider.gameObject.transform.rotation.y,
+                            rotationY * 10,
+                            hit.collider.gameObject.transform.rotation.z);
+
+                        newRotation = Quaternion.Euler(rotationVector);
+
+                        Debug.Log(rotationVector);
+                        hit.collider.gameObject.transform.rotation = newRotation;
+                    }
+                }*/
+
+
+                if (hitIndex != 0 && hit.collider.gameObject != null)
+                {
+                    //increment the enum if it isn't the last one, else reset it to the first
+                    if (currentHitCube.facingDirection < FacingDirection.left) currentHitCube.facingDirection++;
+                    else currentHitCube.facingDirection = FacingDirection.up;
+
+                    //returns the coordinates that the cube should adopt according to its enum
+                    Vector3 rotationVector = CubeFacingDirection.CubeFacing(currentHitCube.facingDirection);
+
+                    //convert the coordinates to a euler angle
                     newRotation = Quaternion.Euler(rotationVector);
 
-                    Debug.Log(rotationVector);
+                    //assign the quaternion to the cube's transform
                     hit.collider.gameObject.transform.rotation = newRotation;
+
+                    //set the rotation info in node grid
+                    currentHitCube.SetRelevantNodeInfo();
                 }
-
-                if (rotationY % 9 * rotationDampen == 0)
-                {
-                    Vector3 rotationVector = new Vector3(hit.collider.gameObject.transform.rotation.y,
-                        rotationY * 10,
-                        hit.collider.gameObject.transform.rotation.z);
-                    
-                    newRotation = Quaternion.Euler(rotationVector);
-
-                    Debug.Log(rotationVector);
-                    hit.collider.gameObject.transform.rotation = newRotation;
-                }
-            }*/
-
-
-            if (hitIndex != 0 && hit.collider.gameObject != null)
-            {
-                //increment the enum if it isn't the last one, else reset it to the first
-                if (currentHitCube.facingDirection < FacingDirection.left) currentHitCube.facingDirection++;
-                else currentHitCube.facingDirection = FacingDirection.up;
-
-                //returns the coordinates that the cube should adopt according to its enum
-                Vector3 rotationVector = CubeFacingDirection.CubeFacing(currentHitCube.facingDirection);
-
-                //convert the coordinates to a euler angle
-                newRotation = Quaternion.Euler(rotationVector);
-
-                //assign the quaternion to the cube's transform
-                hit.collider.gameObject.transform.rotation = newRotation;
-
-                //set the rotation info in node grid
-                currentHitCube.SetRelevantNodeInfo();
             }
         }
 
+        bool IncrementTimer(RaycastHit hit)
+        {
+            TimerCube timerCube = hit.collider.gameObject.GetComponent<TimerCube>();
+
+            if (timerCube != null)
+            {
+                if(timerCube.myCubeType == CubeTypes.TimerCube9)
+                {
+                    timerCube.myCubeType = CubeTypes.TimerCube1;
+                    timerCube.timerValue++;
+                }
+
+                timerCube.myCubeType++;
+                timerCube.timerValue++;
+                
+                timerCube.SetRelevantNodeInfo();
+                return true;
+            }
+
+            else return false;
+        }
         #endregion
 
         #region GENERATE BASE GRID
@@ -445,7 +471,8 @@ namespace Kubika.CustomLevelEditor
                 case CubeTypes.TimerCube:
                     newCube.AddComponent(typeof(TimerCube));
                     TimerCube timerCube = newCube.GetComponent<TimerCube>();
-                    SendInfoToCube(timerCube as _CubeBase, CubeTypes.TimerCube, CubeLayers.cubeFull, true);
+                    SendInfoToCube(timerCube as _CubeBase, CubeTypes.TimerCube1, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube.timerValue = 1;
                     break;
 
                 case CubeTypes.SwitchCube:
