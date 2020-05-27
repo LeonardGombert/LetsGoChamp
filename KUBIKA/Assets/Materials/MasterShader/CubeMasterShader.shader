@@ -72,6 +72,12 @@ Shader "KILIAN/CUBE/CubeMasterShader"
         _OutlineVertexOffset("_OutlineVertexOffset", Float) = 1
         _OutlineDotMul("_OutlineDotMul", Float) = 1
 
+        //Custom Directionnal
+        _LightDirection("_LightDirection", Vector) = (1,1,1,1)
+        _LightIntensity("_LightIntensity", Float) = 1
+        _LightColor("_LightColor", COLOR) = (1,1,1,1)
+        _ShadowColor("_ShadowColor", COLOR) = (1,1,1,1)
+        _ShadowIntensity("_ShadowIntensity", Float) = 1
 
     }
         SubShader
@@ -146,6 +152,13 @@ Shader "KILIAN/CUBE/CubeMasterShader"
                 float _OffsetPastilleX;
                 float _OffsetPastilleY;
 
+                //LIGHT DIRECTIONNAL
+                float4 _LightDirection;
+                float  _LightIntensity;
+                float  _ShadowIntensity;
+                fixed4 _LightColor;
+                fixed4 _ShadowColor;
+
                 struct appdata
                 {
                     UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -197,7 +210,8 @@ Shader "KILIAN/CUBE/CubeMasterShader"
                 {
                     v2f o;
                     UNITY_SETUP_INSTANCE_ID(v);
-                    o.worldNormal = mul(unity_ObjectToWorld, float4(v.worldNormal, 0.0)).xyz;
+                    o.worldNormal = UnityObjectToWorldNormal(v.worldNormal);
+
                     o.vertex = UnityObjectToClipPos(v.vertex);
                     o.worldPos = mul(unity_ObjectToWorld, v.vertex);
 
@@ -213,6 +227,13 @@ Shader "KILIAN/CUBE/CubeMasterShader"
 
                 fixed4 frag(v2f i) : SV_Target
                 {
+                    // DIRECTIONNAL LIGHT
+
+                    float3 normal = normalize(i.worldNormal);
+                    float NdotL = dot(_LightDirection.xyz, normal);
+                    float NdotLInverse = dot(_LightDirection.xyz, normal) * -1;
+
+
                     half d = distance(_GradientPoint, i.worldPos);
                     half sum = saturate((d - _GradientRadius) / -_GradientSoftness);
 
@@ -248,7 +269,7 @@ Shader "KILIAN/CUBE/CubeMasterShader"
 
                     col = applyHSBEffect(col);
 
-                    fixed4 result = (col * float4(finalColor, 1)) - edgeTex.a - insideTex.a - emote.a;
+                    fixed4 result = ((col * (_ShadowColor + (NdotL* _LightIntensity * _LightColor)))) - edgeTex.a - insideTex.a - emote.a;
 
                     return result + (edgeTex * 2) + (insideTex * 2) + (emote * 2);
                 }
