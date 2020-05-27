@@ -34,13 +34,13 @@ MonoBehaviour:
   Beton_Contrast: 1
   Beton_Saturation: 1
   Beton_Brightness: 0
-  _ElevatorTex: {fileID: 2800000, guid: 84b3a6f4c1c368e4ea6e0f46ccda4826, type: 3}
-  _ElevatorBackTex: {fileID: 2800000, guid: 631c92a581c5cfc468499cc747ea49f0, type: 3}
+  _ElevatorTex: {fileID: 2800000, guid: b0d1b3c4faf410a489d5b9210a82734a, type: 3}
+  _ElevatorBackTex: {fileID: 2800000, guid: 958305c34de7bd145a7ef6e7154f240d, type: 3}
   _ElevatorMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _ElevatorColor: {r: 1, g: 1, b: 1, a: 0}
-  _ElevatorTexInside: {fileID: 2800000, guid: 73ffc0ac068be56419d3362dd3dae291, type: 3}
-  _ElevatorBackTexInside: {fileID: 2800000, guid: 62b71b00766dcbe4bbebd202ee01e160,
+  _ElevatorTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
+  _ElevatorBackTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
     type: 3}
   _ElevatorInsideStrength: 1
   _ElevatorColorInside: {r: 1, g: 1, b: 1, a: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   _FullTex2: {fileID: 0}
   _FullMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TopTex: {fileID: 2800000, guid: 5bbf292c6fa28d14485504176c1df930, type: 3}
+  _TopTex: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
   _TopTex2: {fileID: 0}
   _TopMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
