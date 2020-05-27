@@ -53,7 +53,7 @@ namespace Kubika.Game
 
         void Update()
         {
-            SetMaterial();
+            //SetMaterial();
         }
 
         void SetMaterialRandomValues()
