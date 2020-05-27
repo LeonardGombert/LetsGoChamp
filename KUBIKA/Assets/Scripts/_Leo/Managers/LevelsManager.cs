@@ -196,11 +196,10 @@ namespace Kubika.Saving
     public struct LevelFile
     {
         public string levelName;
-        public TextAsset levelFile;
+        public string Kubicode;
+        public Biomes levelBiome;
         public int minimumMoves;
         public bool lockRotate;
-        public Biomes levelBiome;
-
-        public string Kubicode;
+        public TextAsset levelFile;
     }
 }

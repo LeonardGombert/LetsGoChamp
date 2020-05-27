@@ -12,6 +12,7 @@ public class LevelEditorWindow : EditorWindow
 {
     UnityEngine.Object[] levelFiles;
     string[] levels;
+    private Biomes loadLevelBiome;
     int levelIndex = 0;
     int cubeTypeIndex = 0;
     private string levelName;
@@ -77,7 +78,40 @@ public class LevelEditorWindow : EditorWindow
 
     private void LoadLevel()
     {
-        levelFiles = Resources.LoadAll("MainLevels", typeof(TextAsset));
+        loadLevelBiome = (Biomes)EditorGUILayout.EnumPopup("Load From Biome ", loadLevelBiome);
+        string folder = "MainLevels";
+        string levelFolder = "";
+
+        switch (loadLevelBiome)
+        {
+            case Biomes.Plains:
+                levelFolder = "01_Plains";
+                break;
+            case Biomes.Mountains:
+                levelFolder = "02_Mountains";
+                break;
+            case Biomes.Underwater:
+                levelFolder = "03_Underwater";
+                break;
+            case Biomes.Ruins:
+                levelFolder = "04_Ruins";
+                break;
+            case Biomes.Temple:
+                levelFolder = "05_Temple";
+                break;
+            case Biomes.Statues:
+                levelFolder = "06_Statues";
+                break;
+            case Biomes.Chaos:
+                levelFolder = "07_Chaos";
+                break;
+            default:
+                break;
+        }
+
+        string path = Path.Combine(folder, levelFolder);
+
+        levelFiles = Resources.LoadAll(path);
 
         levels = new string[levelFiles.Length];
 
@@ -88,11 +122,11 @@ public class LevelEditorWindow : EditorWindow
 
         levelIndex = EditorGUI.Popup(new Rect(0, 20, position.width, 20), "Load Level : ", levelIndex, levels);
 
-        GUILayout.Space(70);
+        GUILayout.Space(50);
 
         if (GUILayout.Button("Load Level !"))
         {
-            SaveAndLoad.instance.DevLoadLevel(levels[levelIndex]);
+            SaveAndLoad.instance.DevLoadLevel(levels[levelIndex], loadLevelBiome);
             levelName = SaveAndLoad.instance.currentOpenLevelName;
             kubiCode = SaveAndLoad.instance.currentKubicode;
             lockRotate = SaveAndLoad.instance.currentLevelLockRotate;

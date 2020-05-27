@@ -114,14 +114,40 @@ namespace Kubika.Saving
             DevSavingLevel(currentOpenLevelName, currentKubicode, currentLevelLockRotate, currentMinimumMoves);
         }
 
-        public void DevLoadLevel(string levelName)
+        public void DevLoadLevel(string levelName, Biomes biome)
         {
             Debug.Log("Dev is Loading a Level !");
             string folder = Application.dataPath + "/Resources/MainLevels";
-
             string levelFile = levelName + ".json";
+            string levelFolder = "";
+            switch (biome)
+            {
+                case Biomes.Plains:
+                    levelFolder = "01_Plains";
+                    break;
+                case Biomes.Mountains:
+                    levelFolder = "02_Mountains";
+                    break;
+                case Biomes.Underwater:
+                    levelFolder = "03_Underwater";
+                    break;
+                case Biomes.Ruins:
+                    levelFolder = "04_Ruins";
+                    break;
+                case Biomes.Temple:
+                    levelFolder = "05_Temple";
+                    break;
+                case Biomes.Statues:
+                    levelFolder = "06_Statues";
+                    break;
+                case Biomes.Chaos:
+                    levelFolder = "07_Chaos";
+                    break;
+                default:
+                    break;
+            }
 
-            string path = Path.Combine(folder, levelFile);
+            string path = Path.Combine(folder, levelFolder, levelFile);
 
             if (File.Exists(path))
             {

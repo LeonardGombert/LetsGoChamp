@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+[InitializeOnLoad]
+[CanEditMultipleObjects]
 public class NodeInfoSearchBar : EditorWindow
 {
     private int searchIndex;
