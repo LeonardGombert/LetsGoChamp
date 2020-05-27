@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 4800000, guid: d1628cb3b741ec740a17868d4c317367, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -35,7 +35,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _EdgeTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emote:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InsideTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -76,7 +88,9 @@ Material:
     - _DEBUG2: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EdgeTexStrength: 0
     - _EmissiveStrengh: 5.27
+    - _EmoteStrength: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -87,6 +101,8 @@ Material:
     - _GradientSoftness: 14.5
     - _GradientStrength: 0.9
     - _Hue: 0
+    - _InsideTexStrength: 0
+    - _LightIntensity: 0.5
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -111,6 +127,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _AmbientColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorOutline: {r: 1, g: 1, b: 1, a: 1}
     - _ColorOutlineTest: {r: 1, g: 0, b: 0, a: 1}
@@ -122,12 +139,16 @@ Material:
     - _ColorYMinus: {r: 0, g: 0, b: 0, a: 1}
     - _ColorZ: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
     - _ColorZMinus: {r: 0, g: 0, b: 0, a: 1}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EndBrigh: {r: 1, g: 1, b: 1, a: 1}
     - _EndColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
     - _GradientCenter: {r: 1, g: 1, b: 1, a: 1}
     - _GradientExterior: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
     - _GradientPoint: {r: 1, g: 1, b: 1, a: 1}
+    - _InsideColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: -0.5, g: 0.5, b: -0.5, a: 1}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _PlayerGradientCenter: {r: 1, g: 1, b: 1, a: 1}
     - _PlayerGradientExterior: {r: 1, g: 1, b: 1, a: 1}

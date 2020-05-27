@@ -76,8 +76,7 @@ Shader "KILIAN/CUBE/CubeMasterShader"
         _LightDirection("_LightDirection", Vector) = (1,1,1,1)
         _LightIntensity("_LightIntensity", Float) = 1
         _LightColor("_LightColor", COLOR) = (1,1,1,1)
-        _ShadowColor("_ShadowColor", COLOR) = (1,1,1,1)
-        _ShadowIntensity("_ShadowIntensity", Float) = 1
+        _AmbientColor("_AmbientColor", COLOR) = (1,1,1,1)
 
     }
         SubShader
@@ -155,9 +154,8 @@ Shader "KILIAN/CUBE/CubeMasterShader"
                 //LIGHT DIRECTIONNAL
                 float4 _LightDirection;
                 float  _LightIntensity;
-                float  _ShadowIntensity;
                 fixed4 _LightColor;
-                fixed4 _ShadowColor;
+                fixed4 _AmbientColor;
 
                 struct appdata
                 {
@@ -230,7 +228,7 @@ Shader "KILIAN/CUBE/CubeMasterShader"
                     // DIRECTIONNAL LIGHT
 
                     float3 normal = normalize(i.worldNormal);
-                    float NdotL = dot(_LightDirection.xyz, normal);
+                    float NdotL = dot(float3(_LightDirection.x, _LightDirection.y, _LightDirection.z), normal);
                     float NdotLInverse = dot(_LightDirection.xyz, normal) * -1;
 
 
@@ -269,7 +267,7 @@ Shader "KILIAN/CUBE/CubeMasterShader"
 
                     col = applyHSBEffect(col);
 
-                    fixed4 result = ((col * (_ShadowColor + (NdotL* _LightIntensity * _LightColor)))) - edgeTex.a - insideTex.a - emote.a;
+                    fixed4 result = ((col * (_AmbientColor + (NdotL* _LightIntensity * _LightColor)))) - edgeTex.a - insideTex.a - emote.a;
 
                     return result + (edgeTex * 2) + (insideTex * 2) + (emote * 2);
                 }
