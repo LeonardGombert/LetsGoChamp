@@ -10,6 +10,7 @@ namespace Kubika.Game
 
         [Space]
         [Header("MATERIAL INFOS")]
+        public bool randomizeRotate;
         public Texture _MainTex;
         public Texture _MainTexNormal;
         public Texture _MainTexVariation;
@@ -37,17 +38,22 @@ namespace Kubika.Game
         // Start is called before the first frame update
         void Start()
         {
-            startRotation = transform.localEulerAngles;
-            startRotation.y = Random.Range(1, 360);
-            transform.localEulerAngles = startRotation;
+            if (randomizeRotate)
+            {
+                startRotation = transform.localEulerAngles;
+                startRotation.y = Random.Range(1, 360);
+                transform.localEulerAngles = startRotation;
+            }
+
 
             SetMaterialRandomValues();
+
             SetMaterial();
         }
 
         void Update()
         {
-            SetMaterial();
+            //SetMaterial();
         }
 
         void SetMaterialRandomValues()

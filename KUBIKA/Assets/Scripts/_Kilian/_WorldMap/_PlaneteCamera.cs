@@ -115,7 +115,7 @@ namespace Kubika.Game
                 " || Scroll4 = " + (Vector3.Distance(LimitStartScroll.position, BaseScroll) / distanceLimitScroll - (Vector3.Distance(BaseScroll, CurrentScroll) / distanceLimitScroll)) +
                 " || Scroll = " + actualPosCam);
 
-                currentPivotPosition = Vector3.Lerp(LimitStart.position, LimitEnd.position, Mathf.Abs(actualPosScroll));
+                currentPivotPosition = Vector3.Lerp(LimitStart.position, LimitEnd.position, Mathf.Clamp(Mathf.Abs(actualPosScroll),0.04f , 0.95f));
                 pivotVCam.transform.position = currentPivotPosition;
             }
 

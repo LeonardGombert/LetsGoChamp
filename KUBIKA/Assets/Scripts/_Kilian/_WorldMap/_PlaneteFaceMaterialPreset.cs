@@ -31,7 +31,7 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-
+            SetMaterial();
         }
 
         public void SetMaterial()
@@ -43,6 +43,7 @@ namespace Kubika.Game
             meshRenderer.GetPropertyBlock(MatProp);
 
             MatProp.SetTexture("_MainTex", _MainTex);
+            MatProp.SetColor("_MainColor", _MainColor);
 
             MatProp.SetFloat("_Hue", _Hue);
             MatProp.SetFloat("_Contrast", _Contrast);

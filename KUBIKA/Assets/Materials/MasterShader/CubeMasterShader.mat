@@ -69,6 +69,7 @@ Material:
     - _GradientStrength: 2.19
     - _Hue: 0
     - _InsideTexStrength: 0
+    - _LightIntensity: 0.07
     - _OffsetPastilleX: 0
     - _OffsetPastilleY: 0
     - _Outline: 0
@@ -85,6 +86,7 @@ Material:
     - _yPosHigh: 10
     - _yPosLow: 0
     m_Colors:
+    - _AmbientColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
     - _Color: {r: 1, g: 0.9014424, b: 0.7311321, a: 1}
     - _ColorA: {r: 0.81509095, g: 0.3537736, b: 1, a: 1}
     - _ColorB: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 1}
@@ -110,6 +112,8 @@ Material:
     - _GradientExterior: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
     - _GradientPoint: {r: 1, g: 1, b: 1, a: 1}
     - _InsideColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 0, g: 0, b: 0, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _PlayerGradientCenter: {r: 1, g: 1, b: 1, a: 1}
     - _PlayerGradientExterior: {r: 1, g: 1, b: 1, a: 1}
