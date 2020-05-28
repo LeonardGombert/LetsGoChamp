@@ -39,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4083615497248243704}
-  m_Mesh: {fileID: 2534964839176971238, guid: c07908842d936744a9efad25ef23c90a, type: 3}
+  m_Mesh: {fileID: 2534964839176971238, guid: c48275e6294f26648a0f708585d85b3b, type: 3}
 --- !u!23 &4083615497248243705
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4083615497531977990}
-  - component: {fileID: 1602653931900638934}
+  - component: {fileID: 8325972308283599670}
   m_Layer: 0
   m_Name: FB_Delivry
   m_TagString: Untagged
@@ -103,15 +103,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4083615497531977987}
-  m_LocalRotation: {x: 0.016104313, y: -0.00830349, z: 0.00013374528, w: -0.99983585}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.81, y: 7.22, z: 3.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2271233923682356955}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.845, y: 360.952, z: -0.031000001}
---- !u!114 &1602653931900638934
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8325972308283599670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,11 +120,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4083615497531977987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bb0bd5e8bb91344addbef9d19f5898, type: 3}
+  m_Script: {fileID: 11500000, guid: b196e323af7f48f418d42dbe6ec04d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PS: {fileID: 4083615498591006875}
-  pivotPS: {fileID: 2271233923682356955}
+  pivotPS: {fileID: 4083615497763084631}
 --- !u!1 &4083615497763084630
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +440,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.4
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4923,7 +4923,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c0a3781193efa174792cd2550e877a39, type: 2}
+  - {fileID: 2100000, guid: 4587a67f8ce4c574f917fba5e0ae7336, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4991,7 +4991,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7999880534577561557}
-  m_LocalRotation: {x: 0, y: 0.66340405, z: 0, w: 0.7482614}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4999,4 +4999,4 @@ Transform:
   - {fileID: 4083615497763084631}
   m_Father: {fileID: 4083615497531977990}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 83.12, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
