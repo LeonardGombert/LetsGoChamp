@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,16 +7,21 @@ namespace Kubika.Game
 {
     public class LevelSelector : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Awake()
+        RaycastHit hit;
+
+        // Called every frame
+        void Update()
         {
-            if (LevelsManager.instance.testingKubiCode == "") LevelsManager.instance.testingKubiCode = "Worl101";
+            CheckForNodeTouch();
         }
 
-        // called when the user presses the "play" button
-        public void SelectLevel()
+        private void CheckForNodeTouch()
         {
-            UIManager.instance.LoadLevelFromWM(LevelsManager.instance.testingKubiCode);
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))
+            {
+                LevelNode levelNode = hit.collider.gameObject.GetComponent<LevelNode>();
+                if (levelNode != null) UIManager.instance.loadToKubiCode = levelNode.kubiCode;
+            }
         }
     }
 }

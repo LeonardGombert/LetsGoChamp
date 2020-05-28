@@ -67,7 +67,7 @@ namespace Kubika.Game
         public Dropdown playerLevelsDropdown;
         public InputField saveLevelName;
 
-        private string loadToKubiCode;
+        public string loadToKubiCode;
 
         void Awake()
         {
@@ -214,7 +214,6 @@ namespace Kubika.Game
             FunctionMode.SetActive(false);
         }
 
-
         public void ButtonCallback(string button)
         {
             switch (button)
@@ -344,7 +343,7 @@ namespace Kubika.Game
             leftRotate.sprite = leftRotateOff;
         }
 
-        //opens next levell window
+        //opens next level window
         public void OpenWinLevelWindow()
         {
             levelPassedCanvas.enabled = true;
@@ -360,12 +359,6 @@ namespace Kubika.Game
         {
             levelPassedCanvas.enabled = false;
             LevelsManager.instance._LoadNextLevel();
-        }
-
-        //called from "Continue" Play button
-        public void LoadLevelFromWM(string kubiCode)
-        {
-            loadToKubiCode = kubiCode;
         }
 
         IEnumerator DimGame()

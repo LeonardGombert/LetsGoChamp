@@ -37,7 +37,6 @@ namespace Kubika.Game
         #endregion
 
         public TextAsset testLevel;
-        public string testingKubiCode;
 
         public TextAsset _levelFile;
         public string _levelName;
@@ -99,6 +98,7 @@ namespace Kubika.Game
 
                 else if (masterList[i].Kubicode == levelKubicode)
                 {
+                    // load a specific level
                     LoadSpecific(i);
                     break;
                 }
