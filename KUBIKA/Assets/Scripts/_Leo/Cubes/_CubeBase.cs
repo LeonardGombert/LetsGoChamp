@@ -1,5 +1,6 @@
 ﻿using Kubika.CustomLevelEditor;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Kubika.Game
@@ -42,6 +43,15 @@ namespace Kubika.Game
         [HideInInspector] public MeshRenderer meshRenderer;
         [HideInInspector] public MeshFilter meshFilter;
         [HideInInspector] public MaterialPropertyBlock MatProp; // To change Mat Properties
+
+
+        // FEEDBACKS
+        float actualContrast;
+        float currentOfValueChange;
+        float timeOfValueChange = 0.5f;
+        float currentValue;
+        float maxValueColor = 2;
+
 
         // Start is called before the first frame update
         public virtual void Start()
@@ -672,6 +682,51 @@ namespace Kubika.Game
             SetMaterial();
 
     }
+
+        #endregion
+
+        #region FEEDBACK
+
+        public IEnumerator VictoryFX(bool isON)
+        {
+
+            meshRenderer.GetPropertyBlock(MatProp);
+            currentOfValueChange = 0;
+
+            if (isON)
+            {
+                actualContrast = _Contrast;
+
+                while (currentOfValueChange <= timeOfValueChange)
+                {
+                    currentOfValueChange += Time.deltaTime;
+
+                    currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChange / timeOfValueChange);
+
+                    Debug.Log("CHANGING COLOR ON");
+                    MatProp.SetFloat("_Contrast", currentValue);
+
+                    meshRenderer.SetPropertyBlock(MatProp);
+                    yield return currentValue;
+                }
+
+            }
+            else
+            {
+                while (currentOfValueChange <= timeOfValueChange)
+                {
+                    currentOfValueChange += Time.deltaTime;
+
+                    currentValue = Mathf.SmoothStep(maxValueColor, actualContrast, currentOfValueChange / timeOfValueChange);
+
+                    Debug.Log("CHANGING COLOR OFF");
+                    MatProp.SetFloat("_Contrast", currentValue);
+
+                    meshRenderer.SetPropertyBlock(MatProp);
+                    yield return currentValue;
+                }
+            }
+        }
 
         #endregion
     }

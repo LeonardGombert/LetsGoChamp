@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 13
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -592,6 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -696,6 +697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -800,6 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -904,6 +907,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1008,6 +1012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1112,6 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1216,6 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1320,6 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1419,13 +1427,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293762861}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -6.48, y: 1.9237256, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &293762863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,7 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -1539,6 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1758,6 +1767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1857,13 +1867,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346354071}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 1.9237256, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &346354073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -1992,7 +2002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -2107,7 +2117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -2207,6 +2217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -2311,6 +2322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -2545,7 +2557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -2681,6 +2693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -2800,7 +2813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -3015,6 +3028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3196,6 +3210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3300,6 +3315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3419,7 +3435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -3519,6 +3535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3623,6 +3640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3727,6 +3745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3831,6 +3850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3935,6 +3955,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4054,7 +4075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4169,7 +4190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4264,13 +4285,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737193548}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 5.93, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 32
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &737193550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4284,7 +4305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4384,6 +4405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4488,6 +4510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4592,6 +4615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4691,13 +4715,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773247809}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 5.93, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &773247811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4711,7 +4735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4811,6 +4835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4915,6 +4940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5113,6 +5139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5232,7 +5259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 4
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -5332,6 +5359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5436,6 +5464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5540,6 +5569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5659,7 +5689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -5883,13 +5913,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913037467}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -8.47, y: 1.9237256, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &913037469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5903,7 +5933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -6003,6 +6033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6107,6 +6138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6211,6 +6243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6315,6 +6348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6419,6 +6453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6518,13 +6553,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982854426}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -8.47, y: 3.9, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &982854428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6538,7 +6573,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -6719,7 +6754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 8
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -6819,6 +6854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6938,7 +6974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7038,6 +7074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -7137,13 +7174,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155308430}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -8.47, y: 1.9237256, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1155308432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7157,7 +7194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7272,7 +7309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7367,13 +7404,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192505356}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -6.48, y: 3.9, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1192505358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7387,7 +7424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7487,6 +7524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -7606,7 +7644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7701,13 +7739,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224927927}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -6.48, y: 6.05, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1224927929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7721,7 +7759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7836,7 +7874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7936,6 +7974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8040,6 +8079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8227,6 +8267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8331,6 +8372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8450,7 +8492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -8545,13 +8587,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381983977}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 3.91, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 29
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1381983979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8565,7 +8607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -8843,6 +8885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8947,6 +8990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9051,6 +9095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9155,6 +9200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9274,7 +9320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -9518,7 +9564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -9748,7 +9794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 4
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -9848,6 +9894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9952,6 +9999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10056,6 +10104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10229,6 +10278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10333,6 +10383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10432,13 +10483,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597578353}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -8.47, y: 6.05, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1597578355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10452,7 +10503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10547,13 +10598,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661429249}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 1.9237256, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1661429251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10567,7 +10618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10667,6 +10718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10786,7 +10838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10901,7 +10953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 4
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10996,13 +11048,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757536904}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 3.91, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 30
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1757536906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11016,7 +11068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -11116,6 +11168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11220,6 +11273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11418,7 +11472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -11518,6 +11572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11622,6 +11677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11726,6 +11782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11845,7 +11902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 7
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -12060,6 +12117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12159,13 +12217,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937669064}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -6.48, y: 1.9237256, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1937669066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12179,7 +12237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -12371,6 +12429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12490,7 +12549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -12590,6 +12649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12694,6 +12754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12925,6 +12986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -13029,6 +13091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}

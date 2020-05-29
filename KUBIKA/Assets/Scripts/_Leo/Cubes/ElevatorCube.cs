@@ -39,6 +39,7 @@ namespace Kubika.Game
         [Header("OUTSIDE")]
         public int nbrDeCubeFallOutside = 10;
         Vector3 moveOutsideTarget;
+        Node lastNodeBeforeGoingOutside;
 
         // MOVE
         [Space]
@@ -56,6 +57,7 @@ namespace Kubika.Game
 
         // UP / DOWN MOVE
         List<_CubeMove> cubeMoveUpDown = new List<_CubeMove>();
+
 
         public override  void Start()
         {
@@ -174,7 +176,7 @@ namespace Kubika.Game
                 }
                 else
                 {
-                    Debug.Log("-12-");
+                    Debug.Log("-12- | GO OUT");
                     isCheckingMove = false;
                 }
             }

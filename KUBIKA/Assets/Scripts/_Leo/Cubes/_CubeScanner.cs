@@ -5,6 +5,7 @@ namespace Kubika.Game
     public class _CubeScanner : _CubeBase
     {
         public int[] indexesToCheck = new int[6];
+        [HideInInspector] public _CubeBase victoryCubeOnPistion;
 
         // Start is called before the first frame update
         public override void Start()
@@ -43,7 +44,11 @@ namespace Kubika.Game
                     if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition != null)
                     {
                         if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeType >= CubeTypes.BaseVictoryCube
-                            && grid.kuboGrid[myIndex - 1 + targetIndex].cubeType <= CubeTypes.SwitchVictoryCube) return true;
+                            && grid.kuboGrid[myIndex - 1 + targetIndex].cubeType <= CubeTypes.SwitchVictoryCube)
+                        {
+                            victoryCubeOnPistion = grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition.GetComponent<_CubeBase>();
+                            return true;
+                        }
                         else return false;
                     }
                     else return false;
