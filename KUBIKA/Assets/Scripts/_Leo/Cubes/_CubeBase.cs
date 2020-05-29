@@ -709,7 +709,6 @@ namespace Kubika.Game
                     meshRenderer.SetPropertyBlock(MatProp);
                     yield return currentValue;
                 }
-
             }
             else
             {
