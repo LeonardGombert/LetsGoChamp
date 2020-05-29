@@ -1174,6 +1174,11 @@ PrefabInstance:
       propertyPath: optionsWindow
       value: 
       objectReference: {fileID: 557176488540607920}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: loadToKubiCode
+      value: Worl101
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped

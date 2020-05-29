@@ -207,6 +207,7 @@ namespace Kubika.Game
             FunctionMode.SetActive(true);
             DecoratorMode.SetActive(false);
         }
+
         void DecoratorModePriority()
         {
             LevelEditor.instance.currentCube = CubeTypes.FullStaticCube; //optional, remove to let player pick Cube
@@ -349,16 +350,16 @@ namespace Kubika.Game
             levelPassedCanvas.enabled = true;
         }
 
-        void OpenOptionsWindow()
-        {
-            optionsWindow.SetActive(!optionsWindow.activeInHierarchy);
-        }
-
-        //called on button press
+        //called on WinLeveWindow button press
         public void NextLevel()
         {
             levelPassedCanvas.enabled = false;
             LevelsManager.instance._LoadNextLevel();
+        }
+
+        void OpenOptionsWindow()
+        {
+            optionsWindow.SetActive(!optionsWindow.activeInHierarchy);
         }
 
         IEnumerator DimGame()

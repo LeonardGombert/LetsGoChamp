@@ -1,7 +1,9 @@
 ﻿using Kubika.CustomLevelEditor;
+using Kubika.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace Kubika.Game
@@ -14,7 +16,11 @@ namespace Kubika.Game
         public int currentVictoryPoints;
         public int levelVictoryPoints;
 
+        public string progressKubiCode;
+
         BaseVictoryCube[] victoryCubes;
+        
+        PlayerProgress playerProgress;
 
         private void Awake()
         {
@@ -22,16 +28,15 @@ namespace Kubika.Game
             else _instance = this;
         }
 
-        // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
-            _DataManager.instance.EndFalling.AddListener(VictoryConditionStatus);
+            CreatePlayerProgressData();
         }
 
-        // Update is called once per frame
-        void Update()
+        private PlayerProgress CreatePlayerProgressData()
         {
-            VictoryConditionStatus();
+            playerProgress = new PlayerProgress();
+            return playerProgress;
         }
 
         // Call when a new level is loaded
@@ -56,19 +61,55 @@ namespace Kubika.Game
         {
             Debug.Log("I've been touched by a Victory cube");
             currentVictoryPoints++;
+
+            VictoryConditionStatus();
         }
 
         public void DecrementVictory()
         {
             Debug.Log("I've lost track of a Victory cube");
             currentVictoryPoints--;
+
+            VictoryConditionStatus();
         }
 
         private void VictoryConditionStatus()
         {
             if (currentVictoryPoints == levelVictoryPoints)
             {
+                SaveProgress();
                 StartCoroutine(WinCountdown());
+            }
+        }
+
+        private void SaveProgress()
+        {
+            progressKubiCode = LevelsManager.instance._Kubicode;
+            TextAsset progressFile = Resources.Load("PlayerSave/PlayerProgress.json") as TextAsset;
+
+            if (progressFile != null)
+            {
+                Debug.Log("Overwritting existing save !");
+                playerProgress.lastLevelKubicode = progressKubiCode;
+                string json = JsonUtility.ToJson(playerProgress);
+
+                JsonUtility.FromJsonOverwrite(json, progressFile);
+            }
+
+            // THIS ONLY WORKS IN EDITOR
+            else
+            {
+                playerProgress.lastLevelKubicode = progressKubiCode;
+                string json = JsonUtility.ToJson(playerProgress);
+
+                string folder = Application.dataPath + "/Resources/PlayerSave";
+                string levelFile = "PlayerProgress.json";
+
+                string path = Path.Combine(folder, levelFile);
+
+                File.WriteAllText(path, json);
+
+                Debug.Log("Creating a new save at " + path);
             }
         }
 

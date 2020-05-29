@@ -15,6 +15,12 @@ namespace Kubika.Game
             CheckForNodeTouch();
         }
 
+        // call when the user loads the worlmap, makes the camera focus to last beaten level
+        void FocusOnLastBeatenLevel()
+        {
+
+        }
+
         private void CheckForNodeTouch()
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))

@@ -131,7 +131,19 @@ namespace Kubika.Game
             UIManager.instance.playerLevelsDropdown.RefreshShownValue();
         }
 
-        // Get the next level's information and remove it from the queue
+        public void _LoadNextLevel()
+        {
+            //get info
+            GetNextLevelInfo();
+
+            //load level
+            StartCoroutine(LoadLevel());
+
+            //remove from queue
+            DequeueLevel();
+        }
+
+        // Get the next level's information and remove it from the queue when you load the next level
         void GetNextLevelInfo()
         {
             _levelName = levelQueue.Peek().levelName;
@@ -140,14 +152,6 @@ namespace Kubika.Game
             _levelFile = levelQueue.Peek().levelFile;
             _minimumMoves = levelQueue.Peek().minimumMoves;
             _lockRotate = levelQueue.Peek().lockRotate;
-        }
-
-        public void _LoadNextLevel()
-        {
-            GetNextLevelInfo();
-            StartCoroutine(LoadLevel());
-
-            DequeueLevel();
         }
 
         // Load the next level (extract the file)
