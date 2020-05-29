@@ -6,10 +6,18 @@ namespace Kubika.Game
 {
     public class _FeedBackManager : MonoBehaviour
     {
-        public GameObject Fb_Delivry;
-
         private static _FeedBackManager _instance;
         public static _FeedBackManager instance { get { return _instance; } }
+
+        public GameObject Fb_Delivry;
+
+        //EXPLOSION FX
+        [Space]
+        [Header("EXPLOSION FX")]
+
+        public ParticleSystem MineExplosionBase;
+        public ParticleSystem MineExplosionVictory;
+        public ParticleSystem PopOutParticleSystem;
 
         private void Awake()
         {

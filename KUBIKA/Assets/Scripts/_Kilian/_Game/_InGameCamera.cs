@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 namespace Kubika.Game
 {
@@ -42,8 +43,17 @@ namespace Kubika.Game
         public static float KUBSudScreenAngle;
         public static float KUBEstScreenAngle;
 
-        public Camera cam;
+        [Space]
+        [Header("CINEMACHINE")]
+        public float ShakeDuration = 0.5f;          // Time the Camera Shake effect will last
+        public float ShakeAmplitude = 1.5f;         // Cinemachine Noise Profile Parameter
+        public float ShakeFrequency = 2.0f;         // Cinemachine Noise Profile Parameter
+        private float ShakeElapsedTime = 0f;
+        public CinemachineVirtualCamera cam;
+        public Camera NormalCam;
+        private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
 
+        [Space]
         public Transform pointCenter;
         public Transform pointNord;
         public Transform pointWest;
@@ -52,13 +62,16 @@ namespace Kubika.Game
 
         public LayerMask RotatiponTorus;
 
+
         // Start is called before the first frame update
         void Start()
         {
             if (_instance != null && _instance != this) Destroy(gameObject);
             else _instance = this;
 
-            cam = GetComponent<Camera>();
+            if (cam != null)
+                virtualCameraNoise = cam.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+
             GetScreenSwipeAngle();
         }
 
@@ -68,6 +81,32 @@ namespace Kubika.Game
         {
             if (Application.isMobilePlatform == true)
                 CameraPhoneInput();
+
+
+            if (cam != null && virtualCameraNoise != null)
+            {
+                // If Camera Shake effect is still playing
+                if (ShakeElapsedTime > 0)
+                {
+                    // Set Cinemachine Camera Noise parameters
+                    virtualCameraNoise.m_AmplitudeGain = ShakeAmplitude;
+                    virtualCameraNoise.m_FrequencyGain = ShakeFrequency;
+
+                    // Update Shake Timer
+                    ShakeElapsedTime -= Time.deltaTime;
+                }
+                else
+                {
+                    // If Camera Shake effect is over, reset variables
+                    virtualCameraNoise.m_AmplitudeGain = 0f;
+                    ShakeElapsedTime = 0f;
+                }
+            }
+        }
+
+        public void ScreenShake()
+        {
+            ShakeElapsedTime = ShakeDuration;
         }
 
         void CameraPhoneInput()
@@ -147,11 +186,11 @@ namespace Kubika.Game
         public void GetScreenSwipeAngle()
         {
             // Convert SwipePosition Points in Screen Space
-            pointCenterRef = cam.WorldToScreenPoint(pointCenter.position);
-            pointNordRef = cam.WorldToScreenPoint(pointNord.position);
-            pointWestRef = cam.WorldToScreenPoint(pointWest.position);
-            pointSudRef = cam.WorldToScreenPoint(pointSud.position);
-            pointEstRef = cam.WorldToScreenPoint(pointEst.position);
+            pointCenterRef = NormalCam.WorldToScreenPoint(pointCenter.position);
+            pointNordRef = NormalCam.WorldToScreenPoint(pointNord.position);
+            pointWestRef = NormalCam.WorldToScreenPoint(pointWest.position);
+            pointSudRef = NormalCam.WorldToScreenPoint(pointSud.position);
+            pointEstRef = NormalCam.WorldToScreenPoint(pointEst.position);
 
             // Calcul the angle between the two SwipePosition
             KUBNordScreenAngle = Mathf.Abs(Mathf.Atan2(pointNordRef.y - pointCenterRef.y, pointCenterRef.x - pointNordRef.x) * 180 / Mathf.PI - 180);

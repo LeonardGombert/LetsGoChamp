@@ -189,6 +189,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &17968937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -304,6 +305,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &36143444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -419,6 +421,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &82589912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1469,6 +1472,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &293762864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1584,6 +1588,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &315644313
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1851,6 +1856,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &329411847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,6 +2030,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &346354074
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2139,6 +2146,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &347835896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2254,6 +2262,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &362467086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2626,6 +2635,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &399597883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,6 +2704,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &399597886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2950,6 +2961,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &513659255
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3112,6 +3124,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &524174658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,6 +3585,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &626560280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4212,6 +4226,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &710064381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4327,6 +4342,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &734929241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4442,6 +4458,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &737193551
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4872,6 +4889,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &773247812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5396,6 +5414,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &834333589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5826,6 +5845,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &905976560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6070,6 +6090,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &913037470
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6710,6 +6731,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &982854429
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6891,6 +6913,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1081022850
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7111,6 +7134,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1108040422
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7331,6 +7355,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1155308433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7446,6 +7471,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1169955204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7561,6 +7587,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1192505359
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7781,6 +7808,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1205163826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7896,6 +7924,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1224927930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8011,6 +8040,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1225619878
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8163,6 +8193,75 @@ Transform:
   m_Father: {fileID: 86020643}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1261709688
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5746992301750287668, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_Name
+      value: DEsintegrationV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc0dbb31ed143154f9045fa31c230ba6, type: 3}
 --- !u!1 &1309098930
 GameObject:
   m_ObjectHideFlags: 0
@@ -8629,6 +8728,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1363956314
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8676,6 +8776,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363956311}
   m_Mesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9, type: 3}
+--- !u!1 &1371589141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6312514759644111014, guid: be49b61fb398968479192818a1dda588,
+    type: 3}
+  m_PrefabInstance: {fileID: 6312514761374180411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1371589143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371589141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cad6525563696c4fb1e3cf31fd4fa65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fb_Delivry: {fileID: 4083615497531977987, guid: b88405fa66bda22459eecfd239471121,
+    type: 3}
+  MineExplosionBase: {fileID: 2308570358148291976, guid: 15f5e9331b622624b8d6a681081c1fa5,
+    type: 3}
+  MineExplosionVictory: {fileID: 7635743009464650310, guid: 4620ca4c8f0920741840ffde980ca79f,
+    type: 3}
+  PopOutParticleSystem: {fileID: 5746992301750287674, guid: cc0dbb31ed143154f9045fa31c230ba6,
+    type: 3}
 --- !u!1 &1381983977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8744,6 +8870,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1381983980
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9457,6 +9584,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1530814351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9701,6 +9829,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1535726124
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9863,6 +9992,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &1544838767
 GameObject:
   m_ObjectHideFlags: 0
@@ -9931,6 +10061,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1544838770
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10640,6 +10771,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1597578356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10755,6 +10887,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1661429252
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10975,6 +11108,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1718643560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11090,6 +11224,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1740584881
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11205,6 +11340,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1757536907
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11609,6 +11745,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1825742969
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12039,6 +12176,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1889552662
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12201,6 +12339,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &1936349479
 GameObject:
   m_ObjectHideFlags: 0
@@ -12374,6 +12513,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1937669067
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12686,6 +12826,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1987218317
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12949,7 +13090,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6312514761374180411}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1371589141}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30928fbcd9136de4eb6e0ff8b0fefb05, type: 3}
@@ -13005,7 +13146,7 @@ PrefabInstance:
     - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
         type: 3}
@@ -13139,6 +13280,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &2109835554
 GameObject:
   m_ObjectHideFlags: 0
@@ -13544,7 +13686,7 @@ PrefabInstance:
     - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
         type: 3}

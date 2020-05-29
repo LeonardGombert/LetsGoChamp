@@ -52,6 +52,16 @@ namespace Kubika.Game
         float currentValue;
         float maxValueColor = 2;
 
+        //POP_OUT 
+        float scaleMul = 1.2f;
+        float currentOfValueChangePOP;
+        float timeOfValueChangePOP = 0.5f;
+        Vector3 actualScale;
+        Vector3 baseScale;
+        Vector3 targetScale;
+        protected ParticleSystem PopOutPS;
+        public bool willPOP;
+
 
         // Start is called before the first frame update
         public virtual void Start()
@@ -97,13 +107,14 @@ namespace Kubika.Game
 
         public void DisableCube()
         {
-            gameObject.SetActive(false);
+            meshRenderer.enabled = false;
             HideCubeProcedure();
         }
 
         public void EnableCube()
         {
             gameObject.SetActive(true);
+            meshRenderer.enabled = true;
             UndoProcedure();
         }
 
@@ -691,17 +702,17 @@ namespace Kubika.Game
         {
 
             meshRenderer.GetPropertyBlock(MatProp);
-            currentOfValueChange = 0;
+            currentOfValueChangePOP = 0;
 
             if (isON)
             {
                 actualContrast = _Contrast;
 
-                while (currentOfValueChange <= timeOfValueChange)
+                while (currentOfValueChangePOP <= timeOfValueChangePOP)
                 {
-                    currentOfValueChange += Time.deltaTime;
+                    currentOfValueChangePOP += Time.deltaTime;
 
-                    currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChange / timeOfValueChange);
+                    currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChangePOP / timeOfValueChangePOP);
 
                     Debug.Log("CHANGING COLOR ON");
                     MatProp.SetFloat("_Contrast", currentValue);
@@ -725,6 +736,50 @@ namespace Kubika.Game
                     yield return currentValue;
                 }
             }
+        }
+
+        public IEnumerator PopOut()
+        {
+
+            currentOfValueChange = 0;
+            baseScale = transform.localScale;
+            targetScale = new Vector3(baseScale.x * scaleMul, baseScale.y * scaleMul, baseScale.z * scaleMul);
+
+            while (currentOfValueChange <= timeOfValueChange)
+            {
+                currentOfValueChange += Time.deltaTime;
+
+                //actualScale = Vector3.Lerp(baseScale, targetScale, EaseInBack(currentOfValueChange / timeOfValueChange))
+
+                //transform.localScale = actualScale;
+
+                transform.localScale = new Vector3(Mathf.Clamp( baseScale.x + ((baseScale.x * EaseInBack(currentOfValueChange / timeOfValueChange))), 0 , targetScale.x),
+                    Mathf.Clamp( baseScale.y + ((baseScale.y * EaseInBack(currentOfValueChange / timeOfValueChange))), 0 , targetScale.y),
+                    Mathf.Clamp(baseScale.z + ((baseScale.z * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.z));
+
+                yield return transform.localScale;
+            }
+
+            DisableCube();
+
+            PopOutPS = Instantiate(_FeedBackManager.instance.PopOutParticleSystem, transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(_FeedBackManager.instance.PopOutParticleSystem.main.duration);
+
+            Destroy(PopOutPS.gameObject);
+            gameObject.SetActive(false);
+
+        }
+
+        float c1;
+        float c3;
+
+        float EaseInBack(float x)
+        {
+            c1 = 2.8f;
+            c3 = c1 + 1;
+
+            return c3 * x * x * x - c1 * x * x;
         }
 
         #endregion
