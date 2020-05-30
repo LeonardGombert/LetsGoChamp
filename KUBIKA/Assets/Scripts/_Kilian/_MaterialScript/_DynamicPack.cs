@@ -67,19 +67,37 @@ namespace Kubika.Game
         [Range(0, 2)] public float Counter_Saturation;
         [Range(-1, 1)] public float Counter_Brightness;
 
-        [Header("Rotators")]
-        public Texture _RotatorsTexLeft;
-        public Texture _RotatorsTexRight;
-        public Texture _RotatorsTexUI;
-        public Mesh _RotatorsMesh;
-        public Color _RotatorsColor;
-        public Texture _RotatorsTexInside;
-        public float _RotatorsInsideStrength;
-        public Color _RotatorsColorInside;
+        [Header("RotatorAll")]
+        public Texture _RotatorsTexSocle;
+        public Mesh _RotatorsMeshSocle;
         [Range(-360, 360)] public float Rotators_Hue;
         [Range(0, 2)] public float Rotators_Contrast;
         [Range(0, 2)] public float Rotators_Saturation;
         [Range(-1, 1)] public float Rotators_Brightness;
+
+        [Header("RotatorLeft")]
+        public Texture _RotatorsTexLeft;
+        public Mesh _RotatorsMeshLeft;
+        public Color _RotatorsColorLeft;
+        public Texture _RotatorsTexInsideLeft;
+        public float _RotatorsInsideStrengthLeft;
+        public Color _RotatorsColorInsideLeft;
+
+        [Header("RotatorRight")]
+        public Texture _RotatorsTexRight;
+        public Mesh _RotatorsMeshRight;
+        public Color _RotatorsColorRight;
+        public Texture _RotatorsTexInsideRight;
+        public float _RotatorsInsideStrengthRight;
+        public Color _RotatorsColorInsideRight;
+
+        [Header("RotatorUI")]
+        public Texture _RotatorsTexUI;
+        public Mesh _RotatorsMeshUI;
+        public Color _RotatorsColorUI;
+        public Texture _RotatorsTexInsideUI;
+        public float _RotatorsInsideStrengthUI;
+        public Color _RotatorsColorInsideUI;
 
         [Header("Bomb")]
         public Texture _BombTex;

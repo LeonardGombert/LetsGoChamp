@@ -409,30 +409,64 @@ namespace Kubika.Game
                             _EmoteStrength = 1;
                         }
                         break;
-                    case CubeTypes.RotatorLeftTurner:
+                    case CubeTypes.RotatorLocker:
                         {
-                            _MainTex = _MaterialCentral.instance.actualPack._RotatorsTexLeft; ////////
-                            _MainMesh = _MaterialCentral.instance.actualPack._RotatorsMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._RotatorsColor;
+                            _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
+                            _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
                             _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
                             _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
                             _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
                             _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._RotatorsTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._RotatorsColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._RotatorsInsideStrength;
-
                             _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
                             _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                             _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._RotatorsEmoteTex;
+                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
                             _EmoteStrength = 0;
                         }
                         break;
-                    case CubeTypes.DeliveryCube:
+                case CubeTypes.RotatorLeftTurner:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
+                        _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+
+                        _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.RotatorRightTurner:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
+                        _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+
+                        _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.DeliveryCube:
                         {
                             _MainTex = _MaterialCentral.instance.actualPack._PastilleTex;
                             _MainMesh = _MaterialCentral.instance.actualPack._PastilleMesh;

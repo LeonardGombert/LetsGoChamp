@@ -52,6 +52,7 @@ namespace Kubika.Game
         public CinemachineVirtualCamera cam;
         public Camera NormalCam;
         private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
+        [HideInInspector] public bool isShaking;
 
         [Space]
         public Transform pointCenter;
@@ -69,8 +70,13 @@ namespace Kubika.Game
             if (_instance != null && _instance != this) Destroy(gameObject);
             else _instance = this;
 
+            // SETUP SCREEN SHAKE
             if (cam != null)
                 virtualCameraNoise = cam.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
+
+            virtualCameraNoise.m_AmplitudeGain = 0f;
+            ShakeElapsedTime = 0f;
+            //__
 
             GetScreenSwipeAngle();
         }
@@ -82,6 +88,18 @@ namespace Kubika.Game
             if (Application.isMobilePlatform == true)
                 CameraPhoneInput();
 
+            if(isShaking == true)
+                ActualScreenShake();
+        }
+
+        public void ScreenShake()
+        {
+            ShakeElapsedTime = ShakeDuration;
+            isShaking = true;
+        }
+
+        void ActualScreenShake()
+        {
 
             if (cam != null && virtualCameraNoise != null)
             {
@@ -100,13 +118,9 @@ namespace Kubika.Game
                     // If Camera Shake effect is over, reset variables
                     virtualCameraNoise.m_AmplitudeGain = 0f;
                     ShakeElapsedTime = 0f;
+                    isShaking = false;
                 }
             }
-        }
-
-        public void ScreenShake()
-        {
-            ShakeElapsedTime = ShakeDuration;
         }
 
         void CameraPhoneInput()
