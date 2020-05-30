@@ -36,6 +36,9 @@ namespace Kubika.Game
         [FoldoutGroup("Level Editor ")] public List<LevelFile> playerLevelsInfo = new List<LevelFile>();
         #endregion
 
+        //which level to load to
+        public string loadToKubicode;
+
         public TextAsset testLevel;
 
         public TextAsset _levelFile;
@@ -57,6 +60,9 @@ namespace Kubika.Game
         void Start()
         {
             if (ScenesManager.isLevelEditor) RefreshUserLevels();
+
+            //MOVE THIS SOMEWHERE ELSE, ONLY CALL IF PLAYER PRESSES CONTINUE BUTTON FROM WORLDMAP SCREEN
+            loadToKubicode = SaveAndLoad.instance.LoadProgress();
         }
 
         IEnumerator InitializeLevelsList()
@@ -90,13 +96,13 @@ namespace Kubika.Game
         }
 
         // called when Game Scene is loaded, load specific level or set to baseState
-        public void BakeLevels(string levelKubicode)
+        public void BakeLevels()
         {
             for (int i = 0; i < masterList.Count; i++)
             {
-                if (masterList[i].Kubicode != levelKubicode) continue;
+                if (masterList[i].Kubicode != loadToKubicode) continue;
 
-                else if (masterList[i].Kubicode == levelKubicode)
+                else if (masterList[i].Kubicode == loadToKubicode)
                 {
                     // load a specific level
                     LoadSpecific(i);
@@ -105,6 +111,7 @@ namespace Kubika.Game
             }
         }
 
+        //Clear and recreate the levels list starting at the level you want to load
         private void LoadSpecific(int startingIndex)
         {
             levelQueue.Clear();

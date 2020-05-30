@@ -67,8 +67,6 @@ namespace Kubika.Game
         public Dropdown playerLevelsDropdown;
         public InputField saveLevelName;
 
-        public string loadToKubiCode;
-
         void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -95,7 +93,7 @@ namespace Kubika.Game
 
                 case ScenesIndex.GAME_SCENE:
                     GameCanvasPriority();
-                    LevelsManager.instance.BakeLevels(loadToKubiCode);
+                    LevelsManager.instance.BakeLevels();
                     break;
 
                 case ScenesIndex.WIN:

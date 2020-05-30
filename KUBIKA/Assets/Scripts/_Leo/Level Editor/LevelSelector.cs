@@ -26,7 +26,7 @@ namespace Kubika.Game
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))
             {
                 LevelNode levelNode = hit.collider.gameObject.GetComponent<LevelNode>();
-                if (levelNode != null) UIManager.instance.loadToKubiCode = levelNode.kubiCode;
+                if (levelNode != null) LevelsManager.instance.loadToKubicode = levelNode.kubiCode;
             }
         }
     }

@@ -296,6 +296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVictoryPoints: 0
   levelVictoryPoints: 0
+  progressKubiCode: 
+  progressFile: {fileID: 4900000, guid: 25289c8d734cccb47a578bc9eca9238d, type: 3}
 --- !u!1001 &1439888044
 PrefabInstance:
   m_ObjectHideFlags: 0

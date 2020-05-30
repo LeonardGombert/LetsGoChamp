@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
 using Kubika.Gam;
+using UnityEditor;
 
 namespace Kubika.Saving
 {
@@ -31,7 +32,9 @@ namespace Kubika.Saving
 
         public bool finishedBuilding = false;
 
-        _Grid grid;
+        PlayerProgress playerProgress;
+        public string progressKubiCode;
+        TextAsset progressFile;
 
         private void Awake()
         {
@@ -43,6 +46,7 @@ namespace Kubika.Saving
         void Start()
         {
             CreateEditorData();
+            CreatePlayerProgressData();
         }
 
         private LevelEditorData CreateEditorData()
@@ -52,6 +56,11 @@ namespace Kubika.Saving
             return levelData;
         }
 
+        private PlayerProgress CreatePlayerProgressData()
+        {
+            playerProgress = new PlayerProgress();
+            return playerProgress;
+        }
         public void DevSavingLevel(string levelName, string kubiCode, Biomes biome, bool rotateLock, int minimumMoves = 0, bool testLevel = false)
         {
             for (int i = 0; i < _Grid.instance.kuboGrid.Length; i++)
@@ -257,14 +266,72 @@ namespace Kubika.Saving
             LevelsManager.instance.RefreshUserLevels();
         }
 
+        //called by the victory condition manager
+        public void SaveProgress()
+        {
+            //reference to the last saved level's code
+            progressKubiCode = LevelsManager.instance._Kubicode;
+
+            if (File.Exists(Application.dataPath + "/Resources/PlayerSave/PlayerProgress.json"))
+            {
+                Debug.Log("Overwritting existing save !");
+                playerProgress.lastLevelKubicode = progressKubiCode;
+                string json = JsonUtility.ToJson(playerProgress);
+                string folder = Application.dataPath + "/Resources/PlayerSave";
+                string levelFile = "PlayerProgress.json";
+
+                string path = Path.Combine(folder, levelFile);
+                File.WriteAllText(path, json);
+
+                //JsonUtility.FromJsonOverwrite(json, progressFile);
+            }
+
+            // THIS ONLY WORKS IN EDITOR
+            else
+            {
+                playerProgress.lastLevelKubicode = progressKubiCode;
+                string json = JsonUtility.ToJson(playerProgress);
+
+                string folder = Application.dataPath + "/Resources/PlayerSave";
+                string levelFile = "PlayerProgress.json";
+
+                string path = Path.Combine(folder, levelFile);
+
+                File.WriteAllText(path, json);
+
+                Debug.Log("Creating a new save at " + path);
+            }
+        }
+
+        //called in the BakeLevels() function in Levels Manager
+        public string LoadProgress()
+        {
+            string kubicodeToLoad = "";
+
+            if (File.Exists(Application.dataPath + "/Resources/PlayerSave/PlayerProgress.json"))
+            {
+                Debug.Log("Loading player progress !");
+                string folder = Application.dataPath + "/Resources/PlayerSave";
+                string levelFile = "PlayerProgress.json";
+
+                string path = Path.Combine(folder, levelFile);               
+                string json = File.ReadAllText(path);
+                PlayerProgress playerProgress = JsonUtility.FromJson<PlayerProgress>(json);
+                
+                kubicodeToLoad = playerProgress.lastLevelKubicode;
+
+                Debug.Log("Last player level is " + kubicodeToLoad);
+            }
+
+            return kubicodeToLoad;
+        }
+
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)
-        { 
+        {
             finishedBuilding = false;
 
-            grid = _Grid.instance;
-
             // start by resetting the grid's nodes to their base states
-            grid.ResetIndexGrid();
+            _Grid.instance.ResetIndexGrid();
 
             foreach (Node recoveredNode in recoveredData.nodesToSave)
             {
@@ -487,8 +554,8 @@ namespace Kubika.Saving
 
                     default:
                         //set epmty cubes as cubeEmpty
-                        grid.kuboGrid[recoveredNode.nodeIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
-                        grid.kuboGrid[recoveredNode.nodeIndex - 1].cubeType = CubeTypes.None;
+                        _Grid.instance.kuboGrid[recoveredNode.nodeIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
+                        _Grid.instance.kuboGrid[recoveredNode.nodeIndex - 1].cubeType = CubeTypes.None;
                         break;
                 }
             }
@@ -498,13 +565,13 @@ namespace Kubika.Saving
 
         void SetNodeInfo(GameObject newCube, int nodeIndex, Vector3 worldPosition, Vector3 worldRotation, FacingDirection facingDirection, CubeLayers cubeLayers, CubeTypes cubeTypes)
         {
-            grid.kuboGrid[currentNode.nodeIndex - 1].cubeOnPosition = newCube;
-            grid.kuboGrid[currentNode.nodeIndex - 1].nodeIndex = nodeIndex;
-            grid.kuboGrid[currentNode.nodeIndex - 1].worldPosition = worldPosition;
-            grid.kuboGrid[currentNode.nodeIndex - 1].worldRotation = worldRotation;
-            grid.kuboGrid[currentNode.nodeIndex - 1].facingDirection = facingDirection;
-            grid.kuboGrid[currentNode.nodeIndex - 1].cubeLayers = cubeLayers;
-            grid.kuboGrid[currentNode.nodeIndex - 1].cubeType = cubeTypes;
+            _Grid.instance.kuboGrid[currentNode.nodeIndex - 1].cubeOnPosition = newCube;
+            _Grid.instance.kuboGrid[currentNode.nodeIndex - 1].nodeIndex = nodeIndex;
+            _Grid.instance.kuboGrid[currentNode.nodeIndex - 1].worldPosition = worldPosition;
+            _Grid.instance.kuboGrid[currentNode.nodeIndex - 1].worldRotation = worldRotation;
+            _Grid.instance.kuboGrid[currentNode.nodeIndex - 1].facingDirection = facingDirection;
+            _Grid.instance.kuboGrid[currentNode.nodeIndex - 1].cubeLayers = cubeLayers;
+            _Grid.instance.kuboGrid[currentNode.nodeIndex - 1].cubeType = cubeTypes;
         }
 
         //set the node's information relevant to the cube type, then send the Transform information to the cube
