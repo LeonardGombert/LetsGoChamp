@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[InitializeOnLoad]
-[CanEditMultipleObjects]
 public class NodeInfoSearchBar : EditorWindow
 {
     private int searchIndex;
@@ -47,8 +45,11 @@ public class NodeInfoSearchBar : EditorWindow
         GUILayout.EndHorizontal();
         */
 
-        DrawWindow();
-        DrawInfo();
+        if (_Grid.instance != null)
+        {
+            DrawWindow();
+            DrawInfo();
+        }
     }
 
     private void DrawWindow()

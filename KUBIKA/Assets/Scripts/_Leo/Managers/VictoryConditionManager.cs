@@ -1,7 +1,10 @@
 ﻿using Kubika.CustomLevelEditor;
+using Kubika.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 namespace Kubika.Game
@@ -14,7 +17,9 @@ namespace Kubika.Game
         public int currentVictoryPoints;
         public int levelVictoryPoints;
 
+
         BaseVictoryCube[] victoryCubes;
+        
 
         private void Awake()
         {
@@ -22,17 +27,6 @@ namespace Kubika.Game
             else _instance = this;
         }
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            _DataManager.instance.EndFalling.AddListener(VictoryConditionStatus);
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            VictoryConditionStatus();
-        }
 
         // Call when a new level is loaded
         public void CheckVictoryCubes()
@@ -56,18 +50,23 @@ namespace Kubika.Game
         {
             Debug.Log("I've been touched by a Victory cube");
             currentVictoryPoints++;
+
+            VictoryConditionStatus();
         }
 
         public void DecrementVictory()
         {
             Debug.Log("I've lost track of a Victory cube");
             currentVictoryPoints--;
+
+            VictoryConditionStatus();
         }
 
         private void VictoryConditionStatus()
         {
             if (currentVictoryPoints == levelVictoryPoints)
             {
+                SaveAndLoad.instance.SaveProgress();
                 StartCoroutine(WinCountdown());
             }
         }

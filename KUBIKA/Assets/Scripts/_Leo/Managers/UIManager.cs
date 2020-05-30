@@ -67,8 +67,6 @@ namespace Kubika.Game
         public Dropdown playerLevelsDropdown;
         public InputField saveLevelName;
 
-        public string loadToKubiCode;
-
         void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -95,7 +93,7 @@ namespace Kubika.Game
 
                 case ScenesIndex.GAME_SCENE:
                     GameCanvasPriority();
-                    LevelsManager.instance.BakeLevels(loadToKubiCode);
+                    LevelsManager.instance.BakeLevels();
                     break;
 
                 case ScenesIndex.WIN:
@@ -207,6 +205,7 @@ namespace Kubika.Game
             FunctionMode.SetActive(true);
             DecoratorMode.SetActive(false);
         }
+
         void DecoratorModePriority()
         {
             LevelEditor.instance.currentCube = CubeTypes.FullStaticCube; //optional, remove to let player pick Cube
@@ -349,16 +348,16 @@ namespace Kubika.Game
             levelPassedCanvas.enabled = true;
         }
 
-        void OpenOptionsWindow()
-        {
-            optionsWindow.SetActive(!optionsWindow.activeInHierarchy);
-        }
-
-        //called on button press
+        //called on WinLeveWindow button press
         public void NextLevel()
         {
             levelPassedCanvas.enabled = false;
             LevelsManager.instance._LoadNextLevel();
+        }
+
+        void OpenOptionsWindow()
+        {
+            optionsWindow.SetActive(!optionsWindow.activeInHierarchy);
         }
 
         IEnumerator DimGame()
