@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -189,6 +189,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &17968937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -282,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -304,6 +305,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &36143444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -397,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 13
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -419,6 +421,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &82589912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -592,6 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -696,6 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -800,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -904,6 +910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1008,6 +1015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1112,6 +1120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1216,6 +1225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1320,6 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1419,13 +1430,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293762861}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -6.48, y: 1.9237256, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &293762863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1439,7 +1450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -1461,6 +1472,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &293762864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1508,6 +1520,122 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293762861}
   m_Mesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9, type: 3}
+--- !u!1 &315644310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315644311}
+  - component: {fileID: 315644314}
+  - component: {fileID: 315644313}
+  - component: {fileID: 315644312}
+  m_Layer: 0
+  m_Name: Cube4.001 (47)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &315644311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315644310}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.38, y: 3.91, z: -5.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2137998561}
+  m_RootOrder: 40
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &315644312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315644310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2c3047ccba1c944aac94ae7d0993e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myIndex: 0
+  myCubeType: 16
+  myCubeLayer: 0
+  facingDirection: 0
+  isStatic: 0
+  grid: {fileID: 0}
+  _MainTex: {fileID: 0}
+  _MainMesh: {fileID: 0}
+  _MainColor: {r: 0, g: 0, b: 0, a: 0}
+  _Hue: 0
+  _Contrast: 0
+  _Saturation: 0
+  _Brightness: 0
+  _EmoteTex: {fileID: 0}
+  _EmoteStrength: 0
+  _InsideTex: {fileID: 0}
+  _InsideColor: {r: 0, g: 0, b: 0, a: 0}
+  _InsideStrength: 0
+  _EdgeTex: {fileID: 0}
+  _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
+  _EdgeStrength: 0
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  willPOP: 0
+--- !u!23 &315644313
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315644310}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7a6cd84cc209f6142bc4923e82a6757d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &315644314
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315644310}
+  m_Mesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9, type: 3}
 --- !u!1 &320178892
 GameObject:
   m_ObjectHideFlags: 0
@@ -1539,6 +1667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1727,6 +1856,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &329411847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,6 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -1857,13 +1988,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346354071}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 1.9237256, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &346354073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +2008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -1899,6 +2030,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &346354074
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1992,7 +2124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -2014,6 +2146,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &347835896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2107,7 +2240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -2129,6 +2262,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &362467086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2207,6 +2341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -2311,6 +2446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -2499,6 +2635,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &399597883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,7 +2682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -2567,6 +2704,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &399597886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2681,6 +2819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -2800,7 +2939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -2822,6 +2961,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &513659255
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2984,6 +3124,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &524174658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,6 +3156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3196,6 +3338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3300,6 +3443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3419,7 +3563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -3441,6 +3585,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &626560280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3519,6 +3664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3623,6 +3769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3727,6 +3874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3831,6 +3979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -3935,6 +4084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4054,7 +4204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4076,6 +4226,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &710064381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4169,7 +4320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4191,6 +4342,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &734929241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4264,13 +4416,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737193548}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 5.93, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 32
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &737193550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4284,7 +4436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4306,6 +4458,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &737193551
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4384,6 +4537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4488,6 +4642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4592,6 +4747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4691,13 +4847,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773247809}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 5.93, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 33
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &773247811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4711,7 +4867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -4733,6 +4889,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &773247812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4811,6 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -4915,6 +5073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5113,6 +5272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5232,7 +5392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 4
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -5254,6 +5414,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &834333589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5332,6 +5493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5436,6 +5598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5540,6 +5703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -5659,7 +5823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -5681,6 +5845,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &905976560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5883,13 +6048,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913037467}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -8.47, y: 1.9237256, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &913037469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5903,7 +6068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -5925,6 +6090,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &913037470
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6003,6 +6169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6107,6 +6274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6211,6 +6379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6315,6 +6484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6419,6 +6589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6518,13 +6689,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982854426}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -8.47, y: 3.9, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &982854428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6538,7 +6709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -6560,6 +6731,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &982854429
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6719,7 +6891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 8
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -6741,6 +6913,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1081022850
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6819,6 +6992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -6938,7 +7112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -6960,6 +7134,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1108040422
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7038,6 +7213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -7137,13 +7313,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155308430}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -8.47, y: 1.9237256, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1155308432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7157,7 +7333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7179,6 +7355,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1155308433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7272,7 +7449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7294,6 +7471,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1169955204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7367,13 +7545,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192505356}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -6.48, y: 3.9, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1192505358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7387,7 +7565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7409,6 +7587,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1192505359
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7487,6 +7666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -7606,7 +7786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7628,6 +7808,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1205163826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7701,13 +7882,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224927927}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -6.48, y: 6.05, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1224927929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7721,7 +7902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7743,6 +7924,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1224927930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7836,7 +8018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -7858,6 +8040,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1225619878
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7936,6 +8119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8009,6 +8193,75 @@ Transform:
   m_Father: {fileID: 86020643}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1261709688
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5746992301750287668, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_Name
+      value: DEsintegrationV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746992301750287675, guid: cc0dbb31ed143154f9045fa31c230ba6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc0dbb31ed143154f9045fa31c230ba6, type: 3}
 --- !u!1 &1309098930
 GameObject:
   m_ObjectHideFlags: 0
@@ -8040,6 +8293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8227,6 +8481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8331,6 +8586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8450,7 +8706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -8472,6 +8728,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1363956314
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8519,6 +8776,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363956311}
   m_Mesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9, type: 3}
+--- !u!1 &1371589141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6312514759644111014, guid: be49b61fb398968479192818a1dda588,
+    type: 3}
+  m_PrefabInstance: {fileID: 6312514761374180411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1371589143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371589141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cad6525563696c4fb1e3cf31fd4fa65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fb_Delivry: {fileID: 4083615497531977987, guid: b88405fa66bda22459eecfd239471121,
+    type: 3}
+  MineExplosionBase: {fileID: 2308570358148291976, guid: 15f5e9331b622624b8d6a681081c1fa5,
+    type: 3}
+  MineExplosionVictory: {fileID: 7635743009464650310, guid: 4620ca4c8f0920741840ffde980ca79f,
+    type: 3}
+  PopOutParticleSystem: {fileID: 5746992301750287674, guid: cc0dbb31ed143154f9045fa31c230ba6,
+    type: 3}
 --- !u!1 &1381983977
 GameObject:
   m_ObjectHideFlags: 0
@@ -8545,13 +8828,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381983977}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 3.91, z: -5.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 29
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1381983979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8565,7 +8848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -8587,6 +8870,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1381983980
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8843,6 +9127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -8947,6 +9232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9051,6 +9337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9155,6 +9442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9274,7 +9562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -9296,6 +9584,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1530814351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9518,7 +9807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -9540,6 +9829,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1535726124
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9702,6 +9992,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &1544838767
 GameObject:
   m_ObjectHideFlags: 0
@@ -9748,7 +10039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 4
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -9770,6 +10061,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1544838770
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9848,6 +10140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -9952,6 +10245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10056,6 +10350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10229,6 +10524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10333,6 +10629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10432,13 +10729,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597578353}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -8.47, y: 6.05, z: -9.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1597578355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10452,7 +10749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10474,6 +10771,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1597578356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10547,13 +10845,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661429249}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 1.9237256, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1661429251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10567,7 +10865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10589,6 +10887,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1661429252
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10667,6 +10966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -10786,7 +11086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10808,6 +11108,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1718643560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10901,7 +11202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 4
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -10923,6 +11224,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1740584881
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10996,13 +11298,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1757536904}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -10.42, y: 3.91, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 30
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1757536906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11016,7 +11318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -11038,6 +11340,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1757536907
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11116,6 +11419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11220,6 +11524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11418,7 +11723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -11440,6 +11745,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1825742969
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11518,6 +11824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11622,6 +11929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11726,6 +12034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -11845,7 +12154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 7
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -11867,6 +12176,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1889552662
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12029,6 +12339,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &1936349479
 GameObject:
   m_ObjectHideFlags: 0
@@ -12060,6 +12371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12159,13 +12471,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937669064}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -6.48, y: 1.9237256, z: -7.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2137998561}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: -90.00001}
 --- !u!114 &1937669066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12179,7 +12491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 2
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -12201,6 +12513,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1937669067
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12371,6 +12684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12490,7 +12804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 0
-  myCubeType: 0
+  myCubeType: 3
   myCubeLayer: 0
   facingDirection: 0
   isStatic: 0
@@ -12512,6 +12826,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!23 &1987218317
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12590,6 +12905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12694,6 +13010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -12773,12 +13090,81 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 6312514761374180411}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1371589141}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30928fbcd9136de4eb6e0ff8b0fefb05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2064977142
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2308570358148291978, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_Name
+      value: FX_EsplosionMineBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -25.644
+      objectReference: {fileID: 0}
+    - target: {fileID: 2308570358148291991, guid: 15f5e9331b622624b8d6a681081c1fa5,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15f5e9331b622624b8d6a681081c1fa5, type: 3}
 --- !u!1 &2097166463
 GameObject:
   m_ObjectHideFlags: 0
@@ -12894,6 +13280,7 @@ MonoBehaviour:
   _EdgeStrength: 0
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
+  willPOP: 0
 --- !u!1 &2109835554
 GameObject:
   m_ObjectHideFlags: 0
@@ -12925,6 +13312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -13029,6 +13417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72a39fbafd8412c42b6b180ce258b866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomizeRotate: 0
   _MainTex: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
   _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
   _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
@@ -13169,6 +13558,7 @@ Transform:
   - {fileID: 1081022848}
   - {fileID: 82589910}
   - {fileID: 1889552660}
+  - {fileID: 315644311}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -25.644001, z: 0}
@@ -13241,6 +13631,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be49b61fb398968479192818a1dda588, type: 3}
+--- !u!1001 &7635743010062620841
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7635743009464650308, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_Name
+      value: FX_EsplosionMineVictory
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650308, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.7712502
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -8.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.728798
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.15692317
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6894745
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -25.644
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635743009464650329, guid: 4620ca4c8f0920741840ffde980ca79f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4620ca4c8f0920741840ffde980ca79f, type: 3}
 --- !u!1001 &8649982430202820197
 PrefabInstance:
   m_ObjectHideFlags: 0

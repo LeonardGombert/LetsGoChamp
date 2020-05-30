@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Kubika.Game
@@ -6,6 +7,8 @@ namespace Kubika.Game
     public class BombCube : _CubeMove
     {
         int cubeTopIndex;
+        protected bool victoryBomb;
+        ParticleSystem bombExplosion;
 
         // Start is called before the first frame update
         public override void Start()
@@ -38,11 +41,23 @@ namespace Kubika.Game
 
         void CheckBlowUp()
         {
-            if (nbrCubeEmptyBelow > 1) BlowUp();
+            Debug.Log("Check If Blow = " + nbrCubeEmptyBelow);
+            if (nbrCubeEmptyBelow > 0) BlowUp();
         }
 
         void BlowUp()
         {
+            _InGameCamera.instance.ScreenShake();
+
+            if(victoryBomb == false)
+            {
+                bombExplosion = Instantiate(_FeedBackManager.instance.MineExplosionBase, transform.position, Quaternion.Euler(-90,0,0));
+            }
+            else
+            {
+                bombExplosion = Instantiate(_FeedBackManager.instance.MineExplosionVictory, transform.position, Quaternion.Euler(-90, 0, 0));
+            }
+
             //shoot up
             for (int position = myIndex; position < grid.gridSize * grid.gridSize * grid.gridSize; position++)
             {
@@ -57,7 +72,15 @@ namespace Kubika.Game
                 if (!MatrixLimitCalcul(position, _DirectionCustom.down)) break;
             }
 
+            StartCoroutine(BombDeleteLatence());
+
             _DataManager.instance.EndFalling.RemoveListener(CheckBlowUp);
+        }
+
+        IEnumerator BombDeleteLatence()
+        {
+            yield return new WaitForSeconds(_FeedBackManager.instance.MineExplosionVictory.main.duration);
+            Destroy(bombExplosion.gameObject);
         }
 
         //for when the ball hits a mine
@@ -104,7 +127,7 @@ namespace Kubika.Game
         {
             Debug.Log("Destroyed " + indexToDestroy);
 
-            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().DisableCube();
+            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut());
             else return;
         }
     }

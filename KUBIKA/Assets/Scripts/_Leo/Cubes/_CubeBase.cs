@@ -1,5 +1,6 @@
 ﻿using Kubika.CustomLevelEditor;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Kubika.Game
@@ -43,6 +44,25 @@ namespace Kubika.Game
         [HideInInspector] public MeshFilter meshFilter;
         [HideInInspector] public MaterialPropertyBlock MatProp; // To change Mat Properties
 
+
+        // FEEDBACKS
+        float actualContrast;
+        float currentOfValueChange;
+        float timeOfValueChange = 0.5f;
+        float currentValue;
+        float maxValueColor = 2;
+
+        //POP_OUT 
+        float scaleMul = 1.2f;
+        float currentOfValueChangePOP;
+        float timeOfValueChangePOP = 0.5f;
+        Vector3 actualScale;
+        Vector3 baseScale;
+        Vector3 targetScale;
+        protected ParticleSystem PopOutPS;
+        public bool willPOP;
+
+
         // Start is called before the first frame update
         public virtual void Start()
         {
@@ -52,7 +72,7 @@ namespace Kubika.Game
 
         public virtual void Update()
         {
-            SetScriptablePreset(); /////////// DE LA MERDE
+            //SetScriptablePreset(); /////////// DE LA MERDE
         }
 
         //Use to update Cube Info in Matrix, called on place and rotate cube
@@ -87,13 +107,14 @@ namespace Kubika.Game
 
         public void DisableCube()
         {
-            gameObject.SetActive(false);
+            meshRenderer.enabled = false;
             HideCubeProcedure();
         }
 
         public void EnableCube()
         {
             gameObject.SetActive(true);
+            meshRenderer.enabled = true;
             UndoProcedure();
         }
 
@@ -388,30 +409,64 @@ namespace Kubika.Game
                             _EmoteStrength = 1;
                         }
                         break;
-                    case CubeTypes.RotatorLeftTurner:
+                    case CubeTypes.RotatorLocker:
                         {
-                            _MainTex = _MaterialCentral.instance.actualPack._RotatorsTexLeft; ////////
-                            _MainMesh = _MaterialCentral.instance.actualPack._RotatorsMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._RotatorsColor;
+                            _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
+                            _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
                             _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
                             _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
                             _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
                             _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._RotatorsTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._RotatorsColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._RotatorsInsideStrength;
-
                             _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
                             _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                             _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._RotatorsEmoteTex;
+                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
                             _EmoteStrength = 0;
                         }
                         break;
-                    case CubeTypes.DeliveryCube:
+                case CubeTypes.RotatorLeftTurner:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
+                        _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+
+                        _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.RotatorRightTurner:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
+                        _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+
+                        _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.DeliveryCube:
                         {
                             _MainTex = _MaterialCentral.instance.actualPack._PastilleTex;
                             _MainMesh = _MaterialCentral.instance.actualPack._PastilleMesh;
@@ -672,6 +727,94 @@ namespace Kubika.Game
             SetMaterial();
 
     }
+
+        #endregion
+
+        #region FEEDBACK
+
+        public IEnumerator VictoryFX(bool isON)
+        {
+
+            meshRenderer.GetPropertyBlock(MatProp);
+            currentOfValueChangePOP = 0;
+
+            if (isON)
+            {
+                actualContrast = _Contrast;
+
+                while (currentOfValueChangePOP <= timeOfValueChangePOP)
+                {
+                    currentOfValueChangePOP += Time.deltaTime;
+
+                    currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChangePOP / timeOfValueChangePOP);
+
+                    Debug.Log("CHANGING COLOR ON");
+                    MatProp.SetFloat("_Contrast", currentValue);
+
+                    meshRenderer.SetPropertyBlock(MatProp);
+                    yield return currentValue;
+                }
+            }
+            else
+            {
+                while (currentOfValueChange <= timeOfValueChange)
+                {
+                    currentOfValueChange += Time.deltaTime;
+
+                    currentValue = Mathf.SmoothStep(maxValueColor, actualContrast, currentOfValueChange / timeOfValueChange);
+
+                    Debug.Log("CHANGING COLOR OFF");
+                    MatProp.SetFloat("_Contrast", currentValue);
+
+                    meshRenderer.SetPropertyBlock(MatProp);
+                    yield return currentValue;
+                }
+            }
+        }
+
+        public IEnumerator PopOut()
+        {
+
+            currentOfValueChange = 0;
+            baseScale = transform.localScale;
+            targetScale = new Vector3(baseScale.x * scaleMul, baseScale.y * scaleMul, baseScale.z * scaleMul);
+
+            while (currentOfValueChange <= timeOfValueChange)
+            {
+                currentOfValueChange += Time.deltaTime;
+
+                //actualScale = Vector3.Lerp(baseScale, targetScale, EaseInBack(currentOfValueChange / timeOfValueChange))
+
+                //transform.localScale = actualScale;
+
+                transform.localScale = new Vector3(Mathf.Clamp( baseScale.x + ((baseScale.x * EaseInBack(currentOfValueChange / timeOfValueChange))), 0 , targetScale.x),
+                    Mathf.Clamp( baseScale.y + ((baseScale.y * EaseInBack(currentOfValueChange / timeOfValueChange))), 0 , targetScale.y),
+                    Mathf.Clamp(baseScale.z + ((baseScale.z * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.z));
+
+                yield return transform.localScale;
+            }
+
+            DisableCube();
+
+            PopOutPS = Instantiate(_FeedBackManager.instance.PopOutParticleSystem, transform.position, Quaternion.identity);
+
+            yield return new WaitForSeconds(_FeedBackManager.instance.PopOutParticleSystem.main.duration);
+
+            Destroy(PopOutPS.gameObject);
+            gameObject.SetActive(false);
+
+        }
+
+        float c1;
+        float c3;
+
+        float EaseInBack(float x)
+        {
+            c1 = 2.8f;
+            c3 = c1 + 1;
+
+            return c3 * x * x * x - c1 * x * x;
+        }
 
         #endregion
     }

@@ -10,6 +10,10 @@ namespace Kubika.Game
 
         GameObject LightShaft;
         Vector3 newRotate = new Vector3();
+
+        // VICTORY FX
+        _CubeBase victoryCubeTracker;
+
         // Start is called before the first frame update
         public override void Start()
         {
@@ -38,15 +42,18 @@ namespace Kubika.Game
             if (touchingVictory && locked == false)
             {
                 locked = true;
-                VictoryConditionManager.instance.IncrementVictory();
                 LightShaft.GetComponent<FB_Delivry>().ActivatePSFB();
+                StartCoroutine(victoryCubeOnPistion.VictoryFX(true));
+                victoryCubeTracker = victoryCubeOnPistion;
+                VictoryConditionManager.instance.IncrementVictory();
             }
 
             // flip the bools when the delivery cube loses track of the victory cube
             if (touchingVictory == false && locked == true)
             {
-                locked = false;
+                StartCoroutine(victoryCubeTracker.VictoryFX(false));
                 VictoryConditionManager.instance.DecrementVictory();
+                locked = false;
             }
         }
 

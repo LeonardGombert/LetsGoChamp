@@ -179,7 +179,7 @@ namespace Kubika.Game
                 touch = Input.GetTouch(0);
                 inputPosition = touch.position;
 
-                rayTouch = _InGameCamera.instance.cam.ScreenPointToRay(touch.position);
+                rayTouch = _InGameCamera.instance.NormalCam.ScreenPointToRay(touch.position);
                 // Handle finger movements based on TouchPhase
                 switch (touch.phase)
                 {
@@ -233,7 +233,7 @@ namespace Kubika.Game
         {
             if (Input.GetMouseButtonDown(0))
             {
-                rayPC = _InGameCamera.instance.cam.ScreenPointToRay(Input.mousePosition);
+                rayPC = _InGameCamera.instance.NormalCam.ScreenPointToRay(Input.mousePosition);
 
                 inputPosition = Input.mousePosition;
 

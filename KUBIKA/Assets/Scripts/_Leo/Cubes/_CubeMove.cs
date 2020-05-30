@@ -740,8 +740,8 @@ namespace Kubika.Game
 
             if (MatrixLimitCalcul(myIndex, direction) == true)
             {
-                baseCube = _InGameCamera.instance.cam.WorldToScreenPoint(grid.kuboGrid[myIndex - 1].worldPosition);
-                nextCube = _InGameCamera.instance.cam.WorldToScreenPoint(grid.kuboGrid[myIndex - 1 + direction].worldPosition);
+                baseCube = _InGameCamera.instance.NormalCam.WorldToScreenPoint(grid.kuboGrid[myIndex - 1].worldPosition);
+                nextCube = _InGameCamera.instance.NormalCam.WorldToScreenPoint(grid.kuboGrid[myIndex - 1 + direction].worldPosition);
 
                 distanceBaseToNext = Vector3.Distance(baseCube, nextCube);
 

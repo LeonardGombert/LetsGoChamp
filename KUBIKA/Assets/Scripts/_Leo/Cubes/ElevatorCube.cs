@@ -39,6 +39,7 @@ namespace Kubika.Game
         [Header("OUTSIDE")]
         public int nbrDeCubeFallOutside = 10;
         Vector3 moveOutsideTarget;
+        Node lastNodeBeforeGoingOutside;
 
         // MOVE
         [Space]
@@ -56,6 +57,7 @@ namespace Kubika.Game
 
         // UP / DOWN MOVE
         List<_CubeMove> cubeMoveUpDown = new List<_CubeMove>();
+
 
         public override  void Start()
         {
@@ -148,6 +150,7 @@ namespace Kubika.Game
                     if (grid.kuboGrid[myIndex - 1 + _DirectionCustom.LocalScanner(facingDirection)].cubeLayers == CubeLayers.cubeEmpty)
                     {
                         cubeIsStillInPlace = false;
+                        isCheckingMove = false;
                     }
                     else if (grid.kuboGrid[myIndex - 1 + (_DirectionCustom.LocalScanner(facingDirection))].cubeLayers == CubeLayers.cubeMoveable)
                     {
@@ -173,7 +176,7 @@ namespace Kubika.Game
                 }
                 else
                 {
-                    Debug.Log("-12-");
+                    Debug.Log("-12- | GO OUT");
                     isCheckingMove = false;
                 }
             }
@@ -270,14 +273,14 @@ namespace Kubika.Game
             {
                 isGreen = false;
                 ChangeElevatorTexture(_MaterialCentral.instance.actualPack._ElevatorBackTex);
+                Debug.Log("IS_NOT_GREEN");
             }
             else 
             {
                 isGreen = true;
                 ChangeElevatorTexture(_MaterialCentral.instance.actualPack._ElevatorTex);
+                Debug.Log("IS_GREEN");
             }
-
-            Debug.Log("IS_GREEN_INVERTEEEEEEED = " + isGreen);
 
             if (isOutside == false)
             {

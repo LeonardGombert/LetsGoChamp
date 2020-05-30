@@ -13,21 +13,27 @@ MonoBehaviour:
   m_Name: _BaseUnivers3
   m_EditorClassIdentifier: 
   _EmptyTex: {fileID: 2800000, guid: 6c6e7f55a6f4f044ba2b432708923863, type: 3}
+  _EmptyTex2: {fileID: 0}
   _EmptyMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _FullTex: {fileID: 2800000, guid: 6c6e7f55a6f4f044ba2b432708923863, type: 3}
+  _FullTex2: {fileID: 0}
   _FullMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _TopTex: {fileID: 2800000, guid: 6c6e7f55a6f4f044ba2b432708923863, type: 3}
+  _TopTex2: {fileID: 0}
   _TopMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _CornerTex: {fileID: 2800000, guid: 46a383825e7cb87499baae3061997531, type: 3}
+  _CornerTex2: {fileID: 0}
   _CornerMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _TripleTex: {fileID: 2800000, guid: 6c6e7f55a6f4f044ba2b432708923863, type: 3}
+  _TripleTex2: {fileID: 0}
   _TripleMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _QuadTex: {fileID: 2800000, guid: 6c6e7f55a6f4f044ba2b432708923863, type: 3}
+  _QuadTex2: {fileID: 0}
   _QuadMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _TextureColor: {r: 1, g: 1, b: 1, a: 0}
@@ -35,3 +41,8 @@ MonoBehaviour:
   _Contrast: 2
   _Saturation: 1.35
   _Brightness: 0.46
+  _BGTex: {fileID: 2800000, guid: 24a49f6431218cc408a645de85f8fc3f, type: 3}
+  _HueBG: 0
+  _ContrastBG: 1
+  _SaturationBG: 1
+  _BrightnessBG: 0

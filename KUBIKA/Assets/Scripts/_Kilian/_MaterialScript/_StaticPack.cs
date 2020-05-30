@@ -46,6 +46,15 @@ namespace Kubika.Game
         [Range(0, 2)] public float _Saturation;
         [Range(-1, 1)] public float _Brightness;
 
+        [Header("Background")]
+        public Texture _BGTex;
+
+        [Header("BG Parameters")]
+        [Range(-360, 360)] public float _HueBG;
+        [Range(0, 2)] public float _ContrastBG;
+        [Range(0, 2)] public float _SaturationBG;
+        [Range(-1, 1)] public float _BrightnessBG;
+
 
     }
 }

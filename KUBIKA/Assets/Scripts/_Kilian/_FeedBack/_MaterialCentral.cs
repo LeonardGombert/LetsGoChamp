@@ -268,18 +268,37 @@ namespace Kubika.Game
             actualPack.Counter_Saturation = dynamicPack[index].Counter_Saturation;
             actualPack.Counter_Brightness = dynamicPack[index].Counter_Brightness;
 
-            actualPack._RotatorsTexLeft = dynamicPack[index]._RotatorsTexLeft;
-            actualPack._RotatorsTexRight = dynamicPack[index]._RotatorsTexRight;
-            actualPack._RotatorsTexUI = dynamicPack[index]._RotatorsTexUI;
-            actualPack._RotatorsMesh = dynamicPack[index]._RotatorsMesh;
-            actualPack._RotatorsColor = dynamicPack[index]._RotatorsColor;
-            actualPack._RotatorsTexInside = dynamicPack[index]._RotatorsTexInside;
-            actualPack._RotatorsInsideStrength = dynamicPack[index]._RotatorsInsideStrength;
-            actualPack._RotatorsColorInside = dynamicPack[index]._RotatorsColorInside;
+            //ROTATORS
+
+            actualPack._RotatorsTexSocle = dynamicPack[index]._RotatorsTexSocle;
+            actualPack._RotatorsMeshSocle = dynamicPack[index]._RotatorsMeshSocle;
             actualPack.Rotators_Hue = dynamicPack[index].Rotators_Hue;
             actualPack.Rotators_Contrast = dynamicPack[index].Rotators_Contrast;
             actualPack.Rotators_Saturation = dynamicPack[index].Rotators_Saturation;
             actualPack.Rotators_Brightness = dynamicPack[index].Rotators_Brightness;
+
+            actualPack._RotatorsTexLeft = dynamicPack[index]._RotatorsTexLeft;
+            actualPack._RotatorsMeshLeft = dynamicPack[index]._RotatorsMeshLeft;
+            actualPack._RotatorsColorLeft = dynamicPack[index]._RotatorsColorLeft;
+            actualPack._RotatorsTexInsideLeft = dynamicPack[index]._RotatorsTexInsideLeft;
+            actualPack._RotatorsInsideStrengthLeft = dynamicPack[index]._RotatorsInsideStrengthLeft;
+            actualPack._RotatorsColorInsideLeft = dynamicPack[index]._RotatorsColorInsideLeft;
+
+            actualPack._RotatorsTexRight = dynamicPack[index]._RotatorsTexRight;
+            actualPack._RotatorsMeshRight = dynamicPack[index]._RotatorsMeshRight;
+            actualPack._RotatorsColorRight = dynamicPack[index]._RotatorsColorRight;
+            actualPack._RotatorsTexInsideRight = dynamicPack[index]._RotatorsTexInsideRight;
+            actualPack._RotatorsInsideStrengthRight = dynamicPack[index]._RotatorsInsideStrengthRight;
+            actualPack._RotatorsColorInsideRight = dynamicPack[index]._RotatorsColorInsideRight;
+
+            actualPack._RotatorsTexUI = dynamicPack[index]._RotatorsTexUI;
+            actualPack._RotatorsMeshUI = dynamicPack[index]._RotatorsMeshUI;
+            actualPack._RotatorsColorUI = dynamicPack[index]._RotatorsColorUI;
+            actualPack._RotatorsTexInsideUI = dynamicPack[index]._RotatorsTexInsideUI;
+            actualPack._RotatorsInsideStrengthUI = dynamicPack[index]._RotatorsInsideStrengthUI;
+            actualPack._RotatorsColorInsideUI = dynamicPack[index]._RotatorsColorInsideUI;
+
+            //__
 
             actualPack._BombTex = dynamicPack[index]._BombTex;
             actualPack._BombMesh = dynamicPack[index]._BombMesh;
@@ -423,6 +442,13 @@ namespace Kubika.Game
             actualPack._Contrast = staticPack[index]._Contrast;
             actualPack._Saturation = staticPack[index]._Saturation;
             actualPack._Brightness = staticPack[index]._Brightness;
+
+            actualPack._BGTex = staticPack[index]._BGTex;
+
+            actualPack._HueBG = staticPack[index]._HueBG;
+            actualPack._ContrastBG = staticPack[index]._ContrastBG;
+            actualPack._SaturationBG = staticPack[index]._SaturationBG;
+            actualPack._BrightnessBG = staticPack[index]._BrightnessBG;
             #endregion
 
         }

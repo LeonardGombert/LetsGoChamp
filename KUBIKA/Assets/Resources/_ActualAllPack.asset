@@ -162,7 +162,7 @@ MonoBehaviour:
   _BaseVTex: {fileID: 2800000, guid: 9776ab2659ceadb47a032377626341ea, type: 3}
   _BaseVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _BaseVColor: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
+  _BaseVColor: {r: 1, g: 1, b: 1, a: 0}
   _BaseVTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BaseVInsideStrength: 0
   _BaseVColorInside: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   _FullTex2: {fileID: 0}
   _FullMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TopTex: {fileID: 10307, guid: 0000000000000000f000000000000000, type: 0}
+  _TopTex: {fileID: 2800000, guid: 5bbf292c6fa28d14485504176c1df930, type: 3}
   _TopTex2: {fileID: 0}
   _TopMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
