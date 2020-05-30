@@ -55,6 +55,10 @@ namespace Kubika.Game
             MatPropCHILD = new MaterialPropertyBlock();
             meshRenderer = GetComponent<MeshRenderer>();
             meshFilter = GetComponent<MeshFilter>();
+
+            SetScriptablePreset();
+            SetMaterialBOUTON();
+            SetMaterialSOCLE();
         }
 
         // Update is called once per frame
@@ -111,6 +115,7 @@ namespace Kubika.Game
                 case BoutonTypes.Left:
                     _MainTex = _MaterialCentral.instance.actualPack._RotatorsTexSocle;
                     _MainMesh = _MaterialCentral.instance.actualPack._RotatorsMeshSocle;
+                    _MainColor = _MaterialCentral.instance.actualPack._RotatorsColorSocle;
                     _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
                     _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
                     _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
@@ -135,6 +140,7 @@ namespace Kubika.Game
                     _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
                     _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
                     _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+                    _MainColor = _MaterialCentral.instance.actualPack._RotatorsColorSocle;
 
                     _MainTexBouton = _MaterialCentral.instance.actualPack._RotatorsTexRight;
                     _MainMeshBouton = _MaterialCentral.instance.actualPack._RotatorsMeshRight;
@@ -154,6 +160,7 @@ namespace Kubika.Game
                     _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
                     _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
                     _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+                    _MainColor = _MaterialCentral.instance.actualPack._RotatorsColorSocle;
 
                     _MainTexBouton = _MaterialCentral.instance.actualPack._RotatorsTexUI;
                     _MainMeshBouton = _MaterialCentral.instance.actualPack._RotatorsMeshUI;
@@ -173,17 +180,18 @@ namespace Kubika.Game
                     _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
                     _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
                     _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+                    _MainColor = _MaterialCentral.instance.actualPack._RotatorsColorSocle;
 
-                    _MainTexBouton = _MaterialCentral.instance.actualPack._SwitchTexOnButton;
-                    _MainMeshBouton = _MaterialCentral.instance.actualPack._RotatorsMeshLeft;
-                    _MainColorBouton = _MaterialCentral.instance.actualPack._RotatorsColorLeft;
+                    _MainTexBouton = _MaterialCentral.instance.actualPack._SwitchTexOffButton;
+                    _MainMeshBouton = _MaterialCentral.instance.actualPack._SwitchMeshButton;
+                    _MainColorBouton = _MaterialCentral.instance.actualPack._SwitchColorButton;
 
                     _EmoteTexBouton = _MaterialCentral.instance.actualPack._VoidTex;
                     _EmoteStrengthBouton = 0;
 
-                    _InsideTexBouton = _MaterialCentral.instance.actualPack._RotatorsTexInsideLeft;
-                    _InsideColorBouton = _MaterialCentral.instance.actualPack._RotatorsColorInsideLeft;
-                    _InsideStrengthBouton = _MaterialCentral.instance.actualPack._RotatorsInsideStrengthLeft;
+                    _InsideTexBouton = _MaterialCentral.instance.actualPack._SwitchTexInsideButton;
+                    _InsideColorBouton = _MaterialCentral.instance.actualPack._SwitchColorInsideButton;
+                    _InsideStrengthBouton = _MaterialCentral.instance.actualPack._SwitchInsideStrengthButton;
                     break;
             }
         }

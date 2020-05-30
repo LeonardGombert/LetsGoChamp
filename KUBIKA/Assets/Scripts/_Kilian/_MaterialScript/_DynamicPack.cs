@@ -70,6 +70,7 @@ namespace Kubika.Game
         [Header("RotatorAll")]
         public Texture _RotatorsTexSocle;
         public Mesh _RotatorsMeshSocle;
+        public Color _RotatorsColorSocle;
         [Range(-360, 360)] public float Rotators_Hue;
         [Range(0, 2)] public float Rotators_Contrast;
         [Range(0, 2)] public float Rotators_Saturation;
@@ -132,10 +133,6 @@ namespace Kubika.Game
         public Color _SwitchColorButton;
         public Color _SwitchColorInsideButton;
         public float _SwitchInsideStrengthButton;
-        [Range(-360, 360)] public float Switch_HueButton;
-        [Range(0, 2)] public float Switch_ContrastButton;
-        [Range(0, 2)] public float Switch_SaturationButton;
-        [Range(-1, 1)] public float Switch_BrightnessButton;
 
         [Header("Ball")]
         public Texture _BallTex;

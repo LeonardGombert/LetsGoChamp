@@ -9,6 +9,9 @@ namespace Kubika.Game
     public class SwitchButton : _CubeScanner
     {
         SwitchCube[] switchCubes;
+        GameObject Button;
+        _BoutonFB BoutonScript;
+        Vector3 newRotate;
         bool isPressed;
         private bool locked;
 
@@ -19,6 +22,7 @@ namespace Kubika.Game
             base.Start();
             _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
             switchCubes = FindObjectsOfType<SwitchCube>();
+            SpawnButton();
         }
 
         void OnEnable()
@@ -66,6 +70,49 @@ namespace Kubika.Game
             Debug.Log("The Cube left, I'm deactivating all switch cubes");
 
             foreach (SwitchCube cube in switchCubes) cube.isActive = false;
+        }
+
+        void SpawnButton()
+        {
+
+            switch (facingDirection)
+            {
+                case FacingDirection.up:
+                    Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
+                    BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
+                    newRotate.z = 90;
+                    Button.transform.eulerAngles = newRotate;
+                    break;
+                case FacingDirection.down:
+                    Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
+                    BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
+                    newRotate.z = 270;
+                    Button.transform.eulerAngles = newRotate;
+                    break;
+                case FacingDirection.right:
+                    Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
+                    BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
+                    newRotate.z = 180;
+                    Button.transform.eulerAngles = newRotate;
+                    break;
+                case FacingDirection.left:
+                    Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
+                    BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
+                    Button.transform.eulerAngles = newRotate;
+                    break;
+                case FacingDirection.forward:
+                    Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
+                    BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
+                    newRotate.y = 270;
+                    Button.transform.eulerAngles = newRotate;
+                    break;
+                case FacingDirection.backward:
+                    Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
+                    BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
+                    newRotate.y = 90;
+                    Button.transform.eulerAngles = newRotate;
+                    break;
+            }
         }
     }
 }

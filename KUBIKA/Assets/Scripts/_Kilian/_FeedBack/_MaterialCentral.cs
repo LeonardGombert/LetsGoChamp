@@ -187,11 +187,12 @@ namespace Kubika.Game
             if (_instance != null && _instance != this) Destroy(this);
             else _instance = this;
 
+            MaterialSet();
         }
 
         private void Start()
         {
-            MaterialSet();
+
         }
 
         public void MaterialSet()
@@ -272,10 +273,11 @@ namespace Kubika.Game
 
             actualPack._RotatorsTexSocle = dynamicPack[index]._RotatorsTexSocle;
             actualPack._RotatorsMeshSocle = dynamicPack[index]._RotatorsMeshSocle;
-            actualPack.Rotators_Hue = dynamicPack[index].Rotators_Hue;
-            actualPack.Rotators_Contrast = dynamicPack[index].Rotators_Contrast;
-            actualPack.Rotators_Saturation = dynamicPack[index].Rotators_Saturation;
-            actualPack.Rotators_Brightness = dynamicPack[index].Rotators_Brightness;
+            actualPack._RotatorsColorSocle = dynamicPack[index]._RotatorsColorSocle;
+            actualPack.Rotators_Hue = staticPack[index]._Hue;
+            actualPack.Rotators_Contrast = staticPack[index]._Contrast;
+            actualPack.Rotators_Saturation = staticPack[index]._Saturation;
+            actualPack.Rotators_Brightness = staticPack[index]._Brightness;
 
             actualPack._RotatorsTexLeft = dynamicPack[index]._RotatorsTexLeft;
             actualPack._RotatorsMeshLeft = dynamicPack[index]._RotatorsMeshLeft;
