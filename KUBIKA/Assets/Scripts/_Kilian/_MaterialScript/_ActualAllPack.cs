@@ -124,6 +124,19 @@ namespace Kubika.Game
         [Range(0, 2)] public float Switch_Saturation;
         [Range(-1, 1)] public float Switch_Brightness;
 
+        [Header("Switch Bouton")]
+        public Texture _SwitchTexOnButton;
+        public Texture _SwitchTexOffButton;
+        public Texture _SwitchTexInsideButton;
+        public Mesh _SwitchMeshButton;
+        public Color _SwitchColorButton;
+        public Color _SwitchColorInsideButton;
+        public float _SwitchInsideStrengthButton;
+        [Range(-360, 360)] public float Switch_HueButton;
+        [Range(0, 2)] public float Switch_ContrastButton;
+        [Range(0, 2)] public float Switch_SaturationButton;
+        [Range(-1, 1)] public float Switch_BrightnessButton;
+
         [Header("Ball")]
         public Texture _BallTex;
         public Mesh _BallMesh;
