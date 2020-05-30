@@ -174,7 +174,7 @@ namespace Kubika.Game
                     _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
                     _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
 
-                    _MainTexBouton = _MaterialCentral.instance.actualPack.swi;
+                    _MainTexBouton = _MaterialCentral.instance.actualPack._SwitchTexOnButton;
                     _MainMeshBouton = _MaterialCentral.instance.actualPack._RotatorsMeshLeft;
                     _MainColorBouton = _MaterialCentral.instance.actualPack._RotatorsColorLeft;
 
