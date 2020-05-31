@@ -20,7 +20,7 @@ public class VegetationBrush : MonoBehaviour
     void Start()
     {
         brushViz = this.gameObject;
-        sizeOfBrush = brushViz.transform.localScale.x;
+        sizeOfBrush = brushViz.GetComponent<Renderer>().bounds.extents.x; //get the size of the object
     }
 
     // Update is called once per frame
@@ -33,7 +33,8 @@ public class VegetationBrush : MonoBehaviour
             brushViz.transform.position = hit.point;
             brushViz.transform.rotation = Quaternion.Euler(brushOrientation);
 
-            if (Input.GetMouseButtonDown(0)) Place();
+            if (Input.GetMouseButtonDown(0) && isPlacing) Place();
+            if (Input.GetMouseButtonDown(0) && isDeleting) Delete();
         }
     }
 
@@ -44,9 +45,18 @@ public class VegetationBrush : MonoBehaviour
 
         for (int i = 0; i < numberToPlace; i++)
         {
-            Instantiate(objectsToPlace[Random.Range(0, objectsToPlace.Length)], hitPosition, Quaternion.Euler(brushOrientation));
-            transform.position = Random.insideUnitCircle * sizeOfBrush;
-            transform.parent = hit.transform;
+            GameObject newObj = Instantiate(objectsToPlace[Random.Range(0, objectsToPlace.Length)], hitPosition, Quaternion.Euler(brushOrientation));
+            Vector2 randomizedPosition = Random.insideUnitCircle * sizeOfBrush;
+
+            Vector3 randomizedPos = new Vector3(randomizedPosition.x, 0, randomizedPosition.y);
+
+            newObj.transform.position += randomizedPos;
+            newObj.transform.parent = hit.transform;
         }
+    }
+
+    void Delete()
+    {
+
     }
 }
