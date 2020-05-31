@@ -12,6 +12,7 @@ namespace Kubika.Saving
         public int minimumMoves;
         public bool lockRotate;
         public List<Node> nodesToSave;
+        public List<Decor> decorToSave;
     }
 
     [System.Serializable]
