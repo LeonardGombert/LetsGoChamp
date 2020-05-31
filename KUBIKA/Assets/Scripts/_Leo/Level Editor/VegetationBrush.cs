@@ -14,6 +14,8 @@ public class VegetationBrush : MonoBehaviour
     Vector3 brushOrientation;
     Vector3 hitPosition;
 
+    Vector3 finalPos;
+
     GameObject hitObject;
 
     // Start is called before the first frame update
@@ -46,11 +48,14 @@ public class VegetationBrush : MonoBehaviour
         for (int i = 0; i < numberToPlace; i++)
         {
             GameObject newObj = Instantiate(objectsToPlace[Random.Range(0, objectsToPlace.Length)], hitPosition, Quaternion.Euler(brushOrientation));
-            Vector2 randomizedPosition = Random.insideUnitCircle * sizeOfBrush;
+            Vector2 randomPosInBrush = Random.insideUnitCircle * sizeOfBrush;
 
-            Vector3 randomizedPos = new Vector3(randomizedPosition.x, 0, randomizedPosition.y);
 
-            newObj.transform.position += randomizedPos;
+            if (hit.normal.x == 1 || hit.normal.x == -1) finalPos = new Vector3(0, randomPosInBrush.x, randomPosInBrush.y); //set x value to 0
+            if (hit.normal.y == 1 || hit.normal.y == -1) finalPos = new Vector3(randomPosInBrush.x, 0, randomPosInBrush.y); //set y value to 0
+            if (hit.normal.z == 1 || hit.normal.z == -1) finalPos = new Vector3(randomPosInBrush.x, randomPosInBrush.y, 0); //set z value to 0
+
+            newObj.transform.position += finalPos;
             newObj.transform.parent = hit.transform;
         }
     }
