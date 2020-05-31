@@ -1128,7 +1128,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1759623830}
-  - {fileID: 1197786049}
   m_Father: {fileID: 1866396111}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -54309,13 +54308,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197786048}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.1999998, y: 0.9, z: 242.9}
-  m_LocalScale: {x: 12.5, y: 12.5, z: 12.5}
+  m_LocalRotation: {x: 0, y: 0.70710677, z: -0.70710677, w: 0}
+  m_LocalPosition: {x: -3.2000122, y: 0.9000244, z: 242.90001}
+  m_LocalScale: {x: 12.499997, y: 12.500001, z: 12.500001}
   m_Children: []
-  m_Father: {fileID: 14054312}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_Father: {fileID: 1636103210}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: -90}
 --- !u!114 &1197786050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54328,12 +54327,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5571de63862334b8436ffdeedf61c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MainTex: {fileID: 2800000, guid: b98ec7f2e617ad8448003202b608f6fd, type: 3}
+  _MainTex: {fileID: 2800000, guid: d1c58523b57c85b449d0d84196b97ef4, type: 3}
   _MainColor: {r: 1, g: 1, b: 1, a: 0}
-  _Hue: 0
-  _Contrast: 1
-  _Saturation: 1
-  _Brightness: 0
+  _Hue: -11
+  _Contrast: 1.45
+  _Saturation: 1.21
+  _Brightness: 0.39
   meshRenderer: {fileID: 1197786051}
   meshFilter: {fileID: 1197786052}
 --- !u!23 &1197786051
@@ -73287,7 +73286,8 @@ Transform:
   m_LocalRotation: {x: -0.12509425, y: 0.870768, z: -0.2877177, w: 0.37859356}
   m_LocalPosition: {x: -64.271416, y: 43.819283, z: 22.529762}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1197786049}
   m_Father: {fileID: 670972880}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 36.569, y: -133.003, z: 0}
@@ -75408,13 +75408,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680228471}
-  m_LocalRotation: {x: -0.18929562, y: 0.39503866, z: -0.08597104, w: 0.89483}
+  m_LocalRotation: {x: -0.08090863, y: 0.8969646, z: -0.19151413, w: 0.39016753}
   m_LocalPosition: {x: -15.1, y: 31.199999, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 76705109}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -15.715001, y: 50.197002, z: -18.373001}
+  m_LocalEulerAnglesHint: {x: 16.286001, y: 130.405, z: -17.873001}
 --- !u!114 &1680228473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75424,7 +75424,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680228471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e5571de63862334b8436ffdeedf61c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c7639118334a34bba0beff5ade1075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _MainTex: {fileID: 2800000, guid: 1f97e95dc2b36ad4b9a7e8b7d3dca223, type: 3}
@@ -75433,6 +75433,8 @@ MonoBehaviour:
   _Contrast: 1
   _Saturation: 1
   _Brightness: 0
+  _EmoteTex: {fileID: 2800000, guid: 3fffe61d9e68e5c4f998fbcef86c1c67, type: 3}
+  _EmoteStrength: 1
   meshRenderer: {fileID: 1680228474}
   meshFilter: {fileID: 1680228475}
 --- !u!23 &1680228474
