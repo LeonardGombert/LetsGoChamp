@@ -212,9 +212,9 @@ namespace Kubika.CustomLevelEditor
                 Destroy(currentHitCube.gameObject);
             }
 
-            grid.placedObjects.Remove(hit.collider.gameObject);
+            grid.placedCubes.Remove(hit.collider.gameObject);
             //if there are no more gridObjects, redraw the grid
-            if (grid.placedObjects.Count == 0) grid.RefreshGrid();
+            if (grid.placedCubes.Count == 0) grid.RefreshGrid();
         }
 
         private void RotateCube(RaycastHit hit, Vector3 userInputPosition)
@@ -366,7 +366,7 @@ namespace Kubika.CustomLevelEditor
         // Set all of the cube's information when it is placed
         private void OnPlaceCube(GameObject newCube)
         {
-            grid.placedObjects.Add(newCube);
+            grid.placedCubes.Add(newCube);
 
             switch (currentCube)
             {

@@ -189,6 +189,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 415372726904812596, guid: e6dbb9834257eff44b62276775d40f67,
         type: 3}
+    - target: {fileID: 4762074443177707590, guid: d1697a78bdc66bc4da558b9b2bb50d75,
+        type: 3}
+      propertyPath: decorPrefab
+      value: 
+      objectReference: {fileID: 8718755878904119182, guid: cde62d1116568254ea3b57a385fb74b9,
+        type: 3}
     - target: {fileID: 4762074443177707591, guid: d1697a78bdc66bc4da558b9b2bb50d75,
         type: 3}
       propertyPath: m_Name

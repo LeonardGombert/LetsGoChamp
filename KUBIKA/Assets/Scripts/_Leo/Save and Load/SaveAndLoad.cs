@@ -14,15 +14,16 @@ namespace Kubika.Saving
     {
         private static SaveAndLoad _instance;
         public static SaveAndLoad instance { get { return _instance; } }
-
-        //a list of the nodes in grid node that have cubes on them
-        List<Node> activeNodes = new List<Node>();
+                
+        List<Node> activeNodes = new List<Node>(); //a list of the nodes in grid node that have cubes on them
+        public List<Decor> activeDecor = new List<Decor>(); //list filed when an object is placed
 
         Node currentNode;
 
         LevelEditorData levelData;
 
         public GameObject cubePrefab;
+        public GameObject decorPrefab;
 
         public string currentOpenLevelName;
         public string currentKubicode;
@@ -53,14 +54,17 @@ namespace Kubika.Saving
         {
             levelData = new LevelEditorData();
             levelData.nodesToSave = new List<Node>();
+            levelData.decorToSave = new List<Decor>();
             return levelData;
         }
+
 
         private PlayerProgress CreatePlayerProgressData()
         {
             playerProgress = new PlayerProgress();
             return playerProgress;
         }
+
         public void DevSavingLevel(string levelName, string kubiCode, Biomes biome, bool rotateLock, int minimumMoves = 0, bool testLevel = false)
         {
             for (int i = 0; i < _Grid.instance.kuboGrid.Length; i++)
@@ -87,6 +91,14 @@ namespace Kubika.Saving
                 levelData.nodesToSave.Add(node);
             }
 
+            // add the decor data to the list of levelData
+            foreach (Decor decor in activeDecor)
+            {
+                levelData.decorToSave.Add(decor);
+            }
+
+            Debug.Log(levelData.decorToSave.Count);
+
             string json = JsonUtility.ToJson(levelData);
             string folder;
             string levelFolder = GetLevelFolder(biome);
@@ -108,7 +120,10 @@ namespace Kubika.Saving
             File.WriteAllText(path, json);
 
             levelData.nodesToSave.Clear();
+            levelData.decorToSave.Clear();
+
             activeNodes.Clear();
+            activeDecor.Clear();
 
             Debug.Log("Level Saved by Dev at " + path);
         }
@@ -345,7 +360,7 @@ namespace Kubika.Saving
 
                 GameObject newCube = Instantiate(cubePrefab);
 
-                _Grid.instance.placedObjects.Add(newCube);
+                _Grid.instance.placedCubes.Add(newCube);
 
                 // get the kuboGrid and set the information on each of the nodes
                 SetNodeInfo(newCube, recoveredNode.nodeIndex, recoveredNode.worldPosition, recoveredNode.worldRotation, recoveredNode.facingDirection, recoveredNode.cubeLayers, recoveredNode.cubeType);
@@ -558,6 +573,22 @@ namespace Kubika.Saving
                         _Grid.instance.kuboGrid[recoveredNode.nodeIndex - 1].cubeType = CubeTypes.None;
                         break;
                 }
+            }
+
+            Debug.Log(recoveredData.decorToSave.Count);
+
+            foreach (Decor recoveredDecor in recoveredData.decorToSave)
+            {
+                //Instantiate new decor thing
+
+                GameObject newDecor = Instantiate(decorPrefab);
+
+                _Grid.instance.placedDecor.Add(newDecor);
+
+                newDecor.AddComponent(typeof(DecorObject));
+
+                DecorObject decorObject = newDecor.GetComponent<DecorObject>();
+                decorObject.LoadDecor(recoveredDecor);
             }
 
             finishedBuilding = true;

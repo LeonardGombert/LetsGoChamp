@@ -22,7 +22,9 @@ namespace Kubika.CustomLevelEditor
         [Range(0f, 2f)] public float offset;
 
         public Node[] kuboGrid;
-        public List<GameObject> placedObjects = new List<GameObject>();
+
+        public List<GameObject> placedCubes = new List<GameObject>();
+        public List<GameObject> placedDecor = new List<GameObject>();
 
         public GameObject nodeVizPrefab;
 
@@ -99,7 +101,7 @@ namespace Kubika.CustomLevelEditor
                     kuboGrid[i].cubeOnPosition = null;
                 }
 
-                placedObjects.Clear();
+                placedCubes.Clear();
             }
         }
     }
