@@ -183,18 +183,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4762074443177707590, guid: d1697a78bdc66bc4da558b9b2bb50d75,
-        type: 3}
-      propertyPath: cubePrefab
-      value: 
-      objectReference: {fileID: 415372726904812596, guid: e6dbb9834257eff44b62276775d40f67,
-        type: 3}
-    - target: {fileID: 4762074443177707590, guid: d1697a78bdc66bc4da558b9b2bb50d75,
-        type: 3}
-      propertyPath: decorPrefab
-      value: 
-      objectReference: {fileID: 8718755878904119182, guid: cde62d1116568254ea3b57a385fb74b9,
-        type: 3}
     - target: {fileID: 4762074443177707591, guid: d1697a78bdc66bc4da558b9b2bb50d75,
         type: 3}
       propertyPath: m_Name
@@ -332,71 +320,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome6.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: testingKubiCode
-      value: Worl101
-      objectReference: {fileID: 0}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[0]
-      value: 
-      objectReference: {fileID: 4900000, guid: 07c307a960b325b4e85dcc19bb2d0406, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[1]
-      value: 
-      objectReference: {fileID: 4900000, guid: 344163a7ef95249428703d7b7cfe490b, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[2]
-      value: 
-      objectReference: {fileID: 4900000, guid: a4958cb89ca784a4cbf53405232020e0, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[3]
-      value: 
-      objectReference: {fileID: 4900000, guid: 274db4b74eb5e6a4980041406891262f, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[4]
-      value: 
-      objectReference: {fileID: 4900000, guid: e369f6698689cc94fbbb2700636b74e3, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[5]
-      value: 
-      objectReference: {fileID: 4900000, guid: 761b2063cf81c7c4c957e2cdedfcfd8f, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[6]
-      value: 
-      objectReference: {fileID: 4900000, guid: dac341fd7a613e046a57684790930c9f, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome5.Array.data[7]
-      value: 
-      objectReference: {fileID: 4900000, guid: 7595c69ac69bb2744a1fe7d62f035c68, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome6.Array.data[0]
-      value: 
-      objectReference: {fileID: 4900000, guid: d30ecd819c243614696ecebe16b993b7, type: 3}
-    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
-        type: 3}
-      propertyPath: biome6.Array.data[1]
-      value: 
-      objectReference: {fileID: 4900000, guid: fa4cb74884abbdb4c847ea41ba2d9a0c, type: 3}
     - target: {fileID: 5858080383342632990, guid: 02cb5f1c23274d848ba72171ad90c663,
         type: 3}
       propertyPath: m_Name

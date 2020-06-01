@@ -84,13 +84,22 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 5b23befc4ccb2fc41b6d35ac27779ae5, type: 3}
   - {fileID: 4900000, guid: ac195692547946845aab84c1b332d9a0, type: 3}
   biome5:
-  - {fileID: 4900000, guid: 8f415c902a2865840810ebe9a9bce7d8, type: 3}
-  biome6: []
+  - {fileID: 4900000, guid: 07c307a960b325b4e85dcc19bb2d0406, type: 3}
+  - {fileID: 4900000, guid: 344163a7ef95249428703d7b7cfe490b, type: 3}
+  - {fileID: 4900000, guid: a4958cb89ca784a4cbf53405232020e0, type: 3}
+  - {fileID: 4900000, guid: 274db4b74eb5e6a4980041406891262f, type: 3}
+  - {fileID: 4900000, guid: e369f6698689cc94fbbb2700636b74e3, type: 3}
+  - {fileID: 4900000, guid: 761b2063cf81c7c4c957e2cdedfcfd8f, type: 3}
+  - {fileID: 4900000, guid: dac341fd7a613e046a57684790930c9f, type: 3}
+  - {fileID: 4900000, guid: 7595c69ac69bb2744a1fe7d62f035c68, type: 3}
+  biome6:
+  - {fileID: 4900000, guid: d30ecd819c243614696ecebe16b993b7, type: 3}
+  - {fileID: 4900000, guid: fa4cb74884abbdb4c847ea41ba2d9a0c, type: 3}
   biome7: []
   levelNames: []
   playerLevelsInfo: []
+  loadToKubicode: 
   testLevel: {fileID: 0}
-  testingKubiCode: Worl202
   _levelFile: {fileID: 0}
   _levelName: 
   _levelBiome: 0
