@@ -415,10 +415,10 @@ namespace Kubika.Game
                         _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
                         _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                        _Hue = _MaterialCentral.instance.actualPack.Switch_HueButton;
-                        _Contrast = _MaterialCentral.instance.actualPack.Switch_ContrastButton;
-                        _Saturation = _MaterialCentral.instance.actualPack.Switch_SaturationButton;
-                        _Brightness = _MaterialCentral.instance.actualPack.Switch_BrightnessButton;
+                        _Hue = _MaterialCentral.instance.actualPack._Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack._Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack._Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack._Brightness;
 
                         _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
