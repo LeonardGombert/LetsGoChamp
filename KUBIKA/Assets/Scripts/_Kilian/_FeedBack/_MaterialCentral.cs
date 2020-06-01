@@ -325,6 +325,17 @@ namespace Kubika.Game
             actualPack.Switch_Saturation = dynamicPack[index].Switch_Saturation;
             actualPack.Switch_Brightness = dynamicPack[index].Switch_Brightness;
 
+            // Switch Bouton
+            actualPack._SwitchTexOnButton = dynamicPack[index]._SwitchTexOnButton;
+            actualPack._SwitchTexOffButton = dynamicPack[index]._SwitchTexOffButton;
+            actualPack._SwitchTexInsideButton = dynamicPack[index]._SwitchTexInsideButton;
+            actualPack._SwitchMeshButton = dynamicPack[index]._SwitchMeshButton;
+            actualPack._SwitchColorButton = dynamicPack[index]._SwitchColorButton;
+            actualPack._SwitchColorInsideButton = dynamicPack[index]._SwitchColorInsideButton;
+            actualPack._SwitchInsideStrengthButton = dynamicPack[index]._SwitchInsideStrengthButton;
+
+            //__
+
             actualPack._BallTex = dynamicPack[index]._BallTex;
             actualPack._BallMesh = dynamicPack[index]._BallMesh;
             actualPack._BallColor = dynamicPack[index]._BallColor;

@@ -31,7 +31,7 @@
 
             #include "UnityCG.cginc"
 
-                        float _Hue;
+                float _Hue;
                 float _Brightness;
                 float _Contrast;
                 float _Saturation;
