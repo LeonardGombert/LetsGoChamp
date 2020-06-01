@@ -58,14 +58,22 @@ namespace Kubika.Game
         {
             Debug.Log("A Cube is pressing down on me, I'm activating switch cubes");
 
-            foreach (SwitchCube cube in switchCubes) cube.isActive = true;
+            foreach (SwitchCube cube in switchCubes)
+            {
+                cube.isActive = true;
+                cube.StatusUpdate();
+            }
         }
 
         private void DeactivateSwitches()
         {
             Debug.Log("The Cube left, I'm deactivating all switch cubes");
 
-            foreach (SwitchCube cube in switchCubes) cube.isActive = false;
+            foreach (SwitchCube cube in switchCubes)
+            {
+                cube.isActive = false;
+                cube.StatusUpdate();
+            }
         }
 
         void SpawnButton()

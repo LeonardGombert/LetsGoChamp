@@ -19,25 +19,23 @@ namespace Kubika.Game
             base.Update();
         }
 
-        public void StatusUpdate()
+        public virtual void StatusUpdate(bool isVictory = false)
         {
             if(!isActive)
             {
+                _DataManager.instance.moveCube.Remove(this);
                 isStatic = true;
                 myCubeLayer = CubeLayers.cubeFull;
-                myCubeType = CubeTypes.SwitchCube;
-
-                SetRelevantNodeInfo();
             }
 
             else if (isActive)
             {
+                _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
                 myCubeLayer = CubeLayers.cubeMoveable;
-                myCubeType = CubeTypes.SwitchCube;
-
-                SetRelevantNodeInfo();
             }
+
+            SetRelevantNodeInfo();
         }
     }
 }
