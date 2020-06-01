@@ -449,7 +449,7 @@ MonoBehaviour:
   meshFilter: {fileID: 839503419}
   _MainTex: {fileID: 2800000, guid: a41cd42121162fe4c90aae2d856263d3, type: 3}
   _RadialTexture: {fileID: 2800000, guid: 53add95b884511e409da3dacab0ee348, type: 3}
-  _CutOff: 0
+  _CutOff: 1
   _Hue: 0
   _Contrast: 1
   _Saturation: 1
