@@ -64,6 +64,6 @@ public class VegetationBrush : MonoBehaviour
 
     void Delete()
     {
-
+        
     }
 }

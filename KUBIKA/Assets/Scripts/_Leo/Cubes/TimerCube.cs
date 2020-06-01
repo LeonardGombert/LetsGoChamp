@@ -40,6 +40,7 @@ namespace Kubika.Game
             {
                 Debug.Log("looking out for my cubes");
 
+                /*
                 // check each registered index to make sure the cube is still there
                 foreach (int index in touchingCubeIndex)
                 {
@@ -54,6 +55,18 @@ namespace Kubika.Game
                         Debug.Log("Man down !");
                         timerValue--;
                     }
+                }*/
+
+                touchedCube = AnyMoveableChecker(_DirectionCustom.up);
+
+                // if you touch a cube
+                if (touchedCube)
+                {
+                    // save that cube to the list of "registered" cubes
+                    touchingCubeIndex.Add(myIndex + _DirectionCustom.up);
+
+                    // set your state to "has registered cubes"
+                    hasCubes = true;
                 }
             }
 
@@ -62,6 +75,7 @@ namespace Kubika.Game
                 // forget the cubes you've already registered (in case only 1 moves)
                 touchingCubeIndex.Clear();
 
+                /*
                 // check in every "direction"
                 foreach (int index in indexesToCheck)
                 {
@@ -76,6 +90,18 @@ namespace Kubika.Game
                         // set your state to "has registered cubes"
                         hasCubes = true;
                     }
+                }*/
+
+                touchedCube = AnyMoveableChecker(_DirectionCustom.up);
+
+                // if you touch a cube
+                if (touchedCube)
+                {
+                    // save that cube to the list of "registered" cubes
+                    touchingCubeIndex.Add(myIndex + _DirectionCustom.up);
+
+                    // set your state to "has registered cubes"
+                    hasCubes = true;
                 }
             }
 
