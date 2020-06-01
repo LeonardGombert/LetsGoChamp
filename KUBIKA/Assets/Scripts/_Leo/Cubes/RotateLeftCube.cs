@@ -17,6 +17,7 @@ namespace Kubika.Game
         {
             //call base.start AFTER assigning the cube's layers
             base.Start();
+
             _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
             SpawnButton();
         }
@@ -41,6 +42,7 @@ namespace Kubika.Game
             //locked == false ensures that the function doesn't loop
             if (pressedDown && locked == false)
             {
+                Debug.Log("I'm turning the game world to the left");
                 locked = true;
                 _KUBRotation.instance.LeftTurn();
             }
@@ -49,14 +51,11 @@ namespace Kubika.Game
             if (pressedDown == false && locked == true)
             {
                 locked = false;
-            }
-
-            
+            }            
         }
 
         void SpawnButton()
         {
-
             switch (facingDirection)
             {
                 case FacingDirection.up:
