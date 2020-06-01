@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8649982429254124900}
   m_LocalRotation: {x: 0, y: 0.37460664, z: 0, w: 0.92718387}
   m_LocalPosition: {x: -1.95, y: 1.5700002, z: -12.39}
-  m_LocalScale: {x: 0.3, y: -39.9, z: 0.3}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -93,15 +93,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomizeRotate: 0
-  _MainTex: {fileID: 2800000, guid: d74869d94c9ebe74ab7556999254b655, type: 3}
-  _MainTexNormal: {fileID: 2800000, guid: d74869d94c9ebe74ab7556999254b655, type: 3}
-  _MainTexVariation: {fileID: 2800000, guid: c0f98c24fda1c1547840ccbf71d3745b, type: 3}
-  _ColorMin: {r: 0.066666655, g: 0.6117647, b: 0.5154404, a: 1}
-  _ColorMax: {r: 0.37254903, g: 0.7529412, b: 0.636614, a: 1}
+  _MainTex: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
+  _MainTexNormal: {fileID: 2800000, guid: de78d34e66b53094d9de7846a1c2ee5b, type: 3}
+  _MainTexVariation: {fileID: 2800000, guid: 645c8997c0663e4458275eba5e338007, type: 3}
+  _ColorMin: {r: 0.38823533, g: 0.7372549, b: 0.5176471, a: 1}
+  _ColorMax: {r: 0.5019608, g: 0.8000001, b: 0.4784314, a: 1}
   numberOfVariations: 5
-  _WindSpeed: 1.84
-  _WindMouv: 0.59
+  _WindSpeed: 20
+  _WindMouv: 0.8
   _WindOffset: 0.5
-  _WindStrength: 0.05
-  meshRenderer: {fileID: 8649982429254124902}
-  meshFilter: {fileID: 8649982429254124897}
+  _WindStrength: 0.5
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
