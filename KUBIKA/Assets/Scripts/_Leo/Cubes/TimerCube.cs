@@ -79,7 +79,7 @@ namespace Kubika.Game
                 }
             }
 
-            else DisableCube();
+            else PopOut();
         }
 
     }
