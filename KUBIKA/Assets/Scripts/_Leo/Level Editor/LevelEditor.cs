@@ -520,7 +520,6 @@ namespace Kubika.CustomLevelEditor
         void SendInfoToCube(_CubeBase cubeBase, CubeTypes cubeType, CubeLayers cubeLayer, bool _static)
         {
             //Cube info
-
             if (cubeBase.gameObject.GetComponent<_CubeScanner>() != null)
                 cubeBase.facingDirection = FacingDirection.forward;
 
