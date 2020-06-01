@@ -17,6 +17,10 @@ namespace Kubika.Game
         [Range(0, 2)] public float _Saturation;
         [Range(-1, 1)] public float _Brightness;
 
+        public Texture _EdgeTex;
+        public Color _EdgeColor;
+        public float _EdgeTexStrength;
+
         [HideInInspector] public MeshRenderer meshRenderer;
         [HideInInspector] public MeshFilter meshFilter;
         [HideInInspector] public MaterialPropertyBlock MatProp; // To change Mat Properties
@@ -49,6 +53,10 @@ namespace Kubika.Game
             MatProp.SetFloat("_Contrast", _Contrast);
             MatProp.SetFloat("_Saturation", _Saturation);
             MatProp.SetFloat("_Brightness", _Brightness);
+
+            MatProp.SetTexture("_EdgeTex", _EdgeTex);
+            MatProp.SetColor("_EdgeColor", _EdgeColor);
+            MatProp.SetFloat("_EdgeTexStrength", _EdgeTexStrength);
 
             meshRenderer.SetPropertyBlock(MatProp);
         }

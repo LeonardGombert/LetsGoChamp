@@ -70,6 +70,7 @@ namespace Kubika.Game
         [Header("RotatorAll")]
         public Texture _RotatorsTexSocle;
         public Mesh _RotatorsMeshSocle;
+        public Color _RotatorsColorSocle;
         [Range(-360, 360)] public float Rotators_Hue;
         [Range(0, 2)] public float Rotators_Contrast;
         [Range(0, 2)] public float Rotators_Saturation;

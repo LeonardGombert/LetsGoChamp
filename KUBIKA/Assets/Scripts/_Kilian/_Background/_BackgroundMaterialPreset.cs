@@ -13,10 +13,20 @@ namespace Kubika.Game
         [Space]
         [Header("MATERIAL INFOS")]
         public Texture _MainTex;
+        public Texture _RadialTexture;
+
+        [Range(0,1)]public float _CutOff;
+
         [Range(-360, 360)] public float _Hue;
         [Range(0, 2)] public float _Contrast;
         [Range(0, 2)] public float _Saturation;
         [Range(-1, 1)] public float _Brightness;
+
+        [Space]
+        [Range(-360, 360)] public float _Hue2;
+        [Range(0, 2)] public float _Contrast2;
+        [Range(0, 2)] public float _Saturation2;
+        [Range(-1, 1)] public float _Brightness2;
 
         // Start is called before the first frame update
         void Start()
@@ -40,11 +50,19 @@ namespace Kubika.Game
             meshRenderer.GetPropertyBlock(MatProp);
 
             MatProp.SetTexture("_MainTex", _MainTex);
+            MatProp.SetTexture("_RadialTexture", _RadialTexture);
 
+            MatProp.SetFloat("_CutOff", _CutOff);
+            
             MatProp.SetFloat("_Hue", _Hue);
             MatProp.SetFloat("_Contrast", _Contrast);
             MatProp.SetFloat("_Saturation", _Saturation);
             MatProp.SetFloat("_Brightness", _Brightness);
+
+            MatProp.SetFloat("_Hue2", _Hue2);
+            MatProp.SetFloat("_Contrast2", _Contrast2);
+            MatProp.SetFloat("_Saturation2", _Saturation2);
+            MatProp.SetFloat("_Brightness2", _Brightness2);
 
             meshRenderer.SetPropertyBlock(MatProp);
         }

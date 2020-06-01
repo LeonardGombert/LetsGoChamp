@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PlaneteShader
+  m_Shader: {fileID: 4800000, guid: 80d1c6277a7410c46b2f1cdc2af61e8d, type: 3}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _EdgeTex:
+        m_Texture: {fileID: 2800000, guid: 0be32c24cae912145ab8df8103cccaee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emote:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InsideTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 614085268f3d44e49b18371f1d12cca0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex2:
+        m_Texture: {fileID: 2800000, guid: 8d87b724ed974fd4ca54c27cc1d66ee2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex3:
+        m_Texture: {fileID: 2800000, guid: c0954ab2a20805c489c55836c390d880, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex4:
+        m_Texture: {fileID: 2800000, guid: ca1ae15277400da44ac234028662dfc6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex5:
+        m_Texture: {fileID: 2800000, guid: a801cc51bc9753548b360929174c2226, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex6:
+        m_Texture: {fileID: 2800000, guid: 3abd706e0d4be934da7ce8be381c4f1a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Brightness: 0.07
+    - _Brightness2: 0
+    - _Brightness3: 0
+    - _Brightness4: 0
+    - _Brightness5: 0
+    - _Brightness6: 0
+    - _Contrast: 1.15
+    - _Contrast2: 1
+    - _Contrast3: 1
+    - _Contrast4: 1
+    - _Contrast5: 1
+    - _Contrast6: 1
+    - _Cutoff: 0
+    - _DEBUG: 0
+    - _DEBUG2: 0
+    - _EdgeTexStrength: 0.6
+    - _EmissiveStrengh: 1
+    - _EmoteStrength: 0
+    - _GradientImpact: 1
+    - _GradientMUL: 0.37
+    - _GradientOffset: -0.34
+    - _GradientRadius: 0
+    - _GradientSoftness: 14.5
+    - _GradientStrength: 1
+    - _Hue: 0
+    - _Hue2: 0
+    - _Hue3: 0
+    - _Hue4: 0
+    - _Hue5: 0
+    - _Hue6: 0
+    - _InsideTexStrength: 0
+    - _LightIntensity: 0.22
+    - _OffsetPastilleX: 0
+    - _OffsetPastilleY: 0
+    - _Outline: 0
+    - _OutlineDotMul: 1
+    - _OutlineVertexMul: 1
+    - _OutlineVertexOffset: 1
+    - _Saturation: 0.83
+    - _Saturation2: 1
+    - _Saturation3: 1
+    - _Saturation4: 1
+    - _Saturation5: 1
+    - _Saturation6: 1
+    m_Colors:
+    - _AmbientColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
+    - _ColorOutline: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorOutlineTest: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorX: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorXMinus: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorY: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorYMinus: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorZ: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorZMinus: {r: 1, g: 1, b: 1, a: 1}
+    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientCenter: {r: 1, g: 1, b: 1, a: 1}
+    - _GradientExterior: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
+    - _GradientPoint: {r: 1, g: 1, b: 1, a: 1}
+    - _InsideColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightColor: {r: 1, g: 1, b: 1, a: 0}
+    - _LightDirection: {r: 0.5, g: 0.5, b: -0.2, a: 0}
+    - _MainColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor3: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor4: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor5: {r: 1, g: 1, b: 1, a: 1}
+    - _MainColor6: {r: 1, g: 1, b: 1, a: 1}

@@ -83,12 +83,12 @@ namespace Kubika.Game
                     break;
                 case FacingDirection.forward:
                     LightShaft = Instantiate(_FeedBackManager.instance.Fb_Delivry, transform.position, Quaternion.identity, transform);
-                    newRotate.y = 270;
+                    newRotate.y = 90;
                     LightShaft.transform.eulerAngles = newRotate;
                     break;
                 case FacingDirection.backward:
                     LightShaft = Instantiate(_FeedBackManager.instance.Fb_Delivry, transform.position, Quaternion.identity, transform);
-                    newRotate.y = 90;
+                    newRotate.y = 270;
                     LightShaft.transform.eulerAngles = newRotate;
                     break;
             }

@@ -409,7 +409,30 @@ namespace Kubika.Game
                             _EmoteStrength = 1;
                         }
                         break;
-                    case CubeTypes.RotatorLocker:
+                case CubeTypes.SwitchButton:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._SwitchTexOffButton; ///////
+                        _MainMesh = _MaterialCentral.instance.actualPack._SwitchMeshButton;
+                        _MainColor = _MaterialCentral.instance.actualPack._SwitchColorButton;
+
+                        _Hue = _MaterialCentral.instance.actualPack.Switch_HueButton;
+                        _Contrast = _MaterialCentral.instance.actualPack.Switch_ContrastButton;
+                        _Saturation = _MaterialCentral.instance.actualPack.Switch_SaturationButton;
+                        _Brightness = _MaterialCentral.instance.actualPack.Switch_BrightnessButton;
+
+                        _InsideTex = _MaterialCentral.instance.actualPack._SwitchTexInsideButton;
+                        _InsideColor = _MaterialCentral.instance.actualPack._SwitchColorInsideButton;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._SwitchInsideStrengthButton;
+
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.RotatorLocker:
                         {
                             _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
                             _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
@@ -424,7 +447,11 @@ namespace Kubika.Game
                             _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                             _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
+
+                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
                             _EmoteStrength = 0;
                         }
                         break;
@@ -442,6 +469,10 @@ namespace Kubika.Game
                         _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                         _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
                         _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 0;
@@ -461,6 +492,10 @@ namespace Kubika.Game
                         _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                         _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
                         _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 0;

@@ -87,10 +87,10 @@ Material:
     - _GradientOffset: -0.34
     - _GradientRadius: 0
     - _GradientSoftness: 14.5
-    - _GradientStrength: 0
+    - _GradientStrength: 2.19
     - _Hue: 0
     - _InsideTexStrength: 0
-    - _LightIntensity: 0.5
+    - _LightIntensity: 0.22
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -109,11 +109,11 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _AmbientColor: {r: 0.5, g: 0.5, b: 0.5, a: 0}
+    - _AmbientColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorOutline: {r: 1, g: 1, b: 1, a: 1}
     - _ColorOutlineTest: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorX: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorX: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 1}
     - _ColorXMinus: {r: 0, g: 0, b: 0, a: 1}
     - _ColorY: {r: 0.9339623, g: 0.9339623, b: 0.9339623, a: 1}
     - _ColorYMinus: {r: 0, g: 0, b: 0, a: 1}
@@ -126,6 +126,6 @@ Material:
     - _GradientPoint: {r: 1, g: 1, b: 1, a: 1}
     - _InsideColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightColor: {r: 1, g: 1, b: 1, a: 0}
-    - _LightDirection: {r: -0.5, g: 0.5, b: -0.5, a: 1}
+    - _LightDirection: {r: 0.5, g: 0.5, b: -0.2, a: 0}
     - _MainColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowColor: {r: 1, g: 1, b: 1, a: 1}
