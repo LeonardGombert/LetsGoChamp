@@ -337,6 +337,11 @@ PrefabInstance:
       propertyPath: testingKubiCode
       value: Worl101
       objectReference: {fileID: 0}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome5.Array.data[0]
+      value: 
+      objectReference: {fileID: 4900000, guid: 7595c69ac69bb2744a1fe7d62f035c68, type: 3}
     - target: {fileID: 5858080383342632990, guid: 02cb5f1c23274d848ba72171ad90c663,
         type: 3}
       propertyPath: m_Name
