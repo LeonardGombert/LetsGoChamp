@@ -17,7 +17,7 @@ namespace Kubika.Game
 
         // Start is called before the first frame update
         public override void Start()
-        {
+        { 
             //call base.start AFTER assigning the cube's layers
             base.Start();
             _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
@@ -25,9 +25,6 @@ namespace Kubika.Game
             SpawnButton();
         }
 
-        void OnEnable()
-        {
-        }
         public override void UndoProcedure()
         {
             base.UndoProcedure();
@@ -42,9 +39,8 @@ namespace Kubika.Game
 
         private void CheckIfPressed()
         {
-            isPressed = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
-            Debug.DrawRay(transform.position, Vector3.up, Color.green);
-
+            isPressed = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection)); // doont use up, because it needds to be LOCAL up
+            
             if (isPressed == true && locked == false)
             {
                 locked = true;
@@ -62,14 +58,22 @@ namespace Kubika.Game
         {
             Debug.Log("A Cube is pressing down on me, I'm activating switch cubes");
 
-            foreach (SwitchCube cube in switchCubes) cube.isActive = true;
+            foreach (SwitchCube cube in switchCubes)
+            {
+                cube.isActive = true;
+                cube.StatusUpdate();
+            }
         }
 
         private void DeactivateSwitches()
         {
             Debug.Log("The Cube left, I'm deactivating all switch cubes");
 
-            foreach (SwitchCube cube in switchCubes) cube.isActive = false;
+            foreach (SwitchCube cube in switchCubes)
+            {
+                cube.isActive = false;
+                cube.StatusUpdate();
+            }
         }
 
         void SpawnButton()
@@ -82,29 +86,34 @@ namespace Kubika.Game
                     newRotate.z = 90;
                     Button.transform.eulerAngles = newRotate;
                     break;
+
                 case FacingDirection.down:
                     Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
                     newRotate.z = 270;
                     Button.transform.eulerAngles = newRotate;
                     break;
+
                 case FacingDirection.right:
                     Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
                     newRotate.z = 180;
                     Button.transform.eulerAngles = newRotate;
                     break;
+
                 case FacingDirection.left:
                     Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
                     Button.transform.eulerAngles = newRotate;
                     break;
+
                 case FacingDirection.forward:
                     Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
                     newRotate.y = 90;
                     Button.transform.eulerAngles = newRotate;
                     break;
+
                 case FacingDirection.backward:
                     Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();

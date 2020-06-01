@@ -15,6 +15,7 @@ namespace Kubika.Game
         //Game Canvas
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas gameCanvas;
         [FoldoutGroup("In Game")] [SerializeField] Image rightRotate, leftRotate;
+        [FoldoutGroup("In Game")] [SerializeField] Button rightRotateButton, leftRotateButton;
         [FoldoutGroup("In Game")] [SerializeField] Sprite rightRotateOn, rightRotateOff;
         [FoldoutGroup("In Game")] [SerializeField] Sprite leftRotateOn, leftRotateOff;
 
@@ -334,12 +335,18 @@ namespace Kubika.Game
         {
             rightRotate.sprite = rightRotateOn;
             leftRotate.sprite = leftRotateOn;
+
+            rightRotateButton.enabled = true;
+            leftRotateButton.enabled = true;
         }
 
         public void TurnOffRotate()
         {
             rightRotate.sprite = rightRotateOff;
             leftRotate.sprite = leftRotateOff;
+
+            rightRotateButton.enabled = false;
+            leftRotateButton.enabled = false;
         }
 
         //opens next level window

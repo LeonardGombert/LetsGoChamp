@@ -35,12 +35,13 @@ namespace Kubika.Game
 
         void CheckIfTouched()
         {
-            pressedDown = AnyMoveableChecker(_DirectionCustom.up);
+            pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
             Debug.DrawRay(transform.position, Vector3.up, Color.green);
 
             //locked == false ensures that the function doesn't loop
             if (pressedDown && locked == false)
             {
+                Debug.Log("I'm turning the game world to the right");
                 locked = true;
                 _KUBRotation.instance.RightTurn();
             }
@@ -49,10 +50,9 @@ namespace Kubika.Game
             if (pressedDown == false && locked == true)
             {
                 locked = false;
-            }
-
-            
+            }            
         }
+
         void SpawnButton()
         {
 

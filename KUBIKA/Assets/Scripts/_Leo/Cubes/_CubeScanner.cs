@@ -23,7 +23,6 @@ namespace Kubika.Game
             //facingDirection = CubeFacingDirection.CubeFacingFromRotation(transform.localEulerAngles);
         }
 
-
         public void SetScanDirections()
         {
             Debug.Log("Set");
@@ -77,7 +76,6 @@ namespace Kubika.Game
             }
             else return false;
         }
-
 
         protected Vector3 outsideCoord(int myIndexParam, int knowedDirection)
         {

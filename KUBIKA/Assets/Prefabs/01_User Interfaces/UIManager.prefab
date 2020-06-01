@@ -46,6 +46,8 @@ MonoBehaviour:
   gameCanvas: {fileID: 0}
   rightRotate: {fileID: 0}
   leftRotate: {fileID: 0}
+  rightRotateButton: {fileID: 0}
+  leftRotateButton: {fileID: 0}
   rightRotateOn: {fileID: 21300000, guid: 1d1a9d8ee6b148e4ea0f024f9d0ee2bb, type: 3}
   rightRotateOff: {fileID: 21300000, guid: 76b32501b8b53974ca76fee7f2addecf, type: 3}
   leftRotateOn: {fileID: 21300000, guid: 2ee0334f4e1c5384bbf1fc813e5ee1ea, type: 3}
@@ -69,6 +71,7 @@ MonoBehaviour:
   worldMapCanvas: {fileID: 0}
   levelEditorCanvas: {fileID: 0}
   levelPassedCanvas: {fileID: 0}
+  optionsWindow: {fileID: 0}
   FunctionMode: {fileID: 0}
   DecoratorMode: {fileID: 0}
   playerLevelsDropdown: {fileID: 0}

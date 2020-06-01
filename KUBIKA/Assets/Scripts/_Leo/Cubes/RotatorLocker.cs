@@ -18,6 +18,8 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
             _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
+
+            LockRotation();
             SpawnButton();
         }
 
@@ -35,7 +37,7 @@ namespace Kubika.Game
 
         void CheckIfTouched()
         {
-            pressedDown = AnyMoveableChecker(_DirectionCustom.up);
+            pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
             Debug.DrawRay(transform.position, Vector3.up, Color.green);
 
             //locked == false ensures that the function doesn't loop
@@ -56,11 +58,13 @@ namespace Kubika.Game
         //allow the player to access the UI buttons
         private void UnlockRotation()
         {
+            Debug.Log("I'm unlocking your Rotation UI");
             UIManager.instance.TurnOnRotate();
         }
 
         private void LockRotation()
         {
+            Debug.Log("Your Rotation UI is locked");
             UIManager.instance.TurnOffRotate();
         }
 
