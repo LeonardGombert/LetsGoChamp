@@ -420,6 +420,10 @@ namespace Kubika.Game
                         _Saturation = _MaterialCentral.instance.actualPack.Switch_SaturationButton;
                         _Brightness = _MaterialCentral.instance.actualPack.Switch_BrightnessButton;
 
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
                         _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _InsideColor = Color.white;
                         _InsideStrength = 0;
