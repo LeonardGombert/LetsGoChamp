@@ -74,7 +74,6 @@ namespace Kubika.Game
 
         void SpawnButton()
         {
-
             switch (facingDirection)
             {
                 case FacingDirection.up:
