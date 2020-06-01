@@ -19,6 +19,8 @@ namespace Kubika.Game
             base.Start();
             SetScanDirections();
             _DataManager.instance.EndFalling.AddListener(CubeListener);
+
+            ChangeTexture(timerValue);
         }
 
         public override void UndoProcedure()
@@ -53,6 +55,8 @@ namespace Kubika.Game
                         //decrement the value by 1 for the next pass
                         Debug.Log("Man down !");
                         timerValue--;
+
+                        ChangeTexture(timerValue);
                     }
                 }
             }
@@ -80,6 +84,47 @@ namespace Kubika.Game
             }
 
             else PopOut();
+        }
+
+        void ChangeTexture(int actualTimerValue)
+        {
+
+            switch(actualTimerValue)
+            {
+                case 9:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex9;
+                    break;
+                case 8:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex8;
+                    break;
+                case 7:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex7;
+                    break;
+                case 6:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex6;
+                    break;
+                case 5:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex5;
+                    break;
+                case 4:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex4;
+                    break;
+                case 3:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex3;
+                    break;
+                case 2:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex2;
+                    break;
+                case 1:
+                    _MainTex = _MaterialCentral.instance.actualPack._CounterTex1;
+                    break;
+            }
+
+            meshRenderer.GetPropertyBlock(MatProp);
+
+            MatProp.SetTexture("_MainTex", _MainTex);
+
+            meshRenderer.SetPropertyBlock(MatProp);
         }
 
     }
