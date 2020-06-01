@@ -72,13 +72,13 @@ namespace Kubika.Game
                 case FacingDirection.up:
                     Button = Instantiate(_BoutonManager.instance.RotatorUIButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
-                    newRotate.z = 90;
+                    newRotate.z = 270;
                     Button.transform.eulerAngles = newRotate;
                     break;
                 case FacingDirection.down:
                     Button = Instantiate(_BoutonManager.instance.RotatorUIButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
-                    newRotate.z = 270;
+                    newRotate.z = 90;
                     Button.transform.eulerAngles = newRotate;
                     break;
                 case FacingDirection.right:
