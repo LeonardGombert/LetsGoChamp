@@ -287,52 +287,75 @@ namespace Kubika.Saving
             //reference to the last saved level's code
             progressKubiCode = LevelsManager.instance._Kubicode;
 
-            if (File.Exists(Application.dataPath + "/Resources/PlayerSave/PlayerProgress.json"))
+            if(Application.isMobilePlatform)
             {
                 Debug.Log("Overwritting existing save !");
                 playerProgress.lastLevelKubicode = progressKubiCode;
                 string json = JsonUtility.ToJson(playerProgress);
-                string folder = Application.dataPath + "/Resources/PlayerSave";
+                string folder = Application.persistentDataPath + "/UserSaves";
                 string levelFile = "PlayerProgress.json";
 
                 string path = Path.Combine(folder, levelFile);
-                File.WriteAllText(path, json);
 
-                //JsonUtility.FromJsonOverwrite(json, progressFile);
+                if (File.Exists(path)) File.Delete(path);
+
+                File.WriteAllText(path, json);
             }
 
-            // THIS ONLY WORKS IN EDITOR
-            else
+            if(Application.isEditor)
             {
-                playerProgress.lastLevelKubicode = progressKubiCode;
-                string json = JsonUtility.ToJson(playerProgress);
+                // THIS ONLY WORKS IN EDITOR
+                if (File.Exists(Application.dataPath + "/Resources/PlayerSave/PlayerProgress.json"))
+                {
+                    Debug.Log("Overwritting existing save !");
+                    playerProgress.lastLevelKubicode = progressKubiCode;
+                    string json = JsonUtility.ToJson(playerProgress);
+                    string folder = Application.dataPath + "/Resources/PlayerSave";
+                    string levelFile = "PlayerProgress.json";
 
-                string folder = Application.dataPath + "/Resources/PlayerSave";
-                string levelFile = "PlayerProgress.json";
+                    string path = Path.Combine(folder, levelFile);
+                    File.WriteAllText(path, json);
+                }
 
-                string path = Path.Combine(folder, levelFile);
+                // THIS ONLY WORKS IN EDITOR
+                else
+                {
+                    playerProgress.lastLevelKubicode = progressKubiCode;
+                    string json = JsonUtility.ToJson(playerProgress);
 
-                File.WriteAllText(path, json);
+                    string folder = Application.dataPath + "/Resources/PlayerSave";
+                    string levelFile = "PlayerProgress.json";
 
-                Debug.Log("Creating a new save at " + path);
+                    string path = Path.Combine(folder, levelFile);
+
+                    File.WriteAllText(path, json);
+
+                    Debug.Log("Creating a new save at " + path);
+                }
             }
         }
 
         //called in the BakeLevels() function in Levels Manager
         public string LoadProgress()
         {
-            string kubicodeToLoad = "";
+            string kubicodeToLoad = "Worl101";
+            string folder = "";
 
-            if (File.Exists(Application.dataPath + "/Resources/PlayerSave/PlayerProgress.json"))
+            Debug.Log("Loading player progress !");
+
+            if (Application.isMobilePlatform) folder = Application.persistentDataPath + "/UserSaves";
+            if (Application.isEditor) folder = Application.dataPath + "/Resources/PlayerSave";
+
+            string levelFile = "PlayerProgress.json";
+            string path = Path.Combine(folder, levelFile);
+
+            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+
+            if (File.Exists(path))
             {
-                Debug.Log("Loading player progress !");
-                string folder = Application.dataPath + "/Resources/PlayerSave";
-                string levelFile = "PlayerProgress.json";
-
-                string path = Path.Combine(folder, levelFile);               
                 string json = File.ReadAllText(path);
                 PlayerProgress playerProgress = JsonUtility.FromJson<PlayerProgress>(json);
-                
+
                 kubicodeToLoad = playerProgress.lastLevelKubicode;
 
                 Debug.Log("Last player level is " + kubicodeToLoad);

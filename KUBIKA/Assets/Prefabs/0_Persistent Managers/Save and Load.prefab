@@ -43,5 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555aa84eb0fbfa44fb740533620d6cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeDecor: []
   cubePrefab: {fileID: 415372726904812596, guid: e6dbb9834257eff44b62276775d40f67,
     type: 3}
+  decorPrefab: {fileID: 8718755878904119182, guid: cde62d1116568254ea3b57a385fb74b9,
+    type: 3}
+  currentOpenLevelName: 
+  currentKubicode: 
+  currentLevelLockRotate: 0
+  currentMinimumMoves: 0
+  currentBiome: 0
+  finishedBuilding: 0
+  progressKubiCode: 
+  progressFile: {fileID: 4900000, guid: 25289c8d734cccb47a578bc9eca9238d, type: 3}
