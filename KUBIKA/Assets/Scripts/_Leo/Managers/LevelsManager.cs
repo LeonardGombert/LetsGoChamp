@@ -23,6 +23,7 @@ namespace Kubika.Game
         List<List<TextAsset>> listOfLists = new List<List<TextAsset>>();
 
         [FoldoutGroup("Full Biomes")] [SerializeField] List<TextAsset> biome1 = new List<TextAsset>();
+
         [FoldoutGroup("Full Biomes")] [SerializeField] List<TextAsset> biome2 = new List<TextAsset>();
         [FoldoutGroup("Full Biomes")] [SerializeField] List<TextAsset> biome3 = new List<TextAsset>();
         [FoldoutGroup("Full Biomes")] [SerializeField] List<TextAsset> biome4 = new List<TextAsset>();
@@ -122,6 +123,29 @@ namespace Kubika.Game
             }
             _LoadNextLevel();
         }
+
+        // called when the user selects a level on the worlldmap
+        public void SelectLevel(string kubicode)
+        {
+            LevelFile levelFile = GetMatching(loadToKubicode);
+
+            UIManager.instance.UpdateWMInfo(levelFile.levelName);
+            loadToKubicode = kubicode;
+        }
+
+        LevelFile GetMatching(string kubiCode)
+        {
+            LevelFile returnfile = new LevelFile();
+            for (int i = 0; i < masterList.Count; i++)
+            {
+                if (masterList[i].Kubicode != kubiCode) continue;
+                if (masterList[i].Kubicode == kubiCode) returnfile = masterList[i];
+            }
+
+            Debug.Log("I found " + returnfile.levelName);
+            return returnfile;
+        }
+
 
         public void RefreshUserLevels()
         {

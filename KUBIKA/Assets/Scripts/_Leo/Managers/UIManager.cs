@@ -65,6 +65,8 @@ namespace Kubika.Game
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
 
+        [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
+
         public Dropdown playerLevelsDropdown;
         public InputField saveLevelName;
 
@@ -365,6 +367,12 @@ namespace Kubika.Game
         void OpenOptionsWindow()
         {
             optionsWindow.SetActive(!optionsWindow.activeInHierarchy);
+        }
+
+        //called when the user selects a level from the worldmap
+        public void UpdateWMInfo(string levelName)
+        {
+            levelNameWM.text = levelName;
         }
 
         IEnumerator DimGame()
