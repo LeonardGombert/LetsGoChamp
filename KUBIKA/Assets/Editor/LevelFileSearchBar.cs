@@ -35,7 +35,6 @@ public class LevelFileSearchBar : EditorWindow
     static void Init()
     {
         var window = GetWindow<LevelFileSearchBar>();
-        window.position = new Rect(0, 0, 180, 80);
         window.Show();
     }
 

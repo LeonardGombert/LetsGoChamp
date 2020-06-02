@@ -31,7 +31,6 @@ public class LevelEditorWindow : EditorWindow
     static void Init()
     {
         var window = GetWindow<LevelEditorWindow>();
-        window.position = new Rect(0, 0, 180, 80);
         window.Show();
     }
 
