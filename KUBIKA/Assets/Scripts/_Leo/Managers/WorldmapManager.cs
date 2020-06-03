@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
+[InitializeOnLoad]
+[CanEditMultipleObjects]
 public class WorldmapManager : MonoBehaviour
 {
     private static WorldmapManager _instance;
     public static WorldmapManager instance { get { return _instance; } }
 
     public List<GameObject> levelCubes = new List<GameObject>();
-
+    
+    [RuntimeInitializeOnLoadMethod]
     private void Awake()
     {
         if (_instance != null && _instance != this) Destroy(this);

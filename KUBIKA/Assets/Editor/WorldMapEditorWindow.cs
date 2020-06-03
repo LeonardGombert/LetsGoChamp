@@ -7,9 +7,8 @@ using UnityEngine;
 public class WorldMapEditorWindow : EditorWindow
 {
     GameObject levelCube;
-    GameObject activeObject;
-    RaycastHit hit;
-    Vector3 rotation;
+    GameObject activeFace;
+    Vector3 faceRotation;
 
     [MenuItem("Tools/WorldMap Editor")]
     static void Init()
@@ -20,6 +19,8 @@ public class WorldMapEditorWindow : EditorWindow
 
     private void OnGUI()
     {
+        levelCube = (GameObject)EditorGUILayout.ObjectField(levelCube, typeof(GameObject), true);
+
         LockPlanetFace();
         PlaceButton();
         RemoveButton();
@@ -30,22 +31,28 @@ public class WorldMapEditorWindow : EditorWindow
     {
         if (GUILayout.Button("Lock on Face"))
         {
-            activeObject = Selection.activeGameObject;
-            rotation = activeObject.transform.rotation.eulerAngles;
-            Debug.Log(rotation);
+            activeFace = Selection.activeGameObject;
+            faceRotation = activeFace.transform.rotation.eulerAngles;
+
+            Debug.Log(activeFace.name);
         }
     }
 
     private void PlaceButton()
     {
-        levelCube = (GameObject)EditorGUILayout.ObjectField(levelCube, typeof(GameObject), true);
-
         if (GUILayout.Button("Place New Level"))
         {
             GameObject newObj = Instantiate(levelCube);
-            newObj.transform.position = activeObject.transform.position;
-            newObj.transform.rotation = Quaternion.Euler(rotation);
+
+            newObj.transform.parent = activeFace.transform.GetChild(0).transform.GetChild(0).transform.GetChild(0);
+
+            newObj.transform.rotation = Quaternion.Euler(faceRotation);
+
+            newObj.transform.position = activeFace.transform.position;
+
             WorldmapManager.instance.levelCubes.Add(newObj);
+
+            Selection.activeGameObject = newObj;
         }
     }
 

@@ -145,7 +145,7 @@ namespace Kubika.Game
 
         #region ASSIGN DATA BANK
 
-        void AssignDataBank()
+        public void AssignDataBank()
         {
 
             //gridSizeVector = new Vector3Int(gridSize, gridSize, gridSize);

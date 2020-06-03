@@ -9,11 +9,5 @@ namespace Kubika.Game
     public class _DataMatrixScriptable : ScriptableObject
     {
         public Node[] indexBank;
-
-        //prevents values from being updated when changing scenes
-        private void OnEnable()
-        {
-            hideFlags = HideFlags.DontUnloadUnusedAsset;
-        }
     }
 }
