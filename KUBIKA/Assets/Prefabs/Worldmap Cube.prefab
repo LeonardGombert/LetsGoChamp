@@ -110,7 +110,7 @@ MonoBehaviour:
   staticPack: {fileID: 11400000, guid: 968aeb44c3ff801498d16cb3ab096f8a, type: 2}
   outlineGold: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   saturation: 0.3
-  distanceInGround: -1.5
+  distanceInGround: -0.25
   moveSpeed: 1
   currentTime: 0
   isMoving: 0

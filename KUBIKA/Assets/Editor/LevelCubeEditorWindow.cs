@@ -162,7 +162,7 @@ public class LevelCubeEditorWindow : EditorWindow
 
         //levelCubeObject.gameObject.layer = LayerMask.NameToLayer("LevelCubes");
 
-        levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position;
+        levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position + new Vector3(0, .5f, 0);
         levelCubeObject.transform.rotation = worldMapFace.transform.rotation;
 
         LevelCube levelCube = levelCubeObject.GetComponent<LevelCube>();
