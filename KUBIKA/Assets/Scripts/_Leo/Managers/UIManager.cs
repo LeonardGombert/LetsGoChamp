@@ -183,6 +183,10 @@ namespace Kubika.Game
             gameCanvas.enabled = true;
 
             levelPassedCanvas.sortingOrder = 1010;
+            
+            //reset burger enu params
+            openBurgerMenuButton.SetActive(true); 
+            gameDimmed = false;
 
             if (hamburgerMenuCanvas != null) hamburgerMenuCanvas.enabled = true;
             if (hamburgerMenuCanvas2 != null) hamburgerMenuCanvas2.enabled = true;
@@ -231,6 +235,7 @@ namespace Kubika.Game
                     break;
 
                 case "GAME_Restart":
+                    RefreshActiveScene();
                     LevelsManager.instance.RestartLevel();
                     break;
 

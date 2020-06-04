@@ -164,6 +164,7 @@ public class LevelCubeEditorWindow : EditorWindow
 
         levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position + new Vector3(0, .5f, 0);
         levelCubeObject.transform.rotation = worldMapFace.transform.rotation;
+        levelCubeObject.transform.forward = worldMapFace.transform.up;
 
         LevelCube levelCube = levelCubeObject.GetComponent<LevelCube>();
 
@@ -188,7 +189,7 @@ public class LevelCubeEditorWindow : EditorWindow
 
             //place the new LevelCube at the last position
             levelCube.transform.position = levelCube.previousLevel.transform.position;
-            levelCube.transform.forward = levelCube.previousLevel.transform.forward;
+            //levelCube.transform.forward = levelCube.previousLevel.transform.forward;
             levelCube.transform.rotation = worldMapFace.transform.rotation;
         }
 
