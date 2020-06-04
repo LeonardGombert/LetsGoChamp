@@ -176,7 +176,8 @@ namespace Kubika.Game
             levelEditorCanvas.sortingOrder = 1000;
         }
 
-        private void GameCanvasPriority()
+        //also caled from levels manager
+        public void GameCanvasPriority()
         {
             ResetCanvasSortOrder();
             gameCanvas.enabled = true;

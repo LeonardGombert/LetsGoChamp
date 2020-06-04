@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &71274608
 AudioListener:
   m_ObjectHideFlags: 0
@@ -693,6 +693,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Editor UI
       objectReference: {fileID: 0}
+    - target: {fileID: 557176488720930627, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 557176488720930655, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1097,6 +1102,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UIManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163245710713187493, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
@@ -1504,10 +1514,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7251666028742188737, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+    - target: {fileID: 5949077804416325456, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
-      propertyPath: m_Name
-      value: Return to WorldMap
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 5949077804416325456, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ButtonCallback
+      objectReference: {fileID: 0}
+    - target: {fileID: 5949077804416325456, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: GAME_Restart
       objectReference: {fileID: 0}
     - target: {fileID: 7251666028742188739, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
@@ -1528,11 +1548,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Passed Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7251666029446144983, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7251666029446144987, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
@@ -1946,6 +1961,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Burger Menu UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 9122809465856123248, guid: d7bddebc1a960e14e877e68f440735e4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9122809465856123249, guid: d7bddebc1a960e14e877e68f440735e4,
         type: 3}

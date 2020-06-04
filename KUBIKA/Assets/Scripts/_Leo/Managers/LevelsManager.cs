@@ -210,6 +210,8 @@ namespace Kubika.Game
             _MaterialCentral.instance.MaterialSet();
             _MaterialCentral.instance.ChangeUniverse(_levelBiome);
 
+            UIManager.instance.GameCanvasPriority();
+
             yield return null;
         }
 
