@@ -16,7 +16,7 @@ namespace Kubika.Saving
             levelInfo.levelFile = levelFile;
             levelInfo.levelName = levelData.levelName;
             levelInfo.levelBiome = levelData.biome;
-            levelInfo.Kubicode = levelData.Kubicode;
+            levelInfo.kubicode = levelData.Kubicode;
             levelInfo.minimumMoves = levelData.minimumMoves;
             levelInfo.lockRotate = levelData.lockRotate;
 

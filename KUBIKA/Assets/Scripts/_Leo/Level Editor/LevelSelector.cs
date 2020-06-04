@@ -8,6 +8,7 @@ namespace Kubika.Game
     public class LevelSelector : MonoBehaviour
     {
         RaycastHit hit;
+        public LayerMask layerMask;
 
         // Called every frame
         void Update()
@@ -23,7 +24,7 @@ namespace Kubika.Game
 
         private void CheckForNodeTouch()
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))//, Mathf.Infinity, LayerMask.NameToLayer("LevelCubes")))
             {
                 LevelCube levelCube = hit.collider.gameObject.GetComponent<LevelCube>();
                 if (levelCube != null) LevelsManager.instance.SelectLevel(levelCube.kubicode);

@@ -101,9 +101,9 @@ namespace Kubika.Game
         {
             for (int i = 0; i < masterList.Count; i++)
             {
-                if (masterList[i].Kubicode != loadToKubicode) continue;
+                if (masterList[i].kubicode != loadToKubicode) continue;
 
-                else if (masterList[i].Kubicode == loadToKubicode)
+                else if (masterList[i].kubicode == loadToKubicode)
                 {
                     // load a specific level
                     LoadSpecific(i);
@@ -138,8 +138,8 @@ namespace Kubika.Game
             LevelFile returnfile = new LevelFile();
             for (int i = 0; i < masterList.Count; i++)
             {
-                if (masterList[i].Kubicode != kubiCode) continue;
-                if (masterList[i].Kubicode == kubiCode) returnfile = masterList[i];
+                if (masterList[i].kubicode != kubiCode) continue;
+                if (masterList[i].kubicode == kubiCode) returnfile = masterList[i];
             }
 
             Debug.Log("I found " + returnfile.levelName);
@@ -179,7 +179,7 @@ namespace Kubika.Game
         {
             _levelName = levelQueue.Peek().levelName;
             _levelBiome = levelQueue.Peek().levelBiome;
-            _Kubicode = levelQueue.Peek().Kubicode;
+            _Kubicode = levelQueue.Peek().kubicode;
             _levelFile = levelQueue.Peek().levelFile;
             _minimumMoves = levelQueue.Peek().minimumMoves;
             _lockRotate = levelQueue.Peek().lockRotate;
@@ -231,7 +231,7 @@ namespace Kubika.Saving
     public struct LevelFile
     {
         public string levelName;
-        public string Kubicode;
+        public string kubicode;
         public Biomes levelBiome;
         public int minimumMoves;
         public bool lockRotate;

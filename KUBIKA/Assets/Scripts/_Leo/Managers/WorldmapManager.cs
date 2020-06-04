@@ -12,6 +12,13 @@ public class WorldmapManager : MonoBehaviour
 
     public List<GameObject> levelCubes = new List<GameObject>();
     
+    private Biomes currentBiome;
+    private GameObject activeFace;
+
+    public Transform[] faces;
+
+    private GameObject worldMapFace;
+
     [RuntimeInitializeOnLoadMethod]
     private void Awake()
     {
@@ -22,7 +29,13 @@ public class WorldmapManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        faces = new Transform[(int)Biomes.Count];
+
+        for (int i = 0; i < faces.Length; i++)
+        {
+            currentBiome = (Biomes)i;
+            faces[i] = GameObject.Find(currentBiome.ToString()).transform;
+        }
     }
 
     // Update is called once per frame

@@ -14,7 +14,7 @@ public class LevelCubeEditor : Editor
         SceneView.duringSceneGui += OnSceneGUI;
     }
 
-    [DrawGizmo(GizmoType.NonSelected | GizmoType.Selected | GizmoType.Pickable)]
+    //[DrawGizmo(GizmoType.NonSelected | GizmoType.Selected | GizmoType.Pickable)]
     public static void OnDrawSceneGizmo(LevelCube levelNode, GizmoType gizmoType)
     {
         if ((gizmoType & GizmoType.Selected) != 0) Gizmos.color = Color.yellow;

@@ -42,7 +42,6 @@ public class LevelCubeEditorWindow : EditorWindow
 
         worldmapCube = (GameObject)EditorGUILayout.ObjectField(worldmapCube, typeof(GameObject), true);
 
-        EditorGUILayout.LabelField("Select Face", EditorStyles.boldLabel);
         currentBiome = (Biomes)EditorGUILayout.EnumPopup(currentBiome);
         activeFace = GameObject.Find(currentBiome.ToString());
 
@@ -157,9 +156,11 @@ public class LevelCubeEditorWindow : EditorWindow
         //after the object has been instantiated, set it as a child of the parent
         //GameObject LevelCubeObject = new GameObject("Level Node " + LevelCubeRoot.childCount, typeof(LevelCube));
 
-        GameObject levelCubeObject = Instantiate(worldmapCube);
+        GameObject levelCubeObject = (GameObject)PrefabUtility.InstantiatePrefab(worldmapCube);
         levelCubeObject.name = "Level Node " + LevelCubeRoot.childCount;
         levelCubeObject.transform.SetParent(LevelCubeRoot, false);
+
+        //levelCubeObject.gameObject.layer = LayerMask.NameToLayer("LevelCubes");
 
         levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position;
         levelCubeObject.transform.rotation = worldMapFace.transform.rotation;
@@ -197,7 +198,8 @@ public class LevelCubeEditorWindow : EditorWindow
     private void CreateBranchingPath()
     {
         createdOptionalLevel = true;
-        GameObject optLevelCubeObject = new GameObject("Optional Level Node " + optLevelCubeRoot.childCount, typeof(LevelCube));
+        GameObject optLevelCubeObject = (GameObject)PrefabUtility.InstantiatePrefab(worldmapCube);
+        optLevelCubeObject.name = "Optional Level Node " + optLevelCubeRoot.childCount;
         optLevelCubeObject.transform.SetParent(optLevelCubeRoot, false);
 
         LevelCube optLevelCube = optLevelCubeObject.GetComponent<LevelCube>();
@@ -211,6 +213,7 @@ public class LevelCubeEditorWindow : EditorWindow
 
             optLevelCube.transform.position = optLevelCube.previousLevel.transform.position;
             optLevelCube.transform.forward = optLevelCube.previousLevel.transform.forward;
+            optLevelCube.transform.rotation = worldMapFace.transform.rotation;
         }
     }
 
@@ -219,20 +222,22 @@ public class LevelCubeEditorWindow : EditorWindow
         selectedObject = Selection.activeGameObject;
         var selectedNodeIndex = selectedObject.transform.GetSiblingIndex();
 
-        GameObject insertedLevelObject = new GameObject("Level Node " + LevelCubeRoot.childCount, typeof(LevelCube));
+        GameObject insertedLevelObject = (GameObject)PrefabUtility.InstantiatePrefab(worldmapCube);
+        insertedLevelObject.name = "Level Node " + LevelCubeRoot.childCount;
         insertedLevelObject.transform.SetParent(LevelCubeRoot, false);
 
-        LevelCube LevelCube = insertedLevelObject.GetComponent<LevelCube>();
+        LevelCube levelCube = insertedLevelObject.GetComponent<LevelCube>();
 
         if (LevelCubeRoot.childCount > 1)
         {
-            LevelCube.previousLevel = LevelCubeRoot.GetChild(selectedNodeIndex).gameObject.GetComponent<LevelCube>();
-            LevelCube.nextLevel = LevelCube.previousLevel.nextLevel;
-            LevelCube.previousLevel.nextLevel = LevelCube;
-            LevelCube.nextLevel.previousLevel = LevelCube;
+            levelCube.previousLevel = LevelCubeRoot.GetChild(selectedNodeIndex).gameObject.GetComponent<LevelCube>();
+            levelCube.nextLevel = levelCube.previousLevel.nextLevel;
+            levelCube.previousLevel.nextLevel = levelCube;
+            levelCube.nextLevel.previousLevel = levelCube;
 
-            LevelCube.transform.position = (LevelCube.nextLevel.transform.position + LevelCube.previousLevel.transform.position) / 2;
-            LevelCube.transform.forward = LevelCube.previousLevel.transform.forward;
+            levelCube.transform.position = (levelCube.nextLevel.transform.position + levelCube.previousLevel.transform.position) / 2;
+            levelCube.transform.forward = levelCube.previousLevel.transform.forward;
+            levelCube.transform.rotation = worldMapFace.transform.rotation;
         }
 
         insertedLevelObject.transform.SetSiblingIndex(selectedNodeIndex + 1);

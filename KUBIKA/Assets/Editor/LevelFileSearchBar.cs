@@ -122,10 +122,10 @@ public class LevelFileSearchBar : EditorWindow
 
         for (int i = 0; i < levelFiles.Count; i++)
         {
-            if (searchIndex == levelFiles[i].levelName || searchIndex == levelFiles[i].Kubicode)
+            if (searchIndex == levelFiles[i].levelName || searchIndex == levelFiles[i].kubicode)
             {
                 levelName = levelFiles[i].levelName;
-                Kubicode = levelFiles[i].Kubicode;
+                Kubicode = levelFiles[i].kubicode;
                 levelBiome = levelFiles[i].levelBiome;
                 minimumMoves = levelFiles[i].minimumMoves;
                 lockRotate = levelFiles[i].lockRotate;
