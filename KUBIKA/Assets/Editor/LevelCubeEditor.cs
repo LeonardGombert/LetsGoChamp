@@ -3,12 +3,16 @@ using UnityEditor;
 
 [InitializeOnLoad]
 [CanEditMultipleObjects]
-public class LevelCubeEditor
-    : Editor
+public class LevelCubeEditor : Editor
 {
     private static bool isAnchor;
     private static bool isOptional;
     private static LevelCube selectedNode;
+        static LevelCubeEditor()
+    {
+        SceneView.duringSceneGui -= OnSceneGUI; // CA ME CASSE LES COUILLES
+        SceneView.duringSceneGui += OnSceneGUI;
+    }
 
     [DrawGizmo(GizmoType.NonSelected | GizmoType.Selected | GizmoType.Pickable)]
     public static void OnDrawSceneGizmo(LevelCube levelNode, GizmoType gizmoType)
@@ -41,11 +45,6 @@ public class LevelCubeEditor
         if (levelNode.nextOptionalLevel != null) Gizmos.DrawLine(levelNode.transform.position, levelNode.nextOptionalLevel.transform.position);
     }
 
-    static LevelCubeEditor()
-    {
-        SceneView.duringSceneGui -= OnSceneGUI; // CA ME CASSE LES COUILLES
-        SceneView.duringSceneGui += OnSceneGUI;
-    }
 
     static void OnSceneGUI(SceneView sceneView)
     {

@@ -27,15 +27,18 @@ public class LevelCube : MonoBehaviour
     {
         gameObject.name = gameObject.name.Replace("Level Node ", "");
 
-        for (int i = 0; i < LevelsManager.instance.masterList.Count; i++)
+        if(!isAnchorNode)
         {
-            if (gameObject.name == i.ToString())
+            for (int i = 0; i < LevelsManager.instance.masterList.Count; i++)
             {
-                //isBeaten = LevelsManager.instance.masterList[i].levelBeaten;
-                levelIndex = LevelsManager.instance.masterList[i].Kubicode;
-                levelName = LevelsManager.instance.masterList[i].levelName;
-                minimalMoves = LevelsManager.instance.masterList[i].minimumMoves;
-                //previousPlayerScore = LevelsManager.instance.masterList[i].prevPlayerScore;
+                if (gameObject.name == i.ToString())
+                {
+                    //isBeaten = LevelsManager.instance.masterList[i].levelBeaten;
+                    levelIndex = LevelsManager.instance.masterList[i].Kubicode;
+                    levelName = LevelsManager.instance.masterList[i].levelName;
+                    minimalMoves = LevelsManager.instance.masterList[i].minimumMoves;
+                    //previousPlayerScore = LevelsManager.instance.masterList[i].prevPlayerScore;
+                }
             }
         }
     }

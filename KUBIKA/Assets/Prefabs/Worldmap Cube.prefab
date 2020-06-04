@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5274780227379972590}
   - component: {fileID: 5274780227379972591}
   - component: {fileID: 5274780227379972588}
+  - component: {fileID: -1588187745374896245}
   m_Layer: 0
   m_Name: Worldmap Cube
   m_TagString: Untagged
@@ -131,3 +132,29 @@ MonoBehaviour:
   _EdgeTex: {fileID: 2800000, guid: 0be32c24cae912145ab8df8103cccaee, type: 3}
   _EdgeStrength: 0.57
   _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &-1588187745374896245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5274780227379972586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4997e050cbbf9f7469b7ab575ad691e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kubicode: 
+  previousLevel: {fileID: 0}
+  nextLevel: {fileID: 0}
+  nextOptionalLevel: {fileID: 0}
+  prevOptionalLevel: {fileID: 0}
+  width: 0.5
+  isOptionalLevel: 0
+  isAnchorNode: 0
+  levelIndex: 
+  levelName: 
+  minimalMoves: 0
+  previousPlayerScore: 0
+  isBeaten: 0
+  isSelected: 0

@@ -3,6 +3,7 @@ using UnityEditor;
 using Kubika.Game;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 public class LevelCubeEditorWindow : EditorWindow
 {
@@ -13,14 +14,25 @@ public class LevelCubeEditorWindow : EditorWindow
     bool createdOptionalLevel = false;
 
     GameObject selectedObject;
+    GameObject activeFace;
+    GameObject worldmapCube;
 
-    [MenuItem("Tools/Level Node Editor")]
+    Biomes currentBiome;
+
+    GameObject worldMapFace;
+
+    [MenuItem("Tools/Level Cube Editor")]
     public static void Open()
     {
-        GetWindow<LevelCubeEditorWindow>("Level Node Editor Window");
+        GetWindow<LevelCubeEditorWindow>("Level Cube Editor Window");
     }
 
     private void OnGUI()
+    {
+        Base();
+    }
+
+    private void Base()
     {
         SerializedObject obj = new SerializedObject(this);
 
@@ -28,10 +40,25 @@ public class LevelCubeEditorWindow : EditorWindow
         EditorGUILayout.PropertyField(obj.FindProperty("optLevelCubeRoot"));
         EditorGUILayout.PropertyField(obj.FindProperty("anchorNodeRoot"));
 
+        worldmapCube = (GameObject)EditorGUILayout.ObjectField(worldmapCube, typeof(GameObject), true);
+
+        EditorGUILayout.LabelField("Select Face", EditorStyles.boldLabel);
+        currentBiome = (Biomes)EditorGUILayout.EnumPopup(currentBiome);
+        activeFace = GameObject.Find(currentBiome.ToString());
+
+        LevelCubeRoot = activeFace.transform.GetChild(0);
+        optLevelCubeRoot = activeFace.transform.GetChild(1);
+        anchorNodeRoot = activeFace.transform.GetChild(2);
+
+        GameObject worldMap = GameObject.Find("PLANETE");
+        worldMapFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
+        EditorGUILayout.ObjectField(worldMapFace, typeof(GameObject), true);
+
         if (LevelCubeRoot == null || optLevelCubeRoot == null || anchorNodeRoot == null)
         {
             EditorGUILayout.HelpBox("Root transforms must be selected. Please assign the root transforms", MessageType.Warning);
         }
+
         else
         {
             EditorGUILayout.BeginVertical("");
@@ -88,7 +115,7 @@ public class LevelCubeEditorWindow : EditorWindow
             DeleteNode();
         }
 
-        if (GUILayout.Button("Clear All Nodes"))
+        if (GUILayout.Button("Clear Current Level Nodes"))
         {
             ClearNodes();
         }
@@ -130,12 +157,14 @@ public class LevelCubeEditorWindow : EditorWindow
         //after the object has been instantiated, set it as a child of the parent
         //GameObject LevelCubeObject = new GameObject("Level Node " + LevelCubeRoot.childCount, typeof(LevelCube));
 
-        GameObject LevelCubeObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        LevelCubeObject.name = "Level Node " + LevelCubeRoot.childCount;
-        LevelCubeObject.AddComponent<LevelCube>();
-        LevelCubeObject.transform.SetParent(LevelCubeRoot, false);
+        GameObject levelCubeObject = Instantiate(worldmapCube);
+        levelCubeObject.name = "Level Node " + LevelCubeRoot.childCount;
+        levelCubeObject.transform.SetParent(LevelCubeRoot, false);
 
-        LevelCube LevelCube = LevelCubeObject.GetComponent<LevelCube>();
+        levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position;
+        levelCubeObject.transform.rotation = worldMapFace.transform.rotation;
+
+        LevelCube levelCube = levelCubeObject.GetComponent<LevelCube>();
 
         //automatically link up the waypoints on spawn
         if (LevelCubeRoot.childCount > 1)
@@ -143,25 +172,26 @@ public class LevelCubeEditorWindow : EditorWindow
             //as we are looking at the node placed right before the new one, we use childCount -2
 
             //assign the previous level as the last level in the list before this new node
-            LevelCube.previousLevel = LevelCubeRoot.GetChild(LevelCubeRoot.childCount - 2).gameObject.GetComponent<LevelCube>();
+            levelCube.previousLevel = LevelCubeRoot.GetChild(LevelCubeRoot.childCount - 2).gameObject.GetComponent<LevelCube>();
 
             //assign that node's next level as this new node
-            LevelCube.previousLevel.nextLevel = LevelCube;
+            levelCube.previousLevel.nextLevel = levelCube;
 
             if (createdOptionalLevel)
             {
-                LevelCube.prevOptionalLevel = optLevelCubeRoot.GetChild(optLevelCubeRoot.childCount - 1).gameObject.GetComponent<LevelCube>();
+                levelCube.prevOptionalLevel = optLevelCubeRoot.GetChild(optLevelCubeRoot.childCount - 1).gameObject.GetComponent<LevelCube>();
                 LevelCube prevOptional = optLevelCubeRoot.GetChild(optLevelCubeRoot.childCount - 1).gameObject.GetComponent<LevelCube>();
-                prevOptional.nextLevel = LevelCube;
+                prevOptional.nextLevel = levelCube;
                 createdOptionalLevel = false;
             }
 
             //place the new LevelCube at the last position
-            LevelCube.transform.position = LevelCube.previousLevel.transform.position;
-            LevelCube.transform.forward = LevelCube.previousLevel.transform.forward;
+            levelCube.transform.position = levelCube.previousLevel.transform.position;
+            levelCube.transform.forward = levelCube.previousLevel.transform.forward;
+            levelCube.transform.rotation = worldMapFace.transform.rotation;
         }
 
-        Selection.activeGameObject = LevelCube.gameObject;
+        Selection.activeGameObject = levelCube.gameObject;
     }
 
     private void CreateBranchingPath()
