@@ -97,13 +97,13 @@ namespace Kubika.Game
                 case FacingDirection.right:
                     Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
-                    newRotate.z = 180;
                     Button.transform.eulerAngles = newRotate;
                     break;
 
                 case FacingDirection.left:
                     Button = Instantiate(_BoutonManager.instance.SwitchButton, transform.position, Quaternion.identity, transform);
                     BoutonScript = Button.GetComponentInChildren<_BoutonFB>();
+                    newRotate.z = 180;
                     Button.transform.eulerAngles = newRotate;
                     break;
 
