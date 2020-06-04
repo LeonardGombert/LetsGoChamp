@@ -189,6 +189,7 @@ namespace Kubika.Game
         IEnumerator LoadLevel()
         {
             _KUBRotation.instance.ResetRotation();
+            _FeedBackManager.instance.ResetVictoryFX();
 
             if (_lockRotate) UIManager.instance.TurnOffRotate();
             else UIManager.instance.TurnOnRotate();

@@ -17,6 +17,10 @@ namespace Kubika.Game
         public int currentVictoryPoints;
         public int levelVictoryPoints;
 
+        [Header("WAIT TIME")]
+        public float waitTime = 1.5f;
+        public float waitTimeBeforePS = 0.0f;
+
 
         BaseVictoryCube[] victoryCubes;
         
@@ -66,9 +70,18 @@ namespace Kubika.Game
         {
             if (currentVictoryPoints == levelVictoryPoints)
             {
-                SaveAndLoad.instance.SaveProgress();
-                StartCoroutine(WinCountdown());
+                Debug.Log("WIN TRANSITION");
+                StartCoroutine(TransitionTime());
             }
+        }
+
+        public IEnumerator TransitionTime()
+        {
+            yield return new WaitForSeconds(waitTimeBeforePS);
+            _FeedBackManager.instance.PlayVictoryFX();
+            yield return new WaitForSeconds(waitTime);
+            SaveAndLoad.instance.SaveProgress();
+            StartCoroutine(WinCountdown());
         }
 
         //use this to call all win animations etc.

@@ -19,6 +19,10 @@ namespace Kubika.Game
         public ParticleSystem MineExplosionVictory;
         public ParticleSystem PopOutParticleSystem;
 
+        [Space]
+        [Header("VICTORY FX")]
+        public ParticleSystem Victory_PS_KUBO;
+
         private void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -30,6 +34,16 @@ namespace Kubika.Game
         void Start()
         {
 
+        }
+
+        public void PlayVictoryFX()
+        {
+            Victory_PS_KUBO.Play();
+        }
+
+        public void ResetVictoryFX()
+        {
+            Victory_PS_KUBO.Clear();
         }
 
         // Update is called once per frame
