@@ -35,7 +35,6 @@ namespace Kubika.Saving
 
         PlayerProgress playerProgress;
         public string progressKubiCode;
-        TextAsset progressFile;
 
         private void Awake()
         {

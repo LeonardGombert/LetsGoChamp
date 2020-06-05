@@ -1,1 +1,898 @@
-{"levelName":"Base Grid","levelBiome":0,"minimumMoves":0,"lockRotate":true,"Kubicode":"","nodesToSave":[{"nodeIndex":1,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47680},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":0,"zCoord":0,"worldPosition":{"x":0.0,"y":0.0,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":2,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47692},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":1,"zCoord":0,"worldPosition":{"x":0.0,"y":1.0499999523162842,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":3,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47704},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":2,"zCoord":0,"worldPosition":{"x":0.0,"y":2.0999999046325685,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":4,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47668},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":0,"yCoord":3,"zCoord":0,"worldPosition":{"x":0.0,"y":3.1499998569488527,"z":0.0},"worldRotation":{"x":270.0,"y":0.0,"z":0.0}},{"nodeIndex":13,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47200},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":1,"yCoord":0,"zCoord":0,"worldPosition":{"x":1.0499999523162842,"y":0.0,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":14,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47392},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":1,"yCoord":1,"zCoord":0,"worldPosition":{"x":1.0499999523162842,"y":1.0499999523162842,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":15,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47416},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":1,"yCoord":2,"zCoord":0,"worldPosition":{"x":1.0499999523162842,"y":2.0999999046325685,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":16,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47512},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":1,"yCoord":3,"zCoord":0,"worldPosition":{"x":1.0499999523162842,"y":3.1499998569488527,"z":0.0},"worldRotation":{"x":270.0,"y":0.0,"z":0.0}},{"nodeIndex":25,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47224},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":2,"yCoord":0,"zCoord":0,"worldPosition":{"x":2.0999999046325685,"y":0.0,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":26,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47404},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":2,"yCoord":1,"zCoord":0,"worldPosition":{"x":2.0999999046325685,"y":1.0499999523162842,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":27,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47428},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":2,"yCoord":2,"zCoord":0,"worldPosition":{"x":2.0999999046325685,"y":2.0999999046325685,"z":0.0},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":28,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47524},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":2,"yCoord":3,"zCoord":0,"worldPosition":{"x":2.0999999046325685,"y":3.1499998569488527,"z":0.0},"worldRotation":{"x":270.0,"y":0.0,"z":0.0}},{"nodeIndex":37,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47596},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":4,"xCoord":3,"yCoord":0,"zCoord":0,"worldPosition":{"x":3.1499998569488527,"y":0.0,"z":0.0},"worldRotation":{"x":0.0,"y":90.0,"z":0.0}},{"nodeIndex":38,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47548},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":4,"xCoord":3,"yCoord":1,"zCoord":0,"worldPosition":{"x":3.1499998569488527,"y":1.0499999523162842,"z":0.0},"worldRotation":{"x":0.0,"y":90.0,"z":0.0}},{"nodeIndex":39,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47536},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":4,"xCoord":3,"yCoord":2,"zCoord":0,"worldPosition":{"x":3.1499998569488527,"y":2.0999999046325685,"z":0.0},"worldRotation":{"x":0.0,"y":90.0,"z":0.0}},{"nodeIndex":40,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47728},"cubeType":4,"cubeLayers":2,"savedCubeType":"CornerStaticCube","facingDirection":4,"xCoord":3,"yCoord":3,"zCoord":0,"worldPosition":{"x":3.1499998569488527,"y":3.1499998569488527,"z":0.0},"worldRotation":{"x":0.0,"y":90.0,"z":0.0}},{"nodeIndex":145,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47188},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":0,"zCoord":1,"worldPosition":{"x":0.0,"y":0.0,"z":1.0499999523162842},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":146,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47368},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":1,"zCoord":1,"worldPosition":{"x":0.0,"y":1.0499999523162842,"z":1.0499999523162842},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":147,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47440},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":2,"zCoord":1,"worldPosition":{"x":0.0,"y":2.0999999046325685,"z":1.0499999523162842},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":148,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47500},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":0,"yCoord":3,"zCoord":1,"worldPosition":{"x":0.0,"y":3.1499998569488527,"z":1.0499999523162842},"worldRotation":{"x":270.0,"y":0.0,"z":0.0}},{"nodeIndex":157,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47212},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":1,"yCoord":0,"zCoord":1,"worldPosition":{"x":1.0499999523162842,"y":0.0,"z":1.0499999523162842},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":169,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47236},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":2,"yCoord":0,"zCoord":1,"worldPosition":{"x":2.0999999046325685,"y":0.0,"z":1.0499999523162842},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":181,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47608},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":4,"xCoord":3,"yCoord":0,"zCoord":1,"worldPosition":{"x":3.1499998569488527,"y":0.0,"z":1.0499999523162842},"worldRotation":{"x":0.0,"y":90.0,"z":0.0}},{"nodeIndex":289,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47248},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":0,"zCoord":2,"worldPosition":{"x":0.0,"y":0.0,"z":2.0999999046325685},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":290,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47380},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":1,"zCoord":2,"worldPosition":{"x":0.0,"y":1.0499999523162842,"z":2.0999999046325685},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":291,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47452},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":0,"yCoord":2,"zCoord":2,"worldPosition":{"x":0.0,"y":2.0999999046325685,"z":2.0999999046325685},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":292,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47488},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":0,"yCoord":3,"zCoord":2,"worldPosition":{"x":0.0,"y":3.1499998569488527,"z":2.0999999046325685},"worldRotation":{"x":270.0,"y":0.0,"z":0.0}},{"nodeIndex":301,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47260},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":1,"yCoord":0,"zCoord":2,"worldPosition":{"x":1.0499999523162842,"y":0.0,"z":2.0999999046325685},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":313,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47272},"cubeType":2,"cubeLayers":2,"savedCubeType":"EmptyStaticCube","facingDirection":0,"xCoord":2,"yCoord":0,"zCoord":2,"worldPosition":{"x":2.0999999046325685,"y":0.0,"z":2.0999999046325685},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":325,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47620},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":4,"xCoord":3,"yCoord":0,"zCoord":2,"worldPosition":{"x":3.1499998569488527,"y":0.0,"z":2.0999999046325685},"worldRotation":{"x":0.0,"y":90.0,"z":0.0}},{"nodeIndex":433,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47560},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":0,"yCoord":0,"zCoord":3,"worldPosition":{"x":0.0,"y":0.0,"z":3.1499998569488527},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":434,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47464},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":0,"yCoord":1,"zCoord":3,"worldPosition":{"x":0.0,"y":1.0499999523162842,"z":3.1499998569488527},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":435,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47476},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":0,"yCoord":2,"zCoord":3,"worldPosition":{"x":0.0,"y":2.0999999046325685,"z":3.1499998569488527},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":436,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47716},"cubeType":4,"cubeLayers":2,"savedCubeType":"CornerStaticCube","facingDirection":0,"xCoord":0,"yCoord":3,"zCoord":3,"worldPosition":{"x":0.0,"y":3.1499998569488527,"z":3.1499998569488527},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":445,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47572},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":1,"yCoord":0,"zCoord":3,"worldPosition":{"x":1.0499999523162842,"y":0.0,"z":3.1499998569488527},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":457,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47584},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":0,"xCoord":2,"yCoord":0,"zCoord":3,"worldPosition":{"x":2.0999999046325685,"y":0.0,"z":3.1499998569488527},"worldRotation":{"x":0.0,"y":0.0,"z":0.0}},{"nodeIndex":469,"nodeIndex0":0,"nodeIndex1":0,"nodeIndex2":0,"cubeOnPosition":{"instanceID":-47632},"cubeType":3,"cubeLayers":2,"savedCubeType":"TopStaticCube","facingDirection":1,"xCoord":3,"yCoord":0,"zCoord":3,"worldPosition":{"x":3.1499998569488527,"y":0.0,"z":3.1499998569488527},"worldRotation":{"x":90.0,"y":0.0,"z":0.0}}]}
+{
+  "levelName": "Base Grid",
+  "Kubicode": "",
+  "biome": 0,
+  "minimumMoves": 0,
+  "lockRotate": false,
+  "nodesToSave": [
+    {
+      "nodeIndex": 1,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7776 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 0,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 2,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7788 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 1,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 1.0499999523162842,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 3,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7800 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 2,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 2.0999999046325685,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 4,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7812 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 3,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 3.1499998569488527,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 13,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7824 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 1,
+      "yCoord": 0,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 1.0499999523162842,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 14,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7836 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 1,
+      "yCoord": 1,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 1.0499999523162842,
+        "y": 1.0499999523162842,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 15,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7848 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 1,
+      "yCoord": 2,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 1.0499999523162842,
+        "y": 2.0999999046325685,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 16,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7860 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 1,
+      "yCoord": 3,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 1.0499999523162842,
+        "y": 3.1499998569488527,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 25,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7872 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 2,
+      "yCoord": 0,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 2.0999999046325685,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 26,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7884 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 2,
+      "yCoord": 1,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 2.0999999046325685,
+        "y": 1.0499999523162842,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 27,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7896 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 2,
+      "yCoord": 2,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 2.0999999046325685,
+        "y": 2.0999999046325685,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 28,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7908 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 2,
+      "yCoord": 3,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 2.0999999046325685,
+        "y": 3.1499998569488527,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 37,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7920 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 4,
+      "xCoord": 3,
+      "yCoord": 0,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 3.1499998569488527,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 90.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 38,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7932 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 4,
+      "xCoord": 3,
+      "yCoord": 1,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 3.1499998569488527,
+        "y": 1.0499999523162842,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 90.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 39,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7944 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 4,
+      "xCoord": 3,
+      "yCoord": 2,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 3.1499998569488527,
+        "y": 2.0999999046325685,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 90.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 40,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7956 },
+      "cubeType": 4,
+      "cubeLayers": 2,
+      "savedCubeType": "CornerStaticCube",
+      "facingDirection": 4,
+      "xCoord": 3,
+      "yCoord": 3,
+      "zCoord": 0,
+      "worldPosition": {
+        "x": 3.1499998569488527,
+        "y": 3.1499998569488527,
+        "z": 0.0
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 90.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 145,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7968 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 0,
+      "zCoord": 1,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 1.0499999523162842
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 146,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7980 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 1,
+      "zCoord": 1,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 1.0499999523162842,
+        "z": 1.0499999523162842
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 147,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -7992 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 2,
+      "zCoord": 1,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 2.0999999046325685,
+        "z": 1.0499999523162842
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 148,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8004 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 3,
+      "zCoord": 1,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 3.1499998569488527,
+        "z": 1.0499999523162842
+      },
+      "worldRotation": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 157,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8016 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 1,
+      "yCoord": 0,
+      "zCoord": 1,
+      "worldPosition": {
+        "x": 1.0499999523162842,
+        "y": 0.0,
+        "z": 1.0499999523162842
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 169,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8028 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 2,
+      "yCoord": 0,
+      "zCoord": 1,
+      "worldPosition": {
+        "x": 2.0999999046325685,
+        "y": 0.0,
+        "z": 1.0499999523162842
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 181,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8040 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 4,
+      "xCoord": 3,
+      "yCoord": 0,
+      "zCoord": 1,
+      "worldPosition": {
+        "x": 3.1499998569488527,
+        "y": 0.0,
+        "z": 1.0499999523162842
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 90.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 289,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8052 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 0,
+      "zCoord": 2,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 2.0999999046325685
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 290,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8064 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 1,
+      "zCoord": 2,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 1.0499999523162842,
+        "z": 2.0999999046325685
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 291,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8076 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 2,
+      "zCoord": 2,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 2.0999999046325685,
+        "z": 2.0999999046325685
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 292,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8088 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 3,
+      "zCoord": 2,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 3.1499998569488527,
+        "z": 2.0999999046325685
+      },
+      "worldRotation": {
+        "x": 270.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 301,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8100 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 1,
+      "yCoord": 0,
+      "zCoord": 2,
+      "worldPosition": {
+        "x": 1.0499999523162842,
+        "y": 0.0,
+        "z": 2.0999999046325685
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 313,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8112 },
+      "cubeType": 2,
+      "cubeLayers": 2,
+      "savedCubeType": "EmptyStaticCube",
+      "facingDirection": 0,
+      "xCoord": 2,
+      "yCoord": 0,
+      "zCoord": 2,
+      "worldPosition": {
+        "x": 2.0999999046325685,
+        "y": 0.0,
+        "z": 2.0999999046325685
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 325,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8124 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 4,
+      "xCoord": 3,
+      "yCoord": 0,
+      "zCoord": 2,
+      "worldPosition": {
+        "x": 3.1499998569488527,
+        "y": 0.0,
+        "z": 2.0999999046325685
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 90.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 433,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8136 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 0,
+      "zCoord": 3,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 3.1499998569488527
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 434,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8148 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 1,
+      "zCoord": 3,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 1.0499999523162842,
+        "z": 3.1499998569488527
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 435,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8160 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 2,
+      "zCoord": 3,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 2.0999999046325685,
+        "z": 3.1499998569488527
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 436,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8172 },
+      "cubeType": 4,
+      "cubeLayers": 2,
+      "savedCubeType": "CornerStaticCube",
+      "facingDirection": 0,
+      "xCoord": 0,
+      "yCoord": 3,
+      "zCoord": 3,
+      "worldPosition": {
+        "x": 0.0,
+        "y": 3.1499998569488527,
+        "z": 3.1499998569488527
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 445,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8184 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 1,
+      "yCoord": 0,
+      "zCoord": 3,
+      "worldPosition": {
+        "x": 1.0499999523162842,
+        "y": 0.0,
+        "z": 3.1499998569488527
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 457,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8196 },
+      "cubeType": 3,
+      "cubeLayers": 2,
+      "savedCubeType": "TopStaticCube",
+      "facingDirection": 0,
+      "xCoord": 2,
+      "yCoord": 0,
+      "zCoord": 3,
+      "worldPosition": {
+        "x": 2.0999999046325685,
+        "y": 0.0,
+        "z": 3.1499998569488527
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      }
+    },
+    {
+      "nodeIndex": 469,
+      "nodeIndex0": 0,
+      "nodeIndex1": 0,
+      "nodeIndex2": 0,
+      "cubeOnPosition": { "instanceID": -8430 },
+      "cubeType": 4,
+      "cubeLayers": 2,
+      "savedCubeType": "CornerStaticCube",
+      "facingDirection": 6,
+      "xCoord": 3,
+      "yCoord": 0,
+      "zCoord": 3,
+      "worldPosition": {
+        "x": 3.1499998569488527,
+        "y": 0.0,
+        "z": 3.1499998569488527
+      },
+      "worldRotation": {
+        "x": 0.0,
+        "y": 90.0,
+        "z": 90.0
+      }
+    }
+  ],
+  "decorToSave": []
+}

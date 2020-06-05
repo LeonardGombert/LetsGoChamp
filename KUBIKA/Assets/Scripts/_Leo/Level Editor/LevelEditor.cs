@@ -172,7 +172,7 @@ namespace Kubika.CustomLevelEditor
                 // one release, set the rotation
                 if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(userInputPosition), out hit)) RotateCube(hit, userInputPosition);
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(userInputPosition), out hit)) RotateCube(hit);
                     hitIndex = 0;
                 }
             }
@@ -217,7 +217,7 @@ namespace Kubika.CustomLevelEditor
             if (grid.placedCubes.Count == 0) grid.RefreshGrid();
         }
 
-        private void RotateCube(RaycastHit hit, Vector3 userInputPosition)
+        private void RotateCube(RaycastHit hit)
         {
             //if you haven't hit a Timer Cube
             if(!IncrementTimer(hit))
@@ -227,6 +227,7 @@ namespace Kubika.CustomLevelEditor
 
                 Quaternion newRotation;
 
+                #region rotation
                 /*if (hitIndex != 0 && hit.collider.gameObject != null)
                 {
                     int rotationX = (int)CustomScaler.Scale((int)userInputPosition.x, 0, Camera.main.pixelWidth, -360, 360);
@@ -259,13 +260,24 @@ namespace Kubika.CustomLevelEditor
                         hit.collider.gameObject.transform.rotation = newRotation;
                     }
                 }*/
-
+                #endregion
 
                 if (hitIndex != 0 && hit.collider.gameObject != null)
                 {
-                    //increment the enum if it isn't the last one, else reset it to the first
-                    if (currentHitCube.facingDirection < FacingDirection.left) currentHitCube.facingDirection++;
-                    else currentHitCube.facingDirection = FacingDirection.up;
+                    if (currentHitCube.myCubeType == CubeTypes.CornerStaticCube)
+                    {
+                        //increment the enum if it isn't the last one, else reset it to the first
+                        if (currentHitCube.facingDirection < FacingDirection.downright) currentHitCube.facingDirection++;
+                        else currentHitCube.facingDirection = FacingDirection.up;
+                    }
+
+                    else
+                    {
+                        //increment the enum if it isn't the last one, else reset it to the first
+                        if (currentHitCube.facingDirection < FacingDirection.left) currentHitCube.facingDirection++;
+                        else currentHitCube.facingDirection = FacingDirection.up;
+                    }
+
 
                     //returns the coordinates that the cube should adopt according to its enum
                     Vector3 rotationVector = CubeFacingDirection.CubeFacing(currentHitCube.facingDirection);
