@@ -15,6 +15,8 @@ namespace Kubika.Saving
         public List<Decor> decorToSave;
     }
 
+
+    //user info file is used to store all of the user's level names, which you can then use to find the files
     [System.Serializable]
     public class UserLevels
     {

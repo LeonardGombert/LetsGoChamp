@@ -4,6 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using System;
 using Kubika.CustomLevelEditor;
+using Kubika.Saving;
 
 namespace Kubika.Game
 {
@@ -12,63 +13,61 @@ namespace Kubika.Game
         private static UIManager _instance;
         public static UIManager instance { get { return _instance; } }
 
-        //Game Canvas
+        #region VARIABLE DECLARATIONS
+        #region SCENE CANVASES
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas worldMapCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas transitionCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas hamburgerMenuCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas hamburgerMenuCanvas2;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas gameCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelEditorCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelPassedCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas winCanvas;
+        #endregion
+
+        #region WORLDMAP
+        [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
+        #endregion         
+
+        #region BURGER MENU
+        [FoldoutGroup("Burger Menu")] [SerializeField] Button music;
+        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite musicOn;
+        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite musicOff;
+
+        [FoldoutGroup("Burger Menu")] [SerializeField] Button sound;
+        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite soundOn;
+        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite soundOff;
+
+        [FoldoutGroup("Burger Menu")] [SerializeField] GameObject hiddenMenuButtons;
+        [FoldoutGroup("Burger Menu")] [SerializeField] GameObject openBurgerMenuButton;
+        private bool soundIsOn = true, musicIsOn = true;
+        #endregion
+
+        #region IN GAME
         [FoldoutGroup("In Game")] [SerializeField] Image rightRotate, leftRotate;
         [FoldoutGroup("In Game")] [SerializeField] Button rightRotateButton, leftRotateButton;
         [FoldoutGroup("In Game")] [SerializeField] Sprite rightRotateOn, rightRotateOff;
         [FoldoutGroup("In Game")] [SerializeField] Sprite leftRotateOn, leftRotateOff;
+        #endregion
 
-        //Burger Menu
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas hamburgerMenuCanvas;
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas hamburgerMenuCanvas2;
+        #region LEVEL EDITOR
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject optionsWindow;
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
+        [FoldoutGroup("Level Editor")] public Dropdown playerLevelsDropdown;
+        [FoldoutGroup("Level Editor")] public InputField saveLevelName;
+        #endregion
 
-        [FoldoutGroup("Burger Menu")] [SerializeField] Button music;
-        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite musicOn;
-        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite musicOff;
-        private bool musicIsOn = true;
-
-        [FoldoutGroup("Burger Menu")] [SerializeField] Button sound;
-
-        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite soundOn;
-        [FoldoutGroup("Burger Menu")] [SerializeField] Sprite soundOff;
-        private bool soundIsOn = true;
-
-        //Transition Canvas
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas transitionCanvas;
+        #region TRANSITION
         [FoldoutGroup("Fade Transition")] [SerializeField] Image fadeImage;
-
         [FoldoutGroup("Fade Transition")] [SerializeField] TransitionType transitionType;
-        [FoldoutGroup("Burger Menu")] [SerializeField] GameObject hiddenMenuButtons;
-        [FoldoutGroup("Burger Menu")] [SerializeField] GameObject openBurgerMenuButton;
-
-        //Transition Tween
         [FoldoutGroup("Fade Transition")] [SerializeField] float transitionDuration;
         [FoldoutGroup("Fade Transition")] [SerializeField] float timePassed;
         float startAlphaValue;
         float targetAlphaValue;
         bool gameDimmed = false;
-
-        //Win Canvas
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas winCanvas;
-
-        //World Map Canvas
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas worldMapCanvas;
-
-        //Level Editor
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelEditorCanvas;
-
-
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelPassedCanvas;
-
-        [FoldoutGroup("Level Editor")] [SerializeField] GameObject optionsWindow;
-        [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
-        [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
-
-        [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
-
-        public Dropdown playerLevelsDropdown;
-        public InputField saveLevelName;
+        #endregion
+        #endregion
 
         void Awake()
         {
@@ -78,6 +77,7 @@ namespace Kubika.Game
             RefreshActiveScene();
         }
 
+        #region REFRESH ACTIVE CANVASES
         public void RefreshActiveScene()
         {
             TurnOffAllCanvases();
@@ -109,6 +109,7 @@ namespace Kubika.Game
                     break;
 
                 case ScenesIndex.CUSTOM_LEVELS:
+                    LevelsManager.instance.RefreshUserLevels();
                     break;
 
                 case ScenesIndex.CREDITS:
@@ -117,19 +118,6 @@ namespace Kubika.Game
                 default:
                     break;
             }
-        }
-
-        public void TransitionStart()
-        {
-            ResetCanvasSortOrder();
-            fadeImage.enabled = true;
-            transitionCanvas.sortingOrder = 9999;
-        }
-
-        public void TransitionOver()
-        {
-            transitionCanvas.sortingOrder = 0;
-            transitionCanvas.enabled = false;
         }
 
         void ResetCanvasSortOrder()
@@ -183,9 +171,9 @@ namespace Kubika.Game
             gameCanvas.enabled = true;
 
             levelPassedCanvas.sortingOrder = 1010;
-            
+
             //reset burger enu params
-            openBurgerMenuButton.SetActive(true); 
+            openBurgerMenuButton.SetActive(true);
             gameDimmed = false;
 
             if (hamburgerMenuCanvas != null) hamburgerMenuCanvas.enabled = true;
@@ -206,21 +194,9 @@ namespace Kubika.Game
             winCanvas.enabled = true;
             winCanvas.sortingOrder = 1000;
         }
+        #endregion
 
-        void FunctionModePriority()
-        {
-            LevelEditor.instance.currentCube = CubeTypes.MoveableCube; //optional, remove to let player pick Cube
-            FunctionMode.SetActive(true);
-            DecoratorMode.SetActive(false);
-        }
-
-        void DecoratorModePriority()
-        {
-            LevelEditor.instance.currentCube = CubeTypes.FullStaticCube; //optional, remove to let player pick Cube
-            DecoratorMode.SetActive(true);
-            FunctionMode.SetActive(false);
-        }
-
+        #region CHECK PLAYER INPUTS
         public void ButtonCallback(string button)
         {
             switch (button)
@@ -313,8 +289,9 @@ namespace Kubika.Game
                 case "LEVELEDITOR_DecoratorMode":
                     DecoratorModePriority();
                     break;
-                #endregion 
+                #endregion
 
+                #region //GENERAL
                 case "MAIN_MENU":
                     StartCoroutine(DimGame());
                     ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
@@ -323,12 +300,16 @@ namespace Kubika.Game
                 case "TITLE_WORLDMAP":
                     ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
                     break;
+                #endregion
 
                 default:
                     break;
             }
         }
+        #endregion
 
+        #region GAME
+        //called to turn sound on/off
         void SwitchButtonSprite()
         {
             if (musicIsOn == true) music.image.sprite = musicOn;
@@ -369,16 +350,73 @@ namespace Kubika.Game
             levelPassedCanvas.enabled = false;
             LevelsManager.instance._LoadNextLevel();
         }
+        #endregion
 
+        #region WORLDMAP
+        //called when the user selects a level from the worldmap
+        public void UpdateWMInfo(string levelName)
+        {
+            levelNameWM.text = levelName;
+        }
+        #endregion
+
+        #region LEVEL EDITOR
+        //set function cubes as the active panel
+        void FunctionModePriority()
+        {
+            LevelEditor.instance.currentCube = CubeTypes.MoveableCube; //optional, remove to let player pick Cube
+            FunctionMode.SetActive(true);
+            DecoratorMode.SetActive(false);
+        }
+
+        //set decorator cubes as the active panel
+        void DecoratorModePriority()
+        {
+            LevelEditor.instance.currentCube = CubeTypes.FullStaticCube; //optional, remove to let player pick Cube
+            DecoratorMode.SetActive(true);
+            FunctionMode.SetActive(false);
+        }
+
+        //called by user when saving a level
+        public void UserSavedLevel()
+        {
+            SaveAndLoad.instance.UserSavingLevel(saveLevelName.text);
+        }
+
+        //called by user when loading a level
+        public void UserLoadLevel()
+        {
+            //these dropdown caption texts are filled with the info provided by User Level Files
+            SaveAndLoad.instance.UserLoadLevel(playerLevelsDropdown.captionText.text);
+        }
+
+        //called to open Level Editor options
         void OpenOptionsWindow()
         {
             optionsWindow.SetActive(!optionsWindow.activeInHierarchy);
         }
 
-        //called when the user selects a level from the worldmap
-        public void UpdateWMInfo(string levelName)
+        // called when user tests level in Level Editor
+        public void TestUserLevel()
         {
-            levelNameWM.text = levelName;
+            SaveAndLoad.instance.UserSavingCurrentLevel();
+            ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
+            LevelsManager.instance.UserSceneToTest = SaveAndLoad.instance.currentOpenLevelName;
+        }
+        #endregion
+
+        #region FADING
+        public void TransitionStart()
+        {
+            ResetCanvasSortOrder();
+            fadeImage.enabled = true;
+            transitionCanvas.sortingOrder = 9999;
+        }
+
+        public void TransitionOver()
+        {
+            transitionCanvas.sortingOrder = 0;
+            transitionCanvas.enabled = false;
         }
 
         IEnumerator DimGame()
@@ -394,9 +432,9 @@ namespace Kubika.Game
                 timePassed = 0f;
                 startAlphaValue = 0f;
                 targetAlphaValue = .5f;
-                
+
                 StartCoroutine(FadeTransition(startAlphaValue, targetAlphaValue, transitionDuration, timePassed));
-                
+
                 hamburgerMenuCanvas.sortingOrder = 1000;
                 hamburgerMenuCanvas2.sortingOrder = 1000;
                 gameDimmed = true;
@@ -411,7 +449,7 @@ namespace Kubika.Game
                 gameDimmed = false;
 
                 yield return new WaitForSeconds(transitionDuration);
-                
+
                 hiddenMenuButtons.SetActive(false);
                 openBurgerMenuButton.SetActive(true);
                 fadeImage.enabled = false;
@@ -463,6 +501,6 @@ namespace Kubika.Game
                 fadeImage.color = alphaColor;
             }
         }
-
+        #endregion
     }
 }

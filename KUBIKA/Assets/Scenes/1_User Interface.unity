@@ -688,15 +688,20 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 557176487957381919, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 557176488212085659, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
     - target: {fileID: 557176488720930627, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_Name
       value: Level Editor UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 557176488720930627, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 557176488720930655, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
@@ -805,39 +810,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
-    - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonCallback
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: LEVELEDITOR_Options
-      objectReference: {fileID: 0}
     - target: {fileID: 6795114822184936968, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_AnchorMin.y

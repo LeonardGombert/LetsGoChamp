@@ -16,6 +16,7 @@ namespace Kubika.Game
         private static LevelsManager _instance;
         public static LevelsManager instance { get { return _instance; } }
 
+
         #region MAIN LEVELS
         [FoldoutGroup("Biomes")] public List<LevelFile> masterList = new List<LevelFile>();
         [FoldoutGroup("Biomes")] [ShowInInspector] Queue<LevelFile> levelQueue = new Queue<LevelFile>();
@@ -34,7 +35,8 @@ namespace Kubika.Game
 
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor ")] public List<string> levelNames = new List<string>();
-        [FoldoutGroup("Level Editor ")] public List<LevelFile> playerLevelsInfo = new List<LevelFile>();
+        [FoldoutGroup("Level Editor ")] public List<LevelFile> userLevelsList = new List<LevelFile>();
+        public string UserSceneToTest;
         #endregion
 
         //which level to load to
@@ -48,7 +50,6 @@ namespace Kubika.Game
         public string _Kubicode;
         public int _minimumMoves;
         public bool _lockRotate;
-
         void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -133,6 +134,7 @@ namespace Kubika.Game
             loadToKubicode = kubicode;
         }
 
+        //used to find the matching LevelFile based on KubiCode
         LevelFile GetMatching(string kubiCode)
         {
             LevelFile returnfile = new LevelFile();
@@ -147,6 +149,7 @@ namespace Kubika.Game
         }
 
 
+        #region //USER LEVEL EDITOR
         public void RefreshUserLevels()
         {
             levelNames = UserLevelFiles.GetUserLevelNames();
@@ -156,12 +159,15 @@ namespace Kubika.Game
 
             foreach (string levelName in levelNames)
             {
+                //the info used to fill out the dropdown tabs are provided by the user level files
                 UIManager.instance.playerLevelsDropdown.options.Add(new Dropdown.OptionData(levelName));
             }
 
             UIManager.instance.playerLevelsDropdown.RefreshShownValue();
         }
+        #endregion
 
+        #region //LOAD LEVEL PIPELINE
         public void _LoadNextLevel()
         {
             //get info
@@ -220,6 +226,7 @@ namespace Kubika.Game
         {
             levelQueue.Dequeue();
         }
+        #endregion
 
         public void RestartLevel()
         {

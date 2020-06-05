@@ -23,7 +23,7 @@ namespace Kubika.Saving
             return levelInfo;
         }
 
-        //use to initialize or refhresh an existing user info file
+        //use to initialize if null, or refresh an existing user info file
         public static void InitializeUserLevelInfo(UserLevels newUserLevels = default)
         {
             if (newUserLevels == default) newUserLevels = new UserLevels();
@@ -40,6 +40,7 @@ namespace Kubika.Saving
             File.WriteAllText(path, json);
         }
 
+        //create a new level file
         public static void AddNewUserLevel(string levelName)
         {
             string folder = Application.persistentDataPath + "/UserLevels";
@@ -57,6 +58,7 @@ namespace Kubika.Saving
             InitializeUserLevelInfo(userLevels);
         }
 
+        //delete an existing user level file
         public static void DeleteUserLevel(string levelName)
         {
             string folder = Application.persistentDataPath + "/UserLevels";
@@ -69,7 +71,7 @@ namespace Kubika.Saving
             InitializeUserLevelInfo(userLevels);
         }
 
-        //use to get all the level names in the file
+        //use to get all the level names from the user level info file
         public static List<string> GetUserLevelNames()
         {
             UserLevels userLevels;
