@@ -20,8 +20,9 @@ namespace Kubika.Game
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas hamburgerMenuCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas hamburgerMenuCanvas2;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas gameCanvas;
-        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelEditorCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelPassedCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelEditorCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas customTestCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas winCanvas;
         #endregion
 
@@ -110,6 +111,7 @@ namespace Kubika.Game
 
                 case ScenesIndex.CUSTOM_LEVELS:
                     LevelsManager.instance.RefreshUserLevels();
+                    CustomLevelCanvasPriority();
                     break;
 
                 case ScenesIndex.CREDITS:
@@ -128,6 +130,7 @@ namespace Kubika.Game
             winCanvas.sortingOrder = 0;
             levelEditorCanvas.sortingOrder = 0;
             levelPassedCanvas.sortingOrder = 0;
+            customTestCanvas.sortingOrder = 0;
         }
 
         void TurnOffAllCanvases()
@@ -141,6 +144,7 @@ namespace Kubika.Game
             hamburgerMenuCanvas.enabled = false;
             hamburgerMenuCanvas2.enabled = false;
             levelPassedCanvas.enabled = false;
+            customTestCanvas.enabled = false    ;
         }
 
         private void WorldMapPriority()
@@ -186,6 +190,20 @@ namespace Kubika.Game
             //Checking if the current level has ROtation enabled
             /*if (!_LoaderQueuer.instance._hasRotate) foreach (Button item in RotateButtons) item.gameObject.SetActive(false);
             else if (_LoaderQueuer.instance._hasRotate) foreach (Button item in RotateButtons) item.gameObject.SetActive(true);*/
+        }
+
+        public void CustomLevelCanvasPriority()
+        {
+            ResetCanvasSortOrder();
+
+            gameCanvas.enabled = true;
+            gameCanvas.sortingOrder = 1000;
+
+            if (levelPassedCanvas != null) levelPassedCanvas.enabled = false;
+            levelPassedCanvas.sortingOrder = 1010;
+
+            customTestCanvas.enabled = true;
+            customTestCanvas.sortingOrder = 1010;
         }
 
         private void WinScreenSettings()
@@ -269,8 +287,20 @@ namespace Kubika.Game
                     break;
 
                 case "LEVELEDITOR_TestLevel":
-                    LevelEditor.instance.SwitchAction("");
+                    LevelEditor.instance.SwitchAction(""); //turns off isRotating/Deleting/Placing bools
                     TestUserLevel();
+                    break;
+
+                case "LEVELEDITOR_SaveLevel":
+                    UserSavedLevel();
+                    break;
+
+                case "LEVELEDITOR_LoadLevel":
+                    UserLoadLevel();
+                    break;
+
+                case "LEVELEDITOR_LeaveTestLevel":
+                    ReturnToLevelEditor();
                     break;
 
                 case "LEVELEDITOR_Options":
@@ -379,13 +409,13 @@ namespace Kubika.Game
         }
 
         //called by user when saving a level
-        public void UserSavedLevel()
+        void UserSavedLevel()
         {
             SaveAndLoad.instance.UserSavingLevel(saveLevelName.text);
         }
 
         //called by user when loading a level
-        public void UserLoadLevel()
+        void UserLoadLevel()
         {
             //these dropdown caption texts are filled with the info provided by User Level Files
             SaveAndLoad.instance.UserLoadLevel(playerLevelsDropdown.captionText.text);
@@ -398,22 +428,15 @@ namespace Kubika.Game
         }
 
         // called when user tests level in Level Editor
-        public void TestUserLevel()
+        void TestUserLevel()
         {
-            StartCoroutine(OpenTestLevel());
+            StartCoroutine(LevelsManager.instance.OpenTestLevel());
         }
 
-        private IEnumerator OpenTestLevel()
+        // called when user presses back button
+        public void ReturnToLevelEditor()
         {
-            SaveAndLoad.instance.UserSavingCurrentLevel();
-            ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
-            LevelsManager.instance.userSceneToTest = SaveAndLoad.instance.currentOpenLevelName;
-
-            while (!ScenesManager.instance.finishedLoadingScene) yield return null;
-
-            LevelsManager.instance.OpenTestLevel();
-
-            yield return null;
+            StartCoroutine(LevelsManager.instance.CloseTestLevel());
         }
         #endregion
 

@@ -68,11 +68,6 @@ namespace Kubika.Game
             loadToKubicode = SaveAndLoad.instance.LoadProgress();
         }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space)) OpenTestLevel();
-        }
-
         IEnumerator InitializeLevelsList()
         {
             listOfLists.Add(biome1);
@@ -172,10 +167,27 @@ namespace Kubika.Game
             UIManager.instance.playerLevelsDropdown.RefreshShownValue();
         }
 
-        public void OpenTestLevel()
+        public IEnumerator OpenTestLevel()
         {
-            Debug.Log("Loading test level");
-            SaveAndLoad.instance.UserLoadLevel(userSceneToTest);
+            SaveAndLoad.instance.UserSavingCurrentLevel();
+            ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
+
+            while (!ScenesManager.instance.finishedLoadingScene) yield return null;
+
+            SaveAndLoad.instance.UserLoadLevel(SaveAndLoad.instance.currentOpenLevelName);
+
+            yield return null;
+        }
+
+        public IEnumerator CloseTestLevel()
+        {
+            ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
+
+            while (!ScenesManager.instance.finishedLoadingScene) yield return null;
+
+            SaveAndLoad.instance.UserLoadLevel(SaveAndLoad.instance.currentOpenLevelName);
+
+            yield return null;
         }
         #endregion
 
