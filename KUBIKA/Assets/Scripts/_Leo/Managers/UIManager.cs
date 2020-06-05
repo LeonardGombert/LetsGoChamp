@@ -270,6 +270,7 @@ namespace Kubika.Game
 
                 case "LEVELEDITOR_TestLevel":
                     LevelEditor.instance.SwitchAction("");
+                    TestUserLevel();
                     break;
 
                 case "LEVELEDITOR_Options":
@@ -399,9 +400,20 @@ namespace Kubika.Game
         // called when user tests level in Level Editor
         public void TestUserLevel()
         {
+            StartCoroutine(OpenTestLevel());
+        }
+
+        private IEnumerator OpenTestLevel()
+        {
             SaveAndLoad.instance.UserSavingCurrentLevel();
             ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
-            LevelsManager.instance.UserSceneToTest = SaveAndLoad.instance.currentOpenLevelName;
+            LevelsManager.instance.userSceneToTest = SaveAndLoad.instance.currentOpenLevelName;
+
+            while (!ScenesManager.instance.finishedLoadingScene) yield return null;
+
+            LevelsManager.instance.OpenTestLevel();
+
+            yield return null;
         }
         #endregion
 

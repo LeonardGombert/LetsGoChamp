@@ -1,3 +1,4 @@
+using Kubika.CustomLevelEditor;
 using Kubika.Saving;
 using Sirenix.OdinInspector;
 using System;
@@ -36,7 +37,7 @@ namespace Kubika.Game
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor ")] public List<string> levelNames = new List<string>();
         [FoldoutGroup("Level Editor ")] public List<LevelFile> userLevelsList = new List<LevelFile>();
-        public string UserSceneToTest;
+        public string userSceneToTest;
         #endregion
 
         //which level to load to
@@ -65,6 +66,11 @@ namespace Kubika.Game
 
             //MOVE THIS SOMEWHERE ELSE, ONLY CALL IF PLAYER PRESSES CONTINUE BUTTON FROM WORLDMAP SCREEN
             loadToKubicode = SaveAndLoad.instance.LoadProgress();
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) OpenTestLevel();
         }
 
         IEnumerator InitializeLevelsList()
@@ -164,6 +170,12 @@ namespace Kubika.Game
             }
 
             UIManager.instance.playerLevelsDropdown.RefreshShownValue();
+        }
+
+        public void OpenTestLevel()
+        {
+            Debug.Log("Loading test level");
+            SaveAndLoad.instance.UserLoadLevel(userSceneToTest);
         }
         #endregion
 

@@ -257,9 +257,10 @@ namespace Kubika.Saving
             string levelFile = levelName + ".json";
             string path = Path.Combine(folder, levelFile);
 
-
             if (File.Exists(path))
             {
+                Debug.Log("User is Loading a Level from " + path);
+
                 string json = File.ReadAllText(path);
                 levelData = JsonUtility.FromJson<LevelEditorData>(json);
 
@@ -365,6 +366,8 @@ namespace Kubika.Saving
 
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)
         {
+            Debug.Log("I'm building the level");
+
             finishedBuilding = false;
 
             // start by resetting the grid's nodes to their base states

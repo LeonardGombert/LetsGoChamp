@@ -52,10 +52,16 @@ namespace Kubika.Saving
             string json = File.ReadAllText(path);
             UserLevels userLevels = JsonUtility.FromJson<UserLevels>(json);
 
-            userLevels.numberOfUserLevels++;
-            userLevels.levelNames.Add(levelName);
+            //make sure that the file does not already contain this name
+            if(!userLevels.levelNames.Contains(levelName))
+            {
+                userLevels.numberOfUserLevels++;
+                userLevels.levelNames.Add(levelName);
 
-            InitializeUserLevelInfo(userLevels);
+                InitializeUserLevelInfo(userLevels);
+            }
+
+            //else throwback an error
         }
 
         //delete an existing user level file
