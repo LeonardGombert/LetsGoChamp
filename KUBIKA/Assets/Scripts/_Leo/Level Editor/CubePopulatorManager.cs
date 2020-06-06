@@ -42,12 +42,12 @@ namespace Kubika.Game
         {
             staticGridGroup.constraintCount = (int)CubeTypes.QuadStaticCube; // 6 
 
-            if ((int)_MaterialCentral.instance.staticIndex == (int)Biomes.Plains) selectedStaticCubesArray = staticCubes1;
-            if ((int)_MaterialCentral.instance.staticIndex == (int)Biomes.Mountains) selectedStaticCubesArray = staticCubes2;
-            if ((int)_MaterialCentral.instance.staticIndex == (int)Biomes.Underwater) selectedStaticCubesArray = staticCubes3;
-            if ((int)_MaterialCentral.instance.staticIndex == (int)Biomes.Ruins) selectedStaticCubesArray = staticCubes4;
-            if ((int)_MaterialCentral.instance.staticIndex == (int)Biomes.Statues) selectedStaticCubesArray = staticCubes5;
-            if ((int)_MaterialCentral.instance.staticIndex == (int)Biomes.Temple) selectedStaticCubesArray = staticCubes6;
+            if (_MaterialCentral.instance.staticIndex == Biomes.Plains) selectedStaticCubesArray = staticCubes1;
+            if (_MaterialCentral.instance.staticIndex == Biomes.Mountains) selectedStaticCubesArray = staticCubes2;
+            if (_MaterialCentral.instance.staticIndex == Biomes.Underwater) selectedStaticCubesArray = staticCubes3;
+            if (_MaterialCentral.instance.staticIndex == Biomes.Ruins) selectedStaticCubesArray = staticCubes4;
+            if (_MaterialCentral.instance.staticIndex == Biomes.Statues) selectedStaticCubesArray = staticCubes5;
+            if (_MaterialCentral.instance.staticIndex == Biomes.Temple) selectedStaticCubesArray = staticCubes6;
 
             for (int i = (int)CubeTypes.FullStaticCube; i <= (int)CubeTypes.QuadStaticCube; i++)
             {
