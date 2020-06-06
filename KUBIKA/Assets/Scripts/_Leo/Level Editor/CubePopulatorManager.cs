@@ -1,6 +1,4 @@
 ﻿using Sirenix.OdinInspector;
-using System;
-using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +13,6 @@ namespace Kubika.Game
 
         public GridLayoutGroup staticGridGroup, functionGridGroup, universeGridGroup;
         [Header("DO NOT MOVE ORDER")] //order is based on the order the cubes are declared in
-        
         public Sprite[] selectedStaticCubesArray;
         [FoldoutGroup("Static Cubes")] public Sprite[] staticCubes1, staticCubes2, staticCubes3, staticCubes4, staticCubes5, staticCubes6;
         public Sprite[] functionCubes, universePack;

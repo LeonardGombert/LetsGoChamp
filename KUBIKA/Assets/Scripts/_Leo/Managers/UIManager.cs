@@ -53,6 +53,7 @@ namespace Kubika.Game
 
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorOptionsWindow;
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorSaveWindow;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
         [FoldoutGroup("Level Editor")] public Dropdown playerLevelsDropdown;
@@ -107,6 +108,8 @@ namespace Kubika.Game
                 case ScenesIndex.LEVEL_EDITOR:
                     LevelEditorPriority();
                     FunctionModePriority();
+
+                    ResetCurrentValues();
                     break;
 
                 case ScenesIndex.CUSTOM_LEVELS:
@@ -120,6 +123,13 @@ namespace Kubika.Game
                 default:
                     break;
             }
+        }
+
+        private void ResetCurrentValues()
+        {
+            SaveAndLoad.instance.currentOpenLevelName = "";
+            SaveAndLoad.instance.currentKubicode = "";
+            SaveAndLoad.instance.currentLevelLockRotate = false;
         }
 
         void ResetCanvasSortOrder()
@@ -144,7 +154,7 @@ namespace Kubika.Game
             hamburgerMenuCanvas.enabled = false;
             hamburgerMenuCanvas2.enabled = false;
             levelPassedCanvas.enabled = false;
-            customTestCanvas.enabled = false    ;
+            customTestCanvas.enabled = false;
         }
 
         private void WorldMapPriority()
@@ -289,8 +299,13 @@ namespace Kubika.Game
                     TestUserLevel();
                     break;
 
+
                 case "LEVELEDITOR_SaveLevel":
                     UserSavedLevel();
+                    break;
+
+                case "LEVELEDITOR_SaveCurrentLevel":
+                    UserSavedCurrentLevel();
                     break;
 
                 case "LEVELEDITOR_LoadLevel":
@@ -416,6 +431,13 @@ namespace Kubika.Game
             SaveAndLoad.instance.UserSavingLevel(saveLevelName.text);
         }
 
+        //called by user when saving a level
+        void UserSavedCurrentLevel()
+        {
+            if (SaveAndLoad.instance.currentOpenLevelName != "") SaveAndLoad.instance.UserSavingCurrentLevel();
+            else OpenSaveLevelWindow();
+        }
+
         //called by user when loading a level
         void UserLoadLevel()
         {
@@ -435,6 +457,13 @@ namespace Kubika.Game
         {
             levelEditorOptionsWindow.SetActive(!levelEditorOptionsWindow.activeInHierarchy);
         }
+
+        //called to open Level Editor options
+        void OpenSaveLevelWindow()
+        {
+            levelEditorSaveWindow.SetActive(!levelEditorSaveWindow.activeInHierarchy);
+        }
+
 
         // called when user tests level in Level Editor
         void TestUserLevel()
