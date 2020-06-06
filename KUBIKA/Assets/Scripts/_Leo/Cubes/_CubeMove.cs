@@ -255,6 +255,8 @@ namespace Kubika.Game
         {
             Debug.Log("FallMove");
 
+            ChangeEmoteFace(_EmoteFallTex);
+
             grid.kuboGrid[myIndex - 1].cubeOnPosition = null;
             grid.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
             grid.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
@@ -284,7 +286,7 @@ namespace Kubika.Game
             yCoordLocal = grid.kuboGrid[indexTargetNode - 1].yCoord;
             zCoordLocal = grid.kuboGrid[indexTargetNode - 1].zCoord;
 
-
+            ChangeEmoteFace(_EmoteIdleTex);
             isFalling = false;
             Debug.Log("END-FallMove");
         }
@@ -294,7 +296,7 @@ namespace Kubika.Game
         {
             isFalling = true;
 
-
+            ChangeEmoteFace(_EmoteFatalFallTex);
             basePos = transform.position;
             currentTime = 0;
 
@@ -362,6 +364,8 @@ namespace Kubika.Game
             xCoordLocal = grid.kuboGrid[nextNode.nodeIndex - 1].xCoord;
             yCoordLocal = grid.kuboGrid[nextNode.nodeIndex - 1].yCoord;
             zCoordLocal = grid.kuboGrid[nextNode.nodeIndex - 1].zCoord;
+
+            isPastilleAndIsOn = false;
 
             isMoving = false;
 
@@ -772,6 +776,7 @@ namespace Kubika.Game
         public virtual void AddOutline()
         {
             OutlineActive(1);
+            ChangeEmoteFace(_EmoteSelectedTex);
             GetChildRecursive(myIndex) ;
         }
 
@@ -781,6 +786,7 @@ namespace Kubika.Game
             if (grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeLayers == CubeLayers.cubeMoveable && MatrixLimitCalcul(index, _DirectionCustom.up))
             {
                 grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>().OutlineActive(1);
+                grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>().ChangeEmoteFace(_EmoteSelectedTex);
                 GetChildRecursive(grid.kuboGrid[index + _DirectionCustom.up].nodeIndex - 1);
             }
         }
@@ -789,6 +795,11 @@ namespace Kubika.Game
         public virtual void ResetOutline()
         {
             OutlineActive(2);
+
+            if(isPastilleAndIsOn == false)
+                ChangeEmoteFace(_EmoteIdleTex);
+            else 
+                ChangeEmoteFace(_EmotePastilleTex);
         }
 
         #endregion

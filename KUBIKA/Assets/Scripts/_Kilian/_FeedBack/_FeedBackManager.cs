@@ -49,6 +49,14 @@ namespace Kubika.Game
             }
         }
 
+        public void EveryCubeHappy()
+        {
+            foreach(_CubeMove cube in _DataManager.instance.moveCube)
+            {
+                cube.ChangeEmoteFace(cube._EmotePastilleTex);
+            }
+        }
+
         public void ResetVictoryFX()
         {
             Victory_PS_BASE_CONFETTI.Clear();

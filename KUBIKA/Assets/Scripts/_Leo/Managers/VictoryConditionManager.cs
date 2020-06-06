@@ -79,7 +79,8 @@ namespace Kubika.Game
         public IEnumerator TransitionTime()
         {
             deliveryCube = FindObjectsOfType<DeliveryCube>();
-            foreach(DeliveryCube cube in deliveryCube)
+            _FeedBackManager.instance.EveryCubeHappy();
+            foreach (DeliveryCube cube in deliveryCube)
             {
                 StartCoroutine(cube.VictoryPSLatence());
             }

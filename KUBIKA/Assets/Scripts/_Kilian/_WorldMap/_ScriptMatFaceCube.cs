@@ -30,6 +30,7 @@ namespace Kubika.Game
         public bool isMoving = false;
         public bool isLocked = true;
         public bool isUnlocked = false;
+        public bool isSelected = false;
         public bool isPlayed = false;
         public bool isGold = false;
 
@@ -46,11 +47,15 @@ namespace Kubika.Game
         public bool boolDoneOnce1 = false;
         public bool boolDoneOnce2 = false;
         public bool boolDoneOnce3 = false;
+        public bool boolDoneOnce4 = false;
 
         [Space]
         public Texture _EdgeTex;
         public float _EdgeStrength;
         public Color _EdgeColor;
+
+        // UNLOCKED RING
+        public SpriteRenderer ring;
 
         // Start is called before the first frame update
         void Start()
@@ -91,8 +96,13 @@ namespace Kubika.Game
                 HasBeenGold();
                 boolDoneOnce3 = true;
             }
-
-            if(isLocked == true)
+            if (boolDoneOnce4 == false && isSelected == true)
+            {
+                Debug.Log("YES");
+                MatProp.SetFloat("_Outline", 0.1f);
+                boolDoneOnce4 = true;
+            }
+            if (isLocked == true)
             {
                 DebugConstrast();
             }
@@ -123,7 +133,7 @@ namespace Kubika.Game
                 yield return DESATURATION_CURRENT_VALUE;
             }
 
-            MatProp.SetFloat("_Outline", 0.1f);
+            ring.enabled = true;
             meshRenderer.SetPropertyBlock(MatProp);
         }
 
@@ -149,16 +159,24 @@ namespace Kubika.Game
         public void HasBeenPlayed()
         {
             meshRenderer.GetPropertyBlock(MatProp);
-            MatProp.SetFloat("_Outline", 0);
+            ring.enabled = false;
             meshRenderer.SetPropertyBlock(MatProp);
         }
 
         public void HasBeenGold()
         {
             meshRenderer.GetPropertyBlock(MatProp);
+            ring.enabled = false;
             MatProp.SetColor("_ColorOutline", outlineGold);
             MatProp.SetFloat("_Outline", 0.1f);
             meshRenderer.SetPropertyBlock(MatProp);
+        }
+
+        public void IsNotSelectedAnymore()
+        {
+            MatProp.SetFloat("_Outline", 0);
+            isSelected = false;
+            boolDoneOnce4 = false;
         }
 
 
