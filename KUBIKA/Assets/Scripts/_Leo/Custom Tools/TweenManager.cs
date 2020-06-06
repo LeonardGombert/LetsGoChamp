@@ -35,9 +35,6 @@ public class TweenManager : MonoBehaviour
     public static float EaseInOutSine(float time, float beginning, float change, float duration)
     {
         return -change / 2 * (Mathf.Cos(Mathf.PI * time / duration) - 1) + beginning;
-
-
-        
     }
 
     /*
@@ -49,16 +46,16 @@ public class TweenManager : MonoBehaviour
         float targetValue;
         float tweenDuration;
 
-        //example function
-        void MoveValue(int exampleValue)
-        {
-            change = targetValue - startValue;
+    //example function
+    void MoveValue(int exampleValue)
+    {
+        change = targetValue - startValue;
 
-            if (time <= duration)
-            {
-                time += Time.deltaTime;
-                exampleValue = TweenManager.LinearTween(time, startValue, change, tweenDuration);
-            }
+        if (time <= tweenDuration)
+        {
+            time += Time.deltaTime;
+            exampleValue = TweenManager.LinearTween(time, startValue, change, tweenDuration);
         }
-        */
+    }
+    */
 }

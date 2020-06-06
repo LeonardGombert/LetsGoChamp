@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using System;
+using UnityEditor;
 
 namespace Kubika.Game
 {
@@ -26,9 +28,8 @@ namespace Kubika.Game
         //BASE CAMERA
         public CinemachineVirtualCamera baseVCam;
         public CinemachineBrain brainVCam;
-        public CinemachineBlenderSettings blenderSettingsVCam;
-        public CinemachineBlenderSettings blenderCUTSettingsVCam;
-        CinemachineBlenderSettings victimeSettingsVCam;
+        public CinemachineBlenderSettings blenderSettingsVCam; // the resulting settings
+        public CinemachineBlenderSettings blenderCUTSettingsVCam; // for a cut transition
         public Camera MainCam;
 
         //INPUT
@@ -69,7 +70,15 @@ namespace Kubika.Game
         public static float KUBSudScreenAngle;
         public static float KUBEstScreenAngle;
 
+        // TRANSITION TO NEXT LEVEL
+        public LevelCube[] levelCubes;
+        public GameObject targetLevel;
 
+        float time;
+        float changeX, changeY, changeZ;
+        float startValueX, startValueY, startValueZ;
+        float targetValueX, targetValueY, targetValueZ;
+        float tweenDuration = 1f;
 
         // Start is called before the first frame update
         void Start()
@@ -80,6 +89,7 @@ namespace Kubika.Game
             planeteView = true;
             planeteSpeed = rotationSpeed;
 
+            levelCubes = FindObjectsOfType<LevelCube>();
         }
 
         // Update is called once per frame
@@ -189,8 +199,6 @@ namespace Kubika.Game
             currentFace.vCam.Priority = 20;
             baseVCam.Priority = 0;
             oldFace = currentFace;
-            victimeSettingsVCam.m_CustomBlends[0] = blenderSettingsVCam.m_CustomBlends[0];
-            brainVCam.m_CustomBlends.m_CustomBlends[0] = victimeSettingsVCam.m_CustomBlends[0];
         }
 
         public void MainPlaneteView()
@@ -213,15 +221,42 @@ namespace Kubika.Game
             baseVCam.Priority = 20;
         }
 
-        public void StartOnFace(int faceEnQuestion)
+        //used to start the player's cam on the face after beating a level
+        public IEnumerator StartOnFace(int faceEnQuestion)
         {
-            victimeSettingsVCam.m_CustomBlends[0] = blenderCUTSettingsVCam.m_CustomBlends[0];
-            brainVCam.m_CustomBlends.m_CustomBlends[0] = victimeSettingsVCam.m_CustomBlends[0];
+            brainVCam.m_CustomBlends = blenderCUTSettingsVCam;
+
             Debug.Log("After");
             CameraTransition(raycastFaces[faceEnQuestion + 1]);
 
+            StartCoroutine(FocusOnNextLevel(LevelsManager.instance._Kubicode, faceEnQuestion + 1));
+
+            yield return null;
         }
 
+        public IEnumerator FocusOnNextLevel(string _Kubicode, int faceEnQuestion)
+        {
+            Transform faceRotationPoint = gameObject.transform.GetChild(1).transform.GetChild(0).
+                                          transform.GetChild(faceEnQuestion).transform.GetChild(1).transform;
+
+            foreach (var item in levelCubes)
+            {
+                if (item.kubicode == _Kubicode)
+                {
+                    targetLevel = item.gameObject;
+
+                    Selection.activeGameObject = item.gameObject; 
+                    break;
+                }
+                else continue;
+            }
+
+            currentFace.PutCameraInfrontOfCube(targetLevel.transform.position);
+
+            yield return null;
+        }
+
+        //for rotation
         public void AfterFace()
         {
             Debug.Log("A");
@@ -233,6 +268,7 @@ namespace Kubika.Game
             }
         }
 
+        //for rotation
         public void BeforeFace()
         {
             Debug.Log("B");

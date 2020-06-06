@@ -247,9 +247,11 @@ namespace Kubika.Game
                     break;
 
                 case "WORLDMAP_TurnRight":
+                    _Planete.instance.AfterFace();
                     break;
 
                 case "WORLDMAP_TurnLeft":
+                    _Planete.instance.BeforeFace();
                     break;
                 #endregion
 
