@@ -25,6 +25,7 @@ namespace Kubika.Game
 
         //BASE CAMERA
         public CinemachineVirtualCamera baseVCam;
+        public CinemachineBrain brainVCam;
         public Camera MainCam;
 
         //INPUT
@@ -75,6 +76,8 @@ namespace Kubika.Game
 
             planeteView = true;
             planeteSpeed = rotationSpeed;
+
+            brainVCam = FindObjectOfType<CinemachineBrain>();
         }
 
         // Update is called once per frame
@@ -184,6 +187,7 @@ namespace Kubika.Game
             currentFace.vCam.Priority = 20;
             baseVCam.Priority = 0;
             oldFace = currentFace;
+            brainVCam.m_DefaultBlend.m_Time = 2;
         }
 
         public void MainPlaneteView()
@@ -210,7 +214,7 @@ namespace Kubika.Game
 
         public void StartOnFace(int faceEnQuestion)
         {
-
+            brainVCam.m_DefaultBlend.m_Time = 0;
             Debug.Log("After");
             CameraTransition(raycastFaces[faceEnQuestion + 1]);
 
