@@ -227,6 +227,8 @@ namespace Kubika.Game
             brainVCam.m_CustomBlends = blenderCUTSettingsVCam;
 
             Debug.Log("After");
+
+            raycastFaces[faceEnQuestion + 1].GetComponent<Collider>().enabled = false;
             CameraTransition(raycastFaces[faceEnQuestion + 1]);
 
             StartCoroutine(FocusOnNextLevel(LevelsManager.instance._Kubicode, faceEnQuestion + 1));

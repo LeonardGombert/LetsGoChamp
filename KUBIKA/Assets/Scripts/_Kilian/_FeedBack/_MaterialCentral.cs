@@ -25,7 +25,7 @@ namespace Kubika.Game
         public int fxIndex;
         [Space]
         public _ActualAllPack actualPack;
-        
+
         //[Header("ACTUAL GRAPH SETTINGS")]
         /*
         #region DYNAMIC SETTINGS
@@ -470,23 +470,64 @@ namespace Kubika.Game
         {
 
             #region EMOTE SETTINGS
-            actualPack._BaseEmoteTex = emotePack[index]._BaseEmoteTex;
 
-            actualPack._BetonEmoteTex = emotePack[index]._BetonEmoteTex;
+            actualPack._BaseIdleEmoteTex = emotePack[index]._BaseIdleEmoteTex;
+            actualPack._BaseFallEmoteTex = emotePack[index]._BaseFallEmoteTex;
+            actualPack._BaseFatalFallEmoteTex = emotePack[index]._BaseFatalFallEmoteTex;
+            actualPack._BaseSelectedEmoteTex = emotePack[index]._BaseSelectedEmoteTex;
 
-            actualPack._ElevatorEmoteTex = emotePack[index]._ElevatorEmoteTex;
+            actualPack._BetonIdleEmoteTex = emotePack[index]._BetonIdleEmoteTex;
+            actualPack._BetonFallEmoteTex = emotePack[index]._BetonFallEmoteTex;
+            actualPack._BetonFatalFallEmoteTex = emotePack[index]._BetonFatalFallEmoteTex;
+            actualPack._BetonSelectedEmoteTex = emotePack[index]._BetonSelectedEmoteTex;
 
-            actualPack._CounterEmoteTex = emotePack[index]._CounterEmoteTex;
+            actualPack._BombIdleEmoteTex = emotePack[index]._BombIdleEmoteTex;
+            actualPack._BombFallEmoteTex = emotePack[index]._BombFallEmoteTex;
+            actualPack._BombFatalFallEmoteTex = emotePack[index]._BombFatalFallEmoteTex;
+            actualPack._BombSelectedEmoteTex = emotePack[index]._BombSelectedEmoteTex;
 
-            actualPack._RotatorsEmoteTex = emotePack[index]._RotatorsEmoteTex;
+            actualPack._SwitchIdleEmoteTex = emotePack[index]._SwitchIdleEmoteTex;
+            actualPack._SwitchIdleOffEmoteTex = emotePack[index]._SwitchIdleOffEmoteTex;
+            actualPack._SwitchFallEmoteTex = emotePack[index]._SwitchFallEmoteTex;
+            actualPack._SwitchFatalFallEmoteTex = emotePack[index]._SwitchFatalFallEmoteTex;
+            actualPack._SwitchSelectedEmoteTex = emotePack[index]._SwitchSelectedEmoteTex;
 
-            actualPack._BombEmoteTex = emotePack[index]._BombEmoteTex;
+            actualPack._BallIdleEmoteTex = emotePack[index]._BallIdleEmoteTex;
+            actualPack._BallFallEmoteTex = emotePack[index]._BallFallEmoteTex;
+            actualPack._BallFatalFallEmoteTex = emotePack[index]._BallFatalFallEmoteTex;
+            actualPack._BallSelectedEmoteTex = emotePack[index]._BallSelectedEmoteTex;
 
-            actualPack._SwitchEmoteTex = emotePack[index]._SwitchEmoteTex;
+            actualPack._BaseVIdleEmoteTex = emotePack[index]._BaseVIdleEmoteTex;
+            actualPack._BaseVFallEmoteTex = emotePack[index]._BaseVFallEmoteTex;
+            actualPack._BaseVFatalFallEmoteTex = emotePack[index]._BaseVFatalFallEmoteTex;
+            actualPack._BaseVSelectedEmoteTex = emotePack[index]._BaseVSelectedEmoteTex;
+            actualPack._BaseVPastilleEmoteTex = emotePack[index]._BaseVPastilleEmoteTex;
 
-            actualPack._BallEmoteTex = emotePack[index]._BallEmoteTex;
+            actualPack._BetonVIdleEmoteTex = emotePack[index]._BetonVIdleEmoteTex;
+            actualPack._BetonVFallEmoteTex = emotePack[index]._BetonVFallEmoteTex;
+            actualPack._BetonVFatalFallEmoteTex = emotePack[index]._BetonVFatalFallEmoteTex;
+            actualPack._BetonVSelectedEmoteTex = emotePack[index]._BetonVSelectedEmoteTex;
+            actualPack._BetonVPastilleEmoteTex = emotePack[index]._BetonVPastilleEmoteTex;
 
-            actualPack._PastilleEmoteTex = emotePack[index]._PastilleEmoteTex;
+            actualPack._BombVIdleEmoteTex = emotePack[index]._BombVIdleEmoteTex;
+            actualPack._BombVFallEmoteTex = emotePack[index]._BombVFallEmoteTex;
+            actualPack._BombVFatalFallEmoteTex = emotePack[index]._BombVFatalFallEmoteTex;
+            actualPack._BombVSelectedEmoteTex = emotePack[index]._BombVSelectedEmoteTex;
+            actualPack._BombVPastilleEmoteTex = emotePack[index]._BombVPastilleEmoteTex;
+
+            actualPack._SwitchVIdleEmoteTex = emotePack[index]._SwitchVIdleEmoteTex;
+            actualPack._SwitchVIdleOffEmoteTex = emotePack[index]._SwitchVIdleOffEmoteTex;
+            actualPack._SwitchVFallEmoteTex = emotePack[index]._SwitchVFallEmoteTex;
+            actualPack._SwitchVFatalFallEmoteTex = emotePack[index]._SwitchVFatalFallEmoteTex;
+            actualPack._SwitchVSelectedEmoteTex = emotePack[index]._SwitchVSelectedEmoteTex;
+            actualPack._SwitchVPastilleEmoteTex = emotePack[index]._SwitchVPastilleEmoteTex;
+
+            actualPack._BallVIdleEmoteTex = emotePack[index]._BallVIdleEmoteTex;
+            actualPack._BallVFallEmoteTex = emotePack[index]._BallVFallEmoteTex;
+            actualPack._BallVFatalFallEmoteTex = emotePack[index]._BallVFatalFallEmoteTex;
+            actualPack._BallVSelectedEmoteTex = emotePack[index]._BallVSelectedEmoteTex;
+            actualPack._BallVPastilleEmoteTex = emotePack[index]._BallVPastilleEmoteTex;
+
             #endregion
 
         }
@@ -518,7 +559,7 @@ namespace Kubika.Game
         {
             allCube = FindObjectsOfType<_CubeBase>(); // TODO DEGEU
             Debug.Log("RIGHT UNIVERS");
-            if((int)staticIndex < staticPack.Length)
+            if ((int)staticIndex < staticPack.Length)
             {
                 Debug.Log("Index = " + (int)staticIndex);
                 staticIndex += 1;

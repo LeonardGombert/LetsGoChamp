@@ -12,12 +12,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8069fc12d0433b41b6ab7a5512a14ab, type: 3}
   m_Name: _BaseEmotePack
   m_EditorClassIdentifier: 
-  _BaseEmoteTex: {fileID: 2800000, guid: 3fffe61d9e68e5c4f998fbcef86c1c67, type: 3}
-  _BetonEmoteTex: {fileID: 2800000, guid: beefc1401892b0f40b43acbb139543c5, type: 3}
-  _ElevatorEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
-  _CounterEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
-  _RotatorsEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
-  _BombEmoteTex: {fileID: 2800000, guid: 41c93a8dda30d3c4f9c1e43cc836c978, type: 3}
-  _SwitchEmoteTex: {fileID: 2800000, guid: 64e5b9c1261f975468d9cd70e74daa5e, type: 3}
-  _BallEmoteTex: {fileID: 2800000, guid: 3fffe61d9e68e5c4f998fbcef86c1c67, type: 3}
-  _PastilleEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
+  _BaseIdleEmoteTex: {fileID: 2800000, guid: a35bafb1d8f1a0f4eb45f0cbd31b2f4e, type: 3}
+  _BaseFallEmoteTex: {fileID: 2800000, guid: cdb53f7d098c730408c0ae98518f2c80, type: 3}
+  _BaseFatalFallEmoteTex: {fileID: 2800000, guid: fbd21a0b84121f0419ddd73568cfa2eb,
+    type: 3}
+  _BaseSelectedEmoteTex: {fileID: 2800000, guid: e15441460c44a4f44aa573af0cc220b6,
+    type: 3}
+  _BetonIdleEmoteTex: {fileID: 2800000, guid: ade310e81c5a6984fba0726ad86c586d, type: 3}
+  _BetonFallEmoteTex: {fileID: 2800000, guid: c35b625e033649f4493bc67aac7e24b0, type: 3}
+  _BetonFatalFallEmoteTex: {fileID: 2800000, guid: bc949a3c208d2aa47a30f8f0db9b8877,
+    type: 3}
+  _BetonSelectedEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
+    type: 3}
+  _BombIdleEmoteTex: {fileID: 2800000, guid: 51df8279a619f4c45befa334225c5c06, type: 3}
+  _BombFallEmoteTex: {fileID: 2800000, guid: 063f94f0426e0994aa4b9cd454fdd1a2, type: 3}
+  _BombFatalFallEmoteTex: {fileID: 2800000, guid: ec1e17bb2a6e61748a578a9a66ec0d61,
+    type: 3}
+  _BombSelectedEmoteTex: {fileID: 2800000, guid: fb99f6bd818812d4a8534a5762990b05,
+    type: 3}
+  _SwitchIdleEmoteTex: {fileID: 2800000, guid: 686e9fe1cad67b143823e223422ac089, type: 3}
+  _SwitchIdleOffEmoteTex: {fileID: 2800000, guid: 94bf32f92f4fe7e408e5c9a9669917d7,
+    type: 3}
+  _SwitchFallEmoteTex: {fileID: 2800000, guid: 8e6a0c24ff1331a47b11102ad400f3b3, type: 3}
+  _SwitchFatalFallEmoteTex: {fileID: 2800000, guid: 46797878c3afd4e47b6dea793e10ba4a,
+    type: 3}
+  _SwitchSelectedEmoteTex: {fileID: 2800000, guid: f03344986aa70cf4cbcc4248f87f6366,
+    type: 3}
+  _BallIdleEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
+  _BallFallEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
+  _BallFatalFallEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
+    type: 3}
+  _BallSelectedEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
+    type: 3}
+  _BaseVIdleEmoteTex: {fileID: 2800000, guid: a35bafb1d8f1a0f4eb45f0cbd31b2f4e, type: 3}
+  _BaseVFallEmoteTex: {fileID: 2800000, guid: cdb53f7d098c730408c0ae98518f2c80, type: 3}
+  _BaseVFatalFallEmoteTex: {fileID: 2800000, guid: fbd21a0b84121f0419ddd73568cfa2eb,
+    type: 3}
+  _BaseVSelectedEmoteTex: {fileID: 2800000, guid: e15441460c44a4f44aa573af0cc220b6,
+    type: 3}
+  _BaseVPastilleEmoteTex: {fileID: 2800000, guid: e24d082c5b5be6b4b9ee15f70cb97773,
+    type: 3}
+  _BetonVIdleEmoteTex: {fileID: 2800000, guid: ade310e81c5a6984fba0726ad86c586d, type: 3}
+  _BetonVFallEmoteTex: {fileID: 2800000, guid: c35b625e033649f4493bc67aac7e24b0, type: 3}
+  _BetonVFatalFallEmoteTex: {fileID: 2800000, guid: bc949a3c208d2aa47a30f8f0db9b8877,
+    type: 3}
+  _BetonVSelectedEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
+    type: 3}
+  _BetonVPastilleEmoteTex: {fileID: 2800000, guid: e24d082c5b5be6b4b9ee15f70cb97773,
+    type: 3}
+  _BombVIdleEmoteTex: {fileID: 2800000, guid: 51df8279a619f4c45befa334225c5c06, type: 3}
+  _BombVFallEmoteTex: {fileID: 2800000, guid: c35b625e033649f4493bc67aac7e24b0, type: 3}
+  _BombVFatalFallEmoteTex: {fileID: 2800000, guid: bc949a3c208d2aa47a30f8f0db9b8877,
+    type: 3}
+  _BombVSelectedEmoteTex: {fileID: 2800000, guid: b74a007c24f2efa4fb5f4b8e3c22703b,
+    type: 3}
+  _BombVPastilleEmoteTex: {fileID: 2800000, guid: fb99f6bd818812d4a8534a5762990b05,
+    type: 3}
+  _SwitchVIdleEmoteTex: {fileID: 2800000, guid: 94bf32f92f4fe7e408e5c9a9669917d7,
+    type: 3}
+  _SwitchVIdleOffEmoteTex: {fileID: 2800000, guid: 94bf32f92f4fe7e408e5c9a9669917d7,
+    type: 3}
+  _SwitchVFallEmoteTex: {fileID: 2800000, guid: 8e6a0c24ff1331a47b11102ad400f3b3,
+    type: 3}
+  _SwitchVFatalFallEmoteTex: {fileID: 2800000, guid: 46797878c3afd4e47b6dea793e10ba4a,
+    type: 3}
+  _SwitchVSelectedEmoteTex: {fileID: 2800000, guid: d1756124f5986534a8ff45997f9a880a,
+    type: 3}
+  _SwitchVPastilleEmoteTex: {fileID: 2800000, guid: f03344986aa70cf4cbcc4248f87f6366,
+    type: 3}
+  _BallVIdleEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
+  _BallVFallEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
+  _BallVFatalFallEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
+    type: 3}
+  _BallVSelectedEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
+    type: 3}
+  _BallVPastilleEmoteTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856,
+    type: 3}

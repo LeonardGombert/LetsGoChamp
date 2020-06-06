@@ -29,9 +29,16 @@ namespace Kubika.Game
         [Range(0, 2)] public float _Saturation;
         [Range(-1, 1)] public float _Brightness;
 
-        public Texture _EmoteTex;
+        [Space]
+        public Texture _EmoteIdleTex;
+        public Texture _EmoteIdleOffTex;
+        public Texture _EmoteFallTex;
+        public Texture _EmoteFatalFallTex;
+        public Texture _EmoteSelectedTex;
+        public Texture _EmotePastilleTex;
         public float _EmoteStrength;
 
+        [Space]
         public Texture _InsideTex;
         public Color _InsideColor;
         public float _InsideStrength;
@@ -204,9 +211,9 @@ namespace Kubika.Game
             meshFilter.mesh = _MainMesh;
 
             MatProp.SetTexture("_MainTex", _MainTex);
-            MatProp.SetTexture("_InsideTex",_InsideTex);
+            MatProp.SetTexture("_InsideTex", _InsideTex);
             MatProp.SetTexture("_EdgeTex", _EdgeTex);
-            MatProp.SetTexture("_Emote", _EmoteTex);
+            MatProp.SetTexture("_Emote", _EmoteIdleTex);
 
             MatProp.SetColor("_MainColor", _MainColor);
             MatProp.SetColor("_InsideColor", _InsideColor);
@@ -226,123 +233,140 @@ namespace Kubika.Game
 
         public void SetScriptablePreset()
         {
-                switch(myCubeType)
-                {
-                    case CubeTypes.MoveableCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._BaseTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._BaseMesh; 
-                            _MainColor = _MaterialCentral.instance.actualPack._BaseColor; 
+            switch (myCubeType)
+            {
+                case CubeTypes.MoveableCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._BaseTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._BaseMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._BaseColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Base_Hue; 
-                            _Contrast = _MaterialCentral.instance.actualPack.Base_Contrast; 
-                            _Saturation = _MaterialCentral.instance.actualPack.Base_Saturation; 
-                            _Brightness = _MaterialCentral.instance.actualPack.Base_Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack.Base_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Base_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Base_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Base_Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._BaseTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._BaseColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._BaseInsideStrength;
+                        _InsideTex = _MaterialCentral.instance.actualPack._BaseTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._BaseColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._BaseInsideStrength;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._BaseEmoteTex; 
-                            _EmoteStrength = 1; 
-                        }
-                        break;
-                    case CubeTypes.ConcreteCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._BetonTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._BetonMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._BetonColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Beton_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Beton_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Beton_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Beton_Brightness;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._BaseIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._BaseFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._BaseFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._BaseSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._BetonTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._BetonColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._BetonInsideStrength;
+                        _EmoteStrength = 1;
+                    }
+                    break;
+                case CubeTypes.ConcreteCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._BetonTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._BetonMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._BetonColor;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _Hue = _MaterialCentral.instance.actualPack.Beton_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Beton_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Beton_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Beton_Brightness;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._BetonEmoteTex;
-                            _EmoteStrength = 1;
-                        }
-                        break;
-                    case CubeTypes.TimerCube1:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._CounterTex9; /////
-                            _MainMesh = _MaterialCentral.instance.actualPack._CounterMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._CounterColor;
+                        _InsideTex = _MaterialCentral.instance.actualPack._BetonTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._BetonColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._BetonInsideStrength;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Counter_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Counter_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Counter_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Counter_Brightness;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._CounterTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._CounterColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._CounterInsideStrength;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._BetonIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._BetonFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._BetonFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._BetonSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 1;
+                    }
+                    break;
+                case CubeTypes.TimerCube1:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._CounterTex9; /////
+                        _MainMesh = _MaterialCentral.instance.actualPack._CounterMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._CounterColor;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _Hue = _MaterialCentral.instance.actualPack.Counter_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Counter_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Counter_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Counter_Brightness;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._CounterEmoteTex;
-                            _EmoteStrength = 1;
-                        }
-                        break;
-                    case CubeTypes.BombCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._BombTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._BombMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._BombColor;
+                        _InsideTex = _MaterialCentral.instance.actualPack._CounterTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._CounterColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._CounterInsideStrength;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Bomb_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Bomb_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Bomb_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Bomb_Brightness;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._BombTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._BombColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._BombInsideStrength;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 1;
+                    }
+                    break;
+                case CubeTypes.BombCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._BombTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._BombMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._BombColor;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _Hue = _MaterialCentral.instance.actualPack.Bomb_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Bomb_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Bomb_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Bomb_Brightness;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._BombEmoteTex;
-                            _EmoteStrength = 1;
-                        }
-                        break;
-                    case CubeTypes.BlueElevatorCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._ElevatorBackTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._ElevatorMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._ElevatorColor;
+                        _InsideTex = _MaterialCentral.instance.actualPack._BombTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._BombColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._BombInsideStrength;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Elevator_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Elevator_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Elevator_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Elevator_Brightness;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._ElevatorTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._ElevatorColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._ElevatorInsideStrength;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._BombIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._BombFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._BombFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._BombSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 1;
+                    }
+                    break;
+                case CubeTypes.BlueElevatorCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._ElevatorBackTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._ElevatorMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._ElevatorColor;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _Hue = _MaterialCentral.instance.actualPack.Elevator_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Elevator_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Elevator_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Elevator_Brightness;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._ElevatorEmoteTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
+                        _InsideTex = _MaterialCentral.instance.actualPack._ElevatorTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._ElevatorColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._ElevatorInsideStrength;
+
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
                 case CubeTypes.GreenElevatorCube:
                     {
                         _MainTex = _MaterialCentral.instance.actualPack._ElevatorTex;
@@ -362,56 +386,66 @@ namespace Kubika.Game
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                         _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._ElevatorEmoteTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 0;
                     }
                     break;
                 case CubeTypes.ChaosBall:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._BallTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._BallMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._BallColor;
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._BallTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._BallMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._BallColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Ball_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Ball_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Ball_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Ball_Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack.Ball_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Ball_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Ball_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Ball_Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._BallTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._BallColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._BallInsideStrength;
+                        _InsideTex = _MaterialCentral.instance.actualPack._BallTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._BallColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._BallInsideStrength;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._BallEmoteTex;
-                            _EmoteStrength = 1;
-                        }
-                        break;
-                    case CubeTypes.SwitchCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._SwitchTexOn; ///////
-                            _MainMesh = _MaterialCentral.instance.actualPack._SwitchMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._SwitchColor;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._BallIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._BallFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._BallFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._BallSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 1;
+                    }
+                    break;
+                case CubeTypes.SwitchCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._SwitchTexOn; ///////
+                        _MainMesh = _MaterialCentral.instance.actualPack._SwitchMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._SwitchColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Switch_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Switch_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Switch_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Switch_Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack.Switch_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Switch_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Switch_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Switch_Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._SwitchTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._SwitchColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._SwitchInsideStrength;
+                        _InsideTex = _MaterialCentral.instance.actualPack._SwitchTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._SwitchColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._SwitchInsideStrength;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._SwitchEmoteTex;
-                            _EmoteStrength = 1;
-                        }
-                        break;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._SwitchIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._SwitchIdleOffEmoteTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._SwitchFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._SwitchFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._SwitchSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 1;
+                    }
+                    break;
                 case CubeTypes.SwitchButton:
                     {
                         _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
@@ -431,33 +465,33 @@ namespace Kubika.Game
                         _InsideColor = Color.white;
                         _InsideStrength = 0;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 0;
                     }
                     break;
                 case CubeTypes.RotatorLocker:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
-                            _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
+                        _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack.Rotators_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Rotators_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Rotators_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Rotators_Brightness;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
                         _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _InsideColor = Color.white;
                         _InsideStrength = 0;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
                 case CubeTypes.RotatorLeftTurner:
                     {
                         _MainTex = _MaterialCentral.instance.actualPack._EmptyTex; ////////
@@ -477,7 +511,7 @@ namespace Kubika.Game
                         _InsideColor = Color.white;
                         _InsideStrength = 0;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 0;
                     }
                     break;
@@ -500,33 +534,33 @@ namespace Kubika.Game
                         _InsideColor = Color.white;
                         _InsideStrength = 0;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 0;
                     }
                     break;
                 case CubeTypes.DeliveryCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._PastilleTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._PastilleMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._PastilleColor;
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._PastilleTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._PastilleMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._PastilleColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack.Pastille_Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack.Pastille_Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack.Pastille_Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack.Pastille_Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack.Pastille_Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack.Pastille_Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack.Pastille_Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack.Pastille_Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._PastilleTexInside;
-                            _InsideColor = _MaterialCentral.instance.actualPack._PastilleColorInside;
-                            _InsideStrength = _MaterialCentral.instance.actualPack._PastilleInsideStrength;
+                        _InsideTex = _MaterialCentral.instance.actualPack._PastilleTexInside;
+                        _InsideColor = _MaterialCentral.instance.actualPack._PastilleColorInside;
+                        _InsideStrength = _MaterialCentral.instance.actualPack._PastilleInsideStrength;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._PastilleEmoteTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
                 case CubeTypes.BaseVictoryCube:
                     {
                         _MainTex = _MaterialCentral.instance.actualPack._BaseVTex;
@@ -546,7 +580,12 @@ namespace Kubika.Game
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                         _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._BaseEmoteTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._BaseVIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._BaseVFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._BaseVFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._BaseVSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 1;
                     }
                     break;
@@ -569,7 +608,12 @@ namespace Kubika.Game
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                         _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._BetonEmoteTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._BetonVIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._BetonVFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._BetonVFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._BetonVSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 1;
                     }
                     break;
@@ -592,7 +636,12 @@ namespace Kubika.Game
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                         _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._BombEmoteTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._BombVIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._BombVFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._BombVFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._BombVSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._VoidTex;
                         _EmoteStrength = 1;
                     }
                     break;
@@ -615,156 +664,161 @@ namespace Kubika.Game
                         _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
                         _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                        _EmoteTex = _MaterialCentral.instance.actualPack._SwitchEmoteTex;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._SwitchVIdleEmoteTex;
+                        _EmoteIdleOffTex = _MaterialCentral.instance.actualPack._SwitchVIdleOffEmoteTex;
+                        _EmoteFallTex = _MaterialCentral.instance.actualPack._SwitchVFallEmoteTex;
+                        _EmoteFatalFallTex = _MaterialCentral.instance.actualPack._SwitchVFatalFallEmoteTex;
+                        _EmoteSelectedTex = _MaterialCentral.instance.actualPack._SwitchVSelectedEmoteTex;
+                        _EmotePastilleTex = _MaterialCentral.instance.actualPack._SwitchVPastilleEmoteTex;
                         _EmoteStrength = 1;
                     }
                     break;
 
                 case CubeTypes.CornerStaticCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._CornerTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._CornerMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._CornerTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._CornerMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack._Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack._Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack._Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack._Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack._Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack._Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack._Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack._Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _InsideColor = Color.white;
-                            _InsideStrength = 0;
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
 
-                    case CubeTypes.EmptyStaticCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._EmptyTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+                case CubeTypes.EmptyStaticCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._EmptyTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._EmptyMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack._Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack._Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack._Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack._Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack._Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack._Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack._Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack._Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _InsideColor = Color.white;
-                            _InsideStrength = 0;
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
-                    case CubeTypes.FullStaticCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._FullTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._FullMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.FullStaticCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._FullTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._FullMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack._Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack._Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack._Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack._Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack._Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack._Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack._Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack._Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _InsideColor = Color.white;
-                            _InsideStrength = 0;
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
-                    case CubeTypes.QuadStaticCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._QuadTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._QuadMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.QuadStaticCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._QuadTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._QuadMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack._Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack._Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack._Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack._Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack._Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack._Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack._Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack._Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _InsideColor = Color.white;
-                            _InsideStrength = 0;
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
-                    case CubeTypes.TopStaticCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._TopTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._TopMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.TopStaticCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._TopTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._TopMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack._Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack._Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack._Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack._Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack._Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack._Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack._Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack._Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _InsideColor = Color.white;
-                            _InsideStrength = 0;
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
-                    case CubeTypes.TripleStaticCube:
-                        {
-                            _MainTex = _MaterialCentral.instance.actualPack._TripleTex;
-                            _MainMesh = _MaterialCentral.instance.actualPack._TripleMesh;
-                            _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+                case CubeTypes.TripleStaticCube:
+                    {
+                        _MainTex = _MaterialCentral.instance.actualPack._TripleTex;
+                        _MainMesh = _MaterialCentral.instance.actualPack._TripleMesh;
+                        _MainColor = _MaterialCentral.instance.actualPack._TextureColor;
 
-                            _Hue = _MaterialCentral.instance.actualPack._Hue;
-                            _Contrast = _MaterialCentral.instance.actualPack._Contrast;
-                            _Saturation = _MaterialCentral.instance.actualPack._Saturation;
-                            _Brightness = _MaterialCentral.instance.actualPack._Brightness;
+                        _Hue = _MaterialCentral.instance.actualPack._Hue;
+                        _Contrast = _MaterialCentral.instance.actualPack._Contrast;
+                        _Saturation = _MaterialCentral.instance.actualPack._Saturation;
+                        _Brightness = _MaterialCentral.instance.actualPack._Brightness;
 
-                            _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _InsideColor = Color.white;
-                            _InsideStrength = 0;
+                        _InsideTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _InsideColor = Color.white;
+                        _InsideStrength = 0;
 
-                            _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
-                            _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
-                            _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
+                        _EdgeTex = _MaterialCentral.instance.actualPack._EdgeTex;
+                        _EdgeColor = _MaterialCentral.instance.actualPack._EdgeColor;
+                        _EdgeStrength = _MaterialCentral.instance.actualPack._EdgeTexStrength;
 
-                            _EmoteTex = _MaterialCentral.instance.actualPack._VoidTex;
-                            _EmoteStrength = 0;
-                        }
-                        break;
-                
+                        _EmoteIdleTex = _MaterialCentral.instance.actualPack._VoidTex;
+                        _EmoteStrength = 0;
+                    }
+                    break;
+
             }
 
             SetMaterial();
 
-    }
+        }
 
         #endregion
 
@@ -825,8 +879,8 @@ namespace Kubika.Game
 
                 //transform.localScale = actualScale;
 
-                transform.localScale = new Vector3(Mathf.Clamp( baseScale.x + ((baseScale.x * EaseInBack(currentOfValueChange / timeOfValueChange))), 0 , targetScale.x),
-                    Mathf.Clamp( baseScale.y + ((baseScale.y * EaseInBack(currentOfValueChange / timeOfValueChange))), 0 , targetScale.y),
+                transform.localScale = new Vector3(Mathf.Clamp(baseScale.x + ((baseScale.x * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.x),
+                    Mathf.Clamp(baseScale.y + ((baseScale.y * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.y),
                     Mathf.Clamp(baseScale.z + ((baseScale.z * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.z));
 
                 yield return transform.localScale;
