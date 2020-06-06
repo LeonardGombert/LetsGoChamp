@@ -3519,11 +3519,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 747a449ee4053a548a6db05db2985d7b, type: 3}
   - {fileID: 21300000, guid: 61c8b02a4ab3ce74c80dfb9657b1c164, type: 3}
   - {fileID: 21300000, guid: 4c16fef90c735754d8ee8d831291f03e, type: 3}
-  - {fileID: 21300000, guid: 30643307e634143459a4ae48db35fd7c, type: 3}
-  - {fileID: 21300000, guid: c34feb93d38120a4d9a53896b082b5d8, type: 3}
-  - {fileID: 21300000, guid: 5cc2a454c770aa446ae875ed05552e03, type: 3}
-  - {fileID: 21300000, guid: 47720a41953347f44b709712a437e372, type: 3}
-  - {fileID: 21300000, guid: ad0da8153415da14ca3ec28bee55e2e8, type: 3}
   - {fileID: 21300000, guid: ea421c2edbcff3b4f9b6e536f2a48461, type: 3}
   - {fileID: 21300000, guid: 7df3d638d91d955428c7ed4918eca840, type: 3}
   - {fileID: 21300000, guid: 8af9d784b923c724d965cc3d130dbec4, type: 3}
@@ -3533,6 +3528,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cb9b62e1bdfed7d4e8162f5ad5213083, type: 3}
   - {fileID: 21300000, guid: 4222b001a1222a641bedc05368cdfe76, type: 3}
   - {fileID: 21300000, guid: 24a05f25be9b08b4c9529f2d2f61fb20, type: 3}
+  - {fileID: 21300000, guid: 30643307e634143459a4ae48db35fd7c, type: 3}
+  - {fileID: 21300000, guid: c34feb93d38120a4d9a53896b082b5d8, type: 3}
+  - {fileID: 21300000, guid: 5cc2a454c770aa446ae875ed05552e03, type: 3}
+  - {fileID: 21300000, guid: 47720a41953347f44b709712a437e372, type: 3}
+  - {fileID: 21300000, guid: ad0da8153415da14ca3ec28bee55e2e8, type: 3}
   universePack:
   - {fileID: 21300000, guid: 462e81bd1d5b2724ab182f14669e65d2, type: 3}
   - {fileID: 21300000, guid: c92bfc337419e9246bc78cdbd19b1f28, type: 3}
@@ -3900,7 +3900,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 557176487967767752}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.81333333
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

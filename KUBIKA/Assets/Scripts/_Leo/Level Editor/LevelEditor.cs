@@ -300,7 +300,7 @@ namespace Kubika.CustomLevelEditor
 
             if (timerCube != null)
             {
-                if(timerCube.myCubeType == CubeTypes.TimerCube9)
+                /*if(timerCube.myCubeType == CubeTypes.TimerCube9)
                 {
                     timerCube.myCubeType = CubeTypes.TimerCube1;
                     timerCube.timerValue++;
@@ -309,7 +309,7 @@ namespace Kubika.CustomLevelEditor
                 timerCube.myCubeType++;
                 timerCube.timerValue++;
                 
-                timerCube.SetRelevantNodeInfo();
+                timerCube.SetRelevantNodeInfo();*/
                 return true;
             }
 
@@ -480,11 +480,67 @@ namespace Kubika.CustomLevelEditor
                     SendInfoToCube(mineCube as _CubeBase, CubeTypes.BombCube, CubeLayers.cubeMoveable, false);
                     break;
 
-                case CubeTypes.TimerCube:
+                case CubeTypes.TimerCube1:
                     newCube.AddComponent(typeof(TimerCube));
-                    TimerCube timerCube = newCube.GetComponent<TimerCube>();
-                    SendInfoToCube(timerCube as _CubeBase, CubeTypes.TimerCube1, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
-                    timerCube.timerValue = 1;
+                    TimerCube timerCube1 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube1 as _CubeBase, CubeTypes.TimerCube1, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube1.timerValue = 1;
+                    break;
+
+                case CubeTypes.TimerCube2:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube2 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube2 as _CubeBase, CubeTypes.TimerCube2, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube2.timerValue = 2;
+                    break;
+
+                case CubeTypes.TimerCube3:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube3 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube3 as _CubeBase, CubeTypes.TimerCube3, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube3.timerValue = 3;
+                    break;
+
+                case CubeTypes.TimerCube4:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube4 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube4 as _CubeBase, CubeTypes.TimerCube4, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube4.timerValue = 4;
+                    break;
+
+                case CubeTypes.TimerCube5:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube5 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube5 as _CubeBase, CubeTypes.TimerCube5, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube5.timerValue = 5;
+                    break;
+
+                case CubeTypes.TimerCube6:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube6 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube6 as _CubeBase, CubeTypes.TimerCube6, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube6.timerValue = 6;
+                    break;
+
+                case CubeTypes.TimerCube7:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube7 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube7 as _CubeBase, CubeTypes.TimerCube7, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube7.timerValue = 7;
+                    break;
+
+                case CubeTypes.TimerCube8:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube8 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube8 as _CubeBase, CubeTypes.TimerCube8, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube8.timerValue = 8;
+                    break;
+
+                case CubeTypes.TimerCube9:
+                    newCube.AddComponent(typeof(TimerCube));
+                    TimerCube timerCube9 = newCube.GetComponent<TimerCube>();
+                    SendInfoToCube(timerCube9 as _CubeBase, CubeTypes.TimerCube9, CubeLayers.cubeFull, true); //spawn TimerCube1 as it is base 
+                    timerCube9.timerValue = 9;
                     break;
 
                 case CubeTypes.SwitchCube:

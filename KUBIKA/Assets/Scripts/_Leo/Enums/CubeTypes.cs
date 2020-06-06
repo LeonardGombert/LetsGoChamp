@@ -20,24 +20,11 @@
 
     DeliveryCube, //full layer
 
-    BlueElevatorCube, //moveable layer
     GreenElevatorCube, //moveable layer
+    BlueElevatorCube, //moveable layer
 
     ConcreteCube, //moveable layer
     BombCube, //moveable layer
-
-    TimerCube,
-
-    SwitchButton, //full layer
-    SwitchCube, //moveable & full layer
-
-    RotatorRightTurner, //full layer
-    RotatorLeftTurner, //full layer
-    RotatorLocker, //full layer
-
-    ChaosBall, //moveable layer
-
-    Count, //use to get the total count of enums
 
     TimerCube1, //full layer
     TimerCube2,
@@ -48,4 +35,15 @@
     TimerCube7,
     TimerCube8,
     TimerCube9,
+
+    SwitchButton, //full layer
+    SwitchCube, //moveable & full layer
+
+    RotatorRightTurner, //full layer
+    RotatorLeftTurner, //full layer
+    RotatorLocker, //full layer
+
+    Count, //use to get the total count of enums
+
+    ChaosBall, //moveable layer
 }

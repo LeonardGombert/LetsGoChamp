@@ -495,7 +495,7 @@ namespace Kubika.Saving
                     case CubeTypes.TimerCube1:
                         newCube.AddComponent(typeof(TimerCube));
                         TimerCube timerCube = newCube.GetComponent<TimerCube>();
-                        SetCubeInfo(timerCube as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube, true);
+                        SetCubeInfo(timerCube as _CubeBase, CubeLayers.cubeFull, CubeTypes.TimerCube1, true);
                         timerCube.timerValue = 1;
                         break;
 

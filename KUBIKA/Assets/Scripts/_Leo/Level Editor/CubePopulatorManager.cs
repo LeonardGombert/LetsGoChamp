@@ -27,9 +27,9 @@ namespace Kubika.Game
 
         private void FunctionCubePopulator()
         {
-            functionGridGroup.constraintCount = (int)CubeTypes.TimerCube7 - (int)CubeTypes.MoveableCube; // THIS IS SOME CURSED SHIT RIGHT HERE
+            functionGridGroup.constraintCount = (int)CubeTypes.Count - (int)CubeTypes.MoveableCube;
 
-            for (int i = (int)CubeTypes.MoveableCube, j = 0; i < (int)CubeTypes.MoveableCube + functionCubes.Length; i++, j++)
+            for (int i = (int)CubeTypes.MoveableCube, j = 0; i < (int)CubeTypes.Count; i++, j++)
             {
                 GameObject newObj = Instantiate(cubePrefab, functionGridGroup.gameObject.transform);
                 newObj.GetComponent<Image>().sprite = functionCubes[j];
