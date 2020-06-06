@@ -123,12 +123,5 @@ namespace Kubika.Game
             }
         }
 
-        void RemoveCube(int indexToDestroy)
-        {
-            Debug.Log("Destroyed " + indexToDestroy);
-
-            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut());
-            else return;
-        }
     }
 }

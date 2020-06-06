@@ -62,6 +62,9 @@ namespace Kubika.Game
         protected ParticleSystem PopOutPS;
         public bool willPOP;
 
+        // RIGIDBODY
+        Rigidbody rigidbody;
+
 
         // Start is called before the first frame update
         public virtual void Start()
@@ -852,5 +855,25 @@ namespace Kubika.Game
         }
 
         #endregion
+
+        public void RemoveCube(int indexToDestroy)
+        {
+            Debug.Log("Destroyed " + indexToDestroy);
+
+            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut());
+            else return;
+        }
+
+        public void ApplyRigidbody(Vector3 force)
+        {
+            rigidbody = gameObject.AddComponent<Rigidbody>();
+            rigidbody.useGravity = false;
+
+            rigidbody.maxAngularVelocity = UnityEngine.Random.Range(10, 80);
+            rigidbody.AddTorque(new Vector3(UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1)));
+
+            rigidbody.velocity = force * 10.0f;
+            rigidbody.AddForce(force * 10.0f);
+        }
     }
 }
