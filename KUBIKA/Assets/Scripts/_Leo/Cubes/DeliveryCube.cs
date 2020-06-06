@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Kubika.Game
@@ -13,6 +15,9 @@ namespace Kubika.Game
 
         // VICTORY FX
         _CubeBase victoryCubeTracker;
+
+        [HideInInspector] public ParticleSystem ExplosionEND_PS;
+        float StartExplosion;
 
         // Start is called before the first frame update
         public override void Start()
@@ -74,24 +79,35 @@ namespace Kubika.Game
                     break;
                 case FacingDirection.right:
                     LightShaft = Instantiate(_FeedBackManager.instance.Fb_Delivry, transform.position, Quaternion.identity, transform);
-                    newRotate.z = 180;
                     LightShaft.transform.eulerAngles = newRotate;
                     break;
                 case FacingDirection.left:
                     LightShaft = Instantiate(_FeedBackManager.instance.Fb_Delivry, transform.position, Quaternion.identity, transform);
+                    newRotate.z = 180;
                     LightShaft.transform.eulerAngles = newRotate;
                     break;
                 case FacingDirection.forward:
                     LightShaft = Instantiate(_FeedBackManager.instance.Fb_Delivry, transform.position, Quaternion.identity, transform);
-                    newRotate.y = 90;
+                    newRotate.y = 270;
                     LightShaft.transform.eulerAngles = newRotate;
                     break;
                 case FacingDirection.backward:
                     LightShaft = Instantiate(_FeedBackManager.instance.Fb_Delivry, transform.position, Quaternion.identity, transform);
-                    newRotate.y = 270;
+                    newRotate.y = 90;
                     LightShaft.transform.eulerAngles = newRotate;
                     break;
             }
+        }
+
+        public IEnumerator VictoryPSLatence()
+        {
+            StartExplosion = UnityEngine.Random.Range(0.2f, 1);
+            yield return new WaitForSeconds(StartExplosion);
+            ExplosionEND_PS.Play();
+            _InGameCamera.instance.ScreenShake();
+            GetComponent<MeshRenderer>().enabled = false;
+            yield return new WaitForSeconds(ExplosionEND_PS.main.duration);
+            Destroy(gameObject);
         }
     }
 }
