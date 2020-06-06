@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using System;
-using UnityEditor;
 
 namespace Kubika.Game
 {
@@ -246,8 +245,6 @@ namespace Kubika.Game
                 if (item.kubicode == _Kubicode)
                 {
                     targetLevel = item.gameObject;
-
-                    Selection.activeGameObject = item.gameObject; 
                     break;
                 }
                 else continue;
