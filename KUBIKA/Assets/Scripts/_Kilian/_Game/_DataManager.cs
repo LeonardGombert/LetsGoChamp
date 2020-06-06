@@ -66,7 +66,9 @@ namespace Kubika.Game
         private void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
-            else _instance = this; 
+            else _instance = this;
+
+            Debug.Log("Platform.Mobile = " + Application.isMobilePlatform);
 
             // CAP LE FPS A 60 FPS
             if (Application.isMobilePlatform == true)
@@ -153,6 +155,7 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
+
             if (platform == Platform.Mobile)
                 PhoneInput();
             else
