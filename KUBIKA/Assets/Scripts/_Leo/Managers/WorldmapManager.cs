@@ -3,44 +3,47 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[InitializeOnLoad]
-[CanEditMultipleObjects]
-public class WorldmapManager : MonoBehaviour
+namespace Kubika.Game
 {
-    private static WorldmapManager _instance;
-    public static WorldmapManager instance { get { return _instance; } }
-
-    public List<GameObject> levelCubes = new List<GameObject>();
-    
-    private Biomes currentBiome;
-    private GameObject activeFace;
-
-    public Transform[] faces;
-
-    private GameObject worldMapFace;
-
-    [RuntimeInitializeOnLoadMethod]
-    private void Awake()
+    //[InitializeOnLoad]
+    //[CanEditMultipleObjects]
+    public class WorldmapManager : MonoBehaviour
     {
-        if (_instance != null && _instance != this) Destroy(this);
-        else _instance = this;
-    }
+        private static WorldmapManager _instance;
+        public static WorldmapManager instance { get { return _instance; } }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        faces = new Transform[(int)Biomes.Count];
+        public List<GameObject> levelCubes = new List<GameObject>();
 
-        for (int i = 0; i < faces.Length; i++)
+        private Biomes currentBiome;
+        private GameObject activeFace;
+
+        public Transform[] faces;
+
+        private GameObject worldMapFace;
+
+        //[RuntimeInitializeOnLoadMethod]
+        private void Awake()
         {
-            currentBiome = (Biomes)i;
-            faces[i] = GameObject.Find(currentBiome.ToString()).transform;
+            if (_instance != null && _instance != this) Destroy(this);
+            else _instance = this;
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+            faces = new Transform[(int)Biomes.Count];
+
+            for (int i = 0; i < faces.Length; i++)
+            {
+                currentBiome = (Biomes)i;
+                faces[i] = GameObject.Find(currentBiome.ToString()).transform;
+            }
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
