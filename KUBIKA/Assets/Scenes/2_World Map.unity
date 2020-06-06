@@ -75815,6 +75815,8 @@ MonoBehaviour:
   brainVCam: {fileID: 1636103214}
   blenderSettingsVCam: {fileID: 11400000, guid: 274b7cd62d8a21e49bfa9e9239f563bf,
     type: 2}
+  blenderCUTSettingsVCam: {fileID: 11400000, guid: aa206325a55f4e943b821121b048f28e,
+    type: 2}
   MainCam: {fileID: 1636103213}
   zoomPower: 0.1
   pivotMainCamera: {fileID: 1866396111}
