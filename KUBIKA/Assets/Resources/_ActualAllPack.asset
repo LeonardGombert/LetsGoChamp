@@ -122,10 +122,12 @@ MonoBehaviour:
   Switch_Contrast: 1
   Switch_Saturation: 1
   Switch_Brightness: 0
-  _SwitchTexOnButton: {fileID: 0}
-  _SwitchTexOffButton: {fileID: 0}
-  _SwitchTexInsideButton: {fileID: 0}
-  _SwitchMeshButton: {fileID: 0}
+  _SwitchTexOnButton: {fileID: 2800000, guid: eda8f879496c386439298e7b360cc4b9, type: 3}
+  _SwitchTexOffButton: {fileID: 2800000, guid: eda8f879496c386439298e7b360cc4b9, type: 3}
+  _SwitchTexInsideButton: {fileID: 2800000, guid: b6839a60f61934e438dc3668dffddd08,
+    type: 3}
+  _SwitchMeshButton: {fileID: 7594273234443547069, guid: fc706fb5d8068f649a7b75efe59f10ff,
+    type: 3}
   _SwitchColorButton: {r: 1, g: 1, b: 1, a: 0}
   _SwitchColorInsideButton: {r: 0, g: 0, b: 0, a: 0}
   _SwitchInsideStrengthButton: 0
@@ -192,14 +194,14 @@ MonoBehaviour:
   _BaseVTex: {fileID: 2800000, guid: 9776ab2659ceadb47a032377626341ea, type: 3}
   _BaseVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _BaseVColor: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
+  _BaseVColor: {r: 1, g: 1, b: 1, a: 0}
   _BaseVTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BaseVInsideStrength: 0
   _BaseVColorInside: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
   BaseV_Hue: -183
   BaseV_Contrast: 1
-  BaseV_Saturation: 1
-  BaseV_Brightness: 0
+  BaseV_Saturation: 2
+  BaseV_Brightness: 1
   _BetonVTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
   _BetonVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}

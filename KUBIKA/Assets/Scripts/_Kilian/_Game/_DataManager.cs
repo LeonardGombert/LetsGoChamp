@@ -66,7 +66,7 @@ namespace Kubika.Game
         private void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
-            else _instance = this;
+            else _instance = this; 
 
             // CAP LE FPS A 60 FPS
             if (Application.isMobilePlatform == true)
@@ -147,6 +147,7 @@ namespace Kubika.Game
             {
                 baseCube.Add(cube);
             }
+
         }
 
         // Update is called once per frame

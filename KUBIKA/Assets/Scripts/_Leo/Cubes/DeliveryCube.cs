@@ -15,6 +15,7 @@ namespace Kubika.Game
 
         // VICTORY FX
         _CubeBase victoryCubeTracker;
+        Vector3 pushDirection;
 
         [HideInInspector] public ParticleSystem ExplosionEND_PS;
         float StartExplosion;
@@ -104,10 +105,29 @@ namespace Kubika.Game
             StartExplosion = UnityEngine.Random.Range(0.2f, 1);
             yield return new WaitForSeconds(StartExplosion);
             ExplosionEND_PS.Play();
+            BlowUpDirection();
+            AddForceToVictoryCube();
             _InGameCamera.instance.ScreenShake();
             GetComponent<MeshRenderer>().enabled = false;
             yield return new WaitForSeconds(ExplosionEND_PS.main.duration);
             Destroy(gameObject);
+        }
+
+        void BlowUpDirection()
+        {
+            //shoot forwards
+            for (int position = myIndex; position < grid.gridSize * grid.gridSize * grid.gridSize; position -= _DirectionCustom.LocalScanner(facingDirection))
+            {
+                RemoveCube(position);
+                if (!MatrixLimitCalcul(position, _DirectionCustom.LocalScanner(facingDirection))) break;
+            }
+
+        }
+
+        void AddForceToVictoryCube()
+        {
+            pushDirection = transform.position - victoryCubeTracker.transform.position;
+            victoryCubeTracker.ApplyRigidbody(pushDirection);
         }
     }
 }
