@@ -21,12 +21,13 @@ namespace Kubika.Game
             LevelEditor.instance.currentCube = selectedCubeType;
         }
 
-
         public void ChangeUniverseSelection()
         {
             //UIManager.instance.ButtonCallback("LEVELEDITOR_isPlacing");
             Debug.Log("You've pressed " + biomes.ToString());
-            _MaterialCentral.instance.ChangeUniverse(biomes - 1);
+            _MaterialCentral.instance.ChangeUniverse(biomes);
+
+            CubePopulatorManager.instance.RefreshDecoratorCubes();
         }
     }
 }
