@@ -43,5 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f1379a3d149be429693131937b874b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadToScene: 5
+  loadToScene: 2
   currentActiveScene: 0
+  finishedLoadingScene: 0
