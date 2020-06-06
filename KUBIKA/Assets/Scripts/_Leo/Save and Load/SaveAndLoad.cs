@@ -309,6 +309,8 @@ namespace Kubika.Saving
                 {
                     Debug.Log("Overwritting existing save !");
                     playerProgress.lastLevelKubicode = progressKubiCode;
+                    playerProgress.beatenLevels.Add(LevelsManager.instance._Kubicode);
+
                     string json = JsonUtility.ToJson(playerProgress);
                     string folder = Application.dataPath + "/Resources/PlayerSave";
                     string levelFile = "PlayerProgress.json";
@@ -321,6 +323,8 @@ namespace Kubika.Saving
                 else
                 {
                     playerProgress.lastLevelKubicode = progressKubiCode;
+                    playerProgress.beatenLevels.Add(LevelsManager.instance._Kubicode);
+
                     string json = JsonUtility.ToJson(playerProgress);
 
                     string folder = Application.dataPath + "/Resources/PlayerSave";
@@ -359,6 +363,15 @@ namespace Kubika.Saving
                 kubicodeToLoad = playerProgress.lastLevelKubicode;
 
                 Debug.Log("Last player level is " + kubicodeToLoad);
+
+                foreach (LevelFile level in LevelsManager.instance.masterList)
+                {
+                    for (int i = 0; i < playerProgress.beatenLevels.Count; i++)
+                    {
+                        if (level.kubicode == playerProgress.beatenLevels[i])
+                            continue; //level.levelIsBeaten = true;
+                    }
+                }
             }
 
             return kubicodeToLoad;

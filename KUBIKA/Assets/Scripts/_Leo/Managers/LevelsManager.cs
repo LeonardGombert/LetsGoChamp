@@ -64,9 +64,6 @@ namespace Kubika.Game
         void Start()
         {
             if (ScenesManager.isLevelEditor) RefreshUserLevels();
-
-            //MOVE THIS SOMEWHERE ELSE, ONLY CALL IF PLAYER PRESSES CONTINUE BUTTON FROM WORLDMAP SCREEN
-            loadToKubicode = SaveAndLoad.instance.LoadProgress();
         }
 
         IEnumerator InitializeLevelsList()
@@ -102,6 +99,9 @@ namespace Kubika.Game
         // called when Game Scene is loaded, load specific level or set to baseState
         public void BakeLevels()
         {
+            //MOVE THIS SOMEWHERE ELSE (?)
+            loadToKubicode = SaveAndLoad.instance.LoadProgress();
+
             for (int i = 0; i < masterList.Count; i++)
             {
                 if (masterList[i].kubicode != loadToKubicode) continue;
@@ -286,6 +286,7 @@ namespace Kubika.Saving
         public Biomes levelBiome;
         public int minimumMoves;
         public bool lockRotate;
+        [HideInInspector] public bool levelIsBeaten; //not saved in the file, but in player progress
         public TextAsset levelFile;
     }
 }

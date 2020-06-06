@@ -79,15 +79,20 @@ namespace Kubika.Game
         public IEnumerator TransitionTime()
         {
             deliveryCube = FindObjectsOfType<DeliveryCube>();
+            
             _FeedBackManager.instance.EveryCubeHappy();
+
             foreach (DeliveryCube cube in deliveryCube)
             {
                 StartCoroutine(cube.VictoryPSLatence());
             }
+
             yield return new WaitForSeconds(waitTimeBeforePS);
             _FeedBackManager.instance.PlayVictoryFX();
             yield return new WaitForSeconds(waitTime);
+
             SaveAndLoad.instance.SaveProgress();
+
             StartCoroutine(WinCountdown());
         }
 
