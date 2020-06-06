@@ -45,11 +45,11 @@ namespace Kubika.Game
         {
 
         }
-    }
 
-    //use to focus camera on next level when worldmap loads in
-    public void FocusOnNextLevel()
-    {
+        //use to focus camera on next level when worldmap loads in
+        public void FocusOnNextLevel()
+        {
 
+        }
     }
 }

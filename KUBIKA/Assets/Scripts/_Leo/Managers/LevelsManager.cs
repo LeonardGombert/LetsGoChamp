@@ -260,8 +260,18 @@ namespace Kubika.Game
 
         public void ReturnToWorldMap()
         {
+            StartCoroutine(MoveToNextLevel());
+        }
+
+        private IEnumerator MoveToNextLevel()
+        {
             ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
-            _Planete.instance.StartOnFace((int)_levelBiome + 1);
+
+            while (!ScenesManager.instance.finishedLoadingScene) yield return null;
+
+            _Planete.instance.StartOnFace((int)_levelBiome);
+            
+            yield return null;
         }
     }
 }
