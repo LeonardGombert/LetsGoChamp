@@ -19,6 +19,8 @@ namespace Kubika.Game
         [ShowInInspector] public static bool isLevelEditor = true;
         [ShowInInspector] public static bool isDevScene = false;
 
+        public bool finishedLoadingScene = false;
+
         void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -46,6 +48,7 @@ namespace Kubika.Game
         
         public void _LoadScene(ScenesIndex targetScene)
         {
+            finishedLoadingScene = false;
             StartCoroutine(LoadScene(targetScene));
         }
 
@@ -60,6 +63,8 @@ namespace Kubika.Game
             currentActiveScene = targetScene;
 
             UIManager.instance.RefreshActiveScene();
+            
+            finishedLoadingScene = true;
 
             yield return null;
         }

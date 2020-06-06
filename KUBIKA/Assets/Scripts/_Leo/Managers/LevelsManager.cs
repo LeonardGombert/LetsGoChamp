@@ -1,3 +1,4 @@
+using Kubika.CustomLevelEditor;
 using Kubika.Saving;
 using Sirenix.OdinInspector;
 using System;
@@ -15,6 +16,7 @@ namespace Kubika.Game
     {
         private static LevelsManager _instance;
         public static LevelsManager instance { get { return _instance; } }
+
 
         #region MAIN LEVELS
         [FoldoutGroup("Biomes")] public List<LevelFile> masterList = new List<LevelFile>();
@@ -34,7 +36,8 @@ namespace Kubika.Game
 
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor ")] public List<string> levelNames = new List<string>();
-        [FoldoutGroup("Level Editor ")] public List<LevelFile> playerLevelsInfo = new List<LevelFile>();
+        [FoldoutGroup("Level Editor ")] public List<LevelFile> userLevelsList = new List<LevelFile>();
+        public string userSceneToTest;
         #endregion
 
         //which level to load to
@@ -48,7 +51,6 @@ namespace Kubika.Game
         public string _Kubicode;
         public int _minimumMoves;
         public bool _lockRotate;
-
         void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -133,6 +135,7 @@ namespace Kubika.Game
             loadToKubicode = kubicode;
         }
 
+        //used to find the matching LevelFile based on KubiCode
         LevelFile GetMatching(string kubiCode)
         {
             LevelFile returnfile = new LevelFile();
@@ -147,6 +150,7 @@ namespace Kubika.Game
         }
 
 
+        #region //USER LEVEL EDITOR
         public void RefreshUserLevels()
         {
             levelNames = UserLevelFiles.GetUserLevelNames();
@@ -156,12 +160,38 @@ namespace Kubika.Game
 
             foreach (string levelName in levelNames)
             {
+                //the info used to fill out the dropdown tabs are provided by the user level files
                 UIManager.instance.playerLevelsDropdown.options.Add(new Dropdown.OptionData(levelName));
             }
 
             UIManager.instance.playerLevelsDropdown.RefreshShownValue();
         }
 
+        public IEnumerator OpenTestLevel()
+        {
+            SaveAndLoad.instance.UserSavingCurrentLevel();
+            ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
+
+            while (!ScenesManager.instance.finishedLoadingScene) yield return null;
+
+            SaveAndLoad.instance.UserLoadLevel(SaveAndLoad.instance.currentOpenLevelName);
+
+            yield return null;
+        }
+
+        public IEnumerator CloseTestLevel()
+        {
+            ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
+
+            while (!ScenesManager.instance.finishedLoadingScene) yield return null;
+
+            SaveAndLoad.instance.UserLoadLevel(SaveAndLoad.instance.currentOpenLevelName);
+
+            yield return null;
+        }
+        #endregion
+
+        #region //LOAD LEVEL PIPELINE
         public void _LoadNextLevel()
         {
             //get info
@@ -220,6 +250,7 @@ namespace Kubika.Game
         {
             levelQueue.Dequeue();
         }
+        #endregion
 
         public void RestartLevel()
         {

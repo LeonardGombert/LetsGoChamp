@@ -28,6 +28,18 @@ namespace Kubika.Game
                 case FacingDirection.left:
                     vectorResult = new Vector3(0, 270, 0);
                     break;
+                case FacingDirection.downforward:
+                    vectorResult = new Vector3(0, 90, 90);
+                    break;
+                case FacingDirection.downback:
+                    vectorResult = new Vector3(0, 270, 90);
+                    break;
+                case FacingDirection.downleft:
+                    vectorResult = new Vector3(0, 180, 90);
+                    break;
+                case FacingDirection.downright:
+                    vectorResult = new Vector3(0, 0, 90);
+                    break;
 
                 default:
                     break;
@@ -84,4 +96,10 @@ public enum FacingDirection
 
     right,
     left,
+
+    //for corner cube
+    downforward,
+    downback,
+    downleft,
+    downright,
 }
