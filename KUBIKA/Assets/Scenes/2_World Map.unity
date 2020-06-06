@@ -63516,7 +63516,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 274b7cd62d8a21e49bfa9e9239f563bf, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -75812,6 +75812,9 @@ MonoBehaviour:
   nextFace: {fileID: 0}
   oldFace: {fileID: 0}
   baseVCam: {fileID: 14054313}
+  brainVCam: {fileID: 1636103214}
+  blenderSettingsVCam: {fileID: 11400000, guid: 274b7cd62d8a21e49bfa9e9239f563bf,
+    type: 2}
   MainCam: {fileID: 1636103213}
   zoomPower: 0.1
   pivotMainCamera: {fileID: 1866396111}
