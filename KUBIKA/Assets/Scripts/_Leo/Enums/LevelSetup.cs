@@ -1,8 +1,9 @@
 ﻿public enum LevelSetup
 {
     none,
-    baseGrid,
-    plane,
-    rightDoublePlane,
-    leftDoublePlane
+    BaseGrid,
+    Plane,
+    RightDoublePlane,
+    LeftDoublePlane,
+    Count
 }

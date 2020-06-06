@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 1852102764, guid: b3ced5b1e623ddc47a90b18b5b819eaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
     - target: {fileID: 2080361454, guid: b3ced5b1e623ddc47a90b18b5b819eaa, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -628,11 +632,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 557176486588228461, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 557176486708435645, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
@@ -732,7 +731,7 @@ PrefabInstance:
     - target: {fileID: 557176488127318097, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000022888184
+      value: -0.000011444092
       objectReference: {fileID: 0}
     - target: {fileID: 557176488212085659, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
@@ -743,11 +742,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Level Editor UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 557176488720930627, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 557176488720930655, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
@@ -854,6 +848,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 561161951326157276, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
     - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1242,6 +1241,11 @@ PrefabInstance:
       propertyPath: customTestCanvas
       value: 
       objectReference: {fileID: 89744682}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelEditorOptionsWindow
+      value: 
+      objectReference: {fileID: 557176488540607920}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped

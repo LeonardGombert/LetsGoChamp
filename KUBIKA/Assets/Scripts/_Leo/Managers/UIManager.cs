@@ -52,7 +52,7 @@ namespace Kubika.Game
         #endregion
 
         #region LEVEL EDITOR
-        [FoldoutGroup("Level Editor")] [SerializeField] GameObject optionsWindow;
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorOptionsWindow;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
         [FoldoutGroup("Level Editor")] public Dropdown playerLevelsDropdown;
@@ -159,11 +159,7 @@ namespace Kubika.Game
             ResetCanvasSortOrder();
             levelEditorCanvas.enabled = true;
 
-            if (hamburgerMenuCanvas != null) hamburgerMenuCanvas.enabled = true;
-            if (hamburgerMenuCanvas2 != null) hamburgerMenuCanvas2.enabled = true;
-
-            hiddenMenuButtons.SetActive(false);
-            optionsWindow.SetActive(false);
+            levelEditorOptionsWindow.SetActive(false);
 
             levelEditorCanvas.sortingOrder = 1000;
         }
@@ -299,6 +295,10 @@ namespace Kubika.Game
                     UserLoadLevel();
                     break;
 
+                case "LEVELEDITOR_DeleteLevel":
+                    UserDeleteLevel();
+                    break;
+
                 case "LEVELEDITOR_LeaveTestLevel":
                     ReturnToLevelEditor();
                     break;
@@ -421,10 +421,17 @@ namespace Kubika.Game
             SaveAndLoad.instance.UserLoadLevel(playerLevelsDropdown.captionText.text);
         }
 
+        //called by user when loading a level
+        void UserDeleteLevel()
+        {
+            //these dropdown caption texts are filled with the info provided by User Level Files
+            SaveAndLoad.instance.UserDeleteLevel(playerLevelsDropdown.captionText.text);
+        }
+
         //called to open Level Editor options
         void OpenOptionsWindow()
         {
-            optionsWindow.SetActive(!optionsWindow.activeInHierarchy);
+            levelEditorOptionsWindow.SetActive(!levelEditorOptionsWindow.activeInHierarchy);
         }
 
         // called when user tests level in Level Editor

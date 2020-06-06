@@ -6,6 +6,8 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 [InitializeOnLoad]
 [CanEditMultipleObjects]
 public class LevelEditorWindow : EditorWindow
@@ -15,6 +17,7 @@ public class LevelEditorWindow : EditorWindow
     private Biomes loadLevelBiome;
     int levelIndex = 0;
     int cubeTypeIndex = 0;
+    int levelSetupIndex = 0;
     private string levelName;
     private string kubiCode;
     private bool lockRotate;
@@ -26,6 +29,9 @@ public class LevelEditorWindow : EditorWindow
     private string[] levelBiomes;
     private Biomes levelBiome;
     private int biomesIndex;
+
+    private string[] presetType;
+    LevelSetup levelSetupLength;
 
     [MenuItem("Tools/Level Editor")]
     static void Init()
@@ -41,38 +47,23 @@ public class LevelEditorWindow : EditorWindow
             LoadLevel();
             SelectCubeType();
 
+            SelectPreset();
+            RedrawGrid();
+
             PlaceCubes();
             DeleteCubes();
             RotateCubes();
             GUILayout.Space(20);
             SaveLevel();
             SaveTestLevel();
-            SaveCurrentLevel();
+            //SaveCurrentLevel();
 
             GUILayout.Space(70);
 
-            LaunchGame();
+            //LaunchGame();
 
             //TestLevel();
         }
-    }
-
-    private void PlaceCubes()
-    {
-        if (GUILayout.Button("Place Cubes"))
-            LevelEditor.instance.SwitchAction("isPlacing");
-    }
-
-    private void DeleteCubes()
-    {
-        if (GUILayout.Button("Delete Cubes"))
-            LevelEditor.instance.SwitchAction("isDeleting");
-    }
-
-    private void RotateCubes()
-    {
-        if (GUILayout.Button("Rotate Cubes"))
-            LevelEditor.instance.SwitchAction("isRotating");
     }
 
     private void LoadLevel()
@@ -121,7 +112,7 @@ public class LevelEditorWindow : EditorWindow
 
         levelIndex = EditorGUI.Popup(new Rect(0, 20, position.width, 20), "Load Level : ", levelIndex, levels);
 
-        GUILayout.Space(50);
+        GUILayout.Space(70);
 
         if (GUILayout.Button("Load Level !"))
         {
@@ -132,6 +123,60 @@ public class LevelEditorWindow : EditorWindow
             miminumMoves = SaveAndLoad.instance.currentMinimumMoves;
             biomesIndex = (int)SaveAndLoad.instance.currentBiome;
         }
+    }
+
+    private void SelectCubeType()
+    {
+        cubeTypes = new string[(int)CubeTypes.Count];
+
+        for (int i = 1; i < (int)CubeTypes.Count; i++)
+        {
+            cubeTypesLength = (CubeTypes)i;
+            cubeTypes[i] = cubeTypesLength.ToString();
+        }
+
+        cubeTypeIndex = EditorGUI.Popup(new Rect(0, 40, position.width, 20), "Cube Type : ", cubeTypeIndex, cubeTypes);
+
+        LevelEditor.instance.currentCube = (CubeTypes)cubeTypeIndex;
+    }
+
+    private void SelectPreset()
+    {
+        presetType = new string[(int)LevelSetup.Count];
+
+        for (int i = 1; i < (int)LevelSetup.Count; i++)
+        {
+            levelSetupLength = (LevelSetup)i;
+            presetType[i] = levelSetupLength.ToString();
+        }
+
+        levelSetupIndex = EditorGUI.Popup(new Rect(0, 60, position.width, 20), "Level Setup : ", levelSetupIndex, presetType);
+
+        LevelEditor.instance.levelSetup = (LevelSetup)levelSetupIndex;
+    }
+
+    private void RedrawGrid()
+    {
+        if (GUILayout.Button("Redraw Grid"))
+            _Grid.instance.RefreshGrid();
+    }
+        
+    private void PlaceCubes()
+    {
+        if (GUILayout.Button("Place Cubes"))
+            LevelEditor.instance.SwitchAction("isPlacing");
+    }
+
+    private void DeleteCubes()
+    {
+        if (GUILayout.Button("Delete Cubes"))
+            LevelEditor.instance.SwitchAction("isDeleting");
+    }
+
+    private void RotateCubes()
+    {
+        if (GUILayout.Button("Rotate Cubes"))
+            LevelEditor.instance.SwitchAction("isRotating");
     }
 
     private void SaveLevel()
@@ -168,21 +213,6 @@ public class LevelEditorWindow : EditorWindow
 
             SaveAndLoad.instance.DevSavingCurrentLevel();
         }
-    }
-
-    private void SelectCubeType()
-    {
-        cubeTypes = new string[(int)CubeTypes.ChaosBall + 1];
-
-        for (int i = 1; i <= (int)CubeTypes.ChaosBall; i++)
-        {
-            cubeTypesLength = (CubeTypes)i;
-            cubeTypes[i] = cubeTypesLength.ToString();
-        }
-
-        cubeTypeIndex = EditorGUI.Popup(new Rect(0, 40, position.width, 20), "Cube Type : ", cubeTypeIndex, cubeTypes);
-
-        LevelEditor.instance.currentCube = (CubeTypes)cubeTypeIndex;
     }
 
     private void LaunchGame()

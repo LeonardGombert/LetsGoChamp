@@ -24,11 +24,11 @@ namespace Kubika.Saving
         }
 
         //use to initialize if null, or refresh an existing user info file
-        public static void InitializeUserLevelInfo(UserLevels newUserLevels = default)
+        public static void InitializeUserLevelInfo(UserLevels userLevelsFile = default)
         {
-            if (newUserLevels == default) newUserLevels = new UserLevels();
+            if (userLevelsFile == default) userLevelsFile = new UserLevels();
 
-            string json = JsonUtility.ToJson(newUserLevels);
+            string json = JsonUtility.ToJson(userLevelsFile);
             string folder = Application.persistentDataPath + "/UserLevels";
             string levelFile = "_UserLevelInfo.json";
 
@@ -37,7 +37,7 @@ namespace Kubika.Saving
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
             if (File.Exists(path)) File.Delete(path);
-            File.WriteAllText(path, json);
+                File.WriteAllText(path, json);
         }
 
         //create a new level file
@@ -68,13 +68,28 @@ namespace Kubika.Saving
         public static void DeleteUserLevel(string levelName)
         {
             string folder = Application.persistentDataPath + "/UserLevels";
-            string levelsInfo = Application.persistentDataPath + "/UserLevels/UserLevelInfo";
-            UserLevels userLevels = JsonUtility.FromJson<UserLevels>(levelsInfo);
+            string levelsInfo = "_UserLevelInfo";
 
-            userLevels.levelNames.Remove(levelName);
-            userLevels.numberOfUserLevels--;
+            string pathToInfoFile = Path.Combine(folder, levelsInfo) + ".json";
+            string pathToLevelFile = Path.Combine(folder, levelName) + ".json";
 
-            InitializeUserLevelInfo(userLevels);
+            Debug.Log(pathToInfoFile);
+
+            if (File.Exists(pathToInfoFile))
+            {
+                Debug.Log("Found file");
+
+                string json = File.ReadAllText(pathToInfoFile);
+                UserLevels userInfoFile = JsonUtility.FromJson<UserLevels>(json);
+
+                userInfoFile.levelNames.Remove(levelName);
+                userInfoFile.numberOfUserLevels--;
+
+                File.Delete(pathToLevelFile);
+
+                //save the new UserInfoFile
+                InitializeUserLevelInfo(userInfoFile);
+            }
         }
 
         //use to get all the level names from the user level info file

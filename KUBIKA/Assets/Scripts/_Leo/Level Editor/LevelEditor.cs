@@ -328,25 +328,25 @@ namespace Kubika.CustomLevelEditor
                     SaveAndLoad.instance.ExtractAndRebuildLevel(emptyGrid);
                     break;
 
-                case LevelSetup.baseGrid:
+                case LevelSetup.BaseGrid:
                     string baseGridJson = prefabLevels.Find(item => item.name.Contains("Base")).ToString();
                     LevelEditorData baseGrid = JsonUtility.FromJson<LevelEditorData>(baseGridJson);
                     SaveAndLoad.instance.ExtractAndRebuildLevel(baseGrid);
                     break;
 
-                case LevelSetup.plane:
+                case LevelSetup.Plane:
                     string planeJson = prefabLevels.Find(item => item.name.Contains("Plane")).ToString();
                     LevelEditorData planeData = JsonUtility.FromJson<LevelEditorData>(planeJson);
                     SaveAndLoad.instance.ExtractAndRebuildLevel(planeData);
                     break;
 
-                case LevelSetup.rightDoublePlane:
+                case LevelSetup.RightDoublePlane:
                     string rightJson = prefabLevels.Find(item => item.name.Contains("Right")).ToString();
                     LevelEditorData rightData = JsonUtility.FromJson<LevelEditorData>(rightJson);
                     SaveAndLoad.instance.ExtractAndRebuildLevel(rightData);
                     break;
 
-                case LevelSetup.leftDoublePlane:
+                case LevelSetup.LeftDoublePlane:
                     string leftJson = prefabLevels.Find(item => item.name.Contains("Left")).ToString();
                     LevelEditorData leftData = JsonUtility.FromJson<LevelEditorData>(leftJson);
                     SaveAndLoad.instance.ExtractAndRebuildLevel(leftData);
