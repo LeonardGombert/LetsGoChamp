@@ -38,13 +38,13 @@ public class TweenManager : MonoBehaviour
     }
 
     /*
-    HOW TO USE
+        HOW TO USE
 
-    float time;
-    float change;
-    float startValue;
-    float targetValue;
-    float tweenDuration;
+        float time;
+        float change;
+        float startValue;
+        float targetValue;
+        float tweenDuration;
 
     //example function
     void MoveValue(int exampleValue)

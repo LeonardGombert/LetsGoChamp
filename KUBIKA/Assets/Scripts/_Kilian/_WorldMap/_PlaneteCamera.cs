@@ -128,8 +128,6 @@ namespace Kubika.Game
                 currentPivotPosition = Vector3.Lerp(LimitStart.position, LimitEnd.position, Mathf.Clamp(Mathf.Abs(actualPosScroll),0.1f , 0.95f));
                 pivotVCam.transform.position = currentPivotPosition;
             }
-
-
         }
 
         public static float InverseLerp(Vector3 a, Vector3 b, Vector3 value)
@@ -153,6 +151,20 @@ namespace Kubika.Game
 
             //not on plane
             return Vector3.zero;
+        }
+
+        public void PutCameraInfrontOfCube(Vector3 CubePosition)
+        {
+
+            currentPivotPosition = pivotVCam.transform.position;
+
+            distanceLimitCam = Vector3.Distance(LimitStart.position, LimitEnd.position);
+            distanceLimitScroll = Vector3.Distance(LimitStartScroll.position, LimitEndScroll.position);
+
+            float actualPosScroll = InverseLerp(LimitStartScroll.position, LimitEndScroll.position, CubePosition);
+
+            currentPivotPosition = Vector3.Lerp(LimitStart.position, LimitEnd.position, Mathf.Clamp(Mathf.Abs(actualPosScroll), 0.1f, 0.95f));
+            pivotVCam.transform.position = currentPivotPosition;
         }
     }
 }
