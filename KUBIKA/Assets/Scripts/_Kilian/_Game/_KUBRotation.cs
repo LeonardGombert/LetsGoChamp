@@ -25,6 +25,7 @@ namespace Kubika.Game
         Vector3 moveRot;
         float lerpValue;
         float currentValue;
+        public AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
 
 
 
@@ -108,7 +109,7 @@ namespace Kubika.Game
                         lerpValue += Time.deltaTime;
                         currentValue = lerpValue / turningSpeed;
 
-                        currentRot.z = (Mathf.SmoothStep(baseRot.z, moveRot.z, currentValue));
+                        currentRot.z = (Mathf.SmoothStep(baseRot.z, moveRot.z, curve.Evaluate(currentValue)));
                         transform.eulerAngles = currentRot;
 
                         yield return null;
@@ -126,7 +127,7 @@ namespace Kubika.Game
                         lerpValue += Time.deltaTime;
                         currentValue = lerpValue / turningSpeed;
 
-                        currentRot.z = (Mathf.SmoothStep(baseRot.z, moveRot.z, currentValue));
+                        currentRot.z = (Mathf.SmoothStep(baseRot.z, moveRot.z, curve.Evaluate(currentValue)));
                         transform.eulerAngles = currentRot;
 
                         yield return null;
@@ -159,8 +160,6 @@ namespace Kubika.Game
                 isTurning = false;
             }
         }
-
-
 
     }
 }

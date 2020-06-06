@@ -41,26 +41,24 @@ public class TweenManager : MonoBehaviour
     }
 
     /*
-    HOW TO USE
+        HOW TO USE
 
-    float time;
-    float change;
-    float startValue;
-    float targetValue;
-    float tweenDuration;
+        float time;
+        float change;
+        float startValue;
+        float targetValue;
+        float tweenDuration;
 
-    change = targetValue - startValue;
+        //example function
+        void MoveValue(int exampleValue)
+        {
+            change = targetValue - startValue;
 
-    if (time <= duration)
-    {
-       time += Time.deltaTime;      
-       transform.position = new Vector2(targetPosition.x, TweenManager.LinearTween(time, startValue, change, tweenDuration));
-    }
-
-    TO INVERT
-    if (time >= duration)
-    {
-       transform.position = startValue;
-    }
-    */
+            if (time <= duration)
+            {
+                time += Time.deltaTime;
+                exampleValue = TweenManager.LinearTween(time, startValue, change, tweenDuration);
+            }
+        }
+        */
 }
