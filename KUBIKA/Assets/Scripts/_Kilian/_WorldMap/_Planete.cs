@@ -27,6 +27,8 @@ namespace Kubika.Game
         public CinemachineVirtualCamera baseVCam;
         public CinemachineBrain brainVCam;
         public CinemachineBlenderSettings blenderSettingsVCam;
+        public CinemachineBlenderSettings blenderCUTSettingsVCam;
+        CinemachineBlenderSettings victimeSettingsVCam;
         public Camera MainCam;
 
         //INPUT
@@ -187,7 +189,8 @@ namespace Kubika.Game
             currentFace.vCam.Priority = 20;
             baseVCam.Priority = 0;
             oldFace = currentFace;
-            brainVCam.m_CustomBlends.m_CustomBlends[0] = blenderSettingsVCam.m_CustomBlends[0];
+            victimeSettingsVCam.m_CustomBlends[0] = blenderSettingsVCam.m_CustomBlends[0];
+            brainVCam.m_CustomBlends.m_CustomBlends[0] = victimeSettingsVCam.m_CustomBlends[0];
         }
 
         public void MainPlaneteView()
@@ -214,7 +217,8 @@ namespace Kubika.Game
 
         public void StartOnFace(int faceEnQuestion)
         {
-            brainVCam.m_CustomBlends.m_CustomBlends[0] = blenderSettingsVCam.m_CustomBlends[1];
+            victimeSettingsVCam.m_CustomBlends[0] = blenderCUTSettingsVCam.m_CustomBlends[0];
+            brainVCam.m_CustomBlends.m_CustomBlends[0] = victimeSettingsVCam.m_CustomBlends[0];
             Debug.Log("After");
             CameraTransition(raycastFaces[faceEnQuestion + 1]);
 
