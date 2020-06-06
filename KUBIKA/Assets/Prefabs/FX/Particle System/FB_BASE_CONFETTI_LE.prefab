@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7892849504015531095}
   - component: {fileID: 5506996611581070305}
   - component: {fileID: 683256065253632185}
+  - component: {fileID: 1806161710851303909}
   m_Layer: 0
   m_Name: FB_BASE_CONFETTI_LE
   m_TagString: Untagged
@@ -48,7 +49,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -168,7 +169,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -755,7 +756,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -984,7 +985,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 20
+        scalar: 10
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -4821,3 +4822,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1806161710851303909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3946942212702938950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf99ca5fca6412046b41e43d04864cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

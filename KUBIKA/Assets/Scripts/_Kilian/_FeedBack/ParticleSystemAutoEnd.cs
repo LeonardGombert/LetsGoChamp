@@ -7,15 +7,17 @@ namespace Kubika.Game
     public class ParticleSystemAutoEnd : MonoBehaviour
     {
         ParticleSystem PS;
-        void Start()
-        {
 
+        private void Start()
+        {
+            PS = GetComponent<ParticleSystem>();
+            StartCoroutine(SelfGameEnd());
         }
-
         // Update is called once per frame
-        void Update()
+        IEnumerator SelfGameEnd()
         {
-
+            yield return new WaitForSeconds(PS.main.duration);
+            Destroy(gameObject);
         }
     }
 }

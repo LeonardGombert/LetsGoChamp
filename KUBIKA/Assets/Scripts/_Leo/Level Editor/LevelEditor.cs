@@ -209,9 +209,9 @@ namespace Kubika.CustomLevelEditor
             {
                 currentHitCube.ResetCubeInfo();
                 //reset the grid info
+                Instantiate(_FeedBackManagerLevelEditor.instance.Deleting_FB, currentHitCube.transform.position, Quaternion.identity);
                 Destroy(currentHitCube.gameObject);
             }
-
             grid.placedCubes.Remove(hit.collider.gameObject);
             //if there are no more gridObjects, redraw the grid
             if (grid.placedCubes.Count == 0) grid.RefreshGrid();
@@ -598,6 +598,8 @@ namespace Kubika.CustomLevelEditor
 
             cubeBase.gameObject.transform.position = GetCubePosition();
             cubeBase.gameObject.transform.parent = grid.transform;
+
+            Instantiate(_FeedBackManagerLevelEditor.instance.Placing_FB, cubeBase.transform.position, Quaternion.identity);
 
             cubeBase.SetRelevantNodeInfo();
         }
