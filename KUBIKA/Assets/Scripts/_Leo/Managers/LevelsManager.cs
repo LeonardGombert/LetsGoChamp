@@ -269,7 +269,7 @@ namespace Kubika.Game
 
             while (!ScenesManager.instance.finishedLoadingScene) yield return null;
 
-            _Planete.instance.StartOnFace((int)_levelBiome);
+            _Planete.instance.StartOnFace((int)_levelBiome - 1);
             
             yield return null;
         }

@@ -208,8 +208,6 @@ namespace Kubika.Game
             planeteView = true;
             currentFace.vCam.Priority = 0;
             baseVCam.Priority = 20;
-
-
         }
 
         public void StartOnFace(int faceEnQuestion)
