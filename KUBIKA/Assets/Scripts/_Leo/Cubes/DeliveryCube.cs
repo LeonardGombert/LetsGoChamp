@@ -10,7 +10,8 @@ namespace Kubika.Game
         bool touchingVictory;
         private bool locked;
 
-        GameObject LightShaft;
+        [HideInInspector] public GameObject LightShaft;
+        [HideInInspector] public GameObject LightShaftTrue;
         Vector3 newRotate = new Vector3();
 
         // VICTORY FX
@@ -50,6 +51,9 @@ namespace Kubika.Game
                 locked = true;
                 LightShaft.GetComponent<FB_Delivry>().ActivatePSFB();
                 StartCoroutine(victoryCubeOnPistion.VictoryFX(true));
+                victoryCubeOnPistion.isPastilleAndIsOn = true;
+                Debug.Log("PASTILLE EMOTE IS = " + victoryCubeOnPistion._EmotePastilleTex.name);
+                victoryCubeOnPistion.ChangeEmoteFace(victoryCubeOnPistion._EmotePastilleTex);
                 victoryCubeTracker = victoryCubeOnPistion;
                 VictoryConditionManager.instance.IncrementVictory();
             }
@@ -57,7 +61,9 @@ namespace Kubika.Game
             // flip the bools when the delivery cube loses track of the victory cube
             if (touchingVictory == false && locked == true)
             {
+                victoryCubeOnPistion.isPastilleAndIsOn = false;
                 StartCoroutine(victoryCubeTracker.VictoryFX(false));
+                victoryCubeTracker.ChangeEmoteFace(_EmoteIdleTex);
                 VictoryConditionManager.instance.DecrementVictory();
                 locked = false;
             }
@@ -109,6 +115,7 @@ namespace Kubika.Game
             AddForceToVictoryCube();
             _InGameCamera.instance.ScreenShake();
             GetComponent<MeshRenderer>().enabled = false;
+            LightShaftTrue.GetComponent<MeshRenderer>().enabled = false;
             yield return new WaitForSeconds(ExplosionEND_PS.main.duration);
             Destroy(gameObject);
         }

@@ -126,6 +126,7 @@ MonoBehaviour:
   PS: {fileID: 4083615498591006875}
   END_BASEExplosion: {fileID: 9021829367649512605}
   pivotPS: {fileID: 4083615497763084631}
+  LightShaft: {fileID: 4083615497248243704}
 --- !u!1 &4083615497763084630
 GameObject:
   m_ObjectHideFlags: 0

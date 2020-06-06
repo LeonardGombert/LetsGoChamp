@@ -25,6 +25,7 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Remove(this);
                 isStatic = true;
+                ChangeEmoteFace(_EmoteIdleOffTex);
                 myCubeLayer = CubeLayers.cubeFull;
             }
 
@@ -32,6 +33,7 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
+                ChangeEmoteFace(_EmoteIdleTex);
                 myCubeLayer = CubeLayers.cubeMoveable;
             }
 
