@@ -72,7 +72,7 @@ namespace Kubika.Game
 
         // TRANSITION TO NEXT LEVEL
         public LevelCube[] levelCubes;
-        GameObject targetLevel;
+        public GameObject targetLevel;
 
         float time;
         float changeX, changeY, changeZ;
@@ -251,9 +251,8 @@ namespace Kubika.Game
                 else continue;
             }
 
-            //faceRotationPoint = Vector3.Lerp(LimitStart.position, targetLevel.transform.position, Mathf.Clamp(Mathf.Abs(actualPosScroll), 0.1f, 0.95f));
+            currentFace.PutCameraInfrontOfCube(targetLevel.transform.position);
 
-            //brainVCam.m_CustomBlends = blenderSettingsVCam; // when finished, reset the transition to be the smooth one
             yield return null;
         }
 
