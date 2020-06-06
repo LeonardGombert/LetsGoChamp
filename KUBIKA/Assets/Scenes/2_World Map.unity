@@ -75821,6 +75821,7 @@ MonoBehaviour:
   zoomPower: 0.1
   pivotMainCamera: {fileID: 1866396111}
   mouvPower: 0.1
+  levelCubes: []
 --- !u!4 &1982662060
 Transform:
   m_ObjectHideFlags: 0
