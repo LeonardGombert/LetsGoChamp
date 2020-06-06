@@ -20,19 +20,19 @@ MonoBehaviour:
   _FullTex2: {fileID: 0}
   _FullMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TopTex: {fileID: 2800000, guid: 67686a86072c6e440b04d65e02d5f270, type: 3}
+  _TopTex: {fileID: 2800000, guid: 46a383825e7cb87499baae3061997531, type: 3}
   _TopTex2: {fileID: 0}
   _TopMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _CornerTex: {fileID: 2800000, guid: 46a383825e7cb87499baae3061997531, type: 3}
+  _CornerTex: {fileID: 2800000, guid: 67686a86072c6e440b04d65e02d5f270, type: 3}
   _CornerTex2: {fileID: 0}
   _CornerMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TripleTex: {fileID: 2800000, guid: 46a383825e7cb87499baae3061997531, type: 3}
+  _TripleTex: {fileID: 2800000, guid: 67686a86072c6e440b04d65e02d5f270, type: 3}
   _TripleTex2: {fileID: 0}
   _TripleMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _QuadTex: {fileID: 2800000, guid: 46a383825e7cb87499baae3061997531, type: 3}
+  _QuadTex: {fileID: 2800000, guid: 67686a86072c6e440b04d65e02d5f270, type: 3}
   _QuadTex2: {fileID: 0}
   _QuadMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
