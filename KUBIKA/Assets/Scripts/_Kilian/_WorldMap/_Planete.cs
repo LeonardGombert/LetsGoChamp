@@ -208,6 +208,15 @@ namespace Kubika.Game
 
         }
 
+        public void StartOnFace(int faceEnQuestion)
+        {
+            if (actualIndex + 1 < raycastFaces.Length)
+            {
+                Debug.Log("After");
+                CameraTransition(raycastFaces[faceEnQuestion]);
+            }
+        }
+
         public void AfterFace()
         {
             Debug.Log("A");
