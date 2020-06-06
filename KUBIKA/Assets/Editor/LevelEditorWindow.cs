@@ -6,8 +6,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 [InitializeOnLoad]
 [CanEditMultipleObjects]
 public class LevelEditorWindow : EditorWindow

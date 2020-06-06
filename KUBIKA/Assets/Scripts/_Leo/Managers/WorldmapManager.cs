@@ -43,4 +43,10 @@ public class WorldmapManager : MonoBehaviour
     {
         
     }
+
+    //use to focus camera on next level when worldmap loads in
+    public void FocusOnNextLevel()
+    {
+
+    }
 }

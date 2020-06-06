@@ -210,6 +210,8 @@ namespace Kubika.Game
 
         public void StartOnFace(int faceEnQuestion)
         {
+            Debug.Log(faceEnQuestion);
+
             if (actualIndex + 1 < raycastFaces.Length)
             {
                 Debug.Log("After");

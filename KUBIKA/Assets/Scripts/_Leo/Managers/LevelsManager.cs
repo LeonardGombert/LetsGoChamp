@@ -51,6 +51,7 @@ namespace Kubika.Game
         public string _Kubicode;
         public int _minimumMoves;
         public bool _lockRotate;
+
         void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -255,6 +256,12 @@ namespace Kubika.Game
         public void RestartLevel()
         {
             StartCoroutine(LoadLevel());
+        }
+
+        public void ReturnToWorldMap()
+        {
+            ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
+            _Planete.instance.StartOnFace((int)_levelBiome + 1);
         }
     }
 }

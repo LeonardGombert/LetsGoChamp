@@ -379,7 +379,7 @@ namespace Kubika.Game
         public void NextLevel()
         {
             levelPassedCanvas.enabled = false;
-            LevelsManager.instance._LoadNextLevel();
+            LevelsManager.instance.ReturnToWorldMap();
         }
         #endregion
 
