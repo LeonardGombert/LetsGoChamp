@@ -59,6 +59,9 @@ namespace Kubika.Game
         //PC INPUT
         Ray rayPC;
 
+        // GOLD
+        public bool isGolded;
+
 
         private void Awake()
         {

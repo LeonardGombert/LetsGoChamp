@@ -21,7 +21,8 @@ namespace Kubika.Game
 
         [Space]
         [Header("VICTORY FX")]
-        public ParticleSystem Victory_PS_KUBO;
+        public ParticleSystem Victory_PS_BASE_CONFETTI;
+        public ParticleSystem Victory_PS_GOLD_CONFETTI;
 
         private void Awake()
         {
@@ -38,12 +39,20 @@ namespace Kubika.Game
 
         public void PlayVictoryFX()
         {
-            Victory_PS_KUBO.Play();
+            if(_DataManager.instance.isGolded == true)
+            {
+                Victory_PS_GOLD_CONFETTI.Play();
+            }
+            else
+            {
+                Victory_PS_BASE_CONFETTI.Play();
+            }
         }
 
         public void ResetVictoryFX()
         {
-            Victory_PS_KUBO.Clear();
+            Victory_PS_BASE_CONFETTI.Clear();
+            Victory_PS_GOLD_CONFETTI.Clear();
         }
 
         // Update is called once per frame

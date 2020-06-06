@@ -23,6 +23,7 @@ namespace Kubika.Game
 
 
         BaseVictoryCube[] victoryCubes;
+        DeliveryCube[] deliveryCube;
         
 
         private void Awake()
@@ -77,6 +78,11 @@ namespace Kubika.Game
 
         public IEnumerator TransitionTime()
         {
+            deliveryCube = FindObjectsOfType<DeliveryCube>();
+            foreach(DeliveryCube cube in deliveryCube)
+            {
+                StartCoroutine(cube.VictoryPSLatence());
+            }
             yield return new WaitForSeconds(waitTimeBeforePS);
             _FeedBackManager.instance.PlayVictoryFX();
             yield return new WaitForSeconds(waitTime);
