@@ -159,7 +159,11 @@ namespace Kubika.Game
 
         void CameraPCInput()
         {
-            if (Input.GetMouseButton(2))
+            if (Input.GetMouseButtonDown(2))
+            {
+                mouse0LastPos = Vector3.zero;
+            }
+            else if (Input.GetMouseButton(2))
             {
                 mouse0 = Input.mousePosition;
                 Debug.Log("mouse0 " + mouse0);
