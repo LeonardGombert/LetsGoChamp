@@ -264,7 +264,15 @@ namespace Kubika.Game
 
             Debug.Log("After");
 
-            raycastFaces[faceEnQuestion + 1].GetComponent<Collider>().enabled = false;
+            planeteView = false;
+            raycastFaces[faceEnQuestion + 1].isActive = true;
+            foreach (_PlaneteCamera faces in raycastFaces)
+            {
+                faces.gameObject.GetComponent<Collider>().enabled = false;
+            }
+            facesSpeed = rotationSpeed * 0.33f;
+            rotationSpeed = facesSpeed;
+
             CameraTransition(raycastFaces[faceEnQuestion + 1]);
 
             StartCoroutine(FocusOnNextLevel(LevelsManager.instance._Kubicode, faceEnQuestion + 1));
