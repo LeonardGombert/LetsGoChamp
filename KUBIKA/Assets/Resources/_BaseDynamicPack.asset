@@ -24,7 +24,7 @@ MonoBehaviour:
   Base_Saturation: 1
   Base_Brightness: 0
   _BetonTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
-  _BetonMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
+  _BetonMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
   _BetonColor: {r: 1, g: 1, b: 1, a: 0}
   _BetonTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
@@ -36,7 +36,7 @@ MonoBehaviour:
   Beton_Brightness: 0
   _ElevatorTex: {fileID: 2800000, guid: b0d1b3c4faf410a489d5b9210a82734a, type: 3}
   _ElevatorBackTex: {fileID: 2800000, guid: 958305c34de7bd145a7ef6e7154f240d, type: 3}
-  _ElevatorMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
+  _ElevatorMesh: {fileID: 8552134717624371188, guid: 7433906f06c188d428d7f0d384abd6ac,
     type: 3}
   _ElevatorColor: {r: 1, g: 1, b: 1, a: 0}
   _ElevatorTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
@@ -199,7 +199,7 @@ MonoBehaviour:
   BaseV_Saturation: 1
   BaseV_Brightness: 0
   _BetonVTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
-  _BetonVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
+  _BetonVMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
   _BetonVColor: {r: 1, g: 0.19607843, b: 0.19607843, a: 0}
   _BetonVTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
