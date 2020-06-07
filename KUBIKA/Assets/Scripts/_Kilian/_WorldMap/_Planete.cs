@@ -38,7 +38,7 @@ namespace Kubika.Game
         Ray ray;
 
         //PLANETE TO FACE VIEW
-        bool planeteView;
+        public bool planeteView;
 
         //CAMERA MOVE--
         // ZOOM & CAM MOVING
@@ -139,7 +139,8 @@ namespace Kubika.Game
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log("Touch Hit Mobile " + hit.collider.gameObject.name);
-                    nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
+                    WorldmapManager.instance.currentBiome = (Biomes)int.Parse(hit.collider.gameObject.name.Replace("Face", "")) - 1; // cursed memes for depressed programming teens
+                    nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();                                               // it returns which biome is being selected base on the name of the face
 
                     if (nextFace != null && touch.phase == TouchPhase.Ended)
                     {

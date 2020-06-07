@@ -170,6 +170,21 @@ namespace Kubika.Game
             ResetCanvasSortOrder();
             if (worldMapCanvas != null) worldMapCanvas.enabled = true;
             worldMapCanvas.sortingOrder = 1000;
+
+            topArrow.gameObject.SetActive(false);
+            bottomArrow.gameObject.SetActive(false);
+        }
+
+        // called when camera is zoomed in
+        private void ZoomedWorldMapPriority()
+        {
+            ResetCanvasSortOrder();
+
+            if (worldMapCanvas != null) worldMapCanvas.enabled = true;
+            worldMapCanvas.sortingOrder = 1000;
+
+            topArrow.gameObject.SetActive(true);
+            bottomArrow.gameObject.SetActive(true);
         }
 
         private void LevelEditorPriority()
@@ -265,11 +280,15 @@ namespace Kubika.Game
                     ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
                     break;
 
-                case "WORLDMAP_TurnRight":
+                case "WORLDMAP_UpArrow":
+                    WorldmapManager.instance.currentBiome++;
+                    WorldmapManager.instance.RefreshWorldArrowTargets();
                     _Planete.instance.AfterFace();
                     break;
 
-                case "WORLDMAP_TurnLeft":
+                case "WORLDMAP_DownArrow":
+                    WorldmapManager.instance.currentBiome--;
+                    WorldmapManager.instance.RefreshWorldArrowTargets();
                     _Planete.instance.BeforeFace();
                     break;
                 #endregion
