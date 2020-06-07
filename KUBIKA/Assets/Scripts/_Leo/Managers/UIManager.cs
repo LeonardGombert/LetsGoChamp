@@ -300,13 +300,16 @@ namespace Kubika.Game
                     TestUserLevel();
                     break;
 
-
                 case "LEVELEDITOR_SaveLevel":
                     UserSavedLevel();
                     break;
 
                 case "LEVELEDITOR_SaveCurrentLevel":
                     UserSavedCurrentLevel();
+                    break;
+
+                case "LEVELEDITOR_NewLevel":
+                    UserCreateNewLevel();
                     break;
 
                 case "LEVELEDITOR_LoadLevel":
@@ -321,8 +324,12 @@ namespace Kubika.Game
                     ReturnToLevelEditor();
                     break;
 
-                case "LEVELEDITOR_Options":
+                case "LEVELEDITOR_OptionsWindow":
                     OpenOptionsWindow();
+                    break;
+
+                case "LEVELEDITOR_SaveWindow":
+                    OpenSaveWindow();
                     break;
 
                 case "LEVELEDITOR_FXMode":
@@ -436,7 +443,7 @@ namespace Kubika.Game
         void UserSavedCurrentLevel()
         {
             if (SaveAndLoad.instance.currentOpenLevelName != "") SaveAndLoad.instance.UserSavingCurrentLevel();
-            else OpenSaveLevelWindow();
+            else OpenSaveWindow();
         }
 
         //called by user when loading a level
@@ -453,6 +460,12 @@ namespace Kubika.Game
             SaveAndLoad.instance.UserDeleteLevel(playerLevelsDropdown.captionText.text);
         }
 
+        private void UserCreateNewLevel()
+        {
+            _Grid.instance.RefreshGrid();
+            SaveAndLoad.instance.currentOpenLevelName = "";
+        }
+
         //called to open Level Editor options
         void OpenOptionsWindow()
         {
@@ -460,7 +473,7 @@ namespace Kubika.Game
         }
 
         //called to open Level Editor options
-        void OpenSaveLevelWindow()
+        void OpenSaveWindow()
         {
             levelEditorSaveWindow.SetActive(!levelEditorSaveWindow.activeInHierarchy);
         }
