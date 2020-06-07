@@ -26,6 +26,8 @@ namespace Kubika.Game
 
         // TOUCH
         Touch touch;
+        Vector3 baseMouse;
+        Vector3 mouse;
         Ray ray;
         Ray ray2;
         RaycastHit hit;
@@ -53,40 +55,89 @@ namespace Kubika.Game
         {
             if(isActive == true)
             {
-                touch = Input.GetTouch(0);
-                ray = Camera.main.ScreenPointToRay(touch.position);
-
-
-                switch (touch.phase)
+                if(_Planete.instance.isMobilePlatform == true)
                 {
-                    case TouchPhase.Began:
-                        if (Physics.Raycast(ray, out hit))
-                        {
-                            Debug.Log("Touch Hit " + hit.collider.gameObject.name);
-
-                            if (hit.collider.gameObject.GetComponent<_ScriptMatFaceCube>())
-                            {
-                                Debug.Log("ClickedOnLevel");
-                                hasTouchedLevel = true;
-                            }
-                            else
-                            {
-                                BaseScroll = hit.point;
-                            }
-                        }
-                        break;
-                    case TouchPhase.Moved:
-                        if (hasTouchedLevel == false)
-                        {
-                            ScrollingSimple(touch.deltaPosition.y);
-                        }
-                        break;
-                    case TouchPhase.Ended:
-                        hasTouchedLevel = false;
-                        break;
+                    MobileMove();
+                }
+                else
+                {
+                    PcMove();
                 }
             }
         }
+
+        void MobileMove()
+        {
+            touch = Input.GetTouch(0);
+            ray = Camera.main.ScreenPointToRay(touch.position);
+
+
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        Debug.Log("Touch Hit " + hit.collider.gameObject.name);
+
+                        if (hit.collider.gameObject.GetComponent<_ScriptMatFaceCube>())
+                        {
+                            Debug.Log("ClickedOnLevel");
+                            hasTouchedLevel = true;
+                        }
+                        else
+                        {
+                            BaseScroll = hit.point;
+                        }
+                    }
+                    break;
+                case TouchPhase.Moved:
+                    if (hasTouchedLevel == false)
+                    {
+                        ScrollingSimple(touch.deltaPosition.y);
+                    }
+                    break;
+                case TouchPhase.Ended:
+                    hasTouchedLevel = false;
+                    break;
+            }
+        }
+        void PcMove()
+        {
+            mouse = Input.mousePosition;
+            ray = Camera.main.ScreenPointToRay(mouse);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Debug.Log("Touch Hit " + hit.collider.gameObject.name);
+
+                    if (hit.collider.gameObject.GetComponent<_ScriptMatFaceCube>())
+                    {
+                        Debug.Log("ClickedOnLevel");
+                        hasTouchedLevel = true;
+                    }
+                    else
+                    {
+                        BaseScroll = hit.point;
+                        baseMouse = Input.mousePosition;
+                    }
+                }
+            }
+            else if (Input.GetMouseButton(0))
+            {
+                if (hasTouchedLevel == false)
+                {
+                    ScrollingSimple(mouse.y - baseMouse.y);
+                }
+            }
+            else
+            {
+                hasTouchedLevel = false;
+            }
+
+        }
+
 
         void ScrollingSimple(float FingerPosition)
         {

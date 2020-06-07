@@ -161,16 +161,18 @@ namespace Kubika.Game
         {
             if (Input.GetMouseButtonDown(2))
             {
-                mouse0LastPos = Vector3.zero;
+                mouse0LastPos = Input.mousePosition;
+                baseRotation = currentRotation = pivotMainCamera.eulerAngles;
             }
             else if (Input.GetMouseButton(2))
             {
                 mouse0 = Input.mousePosition;
                 Debug.Log("mouse0 " + mouse0);
                 GetScreenSwipeAngle();
-                ScrollingSimple(mouse0 - mouse0LastPos);
-                mouse0LastPos = Input.mousePosition;
+                ScrollingSimple(mouse0,mouse0LastPos);
             }
+
+            ZoomingPC(Input.mouseScrollDelta.y);
         }
 
         void Zooming(float difference)
@@ -178,6 +180,14 @@ namespace Kubika.Game
             currentCamPos = cam.transform.localPosition;
             currentCamZPos = currentCamPos.z;
             currentCamPos.z = Mathf.Clamp(currentCamZPos + (difference * zoomPower), currentCamZPos - 2, currentCamZPos + 2);
+            cam.transform.localPosition = currentCamPos;
+        }
+
+        void ZoomingPC(float scrollValue)
+        {
+            currentCamPos = cam.transform.localPosition;
+            currentCamZPos = currentCamPos.z;
+            currentCamPos.z = Mathf.Clamp(currentCamZPos + (scrollValue * zoomPower * 10), currentCamZPos - 2, currentCamZPos + 2);
             cam.transform.localPosition = currentCamPos;
         }
 
@@ -195,18 +205,17 @@ namespace Kubika.Game
             pivotMainCamera.eulerAngles = baseRotation;
         }
 
-        void ScrollingSimple(Vector2 touch0Pos)
+        void ScrollingSimple(Vector2 touch0Pos, Vector2 base0Pos)
         {
 
-            mediumYMouv = ((touch0Pos.x)) * mouvPower;
-            mediumXMouv = ((touch0Pos.y)) * mouvPower;
+            mediumYMouv = ((touch0Pos.x - base0Pos.x)) * mouvPower;
+            mediumXMouv = ((touch0Pos.y - base0Pos.y)) * mouvPower;
 
-            baseRotation = pivotMainCamera.eulerAngles;
-            baseYRotation = baseRotation.y;
-            baseXRotation = baseRotation.x;
-            baseRotation.y = baseRotation.y + mediumYMouv;
-            baseRotation.x = baseRotation.x - mediumXMouv;
-            pivotMainCamera.eulerAngles = baseRotation;
+            baseYRotation = baseRotation.y + mediumYMouv;
+            baseXRotation = baseRotation.x - mediumXMouv;
+            currentRotation.y = baseYRotation;
+            currentRotation.x = baseXRotation;
+            pivotMainCamera.eulerAngles = currentRotation;
         }
 
         public void GetScreenSwipeAngle()

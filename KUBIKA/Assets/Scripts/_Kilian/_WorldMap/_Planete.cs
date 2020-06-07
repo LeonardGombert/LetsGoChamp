@@ -44,6 +44,7 @@ namespace Kubika.Game
         // ZOOM & CAM MOVING
         Touch touch0;
         Vector3 mouse0;
+        Vector3 mouse0LastPos;
         Touch touch1;
         Vector2 touch0PrevPos;
         Vector2 touch1PrevPos;
@@ -58,6 +59,7 @@ namespace Kubika.Game
         //MOUV
         public Transform pivotMainCamera;
         Vector3 baseRotation;
+        Vector3 currentRotation;
         float mediumXMouv;
         float mediumYMouv;
         float baseYRotation;
@@ -79,6 +81,10 @@ namespace Kubika.Game
         float targetValueX, targetValueY, targetValueZ;
         float tweenDuration = 1f;
 
+        // PLATFORM
+        public bool isMobilePlatform = false;
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -89,6 +95,9 @@ namespace Kubika.Game
             planeteSpeed = rotationSpeed;
 
             levelCubes = FindObjectsOfType<LevelCube>();
+
+            if (_CheckCurrentPlatform.platform == RuntimePlatform.Android || _CheckCurrentPlatform.platform == RuntimePlatform.IPhonePlayer)
+                isMobilePlatform = true;
         }
 
         // Update is called once per frame
@@ -98,11 +107,13 @@ namespace Kubika.Game
             {
                 RotationPlanete();
 
-                if (Input.GetMouseButtonDown(0) || Input.touchCount == 1)
+                if (Input.GetMouseButtonUp(0) || Input.touchCount == 1)
                     CheckTouch();
 
-                if (Application.isMobilePlatform == true)
+                if (isMobilePlatform == true)
                     CameraPhoneInput();
+                else
+                    CameraPCInput();
             }
             else
             {
@@ -120,14 +131,14 @@ namespace Kubika.Game
 
         void CheckTouch()
         {
-            if (Application.isMobilePlatform == true)
+            if (isMobilePlatform == true)
             {
                 touch = Input.GetTouch(0);
                 ray = Camera.main.ScreenPointToRay(touch.position);
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Touch Hit " + hit.collider.gameObject.name);
+                    Debug.Log("Touch Hit Mobile " + hit.collider.gameObject.name);
                     nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
 
                     if (nextFace != null && touch.phase == TouchPhase.Ended)
@@ -162,7 +173,7 @@ namespace Kubika.Game
                     Debug.Log("Touch Hit " + hit.collider.gameObject.name);
                     nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
 
-                    if (nextFace != null && Input.GetMouseButtonUp(0))
+                    if (nextFace != null)
                     {
                         if (planeteView == true)
                         {
@@ -305,14 +316,39 @@ namespace Kubika.Game
 
         void CameraPCInput()
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("mouse0 " + mouse0);
+                mouse0LastPos = Input.mousePosition;
+                baseRotation = currentRotation = pivotMainCamera.eulerAngles;
+            }
+            else if (Input.GetMouseButton(0))
+            {
                 mouse0 = Input.mousePosition;
-                ScrollingSimple(mouse0);
+                Debug.Log("mouse0 " + mouse0);
+                ScrollingSimple(mouse0, mouse0LastPos);
             }
 
-            ZoomingSimple();
+            ZoomingPC(Input.mouseScrollDelta.y);
+        }
+
+        void ZoomingPC(float scrollValue)
+        {
+            currentZoommCam = baseVCam.m_Lens.OrthographicSize;
+            currentZoommCam = Mathf.Clamp(currentZoommCam - (scrollValue * zoomPower * 10), currentZoommCam - 20, currentZoommCam + 20);
+            baseVCam.m_Lens.OrthographicSize = currentZoommCam;
+        }
+
+        void ScrollingSimple(Vector2 touch0Pos, Vector2 base0Pos)
+        {
+
+            mediumYMouv = ((touch0Pos.x - base0Pos.x)) * mouvPower;
+            mediumXMouv = ((touch0Pos.y - base0Pos.y)) * mouvPower;
+
+            baseYRotation = baseRotation.y + mediumYMouv;
+            baseXRotation = baseRotation.x - mediumXMouv;
+            currentRotation.y = baseYRotation;
+            currentRotation.x = baseXRotation;
+            pivotMainCamera.eulerAngles = currentRotation;
         }
 
         #region SCROLL & ZOOM
@@ -335,27 +371,6 @@ namespace Kubika.Game
             baseRotation.y = baseYRotation + mediumYMouv;
             baseRotation.x = baseXRotation - mediumXMouv;
             pivotMainCamera.eulerAngles = baseRotation;
-        }
-
-        void ScrollingSimple(Vector3 touch0Pos)
-        {
-
-            mediumYMouv = ((touch0Pos.x));
-            mediumXMouv = ((touch0Pos.y));
-
-            baseRotation = pivotMainCamera.eulerAngles;
-            baseYRotation = baseRotation.y;
-            baseXRotation = baseRotation.x;
-            baseRotation.y = baseRotation.y + mediumYMouv;
-            baseRotation.x = baseRotation.x - mediumXMouv;
-            pivotMainCamera.eulerAngles = baseRotation;
-        }
-
-        void ZoomingSimple()
-        {
-            currentZoommCam = baseVCam.m_Lens.OrthographicSize;
-            currentZoommCam = Mathf.Clamp(currentZoommCam + (Input.mouseScrollDelta.y * zoomPower), currentZoommCam - 20, currentZoommCam + 20);
-            baseVCam.m_Lens.OrthographicSize = currentZoommCam;
         }
         #endregion
     }
