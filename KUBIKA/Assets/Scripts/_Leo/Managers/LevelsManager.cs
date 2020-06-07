@@ -328,6 +328,7 @@ namespace Kubika.Saving
         public Biomes levelBiome;
         public int minimumMoves;
         public bool lockRotate;
+        public bool isAbsent;
         [HideInInspector] public bool levelIsBeaten; //not saved in the file, but in player progress
         public TextAsset levelFile;
     }

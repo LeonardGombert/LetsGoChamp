@@ -28,6 +28,9 @@ namespace Kubika.Game
 
         #region WORLDMAP
         [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
+        [FoldoutGroup("World Map")] public Image topArrow; //used by WorldMap Rotation script
+        [FoldoutGroup("World Map")] public Image bottomArrow; //used by WorldMap Rotation script
+
         #endregion         
 
         #region BURGER MENU
