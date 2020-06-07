@@ -13,6 +13,7 @@ namespace Kubika.Game
         // ZOOM & CAM MOVING
         Touch touch0;
         Vector3 mouse0;
+        Vector3 mouse0LastPos;
         Touch touch1;
         Vector2 touch0PrevPos;
         Vector2 touch1PrevPos;
@@ -85,10 +86,12 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-            if (Application.isMobilePlatform == true)
+            if (_DataManager.instance.platform == Platform.Mobile)
                 CameraPhoneInput();
+            else
+                CameraPCInput();
 
-            if(isShaking == true)
+            if (isShaking == true)
                 ActualScreenShake();
         }
 
@@ -156,9 +159,14 @@ namespace Kubika.Game
 
         void CameraPCInput()
         {
-            //mouse0 = Input.mousePosition;
-            //GetScreenSwipeAngle();
-            //ScrollingSimple(mouse0);
+            if (Input.GetMouseButton(2))
+            {
+                mouse0 = Input.mousePosition;
+                Debug.Log("mouse0 " + mouse0);
+                GetScreenSwipeAngle();
+                ScrollingSimple(mouse0 - mouse0LastPos);
+                mouse0LastPos = Input.mousePosition;
+            }
         }
 
         void Zooming(float difference)

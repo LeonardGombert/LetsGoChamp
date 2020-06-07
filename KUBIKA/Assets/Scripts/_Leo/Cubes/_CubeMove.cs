@@ -749,11 +749,14 @@ namespace Kubika.Game
 
                 distanceBaseToNext = Vector3.Distance(baseCube, nextCube);
 
+
                 if (distanceTouch > (distanceBaseToNext * 0.5f) && isMoving == false)
                 {
                     CheckingMove(myIndex, direction);
                     StartCoroutine(_DataManager.instance.CubesAreCheckingMove());
                 }
+
+
             }
         }
 

@@ -46,8 +46,8 @@ namespace Kubika.Game
         public List<_CubeBase> baseCube = new List<_CubeBase>();
 
         ///////////////INPUT
-        Platform platform;
-        public RaycastHit aimingHit;
+        [HideInInspector] public Platform platform;
+        [HideInInspector] public RaycastHit aimingHit;
         _CubeMove cubeMove;
 
         //TOUCH INPUT
@@ -71,21 +71,24 @@ namespace Kubika.Game
             Debug.Log("Platform.Mobile = " + Application.isMobilePlatform);
 
             // CAP LE FPS A 60 FPS
-            if (Application.isMobilePlatform == true)
+            if (_CheckCurrentPlatform.platform == RuntimePlatform.Android || _CheckCurrentPlatform.platform == RuntimePlatform.IPhonePlayer)
             {
                 Application.targetFrameRate = 60;
                 QualitySettings.vSyncCount = 0;
                 platform = Platform.Mobile;
             }
             else
-            { platform = Platform.PC; }
+            { 
+                platform = Platform.PC;
+                swipeMinimalDistance /= 3;
+            }
         }
 
         // Start is called before the first frame update
 
         public void GameSet()
         {
-            #region LIST VERSION            
+#region LIST VERSION            
             baseCubeArray = new List<_CubeBase>();
             moveCubeArray = new List<_CubeMove>();
             elevatorsArray = new List<ElevatorCube>();
@@ -118,9 +121,9 @@ namespace Kubika.Game
                     }
                 }
             }
-            #endregion
+#endregion
 
-            #region ARRAY VERSION
+#region ARRAY VERSION
             /*elevators.Clear();
             moveCube.Clear();
             baseCube.Clear();
@@ -132,7 +135,7 @@ namespace Kubika.Game
             moveCubeArray = FindObjectsOfType<_CubeMove>(); // TODO : DEGEULASSE
             baseCubeArray = FindObjectsOfType<_CubeBase>();
             elevatorsArray = FindObjectsOfType<ElevatorCube>(); */
-            #endregion
+#endregion
 
 
             foreach (ElevatorCube elevator in elevatorsArray)
@@ -177,7 +180,7 @@ namespace Kubika.Game
             }
         }
 
-        #region INPUT
+#region INPUT
 
         void PhoneInput()
         {
@@ -278,10 +281,10 @@ namespace Kubika.Game
 
         }
 
-        #endregion
+#endregion
 
 
-        #region MAKE FALL
+#region MAKE FALL
         public void MakeFall()
         {
             foreach (_CubeMove cubes in moveCube)
@@ -290,9 +293,9 @@ namespace Kubika.Game
             }
             StartCoroutine(CubesAreCheckingFall());
         }
-        #endregion
+#endregion
 
-        #region INDEX RESET
+#region INDEX RESET
 
         public void ResetIndex(int rotationState)
         {
@@ -354,9 +357,9 @@ namespace Kubika.Game
 
 
         }
-        #endregion
+#endregion
 
-        #region TIMED EVENT
+#region TIMED EVENT
         public IEnumerator CubesAreCheckingMove()
         {
             while (AreCubesCheckingMove(moveCube.ToArray()) == false)
@@ -558,7 +561,7 @@ namespace Kubika.Game
 
         }
 
-        #endregion
+#endregion
 
 
 
