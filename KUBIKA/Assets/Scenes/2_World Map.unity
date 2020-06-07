@@ -10588,7 +10588,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.75, y: 1.6}
+  m_Size: {x: 1.74, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -17126,7 +17126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 421537836}
   m_LocalRotation: {x: -0.000000141561, y: -0.70710677, z: -0.000000029802315, w: 0.7071068}
-  m_LocalPosition: {x: 179.3, y: 5.768, z: 2.945}
+  m_LocalPosition: {x: 179.3, y: 5.772, z: 2.945}
   m_LocalScale: {x: 0.5042361, y: 1, z: 59.518078}
   m_Children: []
   m_Father: {fileID: 9903286}
@@ -17176,7 +17176,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 1.45, y: 1.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -17670,7 +17670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427036753}
   m_LocalRotation: {x: -0.000000141561, y: -0.70710677, z: -0.000000029802315, w: 0.7071068}
-  m_LocalPosition: {x: 179.3, y: 5.809, z: 3.695}
+  m_LocalPosition: {x: 179.3, y: 5.738, z: 3.7}
   m_LocalScale: {x: 0.5042361, y: 1, z: 59.518078}
   m_Children: []
   m_Father: {fileID: 9903286}
@@ -17721,7 +17721,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.6}
+  m_Size: {x: 1.6, y: 1.59}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -42374,7 +42374,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.65}
+  m_Size: {x: 1.6, y: 1.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -62463,7 +62463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541394544}
   m_LocalRotation: {x: -0.000000141561, y: -0.70710677, z: -0.000000029802315, w: 0.7071068}
-  m_LocalPosition: {x: 179.3, y: 8.893, z: 2.908}
+  m_LocalPosition: {x: 179.3, y: 8.905, z: 2.908}
   m_LocalScale: {x: 0.5042361, y: 1, z: 59.518078}
   m_Children: []
   m_Father: {fileID: 9903286}
