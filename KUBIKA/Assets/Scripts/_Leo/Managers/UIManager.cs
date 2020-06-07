@@ -170,6 +170,7 @@ namespace Kubika.Game
             levelEditorCanvas.enabled = true;
 
             levelEditorOptionsWindow.SetActive(false);
+            levelEditorSaveWindow.SetActive(false);
 
             levelEditorCanvas.sortingOrder = 1000;
         }
