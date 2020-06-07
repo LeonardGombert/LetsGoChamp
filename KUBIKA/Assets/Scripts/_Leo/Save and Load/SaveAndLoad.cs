@@ -34,7 +34,6 @@ namespace Kubika.Saving
         public bool finishedBuilding = false;
 
         PlayerProgress playerProgress;
-        public string progressKubiCode;
 
         private void Awake()
         {
@@ -282,11 +281,8 @@ namespace Kubika.Saving
         }
 
         //called by the victory condition manager
-        public void SaveProgress()
+        public void SaveProgress(string progressKubiCode)
         {
-            //reference to the last saved level's code
-            progressKubiCode = LevelsManager.instance._Kubicode;
-
             if(Application.isMobilePlatform)
             {
                 Debug.Log("Overwritting existing save !");
@@ -309,7 +305,7 @@ namespace Kubika.Saving
                 {
                     Debug.Log("Overwritting existing save !");
                     playerProgress.lastLevelKubicode = progressKubiCode;
-                    playerProgress.beatenLevels.Add(LevelsManager.instance._Kubicode);
+                    playerProgress.beatenLevels.Add(progressKubiCode);
 
                     string json = JsonUtility.ToJson(playerProgress);
                     string folder = Application.dataPath + "/Resources/PlayerSave";
@@ -350,8 +346,8 @@ namespace Kubika.Saving
             if (Application.isMobilePlatform) folder = Application.persistentDataPath + "/UserSaves";
             if (Application.isEditor) folder = Application.dataPath + "/Resources/PlayerSave";
 
-            string levelFile = "PlayerProgress.json";
-            string path = Path.Combine(folder, levelFile);
+            string levelFile = "PlayerProgress";
+            string path = Path.Combine(folder, levelFile) + ".json";
 
             if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
@@ -373,6 +369,8 @@ namespace Kubika.Saving
                     }
                 }
             }
+
+            else SaveProgress(kubicodeToLoad);
 
             return kubicodeToLoad;
         }

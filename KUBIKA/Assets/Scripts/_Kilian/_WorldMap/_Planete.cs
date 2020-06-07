@@ -139,11 +139,12 @@ namespace Kubika.Game
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log("Touch Hit Mobile " + hit.collider.gameObject.name);
-                    WorldmapManager.instance.currentBiome = (Biomes)int.Parse(hit.collider.gameObject.name.Replace("Face", "")) - 1; // cursed memes for depressed programming teens
                     nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();                                               // it returns which biome is being selected base on the name of the face
 
                     if (nextFace != null && touch.phase == TouchPhase.Ended)
                     {
+                        WorldmapManager.instance.currentBiome = (Biomes)int.Parse(hit.collider.gameObject.name.Replace("Face", "")) - 1; // cursed memes for depressed programming teens
+                        
                         if (planeteView == true)
                         {
                             nextFace.isActive = true;
@@ -160,7 +161,7 @@ namespace Kubika.Game
                         CameraTransition(nextFace);
                         planeteView = false;
 
-
+                        StartCoroutine(UIManager.instance.ZoomedWorldMapPriority());
                     }
                 }
             }
@@ -191,8 +192,6 @@ namespace Kubika.Game
 
                         CameraTransition(nextFace);
                         planeteView = false;
-
-
                     }
                 }
             }

@@ -84,22 +84,6 @@ namespace Kubika.Game
             yield return null;
         }
 
-        private IEnumerator InitializeUserLevelsList()
-        {
-            userMasterList.Clear();
-            
-            foreach (List<TextAsset> levelFileList in listOfLists)
-            {
-                foreach (TextAsset level in levelFileList)
-                {
-                    LevelFile levelInfo = UserLevelFiles.ConvertToLevelInfo(level);
-                    gameMasterList.Add(levelInfo);
-                }
-            }
-
-            yield return null;
-        }
-
         // Copy all of the individual lists to the master list
         private void InitializeLists()
         {
@@ -119,7 +103,7 @@ namespace Kubika.Game
         public void BakeLevels()
         {
             //MOVE THIS SOMEWHERE ELSE (?)
-            loadToKubicode = SaveAndLoad.instance.LoadProgress();
+            //loadToKubicode = SaveAndLoad.instance.LoadProgress();
 
             for (int i = 0; i < gameMasterList.Count; i++)
             {

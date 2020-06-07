@@ -91,7 +91,7 @@ namespace Kubika.Game
             _FeedBackManager.instance.PlayVictoryFX();
             yield return new WaitForSeconds(waitTime);
 
-            SaveAndLoad.instance.SaveProgress();
+            SaveAndLoad.instance.SaveProgress(LevelsManager.instance._Kubicode);
 
             StartCoroutine(WinCountdown());
         }

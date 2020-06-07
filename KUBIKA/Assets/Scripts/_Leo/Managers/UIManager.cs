@@ -176,15 +176,19 @@ namespace Kubika.Game
         }
 
         // called when camera is zoomed in
-        private void ZoomedWorldMapPriority()
+        public IEnumerator ZoomedWorldMapPriority()
         {
             ResetCanvasSortOrder();
 
             if (worldMapCanvas != null) worldMapCanvas.enabled = true;
             worldMapCanvas.sortingOrder = 1000;
 
+            yield return new WaitForSeconds(1.5f);
+
             topArrow.gameObject.SetActive(true);
             bottomArrow.gameObject.SetActive(true);
+
+            yield return null;
         }
 
         private void LevelEditorPriority()
