@@ -49,7 +49,8 @@ MonoBehaviour:
   centerPosition: 0
   offset: 1.05
   kuboGrid: []
-  placedObjects: []
+  placedCubes: []
+  placedDecor: []
   nodeVizPrefab: {fileID: 415372726904812596, guid: e6dbb9834257eff44b62276775d40f67,
     type: 3}
 --- !u!114 &1920262567139990512
@@ -68,3 +69,45 @@ MonoBehaviour:
   rotationSpeed: 0.01
   turningSpeed: 0.5
   actualRotation: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1.4490566
+      outSlope: 1.4490566
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.11506398
+    - serializedVersion: 3
+      time: 0.48685455
+      value: 1.0852531
+      inSlope: 0.7352918
+      outSlope: 0.7352918
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.264551
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.7553178
+      value: 0.89344364
+      inSlope: -0.031426996
+      outSlope: -0.031426996
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.12008964
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

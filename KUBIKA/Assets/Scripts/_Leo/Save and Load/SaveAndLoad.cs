@@ -364,7 +364,7 @@ namespace Kubika.Saving
 
                 Debug.Log("Last player level is " + kubicodeToLoad);
 
-                foreach (LevelFile level in LevelsManager.instance.masterList)
+                foreach (LevelFile level in LevelsManager.instance.gameMasterList)
                 {
                     for (int i = 0; i < playerProgress.beatenLevels.Count; i++)
                     {

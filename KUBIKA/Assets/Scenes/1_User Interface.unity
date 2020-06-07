@@ -524,16 +524,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
-    - target: {fileID: 115538846585778395, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 115538846585778395, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 424886894580347665, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -639,11 +629,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 557176487957381919, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4163245710987387166}
     - target: {fileID: 557176487967767752, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -784,11 +769,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
-    - target: {fileID: 5372794736197058965, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonCallback
-      objectReference: {fileID: 0}
     - target: {fileID: 5572523596943738961, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -824,21 +804,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8269617095718477670, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9030548518175423650, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
+    - target: {fileID: 7640989992523864960, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
     - target: {fileID: 9030548518175423650, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonCallback
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3ced5b1e623ddc47a90b18b5b819eaa, type: 3}
 --- !u!1 &557176488540607918 stripped
@@ -865,6 +840,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 557176488540607917}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &557176488540607922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3196083910114844527, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
+    type: 3}
+  m_PrefabInstance: {fileID: 557176488540607917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d199490a83bb2b844b9695cbf13b01ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1880667868287510276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1073,16 +1060,76 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4163245710713187493, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: worldMapCanvas
+      value: 
+      objectReference: {fileID: 449706451}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: transitionCanvas
+      value: 
+      objectReference: {fileID: 499854643}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: hamburgerMenuCanvas
+      value: 
+      objectReference: {fileID: 107710186}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: hamburgerMenuCanvas2
+      value: 
+      objectReference: {fileID: 634293575}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
       propertyPath: gameCanvas
       value: 
       objectReference: {fileID: 675584133}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelPassedCanvas
+      value: 
+      objectReference: {fileID: 1520636905}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelEditorCanvas
+      value: 
+      objectReference: {fileID: 197165809}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: customTestCanvas
+      value: 
+      objectReference: {fileID: 89744682}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: winCanvas
+      value: 
+      objectReference: {fileID: 117861965}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelNameWM
+      value: 
+      objectReference: {fileID: 6956760564275609371}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1974273361}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 855314670}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: hiddenMenuButtons
+      value: 
+      objectReference: {fileID: 107710183}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: openBurgerMenuButton
+      value: 
+      objectReference: {fileID: 1964250777}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
       propertyPath: rightRotate
@@ -1105,69 +1152,14 @@ PrefabInstance:
       objectReference: {fileID: 1880667868287510279}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
-      propertyPath: hamburgerMenuCanvas
-      value: 
-      objectReference: {fileID: 107710186}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: hamburgerMenuCanvas2
-      value: 
-      objectReference: {fileID: 634293575}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: music
-      value: 
-      objectReference: {fileID: 1974273361}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: sound
-      value: 
-      objectReference: {fileID: 855314670}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: transitionCanvas
-      value: 
-      objectReference: {fileID: 499854643}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: fadeImage
-      value: 
-      objectReference: {fileID: 1445805127}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: hiddenMenuButtons
-      value: 
-      objectReference: {fileID: 107710183}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: openBurgerMenuButton
-      value: 
-      objectReference: {fileID: 1964250777}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: winCanvas
-      value: 
-      objectReference: {fileID: 117861965}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: worldMapCanvas
-      value: 
-      objectReference: {fileID: 449706451}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: levelEditorCanvas
-      value: 
-      objectReference: {fileID: 197165809}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: levelPassedCanvas
-      value: 
-      objectReference: {fileID: 1520636905}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: optionsWindow
+      propertyPath: levelEditorOptionsWindow
       value: 
       objectReference: {fileID: 557176488540607920}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelEditorSaveWindow
+      value: 
+      objectReference: {fileID: 557176488540607921}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
       propertyPath: FunctionMode
@@ -1187,27 +1179,12 @@ PrefabInstance:
         type: 3}
       propertyPath: saveLevelName
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 557176488540607922}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
-      propertyPath: levelNameWM
+      propertyPath: fadeImage
       value: 
-      objectReference: {fileID: 6956760564275609371}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: customTestCanvas
-      value: 
-      objectReference: {fileID: 89744682}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: levelEditorOptionsWindow
-      value: 
-      objectReference: {fileID: 557176488540607920}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: levelEditorSaveWindow
-      value: 
-      objectReference: {fileID: 557176488540607921}
+      objectReference: {fileID: 1445805127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped

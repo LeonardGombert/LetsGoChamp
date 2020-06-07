@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c08f27d15b46db4bb3f4778a6e40240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseCubeArray: []
   moveCubeArray: []
   elevatorsArray: []
   moveCube: []
@@ -71,7 +72,7 @@ MonoBehaviour:
   actualRotation: 0
   indexBankScriptable: {fileID: 11400000, guid: 20292aa4ca457024eb45bc26bf6fc21e,
     type: 2}
-  baseCubeArray: []
   baseCube: []
   inputPosition: {x: 0, y: 0, z: 0}
   swipeMinimalDistance: 100
+  isGolded: 0

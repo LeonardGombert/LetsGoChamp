@@ -27,13 +27,13 @@ public class LevelCube : MonoBehaviour
         {
             gameObject.name = gameObject.name.Replace("Level Node ", "");
 
-            for (int i = 0; i < LevelsManager.instance.masterList.Count; i++)
+            for (int i = 0; i < LevelsManager.instance.gameMasterList.Count; i++)
             {
                 if (gameObject.name == i.ToString())
                 {
-                    kubicode = LevelsManager.instance.masterList[i].kubicode;
-                    levelName = LevelsManager.instance.masterList[i].levelName;
-                    minimalMoves = LevelsManager.instance.masterList[i].minimumMoves;
+                    kubicode = LevelsManager.instance.gameMasterList[i].kubicode;
+                    levelName = LevelsManager.instance.gameMasterList[i].levelName;
+                    minimalMoves = LevelsManager.instance.gameMasterList[i].minimumMoves;
                     //previousPlayerScore = LevelsManager.instance.masterList[i].prevPlayerScore;
                     //isBeaten = LevelsManager.instance.masterList[i].levelBeaten;
                 }
