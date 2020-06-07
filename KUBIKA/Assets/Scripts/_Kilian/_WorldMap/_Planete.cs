@@ -84,6 +84,9 @@ namespace Kubika.Game
         // PLATFORM
         public bool isMobilePlatform = false;
 
+        // MOON
+        public _MOON moonScript;
+
 
         // Start is called before the first frame update
         void Start()
@@ -140,7 +143,17 @@ namespace Kubika.Game
                 {
                     Debug.Log("Touch Hit Mobile " + hit.collider.gameObject.name);
                     WorldmapManager.instance.currentBiome = (Biomes)int.Parse(hit.collider.gameObject.name.Replace("Face", "")) - 1; // cursed memes for depressed programming teens
-                    nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();                                               // it returns which biome is being selected base on the name of the face
+                    
+                    if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
+                    {
+                        nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
+                    }
+                    else if(hit.collider.gameObject.tag == "Moon")
+                    {
+                        planeteView = false;
+                        _MOON.instance.MoveToMoon();
+                        return;
+                    }
 
                     if (nextFace != null && touch.phase == TouchPhase.Ended)
                     {
@@ -172,7 +185,17 @@ namespace Kubika.Game
                 if (Physics.Raycast(ray, out hit))
                 {
                     Debug.Log("Touch Hit " + hit.collider.gameObject.name);
-                    nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
+
+                    if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
+                    {
+                        nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
+                    }
+                    else if (hit.collider.gameObject.tag == "Moon")
+                    {
+                        planeteView = false;
+                        _MOON.instance.MoveToMoon();
+                        return;
+                    }
 
                     if (nextFace != null)
                     {
@@ -227,6 +250,8 @@ namespace Kubika.Game
                 rotationSpeed = planeteSpeed;
             }
 
+            _MOON.instance.isMoonView = false;
+            _MOON.instance.BaseView.Priority = 0;
             planeteView = true;
             currentFace.vCam.Priority = 0;
             baseVCam.Priority = 20;
