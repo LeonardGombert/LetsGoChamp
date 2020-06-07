@@ -19,10 +19,10 @@ MonoBehaviour:
   _BaseTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BaseInsideStrength: 0
   _BaseColorInside: {r: 0, g: 0, b: 0, a: 0}
-  Base_Hue: 0
-  Base_Contrast: 1
-  Base_Saturation: 1
-  Base_Brightness: 0
+  Base_Hue: 21
+  Base_Contrast: 1.272
+  Base_Saturation: 1.01
+  Base_Brightness: 0.171
   _BetonTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
   _BetonMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
@@ -30,8 +30,8 @@ MonoBehaviour:
   _BetonTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BetonInsideStrength: 0
   _BetonColorInside: {r: 0, g: 0, b: 0, a: 0}
-  Beton_Hue: 0
-  Beton_Contrast: 1
+  Beton_Hue: -290
+  Beton_Contrast: 1.21
   Beton_Saturation: 1
   Beton_Brightness: 0
   _ElevatorTex: {fileID: 2800000, guid: b0d1b3c4faf410a489d5b9210a82734a, type: 3}
