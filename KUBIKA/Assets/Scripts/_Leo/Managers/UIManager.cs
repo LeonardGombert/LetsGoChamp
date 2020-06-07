@@ -63,6 +63,20 @@ namespace Kubika.Game
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject EmoteMode;
         [FoldoutGroup("Level Editor")] public Dropdown playerLevelsDropdown;
         [FoldoutGroup("Level Editor")] public InputField saveLevelName;
+
+        [FoldoutGroup("Level Editor")] [SerializeField] Sprite BackgroundSelected, BackgroundUnselected;
+
+        [FoldoutGroup("Level Editor/Universe Panel")] [SerializeField] Image UniverseBackgroundImage, UniverseIconImage;
+        [FoldoutGroup("Level Editor/Universe Panel")] [SerializeField] Sprite UniverseIconSelected, UniverseIconUnselected;
+
+        [FoldoutGroup("Level Editor/Function Panel")] [SerializeField] Image FunctionBackgroundImage, FunctionIconImage;
+        [FoldoutGroup("Level Editor/Function Panel")] [SerializeField] Sprite FunctionIconSelected, FunctionIconUnselected;
+
+        [FoldoutGroup("Level Editor/Decorator Panel")] [SerializeField] Image DecoratorBackgroundImage, DecoratorIconImage;
+        [FoldoutGroup("Level Editor/Decorator Panel")] [SerializeField] Sprite DecoratorIconSelected, DecoratorIconUnselected;
+
+        [FoldoutGroup("Level Editor/Emote Panel")] [SerializeField] Image EmoteBackgroundImage, EmoteIconImage;
+        [FoldoutGroup("Level Editor/Emote Panel")] [SerializeField] Sprite EmoteIconSelected, EmoteIconUnselected;
         #endregion
 
         #region TRANSITION
@@ -112,7 +126,7 @@ namespace Kubika.Game
 
                 case ScenesIndex.LEVEL_EDITOR:
                     LevelEditorPriority();
-                    FunctionModePriority();
+                    UniverseModePriority();
 
                     ResetCurrentValues();
                     break;
@@ -453,8 +467,28 @@ namespace Kubika.Game
         #endregion
 
         #region LEVEL EDITOR
+        private void ResetSelections()
+        {
+            UniverseBackgroundImage.sprite = BackgroundUnselected;
+            UniverseIconImage.sprite = UniverseIconUnselected;
+
+            FunctionBackgroundImage.sprite = BackgroundUnselected;
+            FunctionIconImage.sprite = FunctionIconUnselected;
+
+            DecoratorBackgroundImage.sprite = BackgroundUnselected;
+            DecoratorIconImage.sprite = DecoratorIconUnselected;
+
+            EmoteBackgroundImage.sprite = BackgroundUnselected;
+            EmoteIconImage.sprite = EmoteIconUnselected;
+        }
+
         void UniverseModePriority()
         {
+            ResetSelections();
+
+            UniverseBackgroundImage.sprite = BackgroundSelected;
+            UniverseIconImage.sprite = UniverseIconSelected;
+
             UniverseMode.SetActive(true);
             FunctionMode.SetActive(false);
             DecoratorMode.SetActive(false);
@@ -464,6 +498,11 @@ namespace Kubika.Game
         //set function cubes as the active panel
         void FunctionModePriority()
         {
+            ResetSelections();
+
+            FunctionBackgroundImage.sprite = BackgroundSelected;
+            FunctionIconImage.sprite = FunctionIconSelected;
+
             LevelEditor.instance.currentCube = CubeTypes.MoveableCube; //optional, remove to let player pick Cube
             UniverseMode.SetActive(false);
             FunctionMode.SetActive(true);
@@ -474,6 +513,11 @@ namespace Kubika.Game
         //set decorator cubes as the active panel
         void DecoratorModePriority()
         {
+            ResetSelections();
+
+            DecoratorBackgroundImage.sprite = BackgroundSelected;
+            DecoratorIconImage.sprite = DecoratorIconSelected;
+
             LevelEditor.instance.currentCube = CubeTypes.FullStaticCube; //optional, remove to let player pick Cube
             UniverseMode.SetActive(false);
             FunctionMode.SetActive(false);
@@ -484,6 +528,11 @@ namespace Kubika.Game
         //set decorator cubes as the active panel
         void EmoteModePriority()
         {
+            ResetSelections();
+
+            EmoteBackgroundImage.sprite = BackgroundSelected;
+            EmoteIconImage.sprite = EmoteIconSelected;
+
             UniverseMode.SetActive(false);
             FunctionMode.SetActive(false);
             DecoratorMode.SetActive(false);
