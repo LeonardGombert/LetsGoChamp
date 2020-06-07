@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kubika.CustomLevelEditor;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,15 +17,9 @@ namespace Kubika.Game
             CheckForNodeTouch();
         }
 
-        // call when the user loads the worlmap, makes the camera focus to last beaten level
-        void FocusOnLastBeatenLevel()
-        {
-
-        }
-
         private void CheckForNodeTouch()
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.GetTouch(0).position), out hit))//, Mathf.Infinity, LayerMask.NameToLayer("LevelCubes")))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(LevelEditor.GetUserPlatform()), out hit))//, Mathf.Infinity, LayerMask.NameToLayer("LevelCubes")))
             {
                 LevelCube levelCube = hit.collider.gameObject.GetComponent<LevelCube>();
                 if (levelCube != null) LevelsManager.instance.SelectLevel(levelCube.kubicode);

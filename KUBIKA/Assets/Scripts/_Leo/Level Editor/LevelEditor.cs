@@ -34,7 +34,6 @@ namespace Kubika.CustomLevelEditor
 
         //PLACING CUBES
         private bool placeMultiple = true;
-        Vector3 userInputPosition;
 
         public LevelSetup levelSetup;
         public List<TextAsset> prefabLevels = new List<TextAsset>();
@@ -144,7 +143,7 @@ namespace Kubika.CustomLevelEditor
                 if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     GetUserPlatform();
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(userInputPosition), out hit)) PlaceCube(hit);
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) PlaceCube(hit);
                     hitIndex = 0;
                 }
             }
@@ -155,7 +154,7 @@ namespace Kubika.CustomLevelEditor
                 if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
                     GetUserPlatform();
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(userInputPosition), out hit)) DeleteCube(hit);
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) DeleteCube(hit);
                     hitIndex = 0;
                 }
             }
@@ -166,13 +165,13 @@ namespace Kubika.CustomLevelEditor
                 if (Input.GetMouseButton(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
                 {
                     GetUserPlatform();
-                    Camera.main.ScreenPointToRay(userInputPosition);
+                    Camera.main.ScreenPointToRay(GetUserPlatform());
                 }
 
                 // one release, set the rotation
                 if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(userInputPosition), out hit)) RotateCube(hit);
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
                     hitIndex = 0;
                 }
             }
@@ -628,9 +627,9 @@ namespace Kubika.CustomLevelEditor
             return grid.kuboGrid[hitIndex - 1 + moveWeight].nodeIndex;
         }
 
-        Vector3 GetUserPlatform()
+        public static Vector3 GetUserPlatform()
         {
-            userInputPosition = Vector3.zero;
+            Vector3 userInputPosition = Vector3.zero;
 
             if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) userInputPosition = Input.mousePosition;
 
