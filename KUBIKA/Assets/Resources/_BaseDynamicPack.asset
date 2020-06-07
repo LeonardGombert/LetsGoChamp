@@ -110,8 +110,8 @@ MonoBehaviour:
   Bomb_Contrast: 1
   Bomb_Saturation: 1
   Bomb_Brightness: 0
-  _SwitchTexOn: {fileID: 2800000, guid: 541becf32faaf1f4fa620ca848c6978f, type: 3}
-  _SwitchTexOff: {fileID: 2800000, guid: ec63552be0baa5145b5564d3df1e0390, type: 3}
+  _SwitchTexOn: {fileID: 2800000, guid: bb1e2fc56de616441958379d032020f3, type: 3}
+  _SwitchTexOff: {fileID: 2800000, guid: 75801dc72f1a7cc4eb34e420711143f9, type: 3}
   _SwitchTexInside: {fileID: 2800000, guid: b6839a60f61934e438dc3668dffddd08, type: 3}
   _SwitchMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
@@ -122,8 +122,8 @@ MonoBehaviour:
   Switch_Contrast: 1
   Switch_Saturation: 1
   Switch_Brightness: 0
-  _SwitchTexOnButton: {fileID: 2800000, guid: eda8f879496c386439298e7b360cc4b9, type: 3}
-  _SwitchTexOffButton: {fileID: 2800000, guid: eda8f879496c386439298e7b360cc4b9, type: 3}
+  _SwitchTexOnButton: {fileID: 2800000, guid: 1770f52863c39614eb45e9b03679f33e, type: 3}
+  _SwitchTexOffButton: {fileID: 2800000, guid: 1770f52863c39614eb45e9b03679f33e, type: 3}
   _SwitchTexInsideButton: {fileID: 2800000, guid: b6839a60f61934e438dc3668dffddd08,
     type: 3}
   _SwitchMeshButton: {fileID: 7594273234443547069, guid: fc706fb5d8068f649a7b75efe59f10ff,
@@ -176,7 +176,7 @@ MonoBehaviour:
   BallV_Saturation: 0
   BallV_Brightness: 0
   _SwitchVTexOn: {fileID: 2800000, guid: 541becf32faaf1f4fa620ca848c6978f, type: 3}
-  _SwitchVTexOff: {fileID: 2800000, guid: ec63552be0baa5145b5564d3df1e0390, type: 3}
+  _SwitchVTexOff: {fileID: 2800000, guid: 75801dc72f1a7cc4eb34e420711143f9, type: 3}
   _SwitchVTexInside: {fileID: 2800000, guid: 128cf5204081f2a429f833ffd7d23d40, type: 3}
   _SwitchVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
