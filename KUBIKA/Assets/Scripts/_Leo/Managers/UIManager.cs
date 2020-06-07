@@ -57,8 +57,10 @@ namespace Kubika.Game
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorOptionsWindow;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorSaveWindow;
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject UniverseMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject EmoteMode;
         [FoldoutGroup("Level Editor")] public Dropdown playerLevelsDropdown;
         [FoldoutGroup("Level Editor")] public InputField saveLevelName;
         #endregion
@@ -363,10 +365,12 @@ namespace Kubika.Game
                     OpenSaveWindow();
                     break;
 
-                case "LEVELEDITOR_FXMode":
+                case "LEVELEDITOR_EmoteMode":
+                    EmoteModePriority();
                     break;
 
-                case "LEVELEDITOR_EmoteMode":
+                case "LEVELEDITOR_UniverseMode":
+                    UniverseModePriority();
                     break;
 
                 case "LEVELEDITOR_FunctionMode":
@@ -393,6 +397,7 @@ namespace Kubika.Game
                     break;
             }
         }
+
         #endregion
 
         #region GAME
@@ -448,20 +453,41 @@ namespace Kubika.Game
         #endregion
 
         #region LEVEL EDITOR
+        void UniverseModePriority()
+        {
+            UniverseMode.SetActive(true);
+            FunctionMode.SetActive(false);
+            DecoratorMode.SetActive(false);
+            EmoteMode.SetActive(false);
+        }
+
         //set function cubes as the active panel
         void FunctionModePriority()
         {
             LevelEditor.instance.currentCube = CubeTypes.MoveableCube; //optional, remove to let player pick Cube
+            UniverseMode.SetActive(false);
             FunctionMode.SetActive(true);
             DecoratorMode.SetActive(false);
+            EmoteMode.SetActive(false);
         }
 
         //set decorator cubes as the active panel
         void DecoratorModePriority()
         {
             LevelEditor.instance.currentCube = CubeTypes.FullStaticCube; //optional, remove to let player pick Cube
-            DecoratorMode.SetActive(true);
+            UniverseMode.SetActive(false);
             FunctionMode.SetActive(false);
+            DecoratorMode.SetActive(true);
+            EmoteMode.SetActive(false);
+        }
+
+        //set decorator cubes as the active panel
+        void EmoteModePriority()
+        {
+            UniverseMode.SetActive(false);
+            FunctionMode.SetActive(false);
+            DecoratorMode.SetActive(false);
+            EmoteMode.SetActive(true);
         }
 
         //called by user when saving a level
