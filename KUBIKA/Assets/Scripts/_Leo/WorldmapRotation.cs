@@ -16,6 +16,7 @@ public class WorldmapRotation : MonoBehaviour
 
     private void Start()
     {
+
     }
 
     void RefreshWorldArrowTargets()

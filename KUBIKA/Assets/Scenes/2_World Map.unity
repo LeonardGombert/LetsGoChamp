@@ -61435,7 +61435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   worldMap: {fileID: 1982662058}
   activeFace: {fileID: 0}
-  currentBiome: 4
+  currentBiome: 1
 --- !u!1 &1552093722
 GameObject:
   m_ObjectHideFlags: 0
