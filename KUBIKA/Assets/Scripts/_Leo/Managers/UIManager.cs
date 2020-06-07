@@ -155,6 +155,11 @@ namespace Kubika.Game
             hamburgerMenuCanvas2.enabled = false;
             levelPassedCanvas.enabled = false;
             customTestCanvas.enabled = false;
+
+            hiddenMenuButtons.SetActive(false);
+            openBurgerMenuButton.SetActive(false);
+            levelEditorOptionsWindow.SetActive(false);
+            levelEditorSaveWindow.SetActive(false);
         }
 
         private void WorldMapPriority()
@@ -483,6 +488,7 @@ namespace Kubika.Game
         void TestUserLevel()
         {
             StartCoroutine(LevelsManager.instance.OpenTestLevel());
+
         }
 
         // called when user presses back button
