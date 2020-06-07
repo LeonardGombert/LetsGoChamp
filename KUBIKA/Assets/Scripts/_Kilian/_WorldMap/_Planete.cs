@@ -85,7 +85,7 @@ namespace Kubika.Game
         public bool isMobilePlatform = false;
 
         // MOON
-        public _MOON moonScript;
+        public bool isMoonDisabled = false;
 
 
         // Start is called before the first frame update
@@ -173,6 +173,11 @@ namespace Kubika.Game
                         }
 
                         CameraTransition(nextFace);
+                        if(isMoonDisabled == false)
+                        {
+                            StartCoroutine(DisableMoon());
+                            isMoonDisabled = true;
+                        }
                         planeteView = false;
 
                         StartCoroutine(UIManager.instance.ZoomedWorldMapPriority());
@@ -215,6 +220,11 @@ namespace Kubika.Game
                         }
 
                         CameraTransition(nextFace);
+                        if (isMoonDisabled == false)
+                        {
+                            StartCoroutine(DisableMoon());
+                            isMoonDisabled = true;
+                        }
                         planeteView = false;
                     }
                 }
@@ -250,6 +260,8 @@ namespace Kubika.Game
                 rotationSpeed = planeteSpeed;
             }
 
+            isMoonDisabled = false;
+            _MOON.instance.gameObject.SetActive(true);
             _MOON.instance.isMoonView = false;
             _MOON.instance.BaseView.Priority = 0;
             planeteView = true;
@@ -263,6 +275,9 @@ namespace Kubika.Game
             brainVCam.m_CustomBlends = blenderCUTSettingsVCam;
 
             Debug.Log("After");
+
+            _MOON.instance.gameObject.SetActive(false);
+            isMoonDisabled = true;
 
             planeteView = false;
             raycastFaces[faceEnQuestion + 1].isActive = true;
@@ -298,6 +313,12 @@ namespace Kubika.Game
             currentFace.PutCameraInfrontOfCube(targetLevel.transform.position);
 
             yield return null;
+        }
+
+        IEnumerator DisableMoon()
+        {
+            yield return new WaitForSeconds(2);
+            _MOON.instance.gameObject.SetActive(false);
         }
 
         //for rotation
