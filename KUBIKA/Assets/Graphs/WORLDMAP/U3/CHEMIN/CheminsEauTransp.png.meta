@@ -1,34 +1,25 @@
 fileFormatVersion: 2
-guid: 8eb94cd8e2a44da4fa2e18fa7ddd3236
+guid: 7a490919f2339e844a2fd0260a652704
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5449933394431890751
-    second: CheminsRuines_0
+      213: -3063194555304570327
+    second: CheminsEauTransp_0
   - first:
-      213: 6116905746893559317
-    second: CheminsRuines_1
+      213: -5690329968730090856
+    second: CheminsEauTransp_1
   - first:
-      213: 7714358084192793552
-    second: CheminsRuines_2
+      213: -4951131803833639464
+    second: CheminsEauTransp_2
   - first:
-      213: 6894185402142937142
-    second: CheminsRuines_3
+      213: -659414978299994273
+    second: CheminsEauTransp_3
   - first:
-      213: -773103612559295150
-    second: CheminsRuines_4
+      213: 2374639445396609495
+    second: CheminsEauTransp_4
   - first:
-      213: -5648554849768235195
-    second: CheminsRuines_5
-  - first:
-      213: 891518220774508428
-    second: CheminsRuines_6
-  - first:
-      213: 241579812836672218
-    second: CheminsRuines_7
-  - first:
-      213: -4477428527896749705
-    second: CheminsRuines_8
+      213: 1638040450537478674
+    second: CheminsEauTransp_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -125,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CheminsRuines_0
+      name: CheminsEauTransp_0
       rect:
         serializedVersion: 2
         x: 0
@@ -139,56 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ca2957e372fd54b0800000000000000
-      internalID: -5449933394431890751
+      spriteID: 922192d08c85d75d0800000000000000
+      internalID: -3063194555304570327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CheminsRuines_1
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 320
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 516d2283e5d93e450800000000000000
-      internalID: 6116905746893559317
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CheminsRuines_2
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 320
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d3797e1ec7ee0b60800000000000000
-      internalID: 7714358084192793552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CheminsRuines_3
+      name: CheminsEauTransp_2
       rect:
         serializedVersion: 2
         x: 0
@@ -202,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 630d966a8111daf50800000000000000
-      internalID: 6894185402142937142
+      spriteID: 8dd5b5c4bdb0a4bb0800000000000000
+      internalID: -4951131803833639464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CheminsRuines_4
+      name: CheminsEauTransp_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 160
+        x: 161
+        y: 161
         width: 160
-        height: 160
+        height: 164
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,40 +172,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25df4d64c526545f0800000000000000
-      internalID: -773103612559295150
+      spriteID: f5f5bda229949d6f0800000000000000
+      internalID: -659414978299994273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CheminsRuines_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 160
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54f114d9a4d4c91b0800000000000000
-      internalID: -5648554849768235195
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CheminsRuines_6
+      name: CheminsEauTransp_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 177
+        width: 171
         height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -265,19 +193,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c878d0c291f4f5c00800000000000000
-      internalID: 891518220774508428
+      spriteID: 7d9de748ef964f020800000000000000
+      internalID: 2374639445396609495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: CheminsRuines_7
+      name: CheminsEauTransp_5
       rect:
         serializedVersion: 2
-        x: 177
+        x: 174
         y: 0
-        width: 143
+        width: 146
         height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -286,29 +214,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad209015f834a5300800000000000000
-      internalID: 241579812836672218
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CheminsRuines_8
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 160
-        height: 160
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 779938fe97afcd1c0800000000000000
-      internalID: -4477428527896749705
+      spriteID: 21ad10e6c1d7bb610800000000000000
+      internalID: 1638040450537478674
       vertices: []
       indices: 
       edges: []
