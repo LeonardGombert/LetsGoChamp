@@ -108,6 +108,7 @@ namespace Kubika.Game
 
         public IEnumerator VictoryPSLatence()
         {
+            Debug.Log("EXPLOSION");
             StartExplosion = UnityEngine.Random.Range(0.2f, 1);
             yield return new WaitForSeconds(StartExplosion);
             ExplosionEND_PS.Play();
@@ -125,8 +126,12 @@ namespace Kubika.Game
             //shoot forwards
             for (int position = myIndex; position < grid.gridSize * grid.gridSize * grid.gridSize; position -= _DirectionCustom.LocalScanner(facingDirection))
             {
-                RemoveCube(position);
-                if (!MatrixLimitCalcul(position, _DirectionCustom.LocalScanner(facingDirection))) break;
+                if (position > 0)
+                {
+                    if (!MatrixLimitCalcul(position, _DirectionCustom.LocalScanner(facingDirection))) break;
+                    RemoveCube(position);
+                }
+                else break;
             }
 
         }
