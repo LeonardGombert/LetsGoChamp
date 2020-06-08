@@ -102,9 +102,6 @@ namespace Kubika.Game
         // called when Game Scene is loaded, load specific level or set to baseState
         public void BakeLevels()
         {
-            //MOVE THIS SOMEWHERE ELSE (?)
-            //loadToKubicode = SaveAndLoad.instance.LoadProgress();
-
             for (int i = 0; i < gameMasterList.Count; i++)
             {
                 if (gameMasterList[i].kubicode != loadToKubicode) continue;
@@ -135,7 +132,7 @@ namespace Kubika.Game
         {
             LevelFile levelFile = GetMatching(loadToKubicode);
 
-            UIManager.instance.UpdateWMInfo(levelFile.levelName);
+            UIManager.instance.UpdateWMInfo(levelFile);
             loadToKubicode = kubicode;
         }
 
@@ -197,6 +194,14 @@ namespace Kubika.Game
         #endregion
 
         #region //LOAD LEVEL PIPELINE
+        //this kubicode is save into the player's progress file
+        public string GetNextKubicode()
+        {  
+            //get info
+            GetNextLevelInfo();
+            return _Kubicode;
+        }
+
         public void _LoadNextLevel()
         {
             //get info

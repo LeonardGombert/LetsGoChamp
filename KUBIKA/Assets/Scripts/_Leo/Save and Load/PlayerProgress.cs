@@ -5,7 +5,8 @@ namespace Kubika.Saving
     [System.Serializable]
     public class PlayerProgress
     {
-        public string lastLevelKubicode;
+        public string nextLevelKubicode;
         public List<string> beatenLevels = new List<string>();
+        public List<string> goldenLevels = new List<string>();
     }
 }

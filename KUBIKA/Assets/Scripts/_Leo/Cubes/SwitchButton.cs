@@ -31,6 +31,12 @@ namespace Kubika.Game
             _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
         }
 
+        public override void HideCubeProcedure()
+        {
+            base.HideCubeProcedure();
+            _DataManager.instance.EndFalling.RemoveListener(CheckIfPressed);
+        }
+
         // Update is called once per frame
         public override void Update()
         {

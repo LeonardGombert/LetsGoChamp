@@ -34,6 +34,20 @@ namespace Kubika.Game
 
         }
 
+        public override void UndoProcedure()
+        {
+            base.UndoProcedure();
+            _DataManager.instance.EndFalling.AddListener(ScannerSet);
+            _DataManager.instance.EndFalling.AddListener(CheckForVictory);
+        }
+
+        public override void HideCubeProcedure()
+        {
+            base.HideCubeProcedure();
+            _DataManager.instance.EndFalling.RemoveListener(CheckForVictory);
+            _DataManager.instance.EndFalling.RemoveListener(ScannerSet);
+        }
+
         // Update is called once per frame
         public override void Update()
         {

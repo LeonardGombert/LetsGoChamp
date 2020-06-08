@@ -1491,6 +1491,11 @@ PrefabInstance:
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 1445805127}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 5211472466263543853}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped
@@ -1599,6 +1604,12 @@ PrefabInstance:
       objectReference: {fileID: 4163245710987387166}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6e6cac74e049ba41b59b1516fdba42c, type: 3}
+--- !u!1 &5211472466263543853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6956760564367880597, guid: b6e6cac74e049ba41b59b1516fdba42c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5211472466263543852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6816873454855520486
 PrefabInstance:
   m_ObjectHideFlags: 0

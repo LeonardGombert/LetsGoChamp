@@ -87,12 +87,16 @@ namespace Kubika.Game
         {
             base.HideCubeProcedure();
             _DataManager.instance.elevators.Remove(this as ElevatorCube);
+            _DataManager.instance.EndFalling.RemoveListener(CheckingIfCanPush);
+            _DataManager.instance.EndMoving.RemoveListener(ResetReadyToMove);
         }
 
         public override void UndoProcedure()
         {
             base.UndoProcedure();
             _DataManager.instance.elevators.Add(this as ElevatorCube);
+            _DataManager.instance.EndFalling.AddListener(CheckingIfCanPush);
+            _DataManager.instance.EndMoving.AddListener(ResetReadyToMove);
         }
 
         void CheckCubeType()

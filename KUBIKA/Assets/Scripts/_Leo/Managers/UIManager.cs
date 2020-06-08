@@ -30,7 +30,7 @@ namespace Kubika.Game
         [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
         [FoldoutGroup("World Map")] public Image topArrow; //used by WorldMap Rotation script
         [FoldoutGroup("World Map")] public Image bottomArrow; //used by WorldMap Rotation script
-
+        [FoldoutGroup("World Map")] public GameObject playButton;
         #endregion         
 
         #region BURGER MENU
@@ -57,6 +57,7 @@ namespace Kubika.Game
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorOptionsWindow;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorSaveWindow;
+
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject UniverseMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
@@ -181,11 +182,14 @@ namespace Kubika.Game
             levelEditorSaveWindow.SetActive(false);
         }
 
-        private void WorldMapPriority()
+        public void WorldMapPriority()
         {
             ResetCanvasSortOrder();
             if (worldMapCanvas != null) worldMapCanvas.enabled = true;
             worldMapCanvas.sortingOrder = 1000;
+
+            //playButton.SetActive(false);
+            levelNameWM.enabled = false;
 
             topArrow.gameObject.SetActive(false);
             bottomArrow.gameObject.SetActive(false);
@@ -483,9 +487,11 @@ namespace Kubika.Game
 
         #region WORLDMAP
         //called when the user selects a level from the worldmap
-        public void UpdateWMInfo(string levelName)
+        public void UpdateWMInfo(LevelFile levelFile)
         {
-            levelNameWM.text = levelName;
+            levelNameWM.enabled = true;
+            levelNameWM.text = levelFile.levelName;
+            playButton.SetActive(true);
         }
         #endregion
 

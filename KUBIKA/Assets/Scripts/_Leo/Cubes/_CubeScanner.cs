@@ -58,7 +58,7 @@ namespace Kubika.Game
             else return false;
         }
 
-        public bool AnyMoveableChecker(int targetIndex)
+        public GameObject AnyMoveableChecker(int targetIndex)
         {
             if (myIndex - 1 + targetIndex < grid.kuboGrid.Length && myIndex - 1 + targetIndex >= 0)
             {
@@ -66,15 +66,16 @@ namespace Kubika.Game
                 {
                     if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition != null)
                     {
-                        if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition.gameObject.GetComponent<_CubeMove>() != null) return true;
-                        else return false;
+                        if (grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition.gameObject.GetComponent<_CubeMove>() != null) 
+                            return grid.kuboGrid[myIndex - 1 + targetIndex].cubeOnPosition.gameObject;
+                        else return null;
                     }
-                    else return false;
+                    else return null;
 
                 }
-                else return false;
+                else return null;
             }
-            else return false;
+            else return null;
         }
 
         protected Vector3 outsideCoord(int myIndexParam, int knowedDirection)

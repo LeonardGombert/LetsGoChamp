@@ -510,7 +510,7 @@ RectTransform:
   m_Children:
   - {fileID: 6956760562932829949}
   m_Father: {fileID: 6956760564456097486}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 6956760563797796213}
   - component: {fileID: 6956760563797796212}
   m_Layer: 5
-  m_Name: Go To Level Editor
+  m_Name: Open Level Editor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1159,7 +1159,7 @@ RectTransform:
   m_Children:
   - {fileID: 6956760563901308655}
   m_Father: {fileID: 6956760564456097486}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1307,7 +1307,7 @@ RectTransform:
   - {fileID: 6956760563161591578}
   - {fileID: 6956760563694882820}
   m_Father: {fileID: 6956760564456097486}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1383,9 +1383,9 @@ RectTransform:
   - {fileID: 6956760564134352073}
   - {fileID: 6956760562740263309}
   - {fileID: 6956760563755292243}
-  - {fileID: 6956760564367880586}
   - {fileID: 6956760563545686334}
   - {fileID: 6956760563905375197}
+  - {fileID: 6956760564367880586}
   - {fileID: 6956760563797796215}
   m_Father: {fileID: 6956760563654592974}
   m_RootOrder: 0

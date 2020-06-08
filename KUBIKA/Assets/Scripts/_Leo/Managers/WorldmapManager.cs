@@ -1,6 +1,8 @@
 ﻿using Kubika.CustomLevelEditor;
+using Kubika.Saving;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -14,6 +16,7 @@ namespace Kubika.Game
         public static WorldmapManager instance { get { return _instance; } }
 
         public List<GameObject> levelCubes = new List<GameObject>();
+        public LevelCube[] worldMapLevels;
 
         RaycastHit hit;
         public LayerMask cubesMask;
@@ -26,6 +29,7 @@ namespace Kubika.Game
         GameObject activeFace;
         public Transform[] faces;
 
+        public string nextLevelInProgression;
 
         //[RuntimeInitializeOnLoadMethod]
         private void Awake()
@@ -46,6 +50,8 @@ namespace Kubika.Game
             }
 
             currentBiome = Biomes.Plains;
+
+            worldMapLevels = FindObjectsOfType<LevelCube>();
         }
 
         // Update is called once per frame
@@ -75,7 +81,10 @@ namespace Kubika.Game
             if (Physics.Raycast(Camera.main.ScreenPointToRay(LevelEditor.GetUserPlatform()), out hit, Mathf.Infinity, cubesMask))
             {
                 LevelCube levelCube = hit.collider.gameObject.GetComponent<LevelCube>();
-                if (levelCube != null) LevelsManager.instance.SelectLevel(levelCube.kubicode);
+                if (levelCube != null)
+                {
+                    LevelsManager.instance.SelectLevel(levelCube.kubicode);
+                }
             }
         }
 
@@ -83,6 +92,20 @@ namespace Kubika.Game
         public void FocusOnNextLevel()
         {
 
+        }
+
+        public void UpdateWorldMap()
+        {
+            Debug.Log("Updating world map");
+
+            //the progress file holds the next player's level
+            nextLevelInProgression = SaveAndLoad.instance.LoadProgress().nextLevelKubicode;
+
+            foreach (LevelCube cube in worldMapLevels)
+            {
+                if (cube.kubicode == nextLevelInProgression)
+                    cube.GetComponent<_ScriptMatFaceCube>().isUnlocked = true;
+            }
         }
     }
 }
