@@ -230,6 +230,8 @@ namespace Kubika.Game
         {
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
+            
+            PlayerMoves.instance.ResetMoves();
 
             if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
             else UIManager.instance.TurnOnRotate();

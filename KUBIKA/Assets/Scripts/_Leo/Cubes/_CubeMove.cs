@@ -30,7 +30,6 @@ namespace Kubika.Game
         public bool isReadyToMove;
         public bool isMovingAndSTFU;
 
-
         //FALL MOVE
         Vector3 currentPos;
         Vector3 basePos;
@@ -369,7 +368,11 @@ namespace Kubika.Game
 
             isMoving = false;
 
-            if(isSeletedNow) GetBasePoint(); // RESET SWIPE POS
+            if (isSeletedNow)
+            {
+                PlayerMoves.instance.IncrementMoves();
+                GetBasePoint(); // RESET SWIPE POS
+            }
 
             Debug.Log("END MOVING ");
 

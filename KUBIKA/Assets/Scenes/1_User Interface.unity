@@ -1119,6 +1119,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 1880667868461223911, guid: aeba16e64b99beb4e9b36b4c00ad5635,
+        type: 3}
+      propertyPath: m_Name
+      value: Previous Record
+      objectReference: {fileID: 0}
     - target: {fileID: 1880667868721082032, guid: aeba16e64b99beb4e9b36b4c00ad5635,
         type: 3}
       propertyPath: m_Name
@@ -1237,6 +1242,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1880667868287510281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1880667868461223905, guid: aeba16e64b99beb4e9b36b4c00ad5635,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880667868287510276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1880667868287510282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1880667868822498264, guid: aeba16e64b99beb4e9b36b4c00ad5635,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880667868287510276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4163245710987387165
@@ -1496,6 +1525,16 @@ PrefabInstance:
       propertyPath: playButton
       value: 
       objectReference: {fileID: 5211472466263543853}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: minimumMoves
+      value: 
+      objectReference: {fileID: 1880667868287510281}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: currentMoves
+      value: 
+      objectReference: {fileID: 1880667868287510282}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped

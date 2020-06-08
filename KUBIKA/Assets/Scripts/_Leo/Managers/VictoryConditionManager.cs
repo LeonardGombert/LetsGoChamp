@@ -32,7 +32,6 @@ namespace Kubika.Game
             else _instance = this;
         }
 
-
         // Call when a new level is loaded
         public void CheckVictoryCubes()
         {
@@ -91,7 +90,10 @@ namespace Kubika.Game
             _FeedBackManager.instance.PlayVictoryFX();
             yield return new WaitForSeconds(waitTime);
 
-            SaveAndLoad.instance.SaveProgress(LevelsManager.instance.GetNextKubicode());
+            //save the level's progress
+            SaveAndLoad.instance.SaveAndLoadPlayerProgress(LevelsManager.instance._Kubicode, 
+                                              LevelsManager.instance.GetNextKubicode(), 
+                                              PlayerMoves.instance.CheckIfGolden());
 
             StartCoroutine(WinCountdown());
         }

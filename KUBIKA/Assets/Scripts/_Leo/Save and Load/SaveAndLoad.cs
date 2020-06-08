@@ -279,43 +279,11 @@ namespace Kubika.Saving
             UserLevelFiles.DeleteUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();
         }
-
-        //called by the victory condition manager
-        public void SaveProgress(string progressKubiCode)
+        
+        //saves player progress at the end of each level and loads next level
+        public PlayerProgress SaveAndLoadPlayerProgress(string currentLevelKubicode = "", string nextLevelKubiCode = "", bool isGolden = false)
         {
-            Debug.Log("Overwritting existing save !");
-            playerProgress.nextLevelKubicode = progressKubiCode;
-
-            string json = JsonUtility.ToJson(playerProgress);
             string folder = Application.persistentDataPath + "/UserSaves";
-            string levelFile = "PlayerProgress";
-
-            string path = Path.Combine(folder, levelFile) + ".json";
-
-            if (File.Exists(path)) File.Delete(path);
-
-            File.WriteAllText(path, json);
-        }
-
-        public void UpdateFile(PlayerProgress progressKubiCode)
-        {
-            string json = JsonUtility.ToJson(progressKubiCode);
-            string folder = Application.persistentDataPath + "/UserSaves";
-            string levelFile = "PlayerProgress";
-
-            string path = Path.Combine(folder, levelFile) + ".json";
-
-            if (File.Exists(path)) File.Delete(path);
-
-            File.WriteAllText(path, json);
-        }
-
-        //called in the UpdateWorldMap function of Worldmap manager
-        public PlayerProgress LoadProgress()
-        {
-            string kubicodeToLoad = "Worl101";
-            string folder = Application.persistentDataPath + "/UserSaves";
-
             string levelFile = "PlayerProgress";
             string path = Path.Combine(folder, levelFile) + ".json";
 
@@ -326,26 +294,32 @@ namespace Kubika.Saving
                 string json = File.ReadAllText(path);
                 PlayerProgress loadedPlayerProgress = JsonUtility.FromJson<PlayerProgress>(json);
 
-                kubicodeToLoad = loadedPlayerProgress.nextLevelKubicode;
-
-                Debug.Log("Last player level is " + kubicodeToLoad);
-
-                foreach (LevelFile level in LevelsManager.instance.gameMasterList)
+                //checks if you're saving or loading the level
+                if(currentLevelKubicode != "" && nextLevelKubiCode != "" && isGolden != false)
                 {
-                    for (int i = 0; i < loadedPlayerProgress.beatenLevels.Count; i++)
-                    {
-                        if (level.kubicode == loadedPlayerProgress.beatenLevels[i])
-                            continue; //level.levelIsBeaten = true;
-                    }
+                    loadedPlayerProgress.nextLevelKubicode = nextLevelKubiCode;
+                    loadedPlayerProgress.beatenLevels.Add(currentLevelKubicode);
+                    if (isGolden) loadedPlayerProgress.goldenLevels.Add(currentLevelKubicode);
                 }
 
                 return loadedPlayerProgress;
             }
 
-            //if the file doesn't exist, create a new one
-            else SaveProgress(kubicodeToLoad);
+            // if the file doesn't exist, create it 
+            else
+            {
+                PlayerProgress newPlayerProgress = new PlayerProgress();
 
-            return null;
+                newPlayerProgress.nextLevelKubicode = "Worl101";
+
+                string json = JsonUtility.ToJson(newPlayerProgress);
+
+                if (File.Exists(path)) File.Delete(path);
+
+                File.WriteAllText(path, json);
+
+                return newPlayerProgress;
+            }
         }
 
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)

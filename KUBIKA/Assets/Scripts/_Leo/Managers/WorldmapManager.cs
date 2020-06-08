@@ -104,10 +104,10 @@ namespace Kubika.Game
             Debug.Log("Updating world map");
 
             //the progress file holds the next player's level
-            nextLevelInProgression = SaveAndLoad.instance.LoadProgress().nextLevelKubicode;
+            nextLevelInProgression = SaveAndLoad.instance.SaveAndLoadPlayerProgress().nextLevelKubicode;
 
-            playerBeatenLevels = SaveAndLoad.instance.LoadProgress().beatenLevels;
-            playerGoldenLevels = SaveAndLoad.instance.LoadProgress().goldenLevels;
+            playerBeatenLevels = SaveAndLoad.instance.SaveAndLoadPlayerProgress().beatenLevels;
+            playerGoldenLevels = SaveAndLoad.instance.SaveAndLoadPlayerProgress().goldenLevels;
 
             foreach (LevelCube cube in worldMapLevels)
             {

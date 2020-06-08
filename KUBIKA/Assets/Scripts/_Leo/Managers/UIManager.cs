@@ -48,10 +48,11 @@ namespace Kubika.Game
         #endregion
 
         #region IN GAME
-        [FoldoutGroup("In Game")] [SerializeField] Image rightRotate, leftRotate;
-        [FoldoutGroup("In Game")] [SerializeField] Button rightRotateButton, leftRotateButton;
-        [FoldoutGroup("In Game")] [SerializeField] Sprite rightRotateOn, rightRotateOff;
-        [FoldoutGroup("In Game")] [SerializeField] Sprite leftRotateOn, leftRotateOff;
+        [FoldoutGroup("In-Game")] [SerializeField] Image rightRotate, leftRotate;
+        [FoldoutGroup("In-Game")] [SerializeField] Button rightRotateButton, leftRotateButton;
+        [FoldoutGroup("In-Game")] [SerializeField] Sprite rightRotateOn, rightRotateOff;
+        [FoldoutGroup("In-Game")] [SerializeField] Sprite leftRotateOn, leftRotateOff;
+        [FoldoutGroup("In-Game")] [SerializeField] Text currentMoves, minimumMoves;
         #endregion
 
         #region LEVEL EDITOR
@@ -97,6 +98,11 @@ namespace Kubika.Game
             else _instance = this;
 
             RefreshActiveScene();
+        }
+
+        private void Update()
+        {
+            UpdateText();
         }
 
         #region REFRESH ACTIVE CANVASES
@@ -275,10 +281,12 @@ namespace Kubika.Game
             {
                 #region //GAME INPUTS
                 case "GAME_RotateRight":
+                    PlayerMoves.instance.IncrementMoves();
                     _KUBRotation.instance.RightTurn();
                     break;
 
                 case "GAME_RotateLeft":
+                    PlayerMoves.instance.IncrementMoves();
                     _KUBRotation.instance.LeftTurn();
                     break;
 
@@ -423,6 +431,12 @@ namespace Kubika.Game
         #endregion
 
         #region GAME
+        void UpdateText()
+        {
+            currentMoves.text = PlayerMoves.instance.numberOfMoves.ToString();
+            minimumMoves.text = LevelsManager.instance._minimumMoves.ToString();
+        }
+
         //called to turn sound on/off
         void SwitchButtonSprite()
         {
@@ -436,7 +450,7 @@ namespace Kubika.Game
         //called when loading a new scene
         public void UpdateRotateButtons(bool isAbsent)
         {
-            if(isAbsent)
+            if (isAbsent)
             {
                 rightRotate.enabled = false;
                 leftRotate.enabled = false;
