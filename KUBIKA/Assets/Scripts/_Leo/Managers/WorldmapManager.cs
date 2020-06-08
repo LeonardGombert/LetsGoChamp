@@ -85,10 +85,11 @@ namespace Kubika.Game
                 
                 if (levelCube != null)
                 {
-                    foreach (LevelCube cube in worldMapLevels) cube.GetComponent<_ScriptMatFaceCube>().isSelected = false;
+                    foreach (LevelCube cube in worldMapLevels) cube.GetComponent<_ScriptMatFaceCube>().IsNotSelectedAnymore();
 
-                    LevelsManager.instance.SelectLevel(levelCube.kubicode);
+                    Debug.Log("CubeISSelected");
                     levelCube.gameObject.GetComponent<_ScriptMatFaceCube>().isSelected = true;
+                    LevelsManager.instance.SelectLevel(levelCube.kubicode);
                 }
             }
         }

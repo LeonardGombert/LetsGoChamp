@@ -99,7 +99,9 @@ namespace Kubika.Game
             if (boolDoneOnce4 == false && isSelected == true)
             {
                 Debug.Log("YES");
+                meshRenderer.GetPropertyBlock(MatProp);
                 MatProp.SetFloat("_Outline", 0.1f);
+                meshRenderer.SetPropertyBlock(MatProp);
                 boolDoneOnce4 = true;
             }
             if (isLocked == true)
@@ -174,7 +176,9 @@ namespace Kubika.Game
 
         public void IsNotSelectedAnymore()
         {
+            meshRenderer.GetPropertyBlock(MatProp);
             MatProp.SetFloat("_Outline", 0);
+            meshRenderer.SetPropertyBlock(MatProp);
             isSelected = false;
             boolDoneOnce4 = false;
         }
