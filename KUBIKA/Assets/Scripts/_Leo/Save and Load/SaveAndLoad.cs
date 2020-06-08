@@ -295,42 +295,19 @@ namespace Kubika.Saving
             if (File.Exists(path)) File.Delete(path);
 
             File.WriteAllText(path, json);
+        }
 
-            /*if(Application.isEditor)
-            {
-                // THIS ONLY WORKS IN EDITOR
-                if (File.Exists(Application.dataPath + "/Resources/PlayerSave/PlayerProgress.json"))
-                {
-                    Debug.Log("Overwritting existing save !");
-                    playerProgress.lastLevelKubicode = progressKubiCode;
-                    playerProgress.beatenLevels.Add(progressKubiCode);
+        public void UpdateFile(PlayerProgress progressKubiCode)
+        {
+            string json = JsonUtility.ToJson(progressKubiCode);
+            string folder = Application.persistentDataPath + "/UserSaves";
+            string levelFile = "PlayerProgress";
 
-                    string json = JsonUtility.ToJson(playerProgress);
-                    string folder = Application.dataPath + "/Resources/PlayerSave";
-                    string levelFile = "PlayerProgress.json";
+            string path = Path.Combine(folder, levelFile) + ".json";
 
-                    string path = Path.Combine(folder, levelFile);
-                    File.WriteAllText(path, json);
-                }
+            if (File.Exists(path)) File.Delete(path);
 
-                // THIS ONLY WORKS IN EDITOR
-                else
-                {
-                    playerProgress.lastLevelKubicode = progressKubiCode;
-                    playerProgress.beatenLevels.Add(LevelsManager.instance._Kubicode);
-
-                    string json = JsonUtility.ToJson(playerProgress);
-
-                    string folder = Application.dataPath + "/Resources/PlayerSave";
-                    string levelFile = "PlayerProgress.json";
-
-                    string path = Path.Combine(folder, levelFile);
-
-                    File.WriteAllText(path, json);
-
-                    Debug.Log("Creating a new save at " + path);
-                }
-            }*/
+            File.WriteAllText(path, json);
         }
 
         //called in the UpdateWorldMap function of Worldmap manager
@@ -347,26 +324,28 @@ namespace Kubika.Saving
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);
-                PlayerProgress playerProgress = JsonUtility.FromJson<PlayerProgress>(json);
+                PlayerProgress loadedPlayerProgress = JsonUtility.FromJson<PlayerProgress>(json);
 
-                kubicodeToLoad = playerProgress.nextLevelKubicode;
+                kubicodeToLoad = loadedPlayerProgress.nextLevelKubicode;
 
                 Debug.Log("Last player level is " + kubicodeToLoad);
 
                 foreach (LevelFile level in LevelsManager.instance.gameMasterList)
                 {
-                    for (int i = 0; i < playerProgress.beatenLevels.Count; i++)
+                    for (int i = 0; i < loadedPlayerProgress.beatenLevels.Count; i++)
                     {
-                        if (level.kubicode == playerProgress.beatenLevels[i])
+                        if (level.kubicode == loadedPlayerProgress.beatenLevels[i])
                             continue; //level.levelIsBeaten = true;
                     }
                 }
+
+                return loadedPlayerProgress;
             }
 
             //if the file doesn't exist, create a new one
             else SaveProgress(kubicodeToLoad);
 
-            return playerProgress;
+            return null;
         }
 
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)

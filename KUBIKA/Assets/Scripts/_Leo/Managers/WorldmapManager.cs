@@ -1,9 +1,6 @@
 ﻿using Kubika.CustomLevelEditor;
 using Kubika.Saving;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using UnityEditor;
 using UnityEngine;
 
 namespace Kubika.Game
@@ -16,6 +13,10 @@ namespace Kubika.Game
         public static WorldmapManager instance { get { return _instance; } }
 
         public List<GameObject> levelCubes = new List<GameObject>();
+
+        public List<string> playerBeatenLevels = new List<string>();
+        public List<string> playerGoldenLevels = new List<string>();
+
         public LevelCube[] worldMapLevels;
 
         RaycastHit hit;
@@ -81,9 +82,13 @@ namespace Kubika.Game
             if (Physics.Raycast(Camera.main.ScreenPointToRay(LevelEditor.GetUserPlatform()), out hit, Mathf.Infinity, cubesMask))
             {
                 LevelCube levelCube = hit.collider.gameObject.GetComponent<LevelCube>();
+                
                 if (levelCube != null)
                 {
+                    foreach (LevelCube cube in worldMapLevels) cube.GetComponent<_ScriptMatFaceCube>().isSelected = false;
+
                     LevelsManager.instance.SelectLevel(levelCube.kubicode);
+                    levelCube.gameObject.GetComponent<_ScriptMatFaceCube>().isSelected = true;
                 }
             }
         }
@@ -101,10 +106,22 @@ namespace Kubika.Game
             //the progress file holds the next player's level
             nextLevelInProgression = SaveAndLoad.instance.LoadProgress().nextLevelKubicode;
 
+            playerBeatenLevels = SaveAndLoad.instance.LoadProgress().beatenLevels;
+            playerGoldenLevels = SaveAndLoad.instance.LoadProgress().goldenLevels;
+
             foreach (LevelCube cube in worldMapLevels)
             {
+                if(playerBeatenLevels.Contains(cube.kubicode))
+                    cube.GetComponent<_ScriptMatFaceCube>().isPlayed = true;
+
+                else if (playerGoldenLevels.Contains(cube.kubicode))
+                    cube.GetComponent<_ScriptMatFaceCube>().isGold = true;
+
+                else cube.GetComponent<_ScriptMatFaceCube>().isLocked = true;
+
                 if (cube.kubicode == nextLevelInProgression)
                     cube.GetComponent<_ScriptMatFaceCube>().isUnlocked = true;
+
             }
         }
     }
