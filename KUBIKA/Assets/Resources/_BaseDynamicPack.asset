@@ -161,9 +161,9 @@ MonoBehaviour:
   _BombVInsideStrength: 0
   _BombVColorInside: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
   BombV_Hue: -59
-  BombV_Contrast: 1
-  BombV_Saturation: 1
-  BombV_Brightness: -0.1
+  BombV_Contrast: 1.27
+  BombV_Saturation: 0.74
+  BombV_Brightness: 0.017
   _BallVTex: {fileID: 0}
   _BallVMesh: {fileID: -2007969562899309102, guid: 1bc23e44f51e525489fb29a0fbe2fcd1,
     type: 3}
