@@ -296,6 +296,10 @@ namespace Kubika.Game
                     ScenesManager.instance._LoadScene(ScenesIndex.GAME_SCENE);
                     break;
 
+                case "WORLDMAP_ZoomOut":
+                    _Planete.instance.MainPlaneteView();
+                    break;
+
                 case "WORLDMAP_LevelEditor":
                     ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
                     break;

@@ -102,8 +102,9 @@ MonoBehaviour:
     type: 3}
   EmoteBackgroundImage: {fileID: 0}
   EmoteIconImage: {fileID: 0}
-  EmoteIconSelected: {fileID: 0}
-  EmoteIconUnselected: {fileID: 0}
+  EmoteIconSelected: {fileID: 21300000, guid: 4520053d8c4811e4d82ae8aa13c1a7ac, type: 3}
+  EmoteIconUnselected: {fileID: 21300000, guid: 8b7cb60656678fb4db54c06846ce08f5,
+    type: 3}
   fadeImage: {fileID: 0}
   transitionType: 0
   transitionDuration: 0.1
