@@ -36,7 +36,6 @@ namespace Kubika.Game
             meshFilter = GetComponent<MeshFilter>();
 
             SetScriptablePreset();
-            SetMaterial();
         }
 
         // Update is called once per frame
@@ -69,11 +68,14 @@ namespace Kubika.Game
 
         public void SetScriptablePreset()
         {
+            Debug.Log("_BGTex = " + _MaterialCentral.instance.actualPack._BGTex.name);
             _MainTex = _MaterialCentral.instance.actualPack._BGTex;
             _Hue = _MaterialCentral.instance.actualPack._HueBG;
             _Contrast = _MaterialCentral.instance.actualPack._ContrastBG;
             _Saturation = _MaterialCentral.instance.actualPack._SaturationBG;
             _Brightness = _MaterialCentral.instance.actualPack._BrightnessBG;
+
+            SetMaterial();
         }
     }
 }

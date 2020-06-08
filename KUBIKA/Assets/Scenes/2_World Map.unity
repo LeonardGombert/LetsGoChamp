@@ -63246,6 +63246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCubes: []
+  playerBeatenLevels: []
+  playerGoldenLevels: []
+  worldMapLevels: []
   cubesMask:
     serializedVersion: 2
     m_Bits: 256
@@ -63254,6 +63257,7 @@ MonoBehaviour:
   bottomArrowObj: {fileID: 0}
   worldMap: {fileID: 1982662058}
   faces: []
+  nextLevelInProgression: 
 --- !u!114 &1551450756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79938,7 +79942,7 @@ MonoBehaviour:
   levelCubes: []
   targetLevel: {fileID: 0}
   isMobilePlatform: 0
-  moonScript: {fileID: 1680228477}
+  isMoonDisabled: 0
 --- !u!4 &1982662060
 Transform:
   m_ObjectHideFlags: 0

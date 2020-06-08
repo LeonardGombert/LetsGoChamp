@@ -447,7 +447,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 839503418}
   meshFilter: {fileID: 839503419}
-  _MainTex: {fileID: 2800000, guid: a41cd42121162fe4c90aae2d856263d3, type: 3}
+  _MainTex: {fileID: 2800000, guid: 203f37f8d4dc10e47bb3c91bee1faed1, type: 3}
   _RadialTexture: {fileID: 2800000, guid: 53add95b884511e409da3dacab0ee348, type: 3}
   _CutOff: 1
   _Hue: 0
@@ -535,7 +535,7 @@ Transform:
   - {fileID: 665315717}
   - {fileID: 1812251516}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 36.569, y: -135, z: 0}
 --- !u!1001 &1439888044
 PrefabInstance:
@@ -582,7 +582,7 @@ PrefabInstance:
     - target: {fileID: 6312514759644111012, guid: be49b61fb398968479192818a1dda588,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6312514759644111012, guid: be49b61fb398968479192818a1dda588,
         type: 3}
@@ -696,7 +696,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -142, z: 0}
 --- !u!1 &1812251513
 GameObject:
@@ -796,6 +796,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomPower: 0.04
+  isCameraMove: 0
+  SetupCameraPcInputBool: 0
   pivotMainCamera: {fileID: 853958608}
   mouvPower: 0.3
   ShakeDuration: 0.3
@@ -891,7 +893,7 @@ PrefabInstance:
     - target: {fileID: 648942813670644583, guid: 7edbd24566b930b4ab7ae941d73f96a6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 648942813670644583, guid: 7edbd24566b930b4ab7ae941d73f96a6,
         type: 3}
