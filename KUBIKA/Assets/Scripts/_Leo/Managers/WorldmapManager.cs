@@ -16,6 +16,7 @@ namespace Kubika.Game
         public List<GameObject> levelCubes = new List<GameObject>();
 
         RaycastHit hit;
+        public LayerMask cubesMask;
         public Biomes currentBiome;
 
         public Transform topArrowObj;
@@ -71,7 +72,7 @@ namespace Kubika.Game
 
         private void CheckForNodeTouch()
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(LevelEditor.GetUserPlatform()), out hit))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(LevelEditor.GetUserPlatform()), out hit, Mathf.Infinity, cubesMask))
             {
                 LevelCube levelCube = hit.collider.gameObject.GetComponent<LevelCube>();
                 if (levelCube != null) LevelsManager.instance.SelectLevel(levelCube.kubicode);

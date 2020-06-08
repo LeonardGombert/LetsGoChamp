@@ -63246,6 +63246,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCubes: []
+  cubesMask:
+    serializedVersion: 2
+    m_Bits: 256
   currentBiome: 0
   topArrowObj: {fileID: 0}
   bottomArrowObj: {fileID: 0}
