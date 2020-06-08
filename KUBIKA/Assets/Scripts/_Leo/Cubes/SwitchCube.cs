@@ -12,6 +12,8 @@ namespace Kubika.Game
         {
             //call base.start AFTER assigning the cube's layers
             base.Start();
+
+            ChangeEmoteFace(_EmoteIdleOffTex);
         }
 
         // Update is called once per frame
