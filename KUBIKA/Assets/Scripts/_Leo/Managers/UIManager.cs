@@ -429,9 +429,24 @@ namespace Kubika.Game
             if (soundIsOn == false) sound.image.sprite = soundOff;
         }
 
+        //called when loading a new scene
+        public void UpdateRotateButtons(bool isAbsent)
+        {
+            if(isAbsent)
+            {
+                rightRotate.enabled = false;
+                leftRotate.enabled = false;
+            }
+
+            else TurnOffRotate();
+        }
+
         // called by rotator unlock
         public void TurnOnRotate()
         {
+            rightRotate.enabled = true;
+            leftRotate.enabled = true;
+
             rightRotate.sprite = rightRotateOn;
             leftRotate.sprite = leftRotateOn;
 
@@ -439,8 +454,12 @@ namespace Kubika.Game
             leftRotateButton.enabled = true;
         }
 
+        // called by rotator lock
         public void TurnOffRotate()
         {
+            rightRotate.enabled = true;
+            leftRotate.enabled = true;
+
             rightRotate.sprite = rightRotateOff;
             leftRotate.sprite = leftRotateOff;
 

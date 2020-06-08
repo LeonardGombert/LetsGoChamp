@@ -226,7 +226,7 @@ namespace Kubika.Game
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
 
-            if (_lockRotate) UIManager.instance.TurnOffRotate();
+            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
             else UIManager.instance.TurnOnRotate();
 
             string json = _levelFile.ToString();
@@ -256,7 +256,7 @@ namespace Kubika.Game
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
 
-            if (_lockRotate) UIManager.instance.TurnOffRotate();
+            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
             else UIManager.instance.TurnOnRotate();
 
             SaveAndLoad.instance.UserLoadLevel(SaveAndLoad.instance.currentOpenLevelName);
@@ -312,7 +312,6 @@ namespace Kubika.Saving
         public Biomes levelBiome;
         public int minimumMoves;
         public bool lockRotate;
-        public bool isAbsent;
         [HideInInspector] public bool levelIsBeaten; //not saved in the file, but in player progress
         public TextAsset levelFile;
     }
