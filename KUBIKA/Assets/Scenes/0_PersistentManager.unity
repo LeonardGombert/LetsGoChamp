@@ -330,6 +330,11 @@ PrefabInstance:
       propertyPath: _Kubicode
       value: Worl502
       objectReference: {fileID: 0}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: transitionDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5858080383342632990, guid: 02cb5f1c23274d848ba72171ad90c663,
         type: 3}
       propertyPath: m_Name

@@ -88,12 +88,12 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-            if (_DataManager.instance.platform == Platform.Mobile && isCameraMove == true)
+            /*if (_DataManager.instance.platform == Platform.Mobile && isCameraMove == true)
                 CameraPhoneInput();
             else if(_DataManager.instance.platform == Platform.PC && isCameraMove == true)
                 CameraPCInput();
             else 
-                ZoomingPC(Input.mouseScrollDelta.y);
+                ZoomingPC(Input.mouseScrollDelta.y);*/
 
             if (isShaking == true)
                 ActualScreenShake();

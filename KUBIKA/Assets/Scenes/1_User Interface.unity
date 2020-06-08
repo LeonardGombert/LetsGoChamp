@@ -1535,6 +1535,11 @@ PrefabInstance:
       propertyPath: currentMoves
       value: 
       objectReference: {fileID: 1880667868287510282}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: transitionDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped
@@ -1660,11 +1665,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fade Transition
-      objectReference: {fileID: 0}
-    - target: {fileID: 6816873454776561097, guid: bdfde44508b92ad4d82e8520112b8ffe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6816873454776561106, guid: bdfde44508b92ad4d82e8520112b8ffe,
         type: 3}

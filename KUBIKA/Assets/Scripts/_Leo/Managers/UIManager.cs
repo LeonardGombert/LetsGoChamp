@@ -82,13 +82,14 @@ namespace Kubika.Game
         #endregion
 
         #region TRANSITION
-        [FoldoutGroup("Fade Transition")] [SerializeField] Image fadeImage;
-        [FoldoutGroup("Fade Transition")] [SerializeField] TransitionType transitionType;
+        [FoldoutGroup("Fade Transition")] [SerializeField] public Image fadeImage;
+        [FoldoutGroup("Fade Transition")] [SerializeField] public TransitionType transitionType;
         [FoldoutGroup("Fade Transition")] [SerializeField] float transitionDuration;
         [FoldoutGroup("Fade Transition")] [SerializeField] float timePassed;
         float startAlphaValue;
         float targetAlphaValue;
         bool gameDimmed = false;
+        public bool transitionFinished = false;
         #endregion
         #endregion
 
@@ -161,7 +162,7 @@ namespace Kubika.Game
         void ResetCanvasSortOrder()
         {
             worldMapCanvas.sortingOrder = 0;
-            transitionCanvas.sortingOrder = 0;
+            //transitionCanvas.sortingOrder = 0;
             gameCanvas.sortingOrder = 0;
             winCanvas.sortingOrder = 0;
             levelEditorCanvas.sortingOrder = 0;
@@ -173,7 +174,6 @@ namespace Kubika.Game
         {
             worldMapCanvas.enabled = false;
             //transitionCanvas.enabled = false;
-            fadeImage.enabled = false;
             gameCanvas.enabled = false;
             winCanvas.enabled = false;
             levelEditorCanvas.enabled = false;
@@ -645,15 +645,14 @@ namespace Kubika.Game
         #region FADING
         public void TransitionStart()
         {
-            ResetCanvasSortOrder();
-            fadeImage.enabled = true;
+            transitionFinished = false;
             transitionCanvas.sortingOrder = 9999;
         }
 
         public void TransitionOver()
         {
             transitionCanvas.sortingOrder = 0;
-            transitionCanvas.enabled = false;
+            transitionFinished = true;
         }
 
         IEnumerator DimGame()
@@ -662,7 +661,6 @@ namespace Kubika.Game
 
             if (gameDimmed == false)
             {
-                fadeImage.enabled = true;
                 openBurgerMenuButton.SetActive(false);
                 hiddenMenuButtons.SetActive(true);
 
@@ -689,15 +687,15 @@ namespace Kubika.Game
 
                 hiddenMenuButtons.SetActive(false);
                 openBurgerMenuButton.SetActive(true);
-                fadeImage.enabled = false;
 
                 RefreshActiveScene();
             }
         }
 
-        IEnumerator FadeTransition(float startValue, float targetValue, float transitionDuration, float timePassed)
+        public IEnumerator FadeTransition(float startValue, float targetValue, float transitionDuration, float timePassed)
         {
-            transitionCanvas.sortingOrder = 999;
+            TransitionStart();
+
             float valueChange = targetValue - startValue;
             Color alphaColor = new Color();
 
@@ -737,6 +735,8 @@ namespace Kubika.Game
 
                 fadeImage.color = alphaColor;
             }
+
+            TransitionOver();
         }
         #endregion
     }

@@ -55,6 +55,11 @@ namespace Kubika.Game
         public int _minimumMoves;
         public bool _lockRotate;
 
+        float timePassed;
+        float startAlphaValue;
+        float targetAlphaValue;
+        [SerializeField] float transitionDuration;
+
         void Awake()
         {
             if (_instance != null && _instance != this) Destroy(this);
@@ -150,7 +155,6 @@ namespace Kubika.Game
             return returnfile;
         }
 
-
         #region //USER LEVEL EDITOR
         public void RefreshUserLevels()
         {
@@ -196,7 +200,7 @@ namespace Kubika.Game
         #region //LOAD LEVEL PIPELINE
         //this kubicode is save into the player's progress file
         public string GetNextKubicode()
-        {  
+        {
             //get info
             GetNextLevelInfo();
             return _Kubicode;
@@ -230,7 +234,7 @@ namespace Kubika.Game
         {
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
-            
+
             PlayerMoves.instance.ResetMoves();
 
             if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
@@ -249,7 +253,9 @@ namespace Kubika.Game
             // once the level is loaded 
 
             VictoryConditionManager.instance.CheckVictoryCubes();
+
             _DataManager.instance.GameSet();
+
             _MaterialCentral.instance.MaterialSet();
             _MaterialCentral.instance.ChangeUniverse(_levelBiome);
 
@@ -260,6 +266,7 @@ namespace Kubika.Game
 
         IEnumerator LoadUserLevel()
         {
+            /*
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
 
@@ -276,7 +283,7 @@ namespace Kubika.Game
             _MaterialCentral.instance.ChangeUniverse(_levelBiome);
 
             UIManager.instance.CustomLevelCanvasPriority();
-
+            */
             yield return null;
         }
 
@@ -306,6 +313,30 @@ namespace Kubika.Game
 
             yield return null;
         }
+
+        #region //FADE TRANSITION
+        public void _FadeToBlack()
+        {
+            //base values for fade out
+            timePassed = 0;
+            startAlphaValue = 0;
+            targetAlphaValue = 1;
+
+            StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue, 
+                            targetAlphaValue, transitionDuration, timePassed));
+        }
+
+        public void _FadeFromBlack()
+        {
+            //base values for fade out
+            timePassed = 0;
+            startAlphaValue = 1;
+            targetAlphaValue = 0;
+
+            StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue, 
+                            targetAlphaValue, transitionDuration, timePassed));
+        }
+        #endregion
     }
 }
 

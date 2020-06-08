@@ -54,6 +54,10 @@ namespace Kubika.Game
 
         IEnumerator LoadScene(ScenesIndex targetScene)
         {
+            LevelsManager.instance._FadeToBlack();
+
+            while (!UIManager.instance.transitionFinished) yield return null;
+
             SceneManager.UnloadSceneAsync((int)currentActiveScene);
             
             loadingSceneOp = SceneManager.LoadSceneAsync((int)targetScene, LoadSceneMode.Additive);
@@ -63,6 +67,10 @@ namespace Kubika.Game
             currentActiveScene = targetScene;
 
             finishedLoadingScene = true;
+
+            while (!UIManager.instance.transitionFinished) yield return null;
+
+            LevelsManager.instance._FadeFromBlack();
 
             UIManager.instance.RefreshActiveScene();
 
