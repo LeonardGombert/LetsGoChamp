@@ -1,4 +1,5 @@
 ﻿using Kubika.CustomLevelEditor;
+using UnityEngine;
 
 namespace Kubika.Game
 {
@@ -26,6 +27,7 @@ namespace Kubika.Game
                 _DataManager.instance.moveCube.Remove(this);
                 isStatic = true;
                 ChangeEmoteFace(_EmoteIdleOffTex);
+                ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOff);
                 myCubeLayer = CubeLayers.cubeFull;
             }
 
@@ -34,10 +36,20 @@ namespace Kubika.Game
                 _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
                 ChangeEmoteFace(_EmoteIdleTex);
+                ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOn);
                 myCubeLayer = CubeLayers.cubeMoveable;
             }
 
             SetRelevantNodeInfo();
+        }
+
+        void ChangeTex(Texture tex)
+        {
+            meshRenderer.GetPropertyBlock(MatProp);
+
+            MatProp.SetTexture("_MainTex", tex);
+
+            meshRenderer.SetPropertyBlock(MatProp);
         }
     }
 }

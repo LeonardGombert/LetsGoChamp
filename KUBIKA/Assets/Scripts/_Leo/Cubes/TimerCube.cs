@@ -21,7 +21,7 @@ namespace Kubika.Game
             SetScanDirections();
             _DataManager.instance.EndFalling.AddListener(CubeListener);
 
-            ChangeTexture(timerValue);
+            GuessTimerValue();
         }
 
         public override void UndoProcedure()
@@ -62,10 +62,49 @@ namespace Kubika.Game
                     newTouchingGO = null;
                     touchingGO = null;
                     timerValue--;
+                    ChangeTexture(timerValue);
                 }
             }
 
-            if (timerValue <= 0) StartCoroutine(PopOut());
+            if (timerValue <= 0)
+            {
+                StartCoroutine(PopOut());
+                _DataManager.instance.MakeFall();
+            }
+        }
+
+        void GuessTimerValue()
+        {
+            switch(myCubeType)
+            {
+                case CubeTypes.TimerCube9:
+                    ChangeTexture(9);
+                    break;
+                case CubeTypes.TimerCube8:
+                    ChangeTexture(8);
+                    break;
+                case CubeTypes.TimerCube7:
+                    ChangeTexture(7);
+                    break;
+                case CubeTypes.TimerCube6:
+                    ChangeTexture(6);
+                    break;
+                case CubeTypes.TimerCube5:
+                    ChangeTexture(5);
+                    break;
+                case CubeTypes.TimerCube4:
+                    ChangeTexture(4);
+                    break;
+                case CubeTypes.TimerCube3:
+                    ChangeTexture(3);
+                    break;
+                case CubeTypes.TimerCube2:
+                    ChangeTexture(2);
+                    break;
+                case CubeTypes.TimerCube1:
+                    ChangeTexture(1);
+                    break;
+            }
         }
 
         void ChangeTexture(int actualTimerValue)
