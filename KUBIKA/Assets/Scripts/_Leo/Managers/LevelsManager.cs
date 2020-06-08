@@ -102,9 +102,6 @@ namespace Kubika.Game
         // called when Game Scene is loaded, load specific level or set to baseState
         public void BakeLevels()
         {
-            //MOVE THIS SOMEWHERE ELSE (?)
-            //loadToKubicode = SaveAndLoad.instance.LoadProgress();
-
             for (int i = 0; i < gameMasterList.Count; i++)
             {
                 if (gameMasterList[i].kubicode != loadToKubicode) continue;
@@ -135,7 +132,7 @@ namespace Kubika.Game
         {
             LevelFile levelFile = GetMatching(loadToKubicode);
 
-            UIManager.instance.UpdateWMInfo(levelFile.levelName);
+            UIManager.instance.UpdateWMInfo(levelFile);
             loadToKubicode = kubicode;
         }
 
@@ -197,6 +194,14 @@ namespace Kubika.Game
         #endregion
 
         #region //LOAD LEVEL PIPELINE
+        //this kubicode is save into the player's progress file
+        public string GetNextKubicode()
+        {  
+            //get info
+            GetNextLevelInfo();
+            return _Kubicode;
+        }
+
         public void _LoadNextLevel()
         {
             //get info
@@ -226,7 +231,7 @@ namespace Kubika.Game
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
 
-            if (_lockRotate) UIManager.instance.TurnOffRotate();
+            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
             else UIManager.instance.TurnOnRotate();
 
             string json = _levelFile.ToString();
@@ -256,7 +261,7 @@ namespace Kubika.Game
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
 
-            if (_lockRotate) UIManager.instance.TurnOffRotate();
+            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
             else UIManager.instance.TurnOnRotate();
 
             SaveAndLoad.instance.UserLoadLevel(SaveAndLoad.instance.currentOpenLevelName);
@@ -312,7 +317,6 @@ namespace Kubika.Saving
         public Biomes levelBiome;
         public int minimumMoves;
         public bool lockRotate;
-        public bool isAbsent;
         [HideInInspector] public bool levelIsBeaten; //not saved in the file, but in player progress
         public TextAsset levelFile;
     }

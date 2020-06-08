@@ -283,22 +283,20 @@ namespace Kubika.Saving
         //called by the victory condition manager
         public void SaveProgress(string progressKubiCode)
         {
-            if(Application.isMobilePlatform)
-            {
-                Debug.Log("Overwritting existing save !");
-                playerProgress.lastLevelKubicode = progressKubiCode;
-                string json = JsonUtility.ToJson(playerProgress);
-                string folder = Application.persistentDataPath + "/UserSaves";
-                string levelFile = "PlayerProgress.json";
+            Debug.Log("Overwritting existing save !");
+            playerProgress.nextLevelKubicode = progressKubiCode;
 
-                string path = Path.Combine(folder, levelFile);
+            string json = JsonUtility.ToJson(playerProgress);
+            string folder = Application.persistentDataPath + "/UserSaves";
+            string levelFile = "PlayerProgress";
 
-                if (File.Exists(path)) File.Delete(path);
+            string path = Path.Combine(folder, levelFile) + ".json";
 
-                File.WriteAllText(path, json);
-            }
+            if (File.Exists(path)) File.Delete(path);
 
-            if(Application.isEditor)
+            File.WriteAllText(path, json);
+
+            /*if(Application.isEditor)
             {
                 // THIS ONLY WORKS IN EDITOR
                 if (File.Exists(Application.dataPath + "/Resources/PlayerSave/PlayerProgress.json"))
@@ -332,19 +330,14 @@ namespace Kubika.Saving
 
                     Debug.Log("Creating a new save at " + path);
                 }
-            }
+            }*/
         }
 
-        //called in the BakeLevels() function in Levels Manager
-        public string LoadProgress()
+        //called in the UpdateWorldMap function of Worldmap manager
+        public PlayerProgress LoadProgress()
         {
             string kubicodeToLoad = "Worl101";
-            string folder = "";
-
-            Debug.Log("Loading player progress !");
-
-            if (Application.isMobilePlatform) folder = Application.persistentDataPath + "/UserSaves";
-            if (Application.isEditor) folder = Application.dataPath + "/Resources/PlayerSave";
+            string folder = Application.persistentDataPath + "/UserSaves";
 
             string levelFile = "PlayerProgress";
             string path = Path.Combine(folder, levelFile) + ".json";
@@ -356,7 +349,7 @@ namespace Kubika.Saving
                 string json = File.ReadAllText(path);
                 PlayerProgress playerProgress = JsonUtility.FromJson<PlayerProgress>(json);
 
-                kubicodeToLoad = playerProgress.lastLevelKubicode;
+                kubicodeToLoad = playerProgress.nextLevelKubicode;
 
                 Debug.Log("Last player level is " + kubicodeToLoad);
 
@@ -370,9 +363,10 @@ namespace Kubika.Saving
                 }
             }
 
+            //if the file doesn't exist, create a new one
             else SaveProgress(kubicodeToLoad);
 
-            return kubicodeToLoad;
+            return playerProgress;
         }
 
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)

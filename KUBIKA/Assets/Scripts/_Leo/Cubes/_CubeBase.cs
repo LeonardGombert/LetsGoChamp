@@ -137,7 +137,6 @@ namespace Kubika.Game
             _Grid.instance.kuboGrid[myIndex - 1].cubeOnPosition = null;
 
             _DataManager.instance.baseCube.Remove(this);
-            _DataManager.instance.EndFalling.RemoveAllListeners();
         }
 
         // call when "reactivating" cubes
@@ -1051,6 +1050,7 @@ namespace Kubika.Game
 
         public IEnumerator PopOut()
         {
+            Debug.Log("Popping out");
 
             currentOfValueChange = 0;
             baseScale = transform.localScale;

@@ -53,6 +53,8 @@ MonoBehaviour:
   customTestCanvas: {fileID: 0}
   winCanvas: {fileID: 0}
   levelNameWM: {fileID: 0}
+  topArrow: {fileID: 0}
+  bottomArrow: {fileID: 0}
   music: {fileID: 0}
   musicOn: {fileID: 21300000, guid: ec504b12341d7a448bed5019e2a7cd8f, type: 3}
   musicOff: {fileID: 21300000, guid: 0b2ea486ea9420b459d0ed90bc88d618, type: 3}
@@ -71,10 +73,38 @@ MonoBehaviour:
   leftRotateOff: {fileID: 21300000, guid: 76b32501b8b53974ca76fee7f2addecf, type: 3}
   levelEditorOptionsWindow: {fileID: 0}
   levelEditorSaveWindow: {fileID: 0}
+  UniverseMode: {fileID: 0}
   FunctionMode: {fileID: 0}
   DecoratorMode: {fileID: 0}
+  EmoteMode: {fileID: 0}
   playerLevelsDropdown: {fileID: 0}
   saveLevelName: {fileID: 0}
+  BackgroundSelected: {fileID: 21300000, guid: 23f181b8f755baa4fbe435270b7f7039, type: 3}
+  BackgroundUnselected: {fileID: 21300000, guid: d57af50ba4e2f584999a1acfba1b278e,
+    type: 3}
+  UniverseBackgroundImage: {fileID: 0}
+  UniverseIconImage: {fileID: 0}
+  UniverseIconSelected: {fileID: 21300000, guid: fd90aff3b422b7e4fb0755b8158e7204,
+    type: 3}
+  UniverseIconUnselected: {fileID: 21300000, guid: cbf63a2834306bc49826721feb548198,
+    type: 3}
+  FunctionBackgroundImage: {fileID: 0}
+  FunctionIconImage: {fileID: 0}
+  FunctionIconSelected: {fileID: 21300000, guid: c5c309ea8de67c84b93fa1dff451620c,
+    type: 3}
+  FunctionIconUnselected: {fileID: 21300000, guid: 5bc93614e80376242a844f48b7786d74,
+    type: 3}
+  DecoratorBackgroundImage: {fileID: 0}
+  DecoratorIconImage: {fileID: 0}
+  DecoratorIconSelected: {fileID: 21300000, guid: e729b718403ba794a9e660b0a9343750,
+    type: 3}
+  DecoratorIconUnselected: {fileID: 21300000, guid: 2778ba91ab9dd7e4c96c8aab1acf6d5f,
+    type: 3}
+  EmoteBackgroundImage: {fileID: 0}
+  EmoteIconImage: {fileID: 0}
+  EmoteIconSelected: {fileID: 21300000, guid: 4520053d8c4811e4d82ae8aa13c1a7ac, type: 3}
+  EmoteIconUnselected: {fileID: 21300000, guid: 8b7cb60656678fb4db54c06846ce08f5,
+    type: 3}
   fadeImage: {fileID: 0}
   transitionType: 0
   transitionDuration: 0.1

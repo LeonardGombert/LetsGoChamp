@@ -78,7 +78,7 @@ namespace Kubika.Game
         {
             universeGridGroup.constraintCount = (int)Biomes.Count;
 
-            for (int i = 0; i <= universePack.Length; i++)
+            for (int i = 0; i < universePack.Length; i++)
             {
                 GameObject newObj = Instantiate(universePrefab, universeGridGroup.gameObject.transform);
                 newObj.GetComponent<Image>().sprite = universePack[i];

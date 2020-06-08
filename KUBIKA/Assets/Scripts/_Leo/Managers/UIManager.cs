@@ -30,7 +30,7 @@ namespace Kubika.Game
         [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
         [FoldoutGroup("World Map")] public Image topArrow; //used by WorldMap Rotation script
         [FoldoutGroup("World Map")] public Image bottomArrow; //used by WorldMap Rotation script
-
+        [FoldoutGroup("World Map")] public GameObject playButton;
         #endregion         
 
         #region BURGER MENU
@@ -57,10 +57,27 @@ namespace Kubika.Game
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorOptionsWindow;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorSaveWindow;
+
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject UniverseMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject FunctionMode;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject DecoratorMode;
+        [FoldoutGroup("Level Editor")] [SerializeField] GameObject EmoteMode;
         [FoldoutGroup("Level Editor")] public Dropdown playerLevelsDropdown;
         [FoldoutGroup("Level Editor")] public InputField saveLevelName;
+
+        [FoldoutGroup("Level Editor")] [SerializeField] Sprite BackgroundSelected, BackgroundUnselected;
+
+        [FoldoutGroup("Level Editor/Universe Panel")] [SerializeField] Image UniverseBackgroundImage, UniverseIconImage;
+        [FoldoutGroup("Level Editor/Universe Panel")] [SerializeField] Sprite UniverseIconSelected, UniverseIconUnselected;
+
+        [FoldoutGroup("Level Editor/Function Panel")] [SerializeField] Image FunctionBackgroundImage, FunctionIconImage;
+        [FoldoutGroup("Level Editor/Function Panel")] [SerializeField] Sprite FunctionIconSelected, FunctionIconUnselected;
+
+        [FoldoutGroup("Level Editor/Decorator Panel")] [SerializeField] Image DecoratorBackgroundImage, DecoratorIconImage;
+        [FoldoutGroup("Level Editor/Decorator Panel")] [SerializeField] Sprite DecoratorIconSelected, DecoratorIconUnselected;
+
+        [FoldoutGroup("Level Editor/Emote Panel")] [SerializeField] Image EmoteBackgroundImage, EmoteIconImage;
+        [FoldoutGroup("Level Editor/Emote Panel")] [SerializeField] Sprite EmoteIconSelected, EmoteIconUnselected;
         #endregion
 
         #region TRANSITION
@@ -110,7 +127,7 @@ namespace Kubika.Game
 
                 case ScenesIndex.LEVEL_EDITOR:
                     LevelEditorPriority();
-                    FunctionModePriority();
+                    UniverseModePriority();
 
                     ResetCurrentValues();
                     break;
@@ -165,11 +182,14 @@ namespace Kubika.Game
             levelEditorSaveWindow.SetActive(false);
         }
 
-        private void WorldMapPriority()
+        public void WorldMapPriority()
         {
             ResetCanvasSortOrder();
             if (worldMapCanvas != null) worldMapCanvas.enabled = true;
             worldMapCanvas.sortingOrder = 1000;
+
+            //playButton.SetActive(false);
+            levelNameWM.enabled = false;
 
             topArrow.gameObject.SetActive(false);
             bottomArrow.gameObject.SetActive(false);
@@ -280,6 +300,10 @@ namespace Kubika.Game
                     ScenesManager.instance._LoadScene(ScenesIndex.GAME_SCENE);
                     break;
 
+                case "WORLDMAP_ZoomOut":
+                    _Planete.instance.MainPlaneteView();
+                    break;
+
                 case "WORLDMAP_LevelEditor":
                     ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
                     break;
@@ -363,10 +387,12 @@ namespace Kubika.Game
                     OpenSaveWindow();
                     break;
 
-                case "LEVELEDITOR_FXMode":
+                case "LEVELEDITOR_EmoteMode":
+                    EmoteModePriority();
                     break;
 
-                case "LEVELEDITOR_EmoteMode":
+                case "LEVELEDITOR_UniverseMode":
+                    UniverseModePriority();
                     break;
 
                 case "LEVELEDITOR_FunctionMode":
@@ -393,6 +419,7 @@ namespace Kubika.Game
                     break;
             }
         }
+
         #endregion
 
         #region GAME
@@ -406,9 +433,24 @@ namespace Kubika.Game
             if (soundIsOn == false) sound.image.sprite = soundOff;
         }
 
+        //called when loading a new scene
+        public void UpdateRotateButtons(bool isAbsent)
+        {
+            if(isAbsent)
+            {
+                rightRotate.enabled = false;
+                leftRotate.enabled = false;
+            }
+
+            else TurnOffRotate();
+        }
+
         // called by rotator unlock
         public void TurnOnRotate()
         {
+            rightRotate.enabled = true;
+            leftRotate.enabled = true;
+
             rightRotate.sprite = rightRotateOn;
             leftRotate.sprite = leftRotateOn;
 
@@ -416,8 +458,12 @@ namespace Kubika.Game
             leftRotateButton.enabled = true;
         }
 
+        // called by rotator lock
         public void TurnOffRotate()
         {
+            rightRotate.enabled = true;
+            leftRotate.enabled = true;
+
             rightRotate.sprite = rightRotateOff;
             leftRotate.sprite = leftRotateOff;
 
@@ -441,27 +487,85 @@ namespace Kubika.Game
 
         #region WORLDMAP
         //called when the user selects a level from the worldmap
-        public void UpdateWMInfo(string levelName)
+        public void UpdateWMInfo(LevelFile levelFile)
         {
-            levelNameWM.text = levelName;
+            levelNameWM.enabled = true;
+            levelNameWM.text = levelFile.levelName;
+            playButton.SetActive(true);
         }
         #endregion
 
         #region LEVEL EDITOR
+        private void ResetSelections()
+        {
+            UniverseBackgroundImage.sprite = BackgroundUnselected;
+            UniverseIconImage.sprite = UniverseIconUnselected;
+
+            FunctionBackgroundImage.sprite = BackgroundUnselected;
+            FunctionIconImage.sprite = FunctionIconUnselected;
+
+            DecoratorBackgroundImage.sprite = BackgroundUnselected;
+            DecoratorIconImage.sprite = DecoratorIconUnselected;
+
+            EmoteBackgroundImage.sprite = BackgroundUnselected;
+            EmoteIconImage.sprite = EmoteIconUnselected;
+        }
+
+        void UniverseModePriority()
+        {
+            ResetSelections();
+
+            UniverseBackgroundImage.sprite = BackgroundSelected;
+            UniverseIconImage.sprite = UniverseIconSelected;
+
+            UniverseMode.SetActive(true);
+            FunctionMode.SetActive(false);
+            DecoratorMode.SetActive(false);
+            EmoteMode.SetActive(false);
+        }
+
         //set function cubes as the active panel
         void FunctionModePriority()
         {
+            ResetSelections();
+
+            FunctionBackgroundImage.sprite = BackgroundSelected;
+            FunctionIconImage.sprite = FunctionIconSelected;
+
             LevelEditor.instance.currentCube = CubeTypes.MoveableCube; //optional, remove to let player pick Cube
+            UniverseMode.SetActive(false);
             FunctionMode.SetActive(true);
             DecoratorMode.SetActive(false);
+            EmoteMode.SetActive(false);
         }
 
         //set decorator cubes as the active panel
         void DecoratorModePriority()
         {
+            ResetSelections();
+
+            DecoratorBackgroundImage.sprite = BackgroundSelected;
+            DecoratorIconImage.sprite = DecoratorIconSelected;
+
             LevelEditor.instance.currentCube = CubeTypes.FullStaticCube; //optional, remove to let player pick Cube
-            DecoratorMode.SetActive(true);
+            UniverseMode.SetActive(false);
             FunctionMode.SetActive(false);
+            DecoratorMode.SetActive(true);
+            EmoteMode.SetActive(false);
+        }
+
+        //set decorator cubes as the active panel
+        void EmoteModePriority()
+        {
+            ResetSelections();
+
+            EmoteBackgroundImage.sprite = BackgroundSelected;
+            EmoteIconImage.sprite = EmoteIconSelected;
+
+            UniverseMode.SetActive(false);
+            FunctionMode.SetActive(false);
+            DecoratorMode.SetActive(false);
+            EmoteMode.SetActive(true);
         }
 
         //called by user when saving a level

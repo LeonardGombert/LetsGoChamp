@@ -7,10 +7,11 @@ namespace Kubika.Game
     public class TimerCube : _CubeScanner
     {
         public int timerValue;
-        bool touchedCube;
+        [SerializeField] bool touchingCube;
 
-        public List<int> touchingCubeIndex = new List<int>();
-        private bool hasCubes;
+        [SerializeField] GameObject touchingGO;
+        [SerializeField] GameObject newTouchingGO;
+        [SerializeField] List<int> touchingCubeIndex = new List<int>();
 
         // Start is called before the first frame update
         public override void Start()
@@ -29,6 +30,12 @@ namespace Kubika.Game
             _DataManager.instance.EndFalling.AddListener(CubeListener);
         }
 
+        public override void HideCubeProcedure()
+        {
+            base.HideCubeProcedure();
+            _DataManager.instance.EndFalling.RemoveListener(CubeListener);
+        }
+
         // Update is called once per frame
         public override void Update()
         {
@@ -37,85 +44,33 @@ namespace Kubika.Game
 
         private void CubeListener()
         {
-            //if the timer already has cubes it is following
-            if (hasCubes)
+            if (!touchingCube)
             {
-                Debug.Log("looking out for my cubes");
+                //returns the gameobject you are touching
+                touchingGO = AnyMoveableChecker(_DirectionCustom.up);
 
-                /*
-                // check each registered index to make sure the cube is still there
-                foreach (int index in touchingCubeIndex)
+                if (touchingGO != null) touchingCube = true;
+            }
+
+            else if (touchingCube)
+            {
+                newTouchingGO = AnyMoveableChecker(_DirectionCustom.up);
+
+                if (newTouchingGO != touchingGO || newTouchingGO == null)
                 {
-                    // if one or more of the cubes have moved, reset the bools
-                    if (grid.kuboGrid[index - 1].cubeOnPosition == null)
-                    {
-                        //reset find cube variables
-                        touchedCube = false;
-                        hasCubes = false;
-
-                        //decrement the value by 1 for the next pass
-                        Debug.Log("Man down !");
-                        timerValue--;
-
-                        ChangeTexture(timerValue);
-                    }
-                }*/
-
-                touchedCube = AnyMoveableChecker(_DirectionCustom.up);
-
-                // if you touch a cube
-                if (touchedCube)
-                {
-                    // save that cube to the list of "registered" cubes
-                    touchingCubeIndex.Add(myIndex + _DirectionCustom.up);
-
-                    // set your state to "has registered cubes"
-                    hasCubes = true;
+                    touchingCube = false;
+                    newTouchingGO = null;
+                    touchingGO = null;
+                    timerValue--;
                 }
             }
 
-            if (timerValue > 0)
-            {
-                // forget the cubes you've already registered (in case only 1 moves)
-                touchingCubeIndex.Clear();
-
-                /*
-                // check in every "direction"
-                foreach (int index in indexesToCheck)
-                {
-                    touchedCube = AnyMoveableChecker(index);
-
-                    // if you touch a cube
-                    if (touchedCube)
-                    {
-                        // save that cube to the list of "registered" cubes
-                        touchingCubeIndex.Add(myIndex + index);
-
-                        // set your state to "has registered cubes"
-                        hasCubes = true;
-                    }
-                }*/
-
-                touchedCube = AnyMoveableChecker(_DirectionCustom.up);
-
-                // if you touch a cube
-                if (touchedCube)
-                {
-                    // save that cube to the list of "registered" cubes
-                    touchingCubeIndex.Add(myIndex + _DirectionCustom.up);
-
-                    // set your state to "has registered cubes"
-                    hasCubes = true;
-                }
-            }
-
-            else PopOut();
+            if (timerValue <= 0) StartCoroutine(PopOut());
         }
 
         void ChangeTexture(int actualTimerValue)
         {
-
-            switch(actualTimerValue)
+            switch (actualTimerValue)
             {
                 case 9:
                     _MainTex = _MaterialCentral.instance.actualPack._CounterTex9;
