@@ -165,9 +165,9 @@ MonoBehaviour:
   _BombVInsideStrength: 0
   _BombVColorInside: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
   BombV_Hue: -59
-  BombV_Contrast: 1
-  BombV_Saturation: 1
-  BombV_Brightness: -0.1
+  BombV_Contrast: 0.982
+  BombV_Saturation: 1.027
+  BombV_Brightness: -0.055
   _BallVTex: {fileID: 0}
   _BallVMesh: {fileID: -2007969562899309102, guid: 1bc23e44f51e525489fb29a0fbe2fcd1,
     type: 3}
@@ -213,36 +213,36 @@ MonoBehaviour:
   BetonV_Contrast: 2
   BetonV_Saturation: 0.677
   BetonV_Brightness: 0.611
-  _EmptyTex: {fileID: 2800000, guid: 07b44302fb1f17b48ad6bae9f10e3336, type: 3}
+  _EmptyTex: {fileID: 2800000, guid: f9eba4342ddb93e4ebcde24784bdf556, type: 3}
   _EmptyTex2: {fileID: 0}
   _EmptyMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _FullTex: {fileID: 2800000, guid: cdb7c07bde918c34b8a8bf1a44df6627, type: 3}
+  _FullTex: {fileID: 2800000, guid: 745028d8b4427a34aa75230be7162ac9, type: 3}
   _FullTex2: {fileID: 0}
   _FullMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TopTex: {fileID: 2800000, guid: 69213bfc6480d104581a4d661c121f15, type: 3}
+  _TopTex: {fileID: 2800000, guid: 5bbf292c6fa28d14485504176c1df930, type: 3}
   _TopTex2: {fileID: 0}
   _TopMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _CornerTex: {fileID: 2800000, guid: 04cfd0a441de0fe4abe1d11a30a3d54d, type: 3}
+  _CornerTex: {fileID: 2800000, guid: 8026d151fc0e43b41aa51408bd8e8c5a, type: 3}
   _CornerTex2: {fileID: 0}
   _CornerMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TripleTex: {fileID: 2800000, guid: 53a8eba1e9d9b8d4492b41fb6a3b2779, type: 3}
+  _TripleTex: {fileID: 2800000, guid: 3dbe77a7be2bc304cb8e7230cfbdcbd3, type: 3}
   _TripleTex2: {fileID: 0}
   _TripleMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _QuadTex: {fileID: 2800000, guid: 6c9937bf16efc2a45b8d8b46f4b141b7, type: 3}
+  _QuadTex: {fileID: 2800000, guid: 5aab6532290ef814ca8a06a7315cd0d2, type: 3}
   _QuadTex2: {fileID: 0}
   _QuadMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TextureColor: {r: 1, g: 1, b: 1, a: 0}
-  _Hue: -8
-  _Contrast: 1.447
-  _Saturation: 0.979
-  _Brightness: 0
-  _BGTex: {fileID: 2800000, guid: 8805d501af6e70149aeaa02c1077d9ca, type: 3}
+  _TextureColor: {r: 1, g: 1, b: 1, a: 1}
+  _Hue: 0
+  _Contrast: 0.833
+  _Saturation: 0.816
+  _Brightness: 0.118
+  _BGTex: {fileID: 2800000, guid: a41cd42121162fe4c90aae2d856263d3, type: 3}
   _HueBG: 0
   _ContrastBG: 1
   _SaturationBG: 1
