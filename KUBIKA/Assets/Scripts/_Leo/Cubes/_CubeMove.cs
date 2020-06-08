@@ -41,7 +41,7 @@ namespace Kubika.Game
         //FALL OUTSIDE
         [Space]
         [Header("OUTSIDE")]
-        public int nbrDeCubeFallOutside = 10;
+        public int nbrDeCubeFallOutside = 30;
         Vector3 moveOutsideTarget;
         [HideInInspector] public Vector3 moveOutsideTargetCustomVector;
         Vector3 fallOutsideTarget;
@@ -318,7 +318,7 @@ namespace Kubika.Game
 
             _DataManager.instance.moveCube.Remove(this);
             _DataManager.instance.baseCube.Remove(this);
-
+            PopOut();
 
             isFalling = false;
         }

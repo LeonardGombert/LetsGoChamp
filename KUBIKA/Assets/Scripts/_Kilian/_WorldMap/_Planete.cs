@@ -85,7 +85,7 @@ namespace Kubika.Game
         public bool isMobilePlatform = false;
 
         // MOON
-        public _MOON moonScript;
+        public bool isMoonDisabled = false;
 
 
         // Start is called before the first frame update
@@ -173,6 +173,11 @@ namespace Kubika.Game
                         OnZoomToPlanetCalls();
 
                         CameraTransition(nextFace);
+                        if(isMoonDisabled == false)
+                        {
+                            StartCoroutine(DisableMoon());
+                            isMoonDisabled = true;
+                        }
                         planeteView = false;
 
                     }
@@ -216,6 +221,11 @@ namespace Kubika.Game
                         OnZoomToPlanetCalls();
 
                         CameraTransition(nextFace);
+                        if (isMoonDisabled == false)
+                        {
+                            StartCoroutine(DisableMoon());
+                            isMoonDisabled = true;
+                        }
                         planeteView = false;
                     }
                 }
@@ -267,6 +277,8 @@ namespace Kubika.Game
                 rotationSpeed = planeteSpeed;
             }
 
+            isMoonDisabled = false;
+            _MOON.instance.gameObject.SetActive(true);
             _MOON.instance.isMoonView = false;
             _MOON.instance.BaseView.Priority = 0;
             planeteView = true;
@@ -281,7 +293,18 @@ namespace Kubika.Game
 
             Debug.Log("After");
 
-            raycastFaces[faceEnQuestion + 1].GetComponent<Collider>().enabled = false;
+            _MOON.instance.gameObject.SetActive(false);
+            isMoonDisabled = true;
+
+            planeteView = false;
+            raycastFaces[faceEnQuestion + 1].isActive = true;
+            foreach (_PlaneteCamera faces in raycastFaces)
+            {
+                faces.gameObject.GetComponent<Collider>().enabled = false;
+            }
+            facesSpeed = rotationSpeed * 0.33f;
+            rotationSpeed = facesSpeed;
+
             CameraTransition(raycastFaces[faceEnQuestion + 1]);
 
             StartCoroutine(FocusOnNextLevel(LevelsManager.instance._Kubicode, faceEnQuestion + 1));
@@ -307,6 +330,12 @@ namespace Kubika.Game
             currentFace.PutCameraInfrontOfCube(targetLevel.transform.position);
 
             yield return null;
+        }
+
+        IEnumerator DisableMoon()
+        {
+            yield return new WaitForSeconds(2);
+            _MOON.instance.gameObject.SetActive(false);
         }
 
         //for rotation
