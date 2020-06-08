@@ -12,35 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1aeeafa403aa04d93f9242f243cf04, type: 3}
   m_Name: _BaseUnivers6
   m_EditorClassIdentifier: 
-  _EmptyTex: {fileID: 2800000, guid: 594d35ef60c2c6842a924db480e51644, type: 3}
+  _EmptyTex: {fileID: 2800000, guid: 0824a8e4fa7865b47adfadb6a9026d1e, type: 3}
   _EmptyTex2: {fileID: 0}
   _EmptyMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _FullTex: {fileID: 2800000, guid: a06e35898490d524db50268d32f121c9, type: 3}
+  _FullTex: {fileID: 2800000, guid: d91dbb978363e02458ba00e7bfb2fe33, type: 3}
   _FullTex2: {fileID: 0}
   _FullMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TopTex: {fileID: 2800000, guid: d2098226dfff2d4438db450c83a69696, type: 3}
+  _TopTex: {fileID: 2800000, guid: 20e72f88ead6afe4f94d29514e340efd, type: 3}
   _TopTex2: {fileID: 0}
   _TopMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _CornerTex: {fileID: 2800000, guid: 01ff82112e85bc24d81f47188b20c848, type: 3}
+  _CornerTex: {fileID: 2800000, guid: a1065bdc4b32a2f478f843a989a9efb7, type: 3}
   _CornerTex2: {fileID: 0}
   _CornerMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TripleTex: {fileID: 2800000, guid: 5bbb1c13f9ee1e449ad6c1deb29fc351, type: 3}
+  _TripleTex: {fileID: 2800000, guid: 2ab34d704ab4a15408c74668ef7146a9, type: 3}
   _TripleTex2: {fileID: 0}
   _TripleMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _QuadTex: {fileID: 2800000, guid: 4d9451ea59d27854896636acc84a4af7, type: 3}
+  _QuadTex: {fileID: 2800000, guid: 127faeaa736f5e344b3d68985b0856fb, type: 3}
   _QuadTex2: {fileID: 0}
   _QuadMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _TextureColor: {r: 1, g: 1, b: 1, a: 0}
-  _Hue: -93
-  _Contrast: 0.47
-  _Saturation: 1.91
-  _Brightness: 0.1
+  _Hue: 0
+  _Contrast: 0.736
+  _Saturation: 1.582
+  _Brightness: 0.058
   _BGTex: {fileID: 2800000, guid: 7222b49ff27048044ac641cb0061fcc7, type: 3}
   _HueBG: 0
   _ContrastBG: 1
