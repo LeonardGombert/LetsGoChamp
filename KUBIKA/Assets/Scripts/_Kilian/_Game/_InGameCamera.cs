@@ -21,6 +21,8 @@ namespace Kubika.Game
         float currentMagn;
         float difference;
         [Space(10)] public float zoomPower;
+        public bool isCameraMove;
+        public bool SetupCameraPcInputBool;
         //
         Vector3 currentCamPos;
         float currentCamZPos;
@@ -86,10 +88,12 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-            if (_DataManager.instance.platform == Platform.Mobile)
+            if (_DataManager.instance.platform == Platform.Mobile && isCameraMove == true)
                 CameraPhoneInput();
-            else
+            else if(_DataManager.instance.platform == Platform.PC && isCameraMove == true)
                 CameraPCInput();
+            else 
+                ZoomingPC(Input.mouseScrollDelta.y);
 
             if (isShaking == true)
                 ActualScreenShake();
@@ -130,7 +134,8 @@ namespace Kubika.Game
         {
             if (Input.touchCount == 1)
             {
-                //touch0 = Input.GetTouch(0);
+                touch0 = Input.GetTouch(0);
+                Scrolling(touch0.deltaPosition, touch0.deltaPosition);
                 //GetScreenSwipeAngle();
                 //ScrollingSimple(touch0.deltaPosition);
 
@@ -159,21 +164,20 @@ namespace Kubika.Game
 
         void CameraPCInput()
         {
-            if (Input.GetMouseButtonDown(2))
+            if(SetupCameraPcInputBool == false)
             {
                 mouse0LastPos = Input.mousePosition;
                 baseRotation = currentRotation = pivotMainCamera.eulerAngles;
-            }
-            else if (Input.GetMouseButton(2))
-            {
-                mouse0 = Input.mousePosition;
-                Debug.Log("mouse0 " + mouse0);
-                GetScreenSwipeAngle();
-                ScrollingSimple(mouse0,mouse0LastPos);
+                SetupCameraPcInputBool = true;
             }
 
-            ZoomingPC(Input.mouseScrollDelta.y);
+            mouse0 = Input.mousePosition;
+            Debug.Log("mouse0 " + mouse0);
+            GetScreenSwipeAngle();
+            ScrollingSimple(mouse0, mouse0LastPos);
+
         }
+
 
         void Zooming(float difference)
         {

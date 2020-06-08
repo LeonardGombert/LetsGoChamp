@@ -604,7 +604,7 @@ namespace Kubika.Game
                     break;
                 case CubeTypes.SwitchCube:
                     {
-                        _MainTex = _MaterialCentral.instance.actualPack._SwitchTexOn; ///////
+                        _MainTex = _MaterialCentral.instance.actualPack._SwitchTexOff; ///////
                         _MainMesh = _MaterialCentral.instance.actualPack._SwitchMesh;
                         _MainColor = _MaterialCentral.instance.actualPack._SwitchColor;
 
@@ -831,7 +831,7 @@ namespace Kubika.Game
                     break;
                 case CubeTypes.SwitchVictoryCube:
                     {
-                        _MainTex = _MaterialCentral.instance.actualPack._SwitchVTexOn; ///////
+                        _MainTex = _MaterialCentral.instance.actualPack._SwitchTexOff; ///////
                         _MainMesh = _MaterialCentral.instance.actualPack._SwitchVMesh;
                         _MainColor = _MaterialCentral.instance.actualPack._SwitchVColor;
 

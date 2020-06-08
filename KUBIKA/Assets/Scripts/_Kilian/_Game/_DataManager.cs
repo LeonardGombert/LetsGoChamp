@@ -210,6 +210,11 @@ namespace Kubika.Game
                                 }
                             }
                         }
+                        else
+                        {
+                            _InGameCamera.instance.isCameraMove = true;
+
+                        }
 
 
 
@@ -227,9 +232,13 @@ namespace Kubika.Game
 
                     case TouchPhase.Ended:
                         {
-                            EndSwipe.Invoke();
-                            cubeMove.isSeletedNow = false;
-                            cubeMove = null;
+                            _InGameCamera.instance.isCameraMove = false;
+                            if (cubeMove != null)
+                            {
+                                EndSwipe.Invoke();
+                                cubeMove.isSeletedNow = false;
+                                cubeMove = null;
+                            }
                         }
                         break;
                 }
@@ -261,6 +270,11 @@ namespace Kubika.Game
                         }
                     }
                 }
+                else
+                {
+                    _InGameCamera.instance.isCameraMove = true;
+
+                }
 
             }
             else if (Input.GetMouseButton(0))
@@ -274,9 +288,14 @@ namespace Kubika.Game
             }
             else if (Input.GetMouseButtonUp(0))
             {
-                EndSwipe.Invoke();
-                cubeMove.isSeletedNow = false;
-                cubeMove = null;
+                _InGameCamera.instance.isCameraMove = false;
+                _InGameCamera.instance.SetupCameraPcInputBool = false;
+                if (cubeMove != null)
+                {
+                    EndSwipe.Invoke();
+                    cubeMove.isSeletedNow = false;
+                    cubeMove = null;
+                }
             }
 
         }
