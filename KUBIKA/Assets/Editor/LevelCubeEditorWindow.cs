@@ -168,7 +168,7 @@ public class LevelCubeEditorWindow : EditorWindow
         levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position;
 
         levelCubeObject.transform.up = worldMapFace.transform.GetChild(1).transform.up;
-        levelCubeObject.transform.forward = worldMapFace.transform.GetChild(1).transform.up;
+        //levelCubeObject.transform.forward = worldMapFace.transform.GetChild(1).transform.up;
 
         levelCubeObject.transform.Translate(new Vector3(0, .5f, 0), Space.Self);
         //levelCubeObject.transform.position +=levelCubeObject.transform.Translate(Vector3.up, Space.Self);// levelCubeObject.transform.localPosition + new Vector3(0, .5f, 0);
