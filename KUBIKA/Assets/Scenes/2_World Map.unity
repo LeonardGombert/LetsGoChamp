@@ -3017,7 +3017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 348358398}
-  index: 0
+  index: 4
   PS: {fileID: 2070735768}
   pivotVCam: {fileID: 299283937}
   LimitStart: {fileID: 988758122}
@@ -3528,7 +3528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 1482287376}
-  index: 0
+  index: 3
   PS: {fileID: 8724673591036615882}
   pivotVCam: {fileID: 223929350}
   LimitStart: {fileID: 1964109020}
@@ -44581,7 +44581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 2066400322}
-  index: 0
+  index: 5
   PS: {fileID: 1333873662}
   pivotVCam: {fileID: 1222986631}
   LimitStart: {fileID: 191498015}
@@ -67588,7 +67588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 1919353308}
-  index: 0
+  index: 1
   PS: {fileID: 1824435458}
   pivotVCam: {fileID: 481287373}
   LimitStart: {fileID: 2137046559}
@@ -84044,7 +84044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 152120973}
-  index: 0
+  index: 2
   PS: {fileID: 507524779}
   pivotVCam: {fileID: 562353244}
   LimitStart: {fileID: 640199126}

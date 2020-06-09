@@ -46,6 +46,11 @@ namespace Kubika.Game
         float actualPosScroll;
         float actualPosCam;
 
+        private void Start()
+        {
+            ResetCamPos();
+        }
+
         public void ActivatePSFB()
         {
             PS.Play();
@@ -136,6 +141,11 @@ namespace Kubika.Game
                 hasTouchedLevel = false;
             }
 
+        }
+
+        public void ResetCamPos()
+        {
+            pivotVCam.transform.position = LimitStart.position;
         }
 
 
