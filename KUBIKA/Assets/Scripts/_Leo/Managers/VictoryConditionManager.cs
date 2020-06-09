@@ -58,21 +58,29 @@ namespace Kubika.Game
         {
             Debug.Log("I've lost track of a Victory cube");
             currentVictoryPoints--;
+
+            StartCoroutine(VictoryConditionStatus());
         }
 
         public void IncrementVictory()
         {
             Debug.Log("I've been touched by a Victory cube");
             currentVictoryPoints++;
+
+            StartCoroutine(VictoryConditionStatus());
         }
 
-        public void VictoryConditionStatus()
+        IEnumerator VictoryConditionStatus()
         {
+            yield return new WaitForSeconds(.5f);
+
             if (currentVictoryPoints == levelVictoryPoints)
             {
                 Debug.Log("WIN TRANSITION");
                 StartCoroutine(LevelPassedRoutine());
             }
+
+            yield return null;
         }
 
         public IEnumerator LevelPassedRoutine()
