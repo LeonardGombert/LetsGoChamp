@@ -51594,7 +51594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 2066400322}
-  index: 0
+  index: 5
   PS: {fileID: 1333873662}
   pivotVCam: {fileID: 1222986631}
   LimitStart: {fileID: 191498015}
@@ -56487,6 +56487,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1167853336
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -78344,7 +78345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 1919353308}
-  index: 0
+  index: 1
   PS: {fileID: 1824435458}
   pivotVCam: {fileID: 481287373}
   LimitStart: {fileID: 2137046559}
@@ -78504,8 +78505,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636103209}
-  m_LocalRotation: {x: 0.48839575, y: -0.82600915, z: -0.124010965, w: 0.2525861}
-  m_LocalPosition: {x: 27.29367, y: 0.64912415, z: -6.7217026}
+  m_LocalRotation: {x: -0.12509425, y: 0.870768, z: -0.2877177, w: 0.37859356}
+  m_LocalPosition: {x: -64.271416, y: 43.819283, z: 22.529762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1197786049}
@@ -78547,7 +78548,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.7
+  orthographic size: 56
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -96864,7 +96865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vCam: {fileID: 152120973}
-  index: 0
+  index: 4
   PS: {fileID: 507524779}
   pivotVCam: {fileID: 562353244}
   LimitStart: {fileID: 640199126}
@@ -97194,7 +97195,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 50
+  m_Priority: 0
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
