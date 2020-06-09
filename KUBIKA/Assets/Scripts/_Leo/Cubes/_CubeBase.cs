@@ -18,8 +18,7 @@ namespace Kubika.Game
         public bool isStatic;
         public _Grid grid;
 
-        [Space]
-        [Header("MATERIAL INFOS")]
+        [Space][Header("MATERIAL INFOS")]
         public Texture _MainTex;
         public Mesh _MainMesh;
         public Color _MainColor;

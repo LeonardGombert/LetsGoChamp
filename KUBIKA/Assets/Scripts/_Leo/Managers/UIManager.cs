@@ -111,7 +111,7 @@ namespace Kubika.Game
         private void Update()
         {
             //MOVE THIS SOMWHERE ELSE
-            //UpdateText();
+            //
         }
 
         #region REFRESH ACTIVE CANVASES
@@ -134,6 +134,8 @@ namespace Kubika.Game
                 case ScenesIndex.GAME_SCENE:
                     GameCanvasPriority();
                     LevelsManager.instance.BakeLevels();
+                    _DataManager.instance.EndFalling.RemoveListener(UpdateText);
+                    _DataManager.instance.EndFalling.AddListener(UpdateText);
                     break;
 
                 case ScenesIndex.WIN:
@@ -421,7 +423,6 @@ namespace Kubika.Game
 
                 #region //GENERAL
                 case "MAIN_MENU":
-                    StartCoroutine(DimGame());
                     ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
                     break;
 
@@ -501,14 +502,13 @@ namespace Kubika.Game
             levelName.text = LevelsManager.instance._levelName;
             playerScore.text = "Your Score : " + PlayerMoves.instance.numberOfMoves.ToString();
             levelScore.text = "Gold Score : " + LevelsManager.instance._minimumMoves.ToString();
-
         }
 
         //called on WinLeveWindow button press
         public void NextLevel()
         {
             levelPassedCanvas.enabled = false;
-            LevelsManager.instance.ReturnToWorldMap();
+            StartCoroutine(LevelsManager.instance.MoveToNextLevel());
 
             LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;
         }
@@ -662,7 +662,7 @@ namespace Kubika.Game
         {
             transitionCanvas.enabled = true;
             transitionFinished = false;
-            transitionCanvas.sortingOrder = 9999;
+            transitionCanvas.sortingOrder = 2000;
         }
 
         public void TransitionOver()
@@ -674,10 +674,12 @@ namespace Kubika.Game
 
         IEnumerator DimGame()
         {
-            ResetCanvasSortOrder();
-
+            //ResetCanvasSortOrder();
+            
             if (gameDimmed == false)
             {
+                TransitionStart();
+
                 openBurgerMenuButton.SetActive(false);
                 hiddenMenuButtons.SetActive(true);
 
@@ -687,8 +689,8 @@ namespace Kubika.Game
 
                 StartCoroutine(FadeTransition(startAlphaValue, targetAlphaValue, transitionDuration, timePassed));
 
-                hamburgerMenuCanvas.sortingOrder = 1000;
-                hamburgerMenuCanvas2.sortingOrder = 1000;
+                hamburgerMenuCanvas.sortingOrder = 3000;
+                hamburgerMenuCanvas2.sortingOrder = 3000;
                 gameDimmed = true;
             }
 
@@ -705,14 +707,14 @@ namespace Kubika.Game
                 hiddenMenuButtons.SetActive(false);
                 openBurgerMenuButton.SetActive(true);
 
+                TransitionOver();
+
                 RefreshActiveScene();
             }
         }
 
         public IEnumerator FadeTransition(float startValue, float targetValue, float transitionDuration, float timePassed)
         {
-            TransitionStart();
-
             float valueChange = targetValue - startValue;
             Color alphaColor = new Color();
 
@@ -752,8 +754,6 @@ namespace Kubika.Game
 
                 fadeImage.color = alphaColor;
             }
-
-            TransitionOver();
         }
         #endregion
     }

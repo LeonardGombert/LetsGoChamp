@@ -299,12 +299,7 @@ namespace Kubika.Game
             StartCoroutine(LoadGameLevel());
         }
 
-        public void ReturnToWorldMap()
-        {
-            StartCoroutine(MoveToNextLevel());
-        }
-
-        private IEnumerator MoveToNextLevel()
+        public IEnumerator MoveToNextLevel()
         {
             ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
 
@@ -323,8 +318,12 @@ namespace Kubika.Game
             startAlphaValue = 0;
             targetAlphaValue = 1;
 
+            UIManager.instance.TransitionStart();
+
             StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue, 
                             targetAlphaValue, transitionDuration, timePassed));
+
+            UIManager.instance.TransitionOver();
         }
 
         public void _FadeFromBlack()
@@ -334,8 +333,12 @@ namespace Kubika.Game
             startAlphaValue = 1;
             targetAlphaValue = 0;
 
-            StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue, 
+            UIManager.instance.TransitionStart();
+
+            StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue,
                             targetAlphaValue, transitionDuration, timePassed));
+
+            UIManager.instance.TransitionOver();
         }
         #endregion
     }

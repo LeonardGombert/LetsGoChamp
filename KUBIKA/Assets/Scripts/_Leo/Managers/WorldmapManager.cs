@@ -58,14 +58,14 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-            RefreshWorldArrowTargets();
             UpdateArrowPositions();
+
             CheckForNodeTouch();
 
-            WorldmapManager.instance.UpdateWorldMap();
-
+           //UpdateWorldMap();
         }
 
+        //Refresh where the arrows should be positioned
         public void RefreshWorldArrowTargets()
         {
             activeFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
@@ -74,6 +74,7 @@ namespace Kubika.Game
             bottomArrowObj = activeFace.transform.GetChild(3).GetChild(1).transform;
         }
 
+        //this updates the arrow's positions
         void UpdateArrowPositions()
         {
             UIManager.instance.topArrow.rectTransform.position = Camera.main.WorldToScreenPoint(topArrowObj.position);
@@ -95,12 +96,6 @@ namespace Kubika.Game
                     LevelsManager.instance.SelectLevel(levelCube.kubicode);
                 }
             }
-        }
-
-        //use to focus camera on next level when worldmap loads in
-        public void FocusOnNextLevel()
-        {
-
         }
 
         public void UpdateWorldMap()

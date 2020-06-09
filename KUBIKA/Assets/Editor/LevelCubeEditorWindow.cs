@@ -159,7 +159,9 @@ public class LevelCubeEditorWindow : EditorWindow
         //GameObject LevelCubeObject = new GameObject("Level Node " + LevelCubeRoot.childCount, typeof(LevelCube));
 
         GameObject levelCubeObject = (GameObject)PrefabUtility.InstantiatePrefab(worldmapCube);
+
         int levelNode = ((int)currentBiome + 1)  * 100 + LevelCubeRoot.childCount + 1;
+
         levelCubeObject.name = "Level Node " + levelNode.ToString();
         levelCubeObject.transform.SetParent(LevelCubeRoot, false);
 
@@ -288,7 +290,8 @@ public class LevelCubeEditorWindow : EditorWindow
 
             for (int i = 0; i < LevelCubeRoot.childCount; i++)
             {
-                LevelCubeRoot.GetChild(i).gameObject.name = "Level Node " + i;
+                int levelNode = ((int)currentBiome + 1) * 100 + i + 1;
+                LevelCubeRoot.GetChild(i).gameObject.name = "Level Node " + levelNode.ToString();
             }
         }
 
