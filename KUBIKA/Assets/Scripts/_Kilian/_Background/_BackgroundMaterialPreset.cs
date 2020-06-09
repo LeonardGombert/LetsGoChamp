@@ -28,6 +28,9 @@ namespace Kubika.Game
         [Range(0, 2)] public float _Saturation2;
         [Range(-1, 1)] public float _Brightness2;
 
+        public Transform BG_FX_TRANS;
+        ParticleSystem BG_FX;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -41,7 +44,7 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-            SetMaterial();
+            //SetMaterial();
         }
 
         public void SetMaterial()
@@ -62,6 +65,11 @@ namespace Kubika.Game
             MatProp.SetFloat("_Contrast2", _Contrast2);
             MatProp.SetFloat("_Saturation2", _Saturation2);
             MatProp.SetFloat("_Brightness2", _Brightness2);
+
+            if(BG_FX != null)
+                Destroy(BG_FX.gameObject);
+
+            BG_FX = Instantiate(_MaterialCentral.instance.actualPack._BGFX, BG_FX_TRANS.transform.position, BG_FX_TRANS.rotation, BG_FX_TRANS.transform);
 
             meshRenderer.SetPropertyBlock(MatProp);
         }
