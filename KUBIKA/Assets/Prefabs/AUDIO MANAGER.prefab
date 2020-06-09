@@ -55,15 +55,16 @@ MonoBehaviour:
   GoldLevelSound: {fileID: 0}
   Explosion: {fileID: 0}
   Pop: {fileID: 0}
-  Pastille: {fileID: 0}
+  Pastille: {fileID: 8300000, guid: c1460e7fa44725340bdc49a9bb639d1a, type: 3}
   VictoryBase: {fileID: 0}
-  VictoryGold: {fileID: 0}
+  VictoryGold: {fileID: 8300000, guid: 51d2d632266864f488772e8a6c57c26e, type: 3}
   Rotate: {fileID: 0}
   Bouton: {fileID: 0}
   SwitchON: {fileID: 0}
   SwitchOFF: {fileID: 0}
-  PlaceCube: {fileID: 0}
-  Delete: {fileID: 0}
+  CANTMOVE: {fileID: 8300000, guid: c0ec8b126b64af54f9512b86bd091792, type: 3}
+  PlaceCube: {fileID: 8300000, guid: b55ea25b105645b4d96a2b622e1a5113, type: 3}
+  Delete: {fileID: 8300000, guid: 0d9fa1adaac1539458b76c2a51297554, type: 3}
   RotateLE: {fileID: 0}
   BoutonLE: {fileID: 0}
 --- !u!82 &6813202359721789641

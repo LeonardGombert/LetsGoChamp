@@ -51,6 +51,9 @@ namespace Kubika.Game
                             case DifferentSound.VictoryGold:
                                 objectAudioSource.clip = _AudioManager.instance.VictoryGold;
                                 break;
+                            case DifferentSound.CantMove:
+                                objectAudioSource.clip = _AudioManager.instance.CANTMOVE;
+                                break;
                         }
                     }
                     break;
@@ -133,6 +136,9 @@ namespace Kubika.Game
                     break;
                 case DifferentSound.VictoryGold:
                     objectAudioSource.clip = _AudioManager.instance.VictoryGold;
+                    break;
+                case DifferentSound.CantMove:
+                    objectAudioSource.clip = _AudioManager.instance.CANTMOVE;
                     break;
                 case DifferentSound.BoutonLE:
                     objectAudioSource.clip = _AudioManager.instance.BoutonLE;
