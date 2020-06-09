@@ -68,8 +68,7 @@ namespace Kubika.Game
 
             if (timerValue <= 0)
             {
-                StartCoroutine(PopOut());
-                _DataManager.instance.MakeFall();
+                StartCoroutine(PopOut(true));
             }
         }
 
