@@ -24,7 +24,7 @@ MonoBehaviour:
   Base_Saturation: 1.107
   Base_Brightness: 0.131
   _BetonTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
-  _BetonMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
+  _BetonMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
   _BetonColor: {r: 1, g: 1, b: 1, a: 0}
   _BetonTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
@@ -110,8 +110,8 @@ MonoBehaviour:
   Bomb_Contrast: 1
   Bomb_Saturation: 1
   Bomb_Brightness: 0
-  _SwitchTexOn: {fileID: 2800000, guid: 541becf32faaf1f4fa620ca848c6978f, type: 3}
-  _SwitchTexOff: {fileID: 2800000, guid: ec63552be0baa5145b5564d3df1e0390, type: 3}
+  _SwitchTexOn: {fileID: 2800000, guid: bb1e2fc56de616441958379d032020f3, type: 3}
+  _SwitchTexOff: {fileID: 2800000, guid: 75801dc72f1a7cc4eb34e420711143f9, type: 3}
   _SwitchTexInside: {fileID: 2800000, guid: b6839a60f61934e438dc3668dffddd08, type: 3}
   _SwitchMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
@@ -180,7 +180,7 @@ MonoBehaviour:
   BallV_Saturation: 0
   BallV_Brightness: 0
   _SwitchVTexOn: {fileID: 2800000, guid: 541becf32faaf1f4fa620ca848c6978f, type: 3}
-  _SwitchVTexOff: {fileID: 2800000, guid: ec63552be0baa5145b5564d3df1e0390, type: 3}
+  _SwitchVTexOff: {fileID: 2800000, guid: 75801dc72f1a7cc4eb34e420711143f9, type: 3}
   _SwitchVTexInside: {fileID: 2800000, guid: 128cf5204081f2a429f833ffd7d23d40, type: 3}
   _SwitchVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
@@ -203,7 +203,7 @@ MonoBehaviour:
   BaseV_Saturation: 0.846
   BaseV_Brightness: 0.172
   _BetonVTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
-  _BetonVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
+  _BetonVMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
   _BetonVColor: {r: 1, g: 0.19607843, b: 0.19607843, a: 0}
   _BetonVTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
