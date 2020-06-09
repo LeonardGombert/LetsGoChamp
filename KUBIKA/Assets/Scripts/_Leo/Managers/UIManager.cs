@@ -109,7 +109,8 @@ namespace Kubika.Game
 
         private void Update()
         {
-            UpdateText();
+            //MOVE THIS SOMWHERE ELSE
+            //UpdateText();
         }
 
         #region REFRESH ACTIVE CANVASES
@@ -658,6 +659,7 @@ namespace Kubika.Game
         #region FADING
         public void TransitionStart()
         {
+            transitionCanvas.enabled = true;
             transitionFinished = false;
             transitionCanvas.sortingOrder = 9999;
         }
@@ -666,6 +668,7 @@ namespace Kubika.Game
         {
             transitionCanvas.sortingOrder = 0;
             transitionFinished = true;
+            transitionCanvas.enabled = false;
         }
 
         IEnumerator DimGame()

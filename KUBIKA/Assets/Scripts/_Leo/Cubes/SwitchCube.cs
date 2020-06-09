@@ -22,7 +22,7 @@ namespace Kubika.Game
             base.Update();
         }
 
-        public virtual void StatusUpdate(bool isVictory = false)
+        public void StatusUpdate(bool isVictory = false)
         {
             if(!isActive)
             {

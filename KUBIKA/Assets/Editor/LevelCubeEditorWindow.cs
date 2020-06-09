@@ -160,11 +160,14 @@ public class LevelCubeEditorWindow : EditorWindow
         levelCubeObject.name = "Level Node " + LevelCubeRoot.childCount;
         levelCubeObject.transform.SetParent(LevelCubeRoot, false);
 
-        //levelCubeObject.gameObject.layer = LayerMask.NameToLayer("LevelCubes");
+        levelCubeObject.gameObject.layer = LayerMask.NameToLayer("LevelCubes");
 
-        levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position + new Vector3(0, .5f, 0);
-        levelCubeObject.transform.rotation = worldMapFace.transform.rotation;
-        levelCubeObject.transform.forward = worldMapFace.transform.up;
+        levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position;
+
+        levelCubeObject.transform.up = worldMapFace.transform.GetChild(1).transform.up;
+
+        levelCubeObject.transform.Translate(new Vector3(0, .5f, 0), Space.Self);
+        //levelCubeObject.transform.position +=levelCubeObject.transform.Translate(Vector3.up, Space.Self);// levelCubeObject.transform.localPosition + new Vector3(0, .5f, 0);
 
         LevelCube levelCube = levelCubeObject.GetComponent<LevelCube>();
 
@@ -189,8 +192,9 @@ public class LevelCubeEditorWindow : EditorWindow
 
             //place the new LevelCube at the last position
             levelCube.transform.position = levelCube.previousLevel.transform.position;
+            levelCube.transform.rotation = levelCube.previousLevel.transform.rotation;
+            //levelCubeObject.transform.up = levelCube.previousLevel.transform.up;
             //levelCube.transform.forward = levelCube.previousLevel.transform.forward;
-            levelCube.transform.rotation = worldMapFace.transform.rotation;
         }
 
         Selection.activeGameObject = levelCube.gameObject;
