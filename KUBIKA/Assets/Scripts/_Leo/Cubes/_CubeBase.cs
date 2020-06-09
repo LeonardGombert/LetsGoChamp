@@ -83,7 +83,7 @@ namespace Kubika.Game
 
         public virtual void Update()
         {
-            //SetScriptablePreset(); /////////// DE LA MERDE
+            SetScriptablePreset(); /////////// DE LA MERDE
         }
 
         //Use to update Cube Info in Matrix, called on place and rotate cube
@@ -1048,7 +1048,7 @@ namespace Kubika.Game
             }
         }
 
-        public IEnumerator PopOut()
+        virtual public IEnumerator PopOut(bool timer)
         {
             Debug.Log("Popping out");
 
@@ -1080,6 +1080,11 @@ namespace Kubika.Game
             Destroy(PopOutPS.gameObject);
             gameObject.SetActive(false);
 
+            if (timer == true)
+            {
+                _DataManager.instance.MakeFall();
+            }
+
         }
 
         float c1;
@@ -1106,7 +1111,7 @@ namespace Kubika.Game
         {
             Debug.Log("Destroyed " + indexToDestroy);
 
-            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut());
+            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut(false));
             else return;
         }
 
