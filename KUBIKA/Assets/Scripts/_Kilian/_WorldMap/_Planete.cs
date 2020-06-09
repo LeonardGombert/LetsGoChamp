@@ -252,6 +252,7 @@ namespace Kubika.Game
         void CameraTransition(_PlaneteCamera next)
         {
             actualIndex = next.index;
+            next.isActive = true;
 
             if (oldFace != null) oldFace.vCam.Priority = 0;
             currentFace = next;
@@ -260,8 +261,17 @@ namespace Kubika.Game
             oldFace = currentFace;
         }
 
+        public void ResetAllCameras()
+        {
+            foreach (_PlaneteCamera faces in raycastFaces)
+            {
+                faces.ResetCamPos();
+            }
+        }
+
         public void MainPlaneteView()
         {
+            ResetAllCameras();
             Debug.Log("BackToMainVeiw");
             
             ZoomOutPlanetCalls();
@@ -346,6 +356,7 @@ namespace Kubika.Game
             if (actualIndex + 1 < raycastFaces.Length)
             {
                 Debug.Log("After");
+                raycastFaces[actualIndex].isActive = false;
                 CameraTransition(raycastFaces[actualIndex + 1]);
             }
         }
@@ -358,6 +369,8 @@ namespace Kubika.Game
             if (actualIndex - 1 >= 0)
             {
                 Debug.Log("Before");
+                ResetAllCameras();
+                raycastFaces[actualIndex].isActive = false;
                 CameraTransition(raycastFaces[actualIndex - 1]);
             }
         }
