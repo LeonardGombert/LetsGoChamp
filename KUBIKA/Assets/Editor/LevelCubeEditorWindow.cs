@@ -29,7 +29,9 @@ public class LevelCubeEditorWindow : EditorWindow
 
     private void OnGUI()
     {
+        EditorGUI.BeginChangeCheck();
         Base();
+        EditorGUI.EndChangeCheck();
     }
 
     private void Base()
@@ -157,7 +159,8 @@ public class LevelCubeEditorWindow : EditorWindow
         //GameObject LevelCubeObject = new GameObject("Level Node " + LevelCubeRoot.childCount, typeof(LevelCube));
 
         GameObject levelCubeObject = (GameObject)PrefabUtility.InstantiatePrefab(worldmapCube);
-        levelCubeObject.name = "Level Node " + LevelCubeRoot.childCount;
+        int levelNode = ((int)currentBiome + 1)  * 100 + LevelCubeRoot.childCount + 1;
+        levelCubeObject.name = "Level Node " + levelNode.ToString();
         levelCubeObject.transform.SetParent(LevelCubeRoot, false);
 
         levelCubeObject.gameObject.layer = LayerMask.NameToLayer("LevelCubes");
@@ -165,6 +168,7 @@ public class LevelCubeEditorWindow : EditorWindow
         levelCubeObject.transform.position = worldMapFace.transform.GetChild(0).transform.position;
 
         levelCubeObject.transform.up = worldMapFace.transform.GetChild(1).transform.up;
+        //levelCubeObject.transform.forward = worldMapFace.transform.GetChild(1).transform.up;
 
         levelCubeObject.transform.Translate(new Vector3(0, .5f, 0), Space.Self);
         //levelCubeObject.transform.position +=levelCubeObject.transform.Translate(Vector3.up, Space.Self);// levelCubeObject.transform.localPosition + new Vector3(0, .5f, 0);

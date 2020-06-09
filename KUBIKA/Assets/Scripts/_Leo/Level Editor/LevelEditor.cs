@@ -208,6 +208,7 @@ namespace Kubika.CustomLevelEditor
             {
                 currentHitCube.ResetCubeInfo();
                 //reset the grid info
+                               
                 Instantiate(_FeedBackManagerLevelEditor.instance.Deleting_FB, currentHitCube.transform.position, Quaternion.identity);
                 _AudioLevelManager.instance.PlaySoundDelete();
                 Destroy(currentHitCube.gameObject);

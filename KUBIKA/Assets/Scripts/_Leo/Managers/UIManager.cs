@@ -49,9 +49,10 @@ namespace Kubika.Game
 
         #region IN GAME
         [FoldoutGroup("In-Game")] [SerializeField] Image rightRotate, leftRotate;
+        [FoldoutGroup("In-Game")] [SerializeField] Image rightRotateBackground, leftRotateBackground;
         [FoldoutGroup("In-Game")] [SerializeField] Button rightRotateButton, leftRotateButton;
-        [FoldoutGroup("In-Game")] [SerializeField] Sprite rightRotateOn, rightRotateOff;
-        [FoldoutGroup("In-Game")] [SerializeField] Sprite leftRotateOn, leftRotateOff;
+        [FoldoutGroup("In-Game")] [SerializeField] Sprite rightRotateOn, leftRotateOn;
+        [FoldoutGroup("In-Game")] [SerializeField] Sprite rotateLock, rotateOnBackground, rotateLockBackground;
         [FoldoutGroup("In-Game")] [SerializeField] Text currentMoves, minimumMoves;
         #endregion
 
@@ -484,8 +485,8 @@ namespace Kubika.Game
             rightRotate.enabled = true;
             leftRotate.enabled = true;
 
-            rightRotate.sprite = rightRotateOff;
-            leftRotate.sprite = leftRotateOff;
+            rightRotate.sprite = rotateLock;
+            leftRotate.sprite = rotateLock;
 
             rightRotateButton.enabled = false;
             leftRotateButton.enabled = false;
