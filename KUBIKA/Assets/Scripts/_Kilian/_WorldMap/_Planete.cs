@@ -423,7 +423,7 @@ namespace Kubika.Game
         void ZoomingPC(float scrollValue)
         {
             currentZoommCam = baseVCam.m_Lens.OrthographicSize;
-            currentZoommCam = Mathf.Clamp(currentZoommCam - (scrollValue * zoomPower * 10), currentZoommCam - 20, currentZoommCam + 20);
+            currentZoommCam = Mathf.Clamp(currentZoommCam - (scrollValue * zoomPower * 10), 20, 56);
             baseVCam.m_Lens.OrthographicSize = currentZoommCam;
         }
 
