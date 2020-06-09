@@ -14,6 +14,7 @@ namespace Kubika.Game
         PlayedLevelSound,
         GoldLevelSound,
         Explosion,
+        CantMove,
         Pop,
         Pastille,
         VictoryBase,
@@ -70,6 +71,7 @@ namespace Kubika.Game
         public AudioClip Bouton;
         public AudioClip SwitchON;
         public AudioClip SwitchOFF;
+        public AudioClip CANTMOVE;
 
         [Space]
         [Header("LEVEL EDITOR SOUNDS")]

@@ -209,6 +209,7 @@ namespace Kubika.CustomLevelEditor
                 currentHitCube.ResetCubeInfo();
                 //reset the grid info
                 Instantiate(_FeedBackManagerLevelEditor.instance.Deleting_FB, currentHitCube.transform.position, Quaternion.identity);
+                _AudioLevelManager.instance.PlaySoundDelete();
                 Destroy(currentHitCube.gameObject);
             }
             grid.placedCubes.Remove(hit.collider.gameObject);
@@ -599,6 +600,7 @@ namespace Kubika.CustomLevelEditor
             cubeBase.gameObject.transform.parent = grid.transform;
 
             Instantiate(_FeedBackManagerLevelEditor.instance.Placing_FB, cubeBase.transform.position, Quaternion.identity);
+            _AudioLevelManager.instance.PlaySoundAdd();
 
             cubeBase.SetRelevantNodeInfo();
         }
