@@ -13,6 +13,7 @@ namespace Kubika.Game
         [Space]
         [Header("ALL CUBES")]
         _CubeBase[] allCube;
+        public _BackgroundMaterialPreset BG;
 
         [Space]
         public _StaticPack[] staticPack;
@@ -208,6 +209,9 @@ namespace Kubika.Game
             {
                 cube.SetScriptablePreset();
             }
+
+            if(BG != null)
+                BG.SetScriptablePreset();
         }
 
 
@@ -426,6 +430,15 @@ namespace Kubika.Game
         {
 
             #region STATIC SETTINGS
+
+            actualPack._BGTex = staticPack[index]._BGTex;
+            actualPack._BGFX = staticPack[index]._BGFX;
+
+            actualPack._HueBG = staticPack[index]._HueBG;
+            actualPack._ContrastBG = staticPack[index]._ContrastBG;
+            actualPack._SaturationBG = staticPack[index]._SaturationBG;
+            actualPack._BrightnessBG = staticPack[index]._BrightnessBG;
+
             actualPack._EmptyTex = staticPack[index]._EmptyTex;
             actualPack._EmptyTex2 = staticPack[index]._EmptyTex2;
             actualPack._EmptyMesh = staticPack[index]._EmptyMesh;
@@ -456,12 +469,6 @@ namespace Kubika.Game
             actualPack._Saturation = staticPack[index]._Saturation;
             actualPack._Brightness = staticPack[index]._Brightness;
 
-            actualPack._BGTex = staticPack[index]._BGTex;
-
-            actualPack._HueBG = staticPack[index]._HueBG;
-            actualPack._ContrastBG = staticPack[index]._ContrastBG;
-            actualPack._SaturationBG = staticPack[index]._SaturationBG;
-            actualPack._BrightnessBG = staticPack[index]._BrightnessBG;
             #endregion
 
         }

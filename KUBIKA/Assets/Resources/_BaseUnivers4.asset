@@ -41,7 +41,8 @@ MonoBehaviour:
   _Contrast: 1.447
   _Saturation: 0.979
   _Brightness: 0
-  _BGTex: {fileID: 2800000, guid: 8805d501af6e70149aeaa02c1077d9ca, type: 3}
+  _BGTex: {fileID: 2800000, guid: 537b54dabe29c2345808abfe5c0de3b5, type: 3}
+  _BGFX: {fileID: 4818063473645752405, guid: 7137078c0c9cde4408984da688889fa3, type: 3}
   _HueBG: 0
   _ContrastBG: 1
   _SaturationBG: 1

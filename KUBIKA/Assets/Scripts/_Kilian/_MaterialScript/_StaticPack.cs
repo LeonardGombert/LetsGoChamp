@@ -48,6 +48,7 @@ namespace Kubika.Game
 
         [Header("Background")]
         public Texture _BGTex;
+        public ParticleSystem _BGFX;
 
         [Header("BG Parameters")]
         [Range(-360, 360)] public float _HueBG;
