@@ -208,6 +208,11 @@ namespace Kubika.Game
                                     cubeMove.GetBasePoint();
                                     cubeMove.AddOutline();
                                 }
+                                else
+                                {
+                                    cubeMove.SetupCantMoveSound();
+                                    cubeMove.AddOutline();
+                                }
                             }
                         }
                         else
@@ -235,6 +240,7 @@ namespace Kubika.Game
                             _InGameCamera.instance.isCameraMove = false;
                             if (cubeMove != null)
                             {
+                                cubeMove.StopPlayingSound();
                                 EndSwipe.Invoke();
                                 cubeMove.isSeletedNow = false;
                                 cubeMove = null;

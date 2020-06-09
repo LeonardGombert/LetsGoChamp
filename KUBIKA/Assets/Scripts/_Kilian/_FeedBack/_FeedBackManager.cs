@@ -10,6 +10,7 @@ namespace Kubika.Game
         public static _FeedBackManager instance { get { return _instance; } }
 
         public GameObject Fb_Delivry;
+        [SerializeField] private AudioSource audioSourceFbMana;
 
         //EXPLOSION FX
         [Space]
@@ -41,12 +42,16 @@ namespace Kubika.Game
         {
             if(_DataManager.instance.isGolded == true)
             {
+                audioSourceFbMana.clip = _AudioManager.instance.VictoryGold;
                 Victory_PS_GOLD_CONFETTI.Play();
             }
             else
             {
+                audioSourceFbMana.clip = _AudioManager.instance.VictoryBase;
                 Victory_PS_BASE_CONFETTI.Play();
             }
+
+            audioSourceFbMana.Play();
         }
 
         public void EveryCubeHappy()

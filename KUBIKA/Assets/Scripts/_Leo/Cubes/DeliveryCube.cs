@@ -31,6 +31,7 @@ namespace Kubika.Game
             _DataManager.instance.EndFalling.AddListener(ScannerSet);
 
             SetFb();
+            SetupSoundPastille();
 
         }
 
@@ -68,6 +69,7 @@ namespace Kubika.Game
                 victoryCubeTracker.ChangeEmoteFace(_EmoteIdleTex);
                 VictoryConditionManager.instance.DecrementVictory();
                 locked = false;
+
             }
 
             if (touchingVictory && locked == false)
@@ -80,6 +82,8 @@ namespace Kubika.Game
                 victoryCubeOnPistion.ChangeEmoteFace(victoryCubeOnPistion._EmotePastilleTex);
                 victoryCubeTracker = victoryCubeOnPistion;
                 VictoryConditionManager.instance.IncrementVictory();
+
+                PlaySound();
             }
         }
 
@@ -125,6 +129,8 @@ namespace Kubika.Game
             Debug.Log("EXPLOSION");
             StartExplosion = UnityEngine.Random.Range(0.2f, 1);
             yield return new WaitForSeconds(StartExplosion);
+            SetupSoundExplosion();
+            PlaySound();
             ExplosionEND_PS.Play();
             BlowUpDirection();
             AddForceToVictoryCube();
@@ -154,6 +160,16 @@ namespace Kubika.Game
         {
             pushDirection = transform.position - victoryCubeTracker.transform.position;
             victoryCubeTracker.ApplyRigidbody(pushDirection);
+        }
+
+        void SetupSoundPastille()
+        {
+            audioSourceCube.clip = _AudioManager.instance.Pastille;
+        }
+
+        void SetupSoundExplosion()
+        {
+            audioSourceCube.clip = _AudioManager.instance.Explosion;
         }
     }
 }

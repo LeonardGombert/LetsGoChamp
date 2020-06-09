@@ -40,7 +40,7 @@ namespace Kubika.Game
         //FALL OUTSIDE
         [Space]
         [Header("OUTSIDE")]
-        public int nbrDeCubeFallOutside = 30;
+        public int nbrDeCubeFallOutside = 20;
         Vector3 moveOutsideTarget;
         [HideInInspector] public Vector3 moveOutsideTargetCustomVector;
         Vector3 fallOutsideTarget;
@@ -307,7 +307,7 @@ namespace Kubika.Game
 
             while (currentTime <= 1)
             {
-                currentTime += Time.deltaTime / nbrCaseBelow;
+                currentTime += Time.deltaTime / (nbrCaseBelow + 200);
                 currentTime = (currentTime / moveTime);
 
                 currentPos = Vector3.Lerp(basePos, fallFromMapPosition, currentTime);
@@ -324,6 +324,7 @@ namespace Kubika.Game
             _DataManager.instance.moveCube.Remove(this);
             _DataManager.instance.baseCube.Remove(this);
             PopOut(false);
+            StartCoroutine(_BackgroundMaterialPreset.instance.FallBGFeedback());
 
             isFalling = false;
         }
@@ -819,6 +820,16 @@ namespace Kubika.Game
         }
 
         #endregion
-      
+
+        #region AUDIO
+
+        public void SetupCantMoveSound()
+        {
+            audioSourceCube.clip = _AudioManager.instance.CANTMOVE;
+            audioSourceCube.Play();
+        }
+
+        #endregion
+
     }
 }

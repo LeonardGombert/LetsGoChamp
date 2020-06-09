@@ -90,5 +90,6 @@ namespace Kubika.Game
 
             return new Vector3(newXCoord, newYCoord, newZCoord);
         }
+
     }
 }

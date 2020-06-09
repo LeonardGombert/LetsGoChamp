@@ -102,19 +102,21 @@
                 fixed4 col = tex2D(_MainTex, i.uv);
                 fixed4 col2 = tex2D(_MainTex, i.uv);
 
-                fixed4 transition = tex2D(_RadialTexture, i.uv2);
+                fixed4 transition = 1.0 - tex2D(_RadialTexture, i.uv2);
 
-                col = applyHSBEffect(col, _Hue, _Contrast, _Saturation, _Brightness);
                 col2 = applyHSBEffect(col, _Hue2, _Contrast2, _Saturation2, _Brightness2);
+                col = applyHSBEffect(col, _Hue, _Contrast, _Saturation, _Brightness);
 
-                if (transition.b < _CutOff)
+                /*if (transition.b < _CutOff)
                 {
                     return col;
                 }
                 else
                 {
                     return col2;
-                }
+                }*/
+
+                return lerp(col, col2, transition * _CutOff);
             }
             ENDCG
         }

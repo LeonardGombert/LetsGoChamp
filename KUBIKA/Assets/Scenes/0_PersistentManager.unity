@@ -138,6 +138,31 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.44
       objectReference: {fileID: 0}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: Explosion
+      value: 
+      objectReference: {fileID: 8300000, guid: b55ea25b105645b4d96a2b622e1a5113, type: 3}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: Pop
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d9fa1adaac1539458b76c2a51297554, type: 3}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: Rotate
+      value: 
+      objectReference: {fileID: 8300000, guid: 51d2d632266864f488772e8a6c57c26e, type: 3}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: SwitchON
+      value: 
+      objectReference: {fileID: 8300000, guid: b55ea25b105645b4d96a2b622e1a5113, type: 3}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: SwitchOFF
+      value: 
+      objectReference: {fileID: 8300000, guid: b55ea25b105645b4d96a2b622e1a5113, type: 3}
     - target: {fileID: 6813202359721789647, guid: 0ab89cb74073ce545ad26c8b693113ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -397,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
         type: 3}
       propertyPath: loadToKubicode
-      value: Worl101
+      value: Worl401
       objectReference: {fileID: 0}
     - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
         type: 3}

@@ -6,6 +6,10 @@ namespace Kubika.Game
 {
     public class _BackgroundMaterialPreset : MonoBehaviour
     {
+
+        private static _BackgroundMaterialPreset _instance;
+        public static _BackgroundMaterialPreset instance { get { return _instance; } }
+
         [HideInInspector] public MeshRenderer meshRenderer;
         [HideInInspector] public MeshFilter meshFilter;
         [HideInInspector] public MaterialPropertyBlock MatProp; // To change Mat Properties
@@ -30,6 +34,20 @@ namespace Kubika.Game
 
         public Transform BG_FX_TRANS;
         ParticleSystem BG_FX;
+
+        [Space]
+        public AnimationCurve BG_FX_Behavior;
+        public float moveTime;
+        float currentValue;
+        float lerpValue;
+        bool CoroutineAlreadyStarted = false;
+
+        private void Awake()
+        {
+            if (_instance != null && _instance != this) Destroy(gameObject);
+            else _instance = this;
+
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -78,12 +96,38 @@ namespace Kubika.Game
         {
             Debug.Log("_BGTex = " + _MaterialCentral.instance.actualPack._BGTex.name);
             _MainTex = _MaterialCentral.instance.actualPack._BGTex;
-            _Hue = _MaterialCentral.instance.actualPack._HueBG;
-            _Contrast = _MaterialCentral.instance.actualPack._ContrastBG;
-            _Saturation = _MaterialCentral.instance.actualPack._SaturationBG;
-            _Brightness = _MaterialCentral.instance.actualPack._BrightnessBG;
+            _Hue2 = _MaterialCentral.instance.actualPack._HueBG;
+            _Contrast2 = _MaterialCentral.instance.actualPack._ContrastBG;
+            _Saturation2 = _MaterialCentral.instance.actualPack._SaturationBG;
+            _Brightness2 = _MaterialCentral.instance.actualPack._BrightnessBG;
 
             SetMaterial();
+        }
+
+        public IEnumerator FallBGFeedback()
+        {
+            if (CoroutineAlreadyStarted == false)
+            {
+                CoroutineAlreadyStarted = true;
+                currentValue = lerpValue = 0;
+                meshRenderer.GetPropertyBlock(MatProp);
+
+                while (currentValue < 1)
+                {
+                    lerpValue += Time.deltaTime;
+                    currentValue = lerpValue / moveTime;
+
+                    _CutOff = (Mathf.Lerp(0, 1, BG_FX_Behavior.Evaluate(currentValue)));
+
+                    MatProp.SetFloat("_CutOff", _CutOff);
+                    meshRenderer.SetPropertyBlock(MatProp);
+
+                    yield return _CutOff;
+                }
+
+                CoroutineAlreadyStarted = false;
+            }
+
         }
     }
 }

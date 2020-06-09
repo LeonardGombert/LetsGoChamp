@@ -36,7 +36,8 @@ MonoBehaviour:
   _Saturation: 0
   _Brightness: 0
   _BGTex: {fileID: 0}
+  _BGFX: {fileID: 0}
   _HueBG: 0
   _ContrastBG: 1
   _SaturationBG: 1
-  _BrightnessBG: 0
+  _BrightnessBG: 0.5

@@ -1,4 +1,6 @@
-﻿namespace Kubika.Game
+﻿using UnityEngine;
+
+namespace Kubika.Game
 {
     public class ConcreteCube : _CubeMove
     {
@@ -10,12 +12,20 @@
 
             //starts as a static cube
             isSelectable = false;
+            SetOutlineColor();
         }
 
         // Update is called once per frame
         public override void Update()
         {
             base.Update();
+        }
+
+        void SetOutlineColor()
+        {
+            meshRenderer.GetPropertyBlock(MatProp);
+            MatProp.SetColor("_ColorOutline", Color.black);
+            meshRenderer.SetPropertyBlock(MatProp);
         }
     }
 }

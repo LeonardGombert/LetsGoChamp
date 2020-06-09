@@ -29,6 +29,8 @@ namespace Kubika.Game
                 _DataManager.instance.moveCube.Remove(this);
                 isStatic = true;
                 ChangeEmoteFace(_EmoteIdleOffTex);
+                SetupSoundSwitch(false);
+                PlaySound();
                 ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOff);
                 myCubeLayer = CubeLayers.cubeFull;
             }
@@ -38,6 +40,8 @@ namespace Kubika.Game
                 _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
                 ChangeEmoteFace(_EmoteIdleTex);
+                SetupSoundSwitch(true);
+                PlaySound();
                 ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOn);
                 myCubeLayer = CubeLayers.cubeMoveable;
             }
@@ -53,5 +57,17 @@ namespace Kubika.Game
 
             meshRenderer.SetPropertyBlock(MatProp);
         }
+
+        #region AUDIO
+
+        void SetupSoundSwitch(bool isON)
+        {
+            if (isON == true)
+                audioSourceCube.clip = _AudioManager.instance.SwitchON;
+            else
+                audioSourceCube.clip = _AudioManager.instance.SwitchOFF;
+        }
+
+        #endregion
     }
 }

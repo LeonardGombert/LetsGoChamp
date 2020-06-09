@@ -46,4 +46,4 @@ MonoBehaviour:
   _HueBG: 0
   _ContrastBG: 1
   _SaturationBG: 1
-  _BrightnessBG: 0
+  _BrightnessBG: 0.5

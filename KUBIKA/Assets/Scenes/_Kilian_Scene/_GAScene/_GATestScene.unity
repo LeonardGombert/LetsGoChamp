@@ -11495,6 +11495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fb_Delivry: {fileID: 4083615497531977987, guid: b88405fa66bda22459eecfd239471121,
     type: 3}
+  audioSourceFbMana: {fileID: 0}
   MineExplosionBase: {fileID: 2308570358148291976, guid: 15f5e9331b622624b8d6a681081c1fa5,
     type: 3}
   MineExplosionVictory: {fileID: 7635743009464650310, guid: 4620ca4c8f0920741840ffde980ca79f,

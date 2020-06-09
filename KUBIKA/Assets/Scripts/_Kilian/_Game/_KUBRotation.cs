@@ -27,6 +27,9 @@ namespace Kubika.Game
         float currentValue;
         public AnimationCurve curve = AnimationCurve.Linear(0.0f, 0.0f, 1.0f, 1.0f);
 
+        // AUDIO
+        [SerializeField] AudioSource audioSource;
+
 
 
         private void Awake()
@@ -34,6 +37,7 @@ namespace Kubika.Game
             if (_instance != null && _instance != this) Destroy(gameObject);
             else _instance = this;
 
+            SetupSound();
         }
 
 
@@ -146,6 +150,10 @@ namespace Kubika.Game
 
                 //=============// //
 
+
+                audioSource.Play();
+
+
                 //Debug.Log("Tout les Cubes sont posé");
 
                 Debug.LogError("transform.eulerAngles.z " + (int)transform.eulerAngles.z + " ||  " + (int)transform.eulerAngles.z % 360);
@@ -161,6 +169,13 @@ namespace Kubika.Game
             }
         }
 
+        #region AUDIO
+
+        void SetupSound()
+        {
+            audioSource.clip = _AudioManager.instance.Rotate;
+        }
+        #endregion
     }
 }
 

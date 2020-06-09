@@ -384,7 +384,16 @@ namespace Kubika.Game
 
         void CameraPhoneInput()
         {
-            if (Input.touchCount == 2)
+            if (Input.touchCount == 1)
+            {
+                touch0 = Input.GetTouch(0);
+                Scrolling(touch0.deltaPosition, touch0.deltaPosition);
+                //GetScreenSwipeAngle();
+                //ScrollingSimple(touch0.deltaPosition);
+
+
+            }
+            else if (Input.touchCount == 2)
             {
                 touch0 = Input.GetTouch(0);
                 touch1 = Input.GetTouch(1);

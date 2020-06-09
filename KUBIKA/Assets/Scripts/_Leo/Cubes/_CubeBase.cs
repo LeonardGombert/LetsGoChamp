@@ -73,12 +73,20 @@ namespace Kubika.Game
         // RIGIDBODY
         Rigidbody rigidbody;
 
+        // AUDIO 
+        public AudioSource audioSourceCube;
+
 
         // Start is called before the first frame update
         public virtual void Start()
         {
             grid = _Grid.instance;
             SetScriptablePreset();
+
+            audioSourceCube = gameObject.AddComponent<AudioSource>();
+            audioSourceCube.playOnAwake = false;
+            audioSourceCube.outputAudioMixerGroup = _AudioManager.instance.audioMixer;
+            audioSourceCube.loop = false;
         }
 
         public virtual void Update()
@@ -1052,6 +1060,7 @@ namespace Kubika.Game
         {
             Debug.Log("Popping out");
 
+            audioSourceCube.clip = _AudioManager.instance.Pop;
             currentOfValueChange = 0;
             baseScale = transform.localScale;
             targetScale = new Vector3(baseScale.x * scaleMul, baseScale.y * scaleMul, baseScale.z * scaleMul);
@@ -1074,16 +1083,17 @@ namespace Kubika.Game
             DisableCube();
 
             PopOutPS = Instantiate(_FeedBackManager.instance.PopOutParticleSystem, transform.position, Quaternion.identity);
+            PlaySound();
 
             yield return new WaitForSeconds(_FeedBackManager.instance.PopOutParticleSystem.main.duration);
-
-            Destroy(PopOutPS.gameObject);
-            gameObject.SetActive(false);
 
             if (timer == true)
             {
                 _DataManager.instance.MakeFall();
             }
+
+            Destroy(PopOutPS.gameObject);
+            gameObject.SetActive(false);
 
         }
 
@@ -1126,5 +1136,19 @@ namespace Kubika.Game
             rigidbody.velocity = force * 10.0f;
             rigidbody.AddForce(force * 10.0f);
         }
+
+
+        #region AUDIO
+        public void StopPlayingSound()
+        {
+            audioSourceCube.Stop();
+        }
+
+        public void PlaySound()
+        {
+            audioSourceCube.Play();
+        }
+
+        #endregion
     }
 }
