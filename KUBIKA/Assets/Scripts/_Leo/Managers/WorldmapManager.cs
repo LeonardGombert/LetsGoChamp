@@ -53,6 +53,8 @@ namespace Kubika.Game
             currentBiome = Biomes.Plains;
 
             worldMapLevels = FindObjectsOfType<LevelCube>();
+
+            RefreshWorldArrowTargets();
         }
 
         // Update is called once per frame
@@ -68,7 +70,7 @@ namespace Kubika.Game
         //Refresh where the arrows should be positioned
         public void RefreshWorldArrowTargets()
         {
-            activeFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
+            activeFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome +1).gameObject;
 
             topArrowObj = activeFace.transform.GetChild(3).GetChild(0).transform;
             bottomArrowObj = activeFace.transform.GetChild(3).GetChild(1).transform;

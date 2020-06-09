@@ -1476,6 +1476,11 @@ PrefabInstance:
       objectReference: {fileID: 974214344}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
+      propertyPath: playButton
+      value: 
+      objectReference: {fileID: 5211472466263543853}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
       propertyPath: music
       value: 
       objectReference: {fileID: 1974273361}
@@ -1506,6 +1511,16 @@ PrefabInstance:
       objectReference: {fileID: 1880667868287510277}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
+      propertyPath: rightRotateBackground
+      value: 
+      objectReference: {fileID: 1880667868287510284}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: leftRotateBackground
+      value: 
+      objectReference: {fileID: 1880667868287510283}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
       propertyPath: rightRotateButton
       value: 
       objectReference: {fileID: 1880667868287510280}
@@ -1514,6 +1529,31 @@ PrefabInstance:
       propertyPath: leftRotateButton
       value: 
       objectReference: {fileID: 1880667868287510279}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: currentMoves
+      value: 
+      objectReference: {fileID: 1880667868287510282}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: minimumMoves
+      value: 
+      objectReference: {fileID: 1880667868287510281}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelName
+      value: 
+      objectReference: {fileID: 7251666030341435444}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: playerScore
+      value: 
+      objectReference: {fileID: 7251666030341435442}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelScore
+      value: 
+      objectReference: {fileID: 7251666030341435443}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
       propertyPath: levelEditorOptionsWindow
@@ -1599,75 +1639,6 @@ PrefabInstance:
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 1445805127}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: playButton
-      value: 
-      objectReference: {fileID: 5211472466263543853}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: minimumMoves
-      value: 
-      objectReference: {fileID: 1880667868287510281}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: currentMoves
-      value: 
-      objectReference: {fileID: 1880667868287510282}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: transitionDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: levelName
-      value: 
-      objectReference: {fileID: 7251666030341435444}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: playerScore
-      value: 
-      objectReference: {fileID: 7251666030341435442}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: levelScore
-      value: 
-      objectReference: {fileID: 7251666030341435443}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: leftRotateOff
-      value: 
-      objectReference: {fileID: 21300000, guid: 5ae08264e998e7a4fb52eb13da61de75,
-        type: 3}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: rotateLock
-      value: 
-      objectReference: {fileID: 21300000, guid: 5ae08264e998e7a4fb52eb13da61de75,
-        type: 3}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: rotateOnBackground
-      value: 
-      objectReference: {fileID: 21300000, guid: 3ca78a245bdba36438efc62b5a4b4692,
-        type: 3}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: rotateLockBackground
-      value: 
-      objectReference: {fileID: 21300000, guid: bae116afcf14f7f48b13f9224ef0b582,
-        type: 3}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: leftRotateBackground
-      value: 
-      objectReference: {fileID: 1880667868287510283}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: rightRotateBackground
-      value: 
-      objectReference: {fileID: 1880667868287510284}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped

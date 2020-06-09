@@ -55,6 +55,7 @@ MonoBehaviour:
   levelNameWM: {fileID: 0}
   topArrow: {fileID: 0}
   bottomArrow: {fileID: 0}
+  playButton: {fileID: 0}
   music: {fileID: 0}
   musicOn: {fileID: 21300000, guid: ec504b12341d7a448bed5019e2a7cd8f, type: 3}
   musicOff: {fileID: 21300000, guid: 0b2ea486ea9420b459d0ed90bc88d618, type: 3}
@@ -65,12 +66,21 @@ MonoBehaviour:
   openBurgerMenuButton: {fileID: 0}
   rightRotate: {fileID: 0}
   leftRotate: {fileID: 0}
+  rightRotateBackground: {fileID: 0}
+  leftRotateBackground: {fileID: 0}
   rightRotateButton: {fileID: 0}
   leftRotateButton: {fileID: 0}
   rightRotateOn: {fileID: 21300000, guid: 1d1a9d8ee6b148e4ea0f024f9d0ee2bb, type: 3}
-  rightRotateOff: {fileID: 21300000, guid: 76b32501b8b53974ca76fee7f2addecf, type: 3}
   leftRotateOn: {fileID: 21300000, guid: 2ee0334f4e1c5384bbf1fc813e5ee1ea, type: 3}
-  leftRotateOff: {fileID: 21300000, guid: 76b32501b8b53974ca76fee7f2addecf, type: 3}
+  rotateLock: {fileID: 21300000, guid: 5ae08264e998e7a4fb52eb13da61de75, type: 3}
+  rotateOnBackground: {fileID: 21300000, guid: 3ca78a245bdba36438efc62b5a4b4692, type: 3}
+  rotateLockBackground: {fileID: 21300000, guid: bae116afcf14f7f48b13f9224ef0b582,
+    type: 3}
+  currentMoves: {fileID: 0}
+  minimumMoves: {fileID: 0}
+  levelName: {fileID: 0}
+  playerScore: {fileID: 0}
+  levelScore: {fileID: 0}
   levelEditorOptionsWindow: {fileID: 0}
   levelEditorSaveWindow: {fileID: 0}
   UniverseMode: {fileID: 0}
@@ -107,5 +117,6 @@ MonoBehaviour:
     type: 3}
   fadeImage: {fileID: 0}
   transitionType: 0
-  transitionDuration: 0.1
+  transitionDuration: 0.5
   timePassed: 0
+  transitionFinished: 0
