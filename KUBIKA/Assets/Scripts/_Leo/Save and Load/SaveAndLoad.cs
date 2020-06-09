@@ -298,9 +298,12 @@ namespace Kubika.Saving
                 if(currentLevelKubicode != "" && nextLevelKubiCode != "" && isGolden != false)
                 {
                     loadedPlayerProgress.nextLevelKubicode = nextLevelKubiCode;
-                    loadedPlayerProgress.beatenLevels.Add(currentLevelKubicode);
-                    if (isGolden) loadedPlayerProgress.goldenLevels.Add(currentLevelKubicode);
+                    if(!loadedPlayerProgress.beatenLevels.Contains(currentLevelKubicode)) loadedPlayerProgress.beatenLevels.Add(currentLevelKubicode);
+                    if (isGolden && !loadedPlayerProgress.goldenLevels.Contains(currentLevelKubicode)) loadedPlayerProgress.goldenLevels.Add(currentLevelKubicode);
                 }
+
+                string newJson = JsonUtility.ToJson(loadedPlayerProgress);
+                File.WriteAllText(path, newJson);
 
                 return loadedPlayerProgress;
             }

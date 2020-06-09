@@ -32,11 +32,17 @@ namespace Kubika.Game
         public void ResetMoves()
         {
             numberOfMoves = 0;
+            _DataManager.instance.isGolded = false;
         }
 
         public bool CheckIfGolden()
         {
-            if (numberOfMoves <= LevelsManager.instance._minimumMoves) return true;
+            if (numberOfMoves <= LevelsManager.instance._minimumMoves)
+            {
+                _DataManager.instance.isGolded = true;
+                return true;
+            }
+
             else return false;
         }
     }

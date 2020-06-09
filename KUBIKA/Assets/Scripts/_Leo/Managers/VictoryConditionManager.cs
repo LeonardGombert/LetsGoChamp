@@ -21,7 +21,6 @@ namespace Kubika.Game
         public float waitTime = 1.5f;
         public float waitTimeBeforePS = 0.0f;
 
-
         BaseVictoryCube[] victoryCubes;
         DeliveryCube[] deliveryCube;
         
@@ -30,6 +29,11 @@ namespace Kubika.Game
         {
             if (_instance != null && _instance != this) Destroy(this);
             else _instance = this;
+        }
+
+        private void Start()
+        {
+            //_DataManager.instance.EndFalling.AddListener(VictoryConditionStatus);
         }
 
         // Call when a new level is loaded
@@ -50,33 +54,31 @@ namespace Kubika.Game
             }
         }
 
-        public void IncrementVictory()
-        {
-            Debug.Log("I've been touched by a Victory cube");
-            currentVictoryPoints++;
-
-            VictoryConditionStatus();
-        }
-
         public void DecrementVictory()
         {
             Debug.Log("I've lost track of a Victory cube");
             currentVictoryPoints--;
-
-            VictoryConditionStatus();
         }
 
-        private void VictoryConditionStatus()
+        public void IncrementVictory()
+        {
+            Debug.Log("I've been touched by a Victory cube");
+            currentVictoryPoints++;
+        }
+
+        public void VictoryConditionStatus()
         {
             if (currentVictoryPoints == levelVictoryPoints)
             {
                 Debug.Log("WIN TRANSITION");
-                StartCoroutine(TransitionTime());
+                StartCoroutine(LevelPassedRoutine());
             }
         }
 
-        public IEnumerator TransitionTime()
+        public IEnumerator LevelPassedRoutine()
         {
+            PlayerMoves.instance.CheckIfGolden();
+
             deliveryCube = FindObjectsOfType<DeliveryCube>();
             
             _FeedBackManager.instance.EveryCubeHappy();
@@ -87,22 +89,17 @@ namespace Kubika.Game
             }
 
             yield return new WaitForSeconds(waitTimeBeforePS);
+
             _FeedBackManager.instance.PlayVictoryFX();
+
             yield return new WaitForSeconds(waitTime);
+
+            UIManager.instance.OpenWinLevelWindow();
 
             //save the level's progress
             SaveAndLoad.instance.SaveAndLoadPlayerProgress(LevelsManager.instance._Kubicode, 
                                               LevelsManager.instance.GetNextKubicode(), 
                                               PlayerMoves.instance.CheckIfGolden());
-
-            StartCoroutine(WinCountdown());
-        }
-
-        //use this to call all win animations etc.
-        private IEnumerator WinCountdown()
-        {
-            UIManager.instance.OpenWinLevelWindow();
-            yield return null;
         }
     }
 }

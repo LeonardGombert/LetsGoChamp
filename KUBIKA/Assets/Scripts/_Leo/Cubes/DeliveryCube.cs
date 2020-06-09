@@ -60,6 +60,16 @@ namespace Kubika.Game
             //touchingVictory = ProximityChecker(_DirectionCustom.fixedUp, CubeTypes.BaseVictory, CubeLayers.None);
             touchingVictory = VictoryChecker(_DirectionCustom.LocalScanner(facingDirection));
 
+            // flip the bools when the delivery cube loses track of the victory cube
+            if (touchingVictory == false && locked == true)
+            {
+                victoryCubeOnPistion.isPastilleAndIsOn = false;
+                StartCoroutine(victoryCubeTracker.VictoryFX(false));
+                victoryCubeTracker.ChangeEmoteFace(_EmoteIdleTex);
+                VictoryConditionManager.instance.DecrementVictory();
+                locked = false;
+            }
+
             if (touchingVictory && locked == false)
             {
                 locked = true;
@@ -70,16 +80,6 @@ namespace Kubika.Game
                 victoryCubeOnPistion.ChangeEmoteFace(victoryCubeOnPistion._EmotePastilleTex);
                 victoryCubeTracker = victoryCubeOnPistion;
                 VictoryConditionManager.instance.IncrementVictory();
-            }
-
-            // flip the bools when the delivery cube loses track of the victory cube
-            if (touchingVictory == false && locked == true)
-            {
-                victoryCubeOnPistion.isPastilleAndIsOn = false;
-                StartCoroutine(victoryCubeTracker.VictoryFX(false));
-                victoryCubeTracker.ChangeEmoteFace(_EmoteIdleTex);
-                VictoryConditionManager.instance.DecrementVictory();
-                locked = false;
             }
         }
 

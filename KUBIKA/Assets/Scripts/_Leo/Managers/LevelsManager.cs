@@ -201,6 +201,7 @@ namespace Kubika.Game
         //this kubicode is save into the player's progress file
         public string GetNextKubicode()
         {
+            Debug.Log("GettingInfo");
             //get info
             GetNextLevelInfo();
             return _Kubicode;

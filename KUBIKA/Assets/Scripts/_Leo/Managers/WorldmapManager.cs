@@ -61,6 +61,9 @@ namespace Kubika.Game
             RefreshWorldArrowTargets();
             UpdateArrowPositions();
             CheckForNodeTouch();
+
+            WorldmapManager.instance.UpdateWorldMap();
+
         }
 
         public void RefreshWorldArrowTargets()
@@ -106,14 +109,16 @@ namespace Kubika.Game
 
             //the progress file holds the next player's level
             nextLevelInProgression = SaveAndLoad.instance.SaveAndLoadPlayerProgress().nextLevelKubicode;
-
             playerBeatenLevels = SaveAndLoad.instance.SaveAndLoadPlayerProgress().beatenLevels;
             playerGoldenLevels = SaveAndLoad.instance.SaveAndLoadPlayerProgress().goldenLevels;
 
             foreach (LevelCube cube in worldMapLevels)
             {
                 if(playerBeatenLevels.Contains(cube.kubicode))
+                {
+                    cube.GetComponent<_ScriptMatFaceCube>().isUnlocked = true;
                     cube.GetComponent<_ScriptMatFaceCube>().isPlayed = true;
+                }
 
                 else if (playerGoldenLevels.Contains(cube.kubicode))
                     cube.GetComponent<_ScriptMatFaceCube>().isGold = true;

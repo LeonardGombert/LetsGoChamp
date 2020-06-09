@@ -260,11 +260,13 @@ namespace Kubika.Game
             oldFace = currentFace;
         }
 
-        public void MainPlaneteView()
+        public IEnumerator MainPlaneteView()
         {
             Debug.Log("BackToMainVeiw");
             
             ZoomOutPlanetCalls();
+
+            yield return new WaitForSeconds(0.1f);
 
             if (planeteView == false)
             {
@@ -284,6 +286,8 @@ namespace Kubika.Game
             planeteView = true;
             currentFace.vCam.Priority = 0;
             baseVCam.Priority = 20;
+
+            yield return null;
         }
 
         //used to start the player's cam on the face after beating a level

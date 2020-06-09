@@ -767,6 +767,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Editor UI
       objectReference: {fileID: 0}
+    - target: {fileID: 557176488720930627, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 557176488720930655, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1540,6 +1545,21 @@ PrefabInstance:
       propertyPath: transitionDuration
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelName
+      value: 
+      objectReference: {fileID: 7251666030341435444}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: playerScore
+      value: 
+      objectReference: {fileID: 7251666030341435442}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: levelScore
+      value: 
+      objectReference: {fileID: 7251666030341435443}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped
@@ -1580,6 +1600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Worldmap UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956760563654592969, guid: b6e6cac74e049ba41b59b1516fdba42c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6956760563654592974, guid: b6e6cac74e049ba41b59b1516fdba42c,
         type: 3}
@@ -1665,6 +1690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fade Transition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816873454776561097, guid: bdfde44508b92ad4d82e8520112b8ffe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6816873454776561106, guid: bdfde44508b92ad4d82e8520112b8ffe,
         type: 3}
@@ -1780,20 +1810,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 41303530756205582, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_Text
+      value: Level Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113650066226693367, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_Text
+      value: Player Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 2240590561720418669, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 2475447856078417084, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 4754270447696558710, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Score
+      objectReference: {fileID: 0}
     - target: {fileID: 5949077804416325456, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
-    - target: {fileID: 5949077804416325456, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+    - target: {fileID: 6124905712142327176, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ButtonCallback
+      propertyPath: m_Name
+      value: Level Score
       objectReference: {fileID: 0}
-    - target: {fileID: 5949077804416325456, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+    - target: {fileID: 6427007694790048428, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: GAME_Restart
+      propertyPath: m_Text
+      value: Level Score
       objectReference: {fileID: 0}
     - target: {fileID: 7251666028742188739, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
@@ -1805,20 +1860,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
-    - target: {fileID: 7251666029056732195, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 4163245710987387166}
     - target: {fileID: 7251666029446144983, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
       propertyPath: m_Name
       value: Level Passed Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7251666029446144983, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7251666029446144987, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
         type: 3}
@@ -1925,8 +1970,59 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7532867986024056284, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8859723037825297400, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_Name
+      value: Level Passed Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8909383781797812395, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4, type: 3}
+--- !u!114 &7251666030341435442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1113650066226693367, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7251666030341435441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7251666030341435443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6427007694790048428, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7251666030341435441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7251666030341435444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 41303530756205582, guid: 6b3e1957a0cd4ab4b8c795743bb03eb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7251666030341435441}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8913624951218497942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2047,7 +2143,7 @@ PrefabInstance:
     - target: {fileID: 8913624951134193628, guid: 9fc426e788be7cb4b81678c5829896e5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fc426e788be7cb4b81678c5829896e5, type: 3}

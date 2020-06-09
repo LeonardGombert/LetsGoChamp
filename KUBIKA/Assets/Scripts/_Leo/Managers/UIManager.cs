@@ -55,6 +55,12 @@ namespace Kubika.Game
         [FoldoutGroup("In-Game")] [SerializeField] Text currentMoves, minimumMoves;
         #endregion
 
+        #region LEVEL PASSED
+        [FoldoutGroup("Level Passed")] [SerializeField] Text levelName;
+        [FoldoutGroup("Level Passed")] [SerializeField] Text playerScore;
+        [FoldoutGroup("Level Passed")] [SerializeField] Text levelScore;
+        #endregion
+
         #region LEVEL EDITOR
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorOptionsWindow;
         [FoldoutGroup("Level Editor")] [SerializeField] GameObject levelEditorSaveWindow;
@@ -135,7 +141,6 @@ namespace Kubika.Game
                 case ScenesIndex.LEVEL_EDITOR:
                     LevelEditorPriority();
                     UniverseModePriority();
-
                     ResetCurrentValues();
                     break;
 
@@ -309,7 +314,7 @@ namespace Kubika.Game
                     break;
 
                 case "WORLDMAP_ZoomOut":
-                    _Planete.instance.MainPlaneteView();
+                    StartCoroutine(_Planete.instance.MainPlaneteView());
                     break;
 
                 case "WORLDMAP_LevelEditor":
@@ -488,7 +493,13 @@ namespace Kubika.Game
         //opens next level window
         public void OpenWinLevelWindow()
         {
+            TurnOffAllCanvases();
+            ResetCanvasSortOrder();
             levelPassedCanvas.enabled = true;
+            levelName.text = LevelsManager.instance._levelName;
+            playerScore.text = "Your Score : " + PlayerMoves.instance.numberOfMoves.ToString();
+            levelScore.text = "Gold Score : " + LevelsManager.instance._minimumMoves.ToString();
+
         }
 
         //called on WinLeveWindow button press
@@ -496,6 +507,8 @@ namespace Kubika.Game
         {
             levelPassedCanvas.enabled = false;
             LevelsManager.instance.ReturnToWorldMap();
+
+            LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;
         }
         #endregion
 
