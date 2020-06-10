@@ -90,6 +90,11 @@ namespace Kubika.Game
         //AUDIO
         [SerializeField] AudioSource audioSource;
 
+        // PLANET ROTATION
+        float xROT;
+        float yROT;
+        float zROT;
+
 
         // Start is called before the first frame update
         void Start()
@@ -134,7 +139,8 @@ namespace Kubika.Game
 
         void RotationPlanete()
         {
-            planeteTrans.transform.Rotate(0, Time.deltaTime * rotationSpeed, 0);
+            yROT = Time.deltaTime * rotationSpeed;
+            planeteTrans.transform.Rotate(xROT, yROT, zROT);
         }
 
         void CheckTouch()
@@ -453,11 +459,17 @@ namespace Kubika.Game
             mediumYMouv = ((touch0Pos.x - base0Pos.x)) * mouvPower;
             mediumXMouv = ((touch0Pos.y - base0Pos.y)) * mouvPower;
 
-            baseYRotation = baseRotation.y + mediumYMouv;
-            baseXRotation = baseRotation.x - mediumXMouv;
-            currentRotation.y = baseYRotation;
-            currentRotation.x = baseXRotation;
-            pivotMainCamera.eulerAngles = currentRotation;
+            baseYRotation = yROT;
+            baseXRotation = xROT;
+            baseRotation.y = baseYRotation + mediumYMouv;
+            baseRotation.x = baseXRotation - mediumXMouv;
+            xROT = baseRotation.x;
+            yROT += baseRotation.y;
+            //baseYRotation = baseRotation.y + mediumYMouv;
+            //baseXRotation = baseRotation.x - mediumXMouv;
+            //currentRotation.y = baseYRotation;
+            //currentRotation.x = baseXRotation;
+            //pivotMainCamera.eulerAngles = currentRotation;
         }
 
         #region SCROLL & ZOOM
@@ -475,11 +487,18 @@ namespace Kubika.Game
             mediumXMouv = ((touch0Pos.y + touch1Pos.y) * 0.5f) * mouvPower;
 
             baseRotation = pivotMainCamera.eulerAngles;
-            baseYRotation = baseRotation.y;
-            baseXRotation = baseRotation.x;
+            baseYRotation = yROT;
+            baseXRotation = xROT;
             baseRotation.y = baseYRotation + mediumYMouv;
             baseRotation.x = baseXRotation - mediumXMouv;
-            pivotMainCamera.eulerAngles = baseRotation;
+            xROT = baseRotation.x;
+            yROT += baseRotation.y;
+            //baseRotation = pivotMainCamera.eulerAngles;
+            //baseYRotation = baseRotation.y;
+            //baseXRotation = baseRotation.x;
+            //baseRotation.y = baseYRotation + mediumYMouv;
+            //baseRotation.x = baseXRotation - mediumXMouv;
+            //pivotMainCamera.eulerAngles = baseRotation;
         }
         #endregion
     }
