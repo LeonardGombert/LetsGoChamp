@@ -19,6 +19,7 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
             SetScanDirections();
+            _DataManager.instance.EndMoving.AddListener(CubeListener);
             _DataManager.instance.EndFalling.AddListener(CubeListener);
 
             GuessTimerValue();
@@ -27,12 +28,14 @@ namespace Kubika.Game
         public override void UndoProcedure()
         {
             base.UndoProcedure();
+            _DataManager.instance.EndMoving.AddListener(CubeListener);
             _DataManager.instance.EndFalling.AddListener(CubeListener);
         }
 
         public override void HideCubeProcedure()
         {
             base.HideCubeProcedure();
+            _DataManager.instance.EndMoving.RemoveListener(CubeListener);
             _DataManager.instance.EndFalling.RemoveListener(CubeListener);
         }
 

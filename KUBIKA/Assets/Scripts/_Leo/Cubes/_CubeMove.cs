@@ -326,7 +326,7 @@ namespace Kubika.Game
 
             _DataManager.instance.moveCube.Remove(this);
             _DataManager.instance.baseCube.Remove(this);
-            PopOut(false);
+            StartCoroutine(PopOut(false));
             StartCoroutine(_BackgroundMaterialPreset.instance.FallBGFeedback());
 
             isFalling = false;
@@ -482,33 +482,97 @@ namespace Kubika.Game
 
         public void CheckSoloMove(int index, int nodeDirection)
         {
-            if (isMovingAndSTFU == false)
+            if (isFalling == false)
             {
-                if (MatrixLimitCalcul(index, nodeDirection))
+                if (isMovingAndSTFU == false)
                 {
-                    indexTargetNode = index + nodeDirection;
-                    Debug.Log("---CheckSoloMove--- | " + nodeDirection);
-
-                    switch (grid.kuboGrid[indexTargetNode - 1].cubeLayers)
+                    if (MatrixLimitCalcul(index, nodeDirection))
                     {
-                        case CubeLayers.cubeFull:
-                            {
-                                Debug.Log("STUCK ");
-                                soloMoveTarget = grid.kuboGrid[myIndex - 1];
-                                isCheckingMove = false;
-                            }
-                            break;
-                        case CubeLayers.cubeEmpty:
-                            {
-                                Debug.Log("EMPTY ");
+                        indexTargetNode = index + nodeDirection;
+                        Debug.Log("---CheckSoloMove--- | " + nodeDirection);
 
-                                if (grid.kuboGrid[indexTargetNode - 1 + _DirectionCustom.down].cubeLayers == CubeLayers.cubeMoveable || grid.kuboGrid[indexTargetNode - 1 + _DirectionCustom.down].cubeLayers == CubeLayers.cubeFull)
+                        switch (grid.kuboGrid[indexTargetNode - 1].cubeLayers)
+                        {
+                            case CubeLayers.cubeFull:
                                 {
-                                    isReadyToMove = true;
-                                    soloMoveTarget = grid.kuboGrid[myIndex + nodeDirection - 1];
-                                    Debug.Log("TAAAAAAAREGT MOVE " + soloMoveTarget.nodeIndex + " ||MyIndex " + myIndex);
+                                    Debug.Log("STUCK ");
+                                    soloMoveTarget = grid.kuboGrid[myIndex - 1];
+                                    isCheckingMove = false;
+                                }
+                                break;
+                            case CubeLayers.cubeEmpty:
+                                {
+                                    Debug.Log("EMPTY ");
 
-                                    movingToPos = true;
+                                    if (grid.kuboGrid[indexTargetNode - 1 + _DirectionCustom.down].cubeLayers == CubeLayers.cubeMoveable || grid.kuboGrid[indexTargetNode - 1 + _DirectionCustom.down].cubeLayers == CubeLayers.cubeFull)
+                                    {
+                                        isReadyToMove = true;
+                                        soloMoveTarget = grid.kuboGrid[myIndex + nodeDirection - 1];
+                                        Debug.Log("TAAAAAAAREGT MOVE " + soloMoveTarget.nodeIndex + " ||MyIndex " + myIndex);
+
+                                        movingToPos = true;
+
+                                        if (grid.kuboGrid[myIndex - 1 + _DirectionCustom.up].cubeLayers == CubeLayers.cubeMoveable && MatrixLimitCalcul(myIndex, _DirectionCustom.up))
+                                        {
+                                            pileNodeCubeMove = grid.kuboGrid[myIndex - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>();
+                                            pileNodeCubeMove.CheckingPile(pileNodeCubeMove.myIndex - 1, nodeDirection);
+                                        }
+                                        Debug.Log("EMPTY-CAN MOVE-");
+                                    }
+                                    else
+                                    {
+                                        isReadyToMove = true;
+                                        Debug.Log("EMPTY-CANNOT MOVE-");
+                                        soloMoveTarget = grid.kuboGrid[myIndex - 1];
+                                    }
+                                    isCheckingMove = false;
+
+                                }
+                                break;
+                            case CubeLayers.cubeMoveable:
+                                {
+                                    Debug.Log("MOVE ");
+                                    pushNextNodeCubeMove = grid.kuboGrid[indexTargetNode - 1].cubeOnPosition.GetComponent<_CubeMove>();
+                                    if (pushNextNodeCubeMove.isReadyToMove == false)
+                                    {
+                                        pushNextNodeCubeMove.CheckingMove(indexTargetNode, nodeDirection);
+                                    }
+                                    CheckSoloMove(indexTargetNode, nodeDirection);
+                                }
+                                break;
+                        }
+
+                    }
+                    else
+                    {
+                        Debug.Log("MATRIX LIMIT SOLO");
+                        soloMoveTarget = grid.kuboGrid[myIndex - 1];
+                        isCheckingMove = false;
+                    }
+                }
+                else
+                {
+                    if (MatrixLimitCalcul(index, nodeDirection))
+                    {
+                        indexTargetNode = index + nodeDirection;
+                        Debug.Log("---CheckSoloMove--- | " + nodeDirection + " || index : " + index);
+
+                        switch (grid.kuboGrid[indexTargetNode - 1].cubeLayers)
+                        {
+                            case CubeLayers.cubeFull:
+                                {
+                                    Debug.Log("STUCK ");
+                                    soloMoveTarget = grid.kuboGrid[myIndex - 1];
+                                    isCheckingMove = false;
+                                }
+                                break;
+                            case CubeLayers.cubeEmpty:
+                                {
+
+                                    isReadyToMove = true;
+                                    soloMoveTarget = grid.kuboGrid[index + nodeDirection - 1];
+
+                                    Debug.Log("EMPTY " + soloMoveTarget.nodeIndex);
 
                                     if (grid.kuboGrid[myIndex - 1 + _DirectionCustom.up].cubeLayers == CubeLayers.cubeMoveable && MatrixLimitCalcul(myIndex, _DirectionCustom.up))
                                     {
@@ -516,95 +580,33 @@ namespace Kubika.Game
                                         pileNodeCubeMove.CheckingPile(pileNodeCubeMove.myIndex - 1, nodeDirection);
                                     }
                                     Debug.Log("EMPTY-CAN MOVE-");
-                                }
-                                else
-                                {
-                                    isReadyToMove = true;
-                                    Debug.Log("EMPTY-CANNOT MOVE-");
-                                    soloMoveTarget = grid.kuboGrid[myIndex - 1];
-                                }
-                                isCheckingMove = false;
 
-                            }
-                            break;
-                        case CubeLayers.cubeMoveable:
-                            {
-                                Debug.Log("MOVE ");
-                                pushNextNodeCubeMove = grid.kuboGrid[indexTargetNode - 1].cubeOnPosition.GetComponent<_CubeMove>();
-                                if (pushNextNodeCubeMove.isReadyToMove == false)
-                                {
-                                    pushNextNodeCubeMove.CheckingMove(indexTargetNode, nodeDirection);
+                                    isCheckingMove = false;
                                 }
-                                CheckSoloMove(indexTargetNode, nodeDirection);
-                            }
-                            break;
+                                break;
+                            case CubeLayers.cubeMoveable:
+                                {
+                                    Debug.Log("MOVE ");
+                                    pushNextNodeCubeMove = grid.kuboGrid[indexTargetNode - 1].cubeOnPosition.GetComponent<_CubeMove>();
+                                    if (pushNextNodeCubeMove.isReadyToMove == false)
+                                    {
+                                        pushNextNodeCubeMove.CheckingMove(indexTargetNode, nodeDirection);
+                                    }
+                                    CheckSoloMove(indexTargetNode, nodeDirection);
+                                }
+                                break;
+                        }
+
                     }
-
-                }
-                else
-                {
-                    Debug.Log("MATRIX LIMIT SOLO");
-                    soloMoveTarget = grid.kuboGrid[myIndex - 1];
-                    isCheckingMove = false;
-                }
-            }
-            else
-            {
-                if (MatrixLimitCalcul(index, nodeDirection))
-                {
-                    indexTargetNode = index + nodeDirection;
-                    Debug.Log("---CheckSoloMove--- | " + nodeDirection + " || index : " + index);
-
-                    switch (grid.kuboGrid[indexTargetNode - 1].cubeLayers)
+                    else
                     {
-                        case CubeLayers.cubeFull:
-                            {
-                                Debug.Log("STUCK ");
-                                soloMoveTarget = grid.kuboGrid[myIndex - 1];
-                                isCheckingMove = false;
-                            }
-                            break;
-                        case CubeLayers.cubeEmpty:
-                            {
-
-                                isReadyToMove = true;
-                                soloMoveTarget = grid.kuboGrid[index + nodeDirection - 1];
-
-                                Debug.Log("EMPTY " + soloMoveTarget.nodeIndex);
-
-                                if (grid.kuboGrid[myIndex - 1 + _DirectionCustom.up].cubeLayers == CubeLayers.cubeMoveable && MatrixLimitCalcul(myIndex, _DirectionCustom.up))
-                                {
-                                    pileNodeCubeMove = grid.kuboGrid[myIndex - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>();
-                                    pileNodeCubeMove.CheckingPile(pileNodeCubeMove.myIndex - 1, nodeDirection);
-                                }
-                                Debug.Log("EMPTY-CAN MOVE-");
-
-                                isCheckingMove = false;
-                            }
-                            break;
-                        case CubeLayers.cubeMoveable:
-                            {
-                                Debug.Log("MOVE ");
-                                pushNextNodeCubeMove = grid.kuboGrid[indexTargetNode - 1].cubeOnPosition.GetComponent<_CubeMove>();
-                                if (pushNextNodeCubeMove.isReadyToMove == false)
-                                {
-                                    pushNextNodeCubeMove.CheckingMove(indexTargetNode, nodeDirection);
-                                }
-                                CheckSoloMove(indexTargetNode, nodeDirection);
-                            }
-                            break;
+                        Debug.Log("MATRIX LIMIT SOLO");
+                        moveOutsideTargetCustomVector = outsideCoord(myIndex, -nodeDirection);
+                        isOutside = true;
+                        isCheckingMove = false;
                     }
-
-                }
-                else
-                {
-                    Debug.Log("MATRIX LIMIT SOLO");
-                    moveOutsideTargetCustomVector = outsideCoord(myIndex, -nodeDirection);
-                    isOutside = true;
-                    isCheckingMove = false;
                 }
             }
-
 
         }
 
