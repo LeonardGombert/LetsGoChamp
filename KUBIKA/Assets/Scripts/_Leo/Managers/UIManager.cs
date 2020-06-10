@@ -75,6 +75,7 @@ namespace Kubika.Game
         [FoldoutGroup("Level Editor")] public InputField saveLevelName;
 
         [FoldoutGroup("Level Editor")] [SerializeField] Sprite BackgroundSelected, BackgroundUnselected;
+        [FoldoutGroup("Level Editor")] [SerializeField] Text playerMovesInEditor;
 
         [FoldoutGroup("Level Editor/Universe Panel")] [SerializeField] Image UniverseBackgroundImage, UniverseIconImage;
         [FoldoutGroup("Level Editor/Universe Panel")] [SerializeField] Sprite UniverseIconSelected, UniverseIconUnselected;
@@ -271,14 +272,13 @@ namespace Kubika.Game
         {
             ResetCanvasSortOrder();
 
-            gameCanvas.enabled = true;
-            gameCanvas.sortingOrder = 1000;
+            gameCanvas.enabled = false;
 
             if (levelPassedCanvas != null) levelPassedCanvas.enabled = false;
-            levelPassedCanvas.sortingOrder = 1010;
+            levelPassedCanvas.sortingOrder = 1000;
 
             customTestCanvas.enabled = true;
-            customTestCanvas.sortingOrder = 1010;
+            customTestCanvas.sortingOrder = 1000;
         }
 
         private void WinScreenSettings()
@@ -458,6 +458,8 @@ namespace Kubika.Game
         {
             currentMoves.text = PlayerMoves.instance.numberOfMoves.ToString();
             minimumMoves.text = LevelsManager.instance._minimumMoves.ToString();
+
+            playerMovesInEditor.text = PlayerMoves.instance.numberOfMoves.ToString();
         }
 
         //called to turn sound on/off
