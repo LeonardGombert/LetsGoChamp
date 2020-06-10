@@ -72,10 +72,17 @@ namespace Kubika.Game
             foreach (SwitchCube cube in switchCubes)
             {
                 cube.isSelectable = true;
-                cube.StatusUpdate();
                 cube.ChangeEmoteFace(cube._EmoteIdleTex);
                 cube.SetOutlineColor(true);
+                StartCoroutine(cube.IncreaseInside(true));
+
+                if (cube.isSwitchVictory == false)
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOn);
+                else
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchVTexOn);
+
                 cube.isActive = true;
+                cube.StatusUpdate();
             }
         }
 
@@ -87,9 +94,16 @@ namespace Kubika.Game
             {
                 cube.SetOutlineColor(false);
                 cube.isSelectable = false;
-                cube.StatusUpdate();
                 cube.ChangeEmoteFace(cube._EmoteIdleOffTex);
+                StartCoroutine(cube.IncreaseInside(false));
+
+                if (cube.isSwitchVictory == false)
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOff);
+                else
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchVTexOff);
+
                 cube.isActive = false;
+                cube.StatusUpdate();
             }
         }
 

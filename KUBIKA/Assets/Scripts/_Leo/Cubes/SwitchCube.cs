@@ -8,7 +8,7 @@ namespace Kubika.Game
     public class SwitchCube : _CubeMove
     {
         public bool isActive;
-        protected bool isSwitchVictory = false;
+        public bool isSwitchVictory = false;
 
         // FEEDBACKS
         float actualnsideStrength;
@@ -24,6 +24,7 @@ namespace Kubika.Game
             base.Start();
 
             SetOutlineColor(false);
+            Debug.Log("_EmoteIdleOffTex = " + _EmoteIdleOffTex.name);
             ChangeEmoteFace(_EmoteIdleOffTex);
             isSelectable = false;
         }
@@ -40,12 +41,7 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Remove(this);
                 isStatic = true;
-                if(isSwitchVictory == false)
-                    ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOff);
-                else
-                    ChangeTex(_MaterialCentral.instance.actualPack._SwitchVTexOff);
 
-                StartCoroutine(IncreaseInside(false));
                 myCubeLayer = CubeLayers.cubeFull;
             }
 
@@ -53,19 +49,14 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
-                if (isSwitchVictory == false)
-                    ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOn);
-                else
-                    ChangeTex(_MaterialCentral.instance.actualPack._SwitchVTexOn);
 
-                StartCoroutine(IncreaseInside(true));
                 myCubeLayer = CubeLayers.cubeMoveable;
             }
 
             SetRelevantNodeInfo();
         }
 
-        void ChangeTex(Texture tex)
+        public void ChangeTex(Texture tex)
         {
             meshRenderer.GetPropertyBlock(MatProp);
 
@@ -75,7 +66,7 @@ namespace Kubika.Game
         }
 
 
-        IEnumerator IncreaseInside(bool isON)
+        public IEnumerator IncreaseInside(bool isON)
         {
             meshRenderer.GetPropertyBlock(MatProp);
             currentOfValueChange = 0;

@@ -824,7 +824,10 @@ namespace Kubika.Game
             OutlineActive(2);
 
             if (isPastilleAndIsOn == false)
-                ChangeEmoteFace(_EmoteIdleTex);
+                if (gameObject.GetComponent<SwitchCube>() == true && gameObject.GetComponent<SwitchCube>().isActive == false)
+                    ChangeEmoteFace(_EmoteIdleOffTex);
+                else
+                    ChangeEmoteFace(_EmoteIdleTex);
             else
                 ChangeEmoteFace(_EmotePastilleTex);
         }
