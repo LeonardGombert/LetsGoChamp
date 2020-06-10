@@ -115,7 +115,9 @@ namespace Kubika.Game
             {
                 //RotationPlanete();
 
-                if (Input.GetMouseButtonUp(0) || Input.touchCount == 1)
+                if (Input.GetMouseButtonUp(0))
+                    CheckTouch();
+                else if(Input.touchCount == 1)
                     CheckTouch();
 
                 if (isMobilePlatform == true)
@@ -141,8 +143,6 @@ namespace Kubika.Game
         {
             if (isMobilePlatform == true)
             {
-                if (touch.phase == TouchPhase.Began)
-                {
                     touch = Input.GetTouch(0);
                     ray = Camera.main.ScreenPointToRay(touch.position);
 
@@ -190,7 +190,7 @@ namespace Kubika.Game
 
                         }
                     }
-                }
+                
             }
             else
             {

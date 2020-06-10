@@ -13,7 +13,6 @@ namespace Kubika.Game
 
         public CinemachineVirtualCamera BaseView;
         public _MOONfaces LEView;
-        public _MOONfaces WindowView;
 
         public bool isMoonView;
         public bool isMobilePlatform;
