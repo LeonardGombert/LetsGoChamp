@@ -44,7 +44,6 @@ namespace Kubika.Game
             //BlowAcross();
         }
 
-
         void CheckBlowUp()
         {
             if (nbrCubeEmptyBelow > 0) BlowUp();
@@ -58,6 +57,7 @@ namespace Kubika.Game
             {
                 bombExplosion = Instantiate(_FeedBackManager.instance.MineExplosionBase, transform.position, Quaternion.Euler(-90,0,0));
             }
+
             else
             {
                 bombExplosion = Instantiate(_FeedBackManager.instance.MineExplosionVictory, transform.position, Quaternion.Euler(-90, 0, 0));

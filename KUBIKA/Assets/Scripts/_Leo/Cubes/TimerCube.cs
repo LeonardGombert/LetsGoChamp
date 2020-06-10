@@ -59,7 +59,7 @@ namespace Kubika.Game
             {
                 newTouchingGO = TimerChecker(_DirectionCustom.up);
 
-                if (newTouchingGO != touchingGO || newTouchingGO == null)
+                if (newTouchingGO != touchingGO)
                 {
                     touchingCube = false;
                     newTouchingGO = null;
@@ -74,6 +74,14 @@ namespace Kubika.Game
                 willPOP = true;
                 StartCoroutine(PopOut(true));
             }
+        }
+
+        //called by a bomb explosion
+        public void BombDecrementMe()
+        {
+            timerValue--;
+            ChangeTexture(timerValue);
+            CubeListener();
         }
 
         void GuessTimerValue()
