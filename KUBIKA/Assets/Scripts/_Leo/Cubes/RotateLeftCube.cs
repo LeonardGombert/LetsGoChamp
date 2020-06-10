@@ -61,7 +61,7 @@ namespace Kubika.Game
             isSoloToucher = true;
 
             pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
-            Debug.DrawRay(transform.position, Vector3.up, Color.green);
+
 
             foreach (RotateLeftCube cube in otherRotators)
             {
@@ -82,7 +82,7 @@ namespace Kubika.Game
             {
                 audioSourceCube.clip = _AudioManager.instance.Bouton;
                 PlaySound();
-                Debug.Log("I'm turning the game world to the left");
+
                 locked = true;
                 _KUBRotation.instance.RightTurn();
             }

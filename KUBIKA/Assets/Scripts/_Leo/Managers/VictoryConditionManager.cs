@@ -44,7 +44,7 @@ namespace Kubika.Game
                     _Grid.instance.kuboGrid[i].cubeType <= CubeTypes.SwitchVictoryCube)
 
                 {
-                    Debug.Log(i);
+
                     levelVictoryPoints++;
                 }
             }
@@ -52,7 +52,7 @@ namespace Kubika.Game
 
         public void DecrementVictory()
         {
-            Debug.Log("I've lost track of a Victory cube");
+
             currentVictoryPoints--;
 
             StartCoroutine(VictoryConditionStatus());
@@ -60,7 +60,7 @@ namespace Kubika.Game
 
         public void IncrementVictory()
         {
-            Debug.Log("I've been touched by a Victory cube");
+
             currentVictoryPoints++;
 
             StartCoroutine(VictoryConditionStatus());
@@ -72,7 +72,7 @@ namespace Kubika.Game
 
             if (currentVictoryPoints == levelVictoryPoints)
             {
-                Debug.Log("WIN TRANSITION");
+
                 StartCoroutine(LevelPassedRoutine());
             }
 

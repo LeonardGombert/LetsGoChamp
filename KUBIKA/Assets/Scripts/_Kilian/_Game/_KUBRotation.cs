@@ -84,7 +84,6 @@ namespace Kubika.Game
 
                 lerpValue = 0;
                 currentValue = 0;
-                Debug.LogError("START_ROTATION " + transform.eulerAngles.z);
 
                 audioSource.Play();
 
@@ -126,8 +125,6 @@ namespace Kubika.Game
                     }
                     while (currentValue < 1);
                 }
-
-                Debug.LogError("(int)moveRot.z " + (int)moveRot.z + " ||  " + Mathf.RoundToInt((int)moveRot.z));
                 currentRot.z = Mathf.RoundToInt((int)moveRot.z);
 
                 currentRot.z = currentRot.z >= 118 && currentRot.z <= 122 ? 120 :
@@ -141,13 +138,10 @@ namespace Kubika.Game
 
                 //Debug.Log("Tout les Cubes sont posé");
 
-                Debug.LogError("transform.eulerAngles.z " + (int)transform.eulerAngles.z + " ||  " + (int)transform.eulerAngles.z % 360);
 
                 _DirectionCustom.rotationState = (int)transform.eulerAngles.z % 360 == 0 ? 0 :
                                             ((int)transform.eulerAngles.z % 360 >= 110 && (int)transform.eulerAngles.z % 360 <= 130 ? 1 :
                                             ((int)transform.eulerAngles.z % 360 >= 230 && (int)transform.eulerAngles.z % 360 <= 250 ? 2 : 0)); 
-
-                Debug.LogError("ROTATION-STATE " + _DirectionCustom.rotationState);
 
                 _DataManager.instance.MakeFall();
                 isTurning = false;

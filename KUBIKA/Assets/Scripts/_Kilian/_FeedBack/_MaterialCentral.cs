@@ -552,7 +552,6 @@ namespace Kubika.Game
             allCube = FindObjectsOfType<_CubeBase>(); // TODO DEGEU
             if ((int)staticIndex < staticPack.Length)
             {
-                Debug.Log("Index = " + (int)staticIndex);
                 staticIndex = newBiome;
                 ResetStaticPacks((int)staticIndex);
                 foreach (_CubeBase cube in allCube)
@@ -565,10 +564,8 @@ namespace Kubika.Game
         public void ChangeUniverseRight()
         {
             allCube = FindObjectsOfType<_CubeBase>(); // TODO DEGEU
-            Debug.Log("RIGHT UNIVERS");
             if ((int)staticIndex < staticPack.Length)
             {
-                Debug.Log("Index = " + (int)staticIndex);
                 staticIndex += 1;
                 ResetStaticPacks((int)staticIndex);
                 foreach (_CubeBase cube in allCube)
@@ -581,10 +578,8 @@ namespace Kubika.Game
         public void ChangeUniverseLeft()
         {
             allCube = FindObjectsOfType<_CubeBase>();
-            Debug.Log("LEFT UNIVERS");
             if ((int)staticIndex > 0)
             {
-                Debug.Log("Index = " + (int)staticIndex);
                 staticIndex -= 1;
                 ResetStaticPacks((int)staticIndex);
                 foreach (_CubeBase cube in allCube)

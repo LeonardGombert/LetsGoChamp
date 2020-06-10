@@ -146,7 +146,6 @@ namespace Kubika.Game
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Touch Hit Mobile " + hit.collider.gameObject.name);
                     nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();                                              
                     
                     if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
@@ -197,7 +196,6 @@ namespace Kubika.Game
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Touch Hit " + hit.collider.gameObject.name);
 
                     if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
                     {
@@ -281,7 +279,6 @@ namespace Kubika.Game
         public IEnumerator MainPlaneteView()
         {
             ResetAllCameras();
-            Debug.Log("BackToMainVeiw");
             
             ZoomOutPlanetCalls();
 
@@ -313,8 +310,6 @@ namespace Kubika.Game
         public IEnumerator StartOnFace(int faceEnQuestion)
         {
             brainVCam.m_CustomBlends = blenderCUTSettingsVCam;
-
-            Debug.Log("After");
 
             _MOON.instance.gameObject.SetActive(false);
             isMoonDisabled = true;
@@ -366,11 +361,9 @@ namespace Kubika.Game
         //for rotation
         public void AfterFace()
         {
-            Debug.Log("A");
 
             if (actualIndex + 1 < raycastFaces.Length)
             {
-                Debug.Log("After");
                 raycastFaces[actualIndex].isActive = false;
                 CameraTransition(raycastFaces[actualIndex + 1]);
             }
@@ -379,11 +372,9 @@ namespace Kubika.Game
         //for rotation
         public void BeforeFace()
         {
-            Debug.Log("B");
 
             if (actualIndex - 1 >= 0)
             {
-                Debug.Log("Before");
                 ResetAllCameras();
                 raycastFaces[actualIndex].isActive = false;
                 CameraTransition(raycastFaces[actualIndex - 1]);
@@ -397,6 +388,9 @@ namespace Kubika.Game
         {
             if (Input.touchCount == 1)
             {
+                if(touch.phase == TouchPhase.Began)
+                    baseRotation = transform.eulerAngles;
+
                 touch0 = Input.GetTouch(0);
                 Scrolling(touch0.deltaPosition, touch0.deltaPosition);
                 //GetScreenSwipeAngle();
@@ -428,12 +422,11 @@ namespace Kubika.Game
             if (Input.GetMouseButtonDown(0))
             {
                 mouse0LastPos = Input.mousePosition;
-                baseRotation = currentRotation = pivotMainCamera.eulerAngles;
+                baseRotation = currentRotation = transform.eulerAngles;
             }
             else if (Input.GetMouseButton(0))
             {
                 mouse0 = Input.mousePosition;
-                Debug.Log("mouse0 " + mouse0);
                 ScrollingSimple(mouse0, mouse0LastPos);
             }
 
@@ -455,11 +448,10 @@ namespace Kubika.Game
 
             baseRotation = transform.eulerAngles;
 
-            baseRotation = pivotMainCamera.eulerAngles;
             baseYRotation = baseRotation.y;
             baseXRotation = baseRotation.x;
-            baseRotation.y = baseYRotation + mediumYMouv;
-            baseRotation.x = baseXRotation - mediumXMouv;
+            baseRotation.y = baseYRotation - mediumYMouv;
+            baseRotation.x = baseXRotation + mediumXMouv;
             transform.eulerAngles = baseRotation;
             //baseYRotation = baseRotation.y + mediumYMouv;
             //baseXRotation = baseRotation.x - mediumXMouv;
@@ -482,13 +474,10 @@ namespace Kubika.Game
             mediumYMouv = ((touch0Pos.x + touch1Pos.x) * 0.5f) * mouvPower;
             mediumXMouv = ((touch0Pos.y + touch1Pos.y) * 0.5f) * mouvPower;
 
-            baseRotation = transform.eulerAngles;
-
-            baseRotation = pivotMainCamera.eulerAngles;
             baseYRotation = baseRotation.y;
             baseXRotation = baseRotation.x;
-            baseRotation.y = baseYRotation + mediumYMouv;
-            baseRotation.x = baseXRotation - mediumXMouv;
+            baseRotation.y = baseYRotation - mediumYMouv;
+            baseRotation.x = baseXRotation + mediumXMouv;
             transform.eulerAngles = baseRotation;
         }
         #endregion

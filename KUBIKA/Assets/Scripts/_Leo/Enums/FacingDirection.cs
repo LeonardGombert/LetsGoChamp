@@ -45,7 +45,7 @@ namespace Kubika.Game
                     break;
             }
 
-            Debug.Log(vectorResult);
+
             return vectorResult;
         }
 
@@ -78,7 +78,7 @@ namespace Kubika.Game
             }
             else
             {
-                Debug.LogError("FACING_DIRECTION_PROBLEM");
+
                 return FacingDirection.forward;
             }
 

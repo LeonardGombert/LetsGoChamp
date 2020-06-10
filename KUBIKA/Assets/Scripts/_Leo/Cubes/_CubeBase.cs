@@ -1035,7 +1035,6 @@ namespace Kubika.Game
                     currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChangePOP / timeOfValueChange);
                     currentValueSaturation = Mathf.SmoothStep(actualSaturation, maxValueColorSaturation, currentOfValueChangePOP / timeOfValueChange);
 
-                    Debug.Log("CHANGING COLOR ON");
                     MatProp.SetFloat("_Contrast", currentValue);
                     MatProp.SetFloat("_Saturation", currentValueSaturation);
 
@@ -1052,7 +1051,6 @@ namespace Kubika.Game
                     currentValue = Mathf.SmoothStep(maxValueColor, actualContrast, currentOfValueChange / timeOfValueChange);
                     currentValueSaturation = Mathf.SmoothStep(maxValueColorSaturation, actualSaturation, currentOfValueChange / timeOfValueChange);
 
-                    Debug.Log("CHANGING COLOR OFF");
                     MatProp.SetFloat("_Contrast", currentValue);
                     MatProp.SetFloat("_Saturation", currentValueSaturation);
 
@@ -1065,7 +1063,6 @@ namespace Kubika.Game
         virtual public IEnumerator PopOut(bool timer)
         {
             willPOP = true;
-            Debug.Log("Popping out");
 
             gameObject.GetComponent<Collider>().enabled = false;
 
@@ -1135,7 +1132,6 @@ namespace Kubika.Game
 
         public void RemoveCube(int indexToDestroy)
         {
-            Debug.Log("Destroyed " + indexToDestroy);
 
             if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube)
             {
@@ -1156,8 +1152,6 @@ namespace Kubika.Game
             rigidbody.velocity = force * 6.0f;
             rigidbody.AddForce(force * 6.0f, ForceMode.Impulse);
 
-            Debug.LogError("rigidbody.velocity = " + rigidbody.velocity);
-            Debug.LogError("rigidbody.maxAngularVelocity = " + rigidbody.maxAngularVelocity);
         }
 
 

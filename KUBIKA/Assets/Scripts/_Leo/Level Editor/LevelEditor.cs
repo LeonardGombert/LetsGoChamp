@@ -223,7 +223,6 @@ namespace Kubika.CustomLevelEditor
             }*/
             #endregion
 
-            Debug.LogError("Rotating2");
 
             if (hitIndex != 0 && hit.collider.gameObject != null)
             {

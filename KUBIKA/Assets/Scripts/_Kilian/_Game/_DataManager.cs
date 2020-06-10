@@ -72,8 +72,6 @@ namespace Kubika.Game
             if (_instance != null && _instance != this) Destroy(this);
             else _instance = this;
 
-            Debug.Log("Platform.Mobile = " + Application.isMobilePlatform);
-
             // CAP LE FPS A 60 FPS
             if (_CheckCurrentPlatform.platform == RuntimePlatform.Android || _CheckCurrentPlatform.platform == RuntimePlatform.IPhonePlayer)
             {
@@ -355,7 +353,6 @@ namespace Kubika.Game
 
         public void ResetIndex(int rotationState)
         {
-            Debug.LogError("RotSte " + rotationState);
 
             foreach (_CubeBase cBase in baseCube)
             {
@@ -422,7 +419,6 @@ namespace Kubika.Game
             {
                 yield return null;
             }
-            Debug.LogError("DATA- CHECK-END");
             //EndFalling.RemoveAllListeners();
             StartMoving.Invoke();
             StartCoroutine(CubesAreEndingToMove());
@@ -434,7 +430,6 @@ namespace Kubika.Game
             {
                 yield return null;
             }
-            Debug.LogError("DATA- CHECK-END");
             //EndFalling.RemoveAllListeners();
             StartMoving.Invoke();
             StartCoroutine(CubesAndElevatorsAreEndingToMove());
@@ -446,7 +441,6 @@ namespace Kubika.Game
             {
                 yield return null;
             }
-            Debug.LogError("DATA- MOVE-END");
             StartMoving.RemoveAllListeners();
             EndMoving.Invoke();
             MakeFall();
@@ -458,7 +452,6 @@ namespace Kubika.Game
             {
                 yield return null;
             }
-            Debug.LogError("DATA- MOVE-END");
             StartMoving.RemoveAllListeners();
             EndMoving.Invoke();
             MakeFall();
@@ -473,7 +466,6 @@ namespace Kubika.Game
             {
                 yield return null;
             }
-            Debug.LogError("DATA- FALLCHECK-END");
             //EndMoving.RemoveAllListeners();
             StartFalling.Invoke();
             StartCoroutine(CubesAreEndingToFall());
@@ -485,7 +477,6 @@ namespace Kubika.Game
             {
                 yield return null;
             }
-            Debug.LogError("DATA- FALLING-END");
             //StartFalling.RemoveAllListeners();
             EndFalling.Invoke();
         }
@@ -499,12 +490,10 @@ namespace Kubika.Game
             {
                 if (cubeMove[i].isCheckingMove == true)
                 {
-                    Debug.Log("CUBE_CHECKINGmove = TRUE");
                     return false;
                 }
             }
 
-            Debug.Log("CUBE_CHECKINGmove = TRUE");
             return true;
         }
 
@@ -524,15 +513,12 @@ namespace Kubika.Game
 
         public bool AreCubesEndingToMove(_CubeMove[] cubeMove)
         {
-            Debug.LogError("CUBE-MOVE-LENGTH  = " + cubeMove.Length);
 
             for (int i = 0; i < cubeMove.Length; i++)
             {
-                Debug.LogError("WHO IS MOVING IN LIST" + i);
 
                 if (cubeMove[i].isMoving == true)
                 {
-                    Debug.LogError("WHO IS MOVING + cubeMove-NAME = " + cubeMove[i].gameObject.name + " || isMoving = " + cubeMove[i].isMoving);
                     return false;
                 }
             }
@@ -563,12 +549,10 @@ namespace Kubika.Game
             {
                 if (elevators[i].isCheckingMove == true)
                 {
-                    Debug.Log("ELEVATOR_CHECKINGmove = FALSE");
                     return false;
                 }
             }
 
-            Debug.Log("ELEVATOR_CHECKINGmove = TRUE");
             return true;
         }
 
@@ -578,12 +562,9 @@ namespace Kubika.Game
             {
                 if (elevators[i].isMoving == true)
                 {
-                    Debug.Log("elevators[i].isMoving1_1_1_1_1_1_ = " + elevators[i].isMoving);
                     return false;
                 }
             }
-
-            Debug.Log("TRUE 1_1_1_1_1_1_ ");
             return true;
         }
 
@@ -591,12 +572,12 @@ namespace Kubika.Game
         {
             if(AreElevatorsCheckingMove(elevators) == true && AreCubesCheckingMove(cubeMove) == true && AreTimersPoping(timer))
             {
-                Debug.Log("ELE & Cube Checking False");
+
                 return true;
             }
             else
             {
-                Debug.Log("ELE & Cube Checking True");
+
                 return false;
             }
 
@@ -608,12 +589,12 @@ namespace Kubika.Game
             {
                 if (timer[i].willPOP == true)
                 {
-                    Debug.Log("timer[i].willPOP = " + timer[i].willPOP);
+
                     return false;
                 }
             }
 
-            Debug.Log("TRUE POP ");
+
             return true;
 
         }
@@ -622,12 +603,11 @@ namespace Kubika.Game
         {
             if (AreElevatorsEndingToMove(elevators) == true && AreCubesEndingToMove(cubeMove) == true)
             {
-                Debug.Log("ELE & Cube MOving False");
+
                 return true;
             }
             else
             {
-                Debug.Log("ELE & Cube MOving True");
                 return false;
             }
 

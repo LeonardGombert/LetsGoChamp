@@ -53,7 +53,6 @@ namespace Kubika.Game
         public override void Update()
         {
             base.Update();
-            //Debug.Log("Cheking in " + myIndex + _DirectionCustom.LocalScanner(facingDirection));
         }
 
         private void CheckForVictory()
@@ -78,7 +77,6 @@ namespace Kubika.Game
                 LightShaft.GetComponent<FB_Delivry>().ActivatePSFB();
                 StartCoroutine(victoryCubeOnPistion.VictoryFX(true));
                 victoryCubeOnPistion.isPastilleAndIsOn = true;
-                Debug.Log("PASTILLE EMOTE IS = " + victoryCubeOnPistion._EmotePastilleTex.name);
                 victoryCubeOnPistion.ChangeEmoteFace(victoryCubeOnPistion._EmotePastilleTex);
                 victoryCubeTracker = victoryCubeOnPistion;
                 VictoryConditionManager.instance.IncrementVictory();
@@ -126,7 +124,6 @@ namespace Kubika.Game
 
         public IEnumerator VictoryPSLatence()
         {
-            Debug.Log("EXPLOSION");
             StartExplosion = UnityEngine.Random.Range(0.2f, 1);
             yield return new WaitForSeconds(StartExplosion);
             SetupSoundExplosion();
@@ -159,7 +156,6 @@ namespace Kubika.Game
         void AddForceToVictoryCube()
         {
             pushDirection = transform.position - victoryCubeOnPistion.transform.position;
-            Debug.LogError("pushDirection = " + pushDirection);
             victoryCubeOnPistion.ApplyRigidbody(pushDirection);
         }
 

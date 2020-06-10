@@ -25,7 +25,6 @@ namespace Kubika.Game
 
         public void SetScanDirections()
         {
-            Debug.Log("Set");
             indexesToCheck[0] = _DirectionCustom.up; //+ 1
             indexesToCheck[1] = _DirectionCustom.down; //- 1
             indexesToCheck[2] = _DirectionCustom.right; //+ the grid size

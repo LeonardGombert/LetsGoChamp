@@ -19,7 +19,6 @@ public class LevelSelectionWindow : MonoBehaviour
     void Update()
     {
         image.rectTransform.position = Camera.main.WorldToScreenPoint(_Planete.instance.targetLevel.transform.position);
-        
-        Debug.Log("target is " + image.rectTransform.position.x + " pixels from the left");
+
     }
 }
