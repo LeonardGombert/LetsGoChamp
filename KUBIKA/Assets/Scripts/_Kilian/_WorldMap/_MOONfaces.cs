@@ -19,8 +19,18 @@ namespace Kubika.Game
 
         IEnumerator TransitionTime()
         {
-            yield return new WaitForSeconds(PS.main.duration);
+            yield return new WaitForSeconds(PS.main.duration*.025f);
             OnClick.Invoke();
+        }
+
+        public void OpenLevelEditor()
+        {
+            UIManager.instance.ButtonCallback("WORLDMAP_LevelEditor");
+        }
+        
+        public void OpenLevelEditorLevels()
+        {
+            UIManager.instance.ButtonCallback("WORLDMAP_LevelEditorLevelsList");
         }
     }
 }

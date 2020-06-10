@@ -79,6 +79,7 @@ namespace Kubika.Game
         //this updates the arrow's positions
         void UpdateArrowPositions()
         {
+
             UIManager.instance.topArrow.rectTransform.position = Camera.main.WorldToScreenPoint(topArrowObj.position);
             UIManager.instance.bottomArrow.rectTransform.position = Camera.main.WorldToScreenPoint(bottomArrowObj.position);
         }
@@ -126,6 +127,11 @@ namespace Kubika.Game
                     cube.GetComponent<_ScriptMatFaceCube>().isUnlocked = true;
 
             }
+        }
+
+        public void UIManagerCall()
+        {
+
         }
     }
 }

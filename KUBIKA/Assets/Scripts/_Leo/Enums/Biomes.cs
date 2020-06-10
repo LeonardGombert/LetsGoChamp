@@ -5,8 +5,8 @@
     Mountains = 1,
     Underwater = 2,
     Ruins = 3,
-    Temple = 4,
-    Statues = 5,
+    Statues = 4,
+    Temple = 5,
     Count,
     Chaos, // extra level 
 };

@@ -305,7 +305,7 @@ namespace Kubika.Game
 
             while (!ScenesManager.instance.finishedLoadingScene) yield return null;
 
-            StartCoroutine(_Planete.instance.StartOnFace((int)_levelBiome + 1));
+            StartCoroutine(_Planete.instance.StartOnFace((int)_levelBiome - 1));
 
             yield return null;
         }

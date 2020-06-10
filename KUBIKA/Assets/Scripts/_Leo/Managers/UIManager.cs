@@ -28,9 +28,10 @@ namespace Kubika.Game
 
         #region WORLDMAP
         [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
+        [FoldoutGroup("World Map")] [SerializeField] GameObject mainMenuButton;
+        [FoldoutGroup("World Map")] [SerializeField] GameObject playButton;
         [FoldoutGroup("World Map")] public Image topArrow; //used by WorldMap Rotation script
         [FoldoutGroup("World Map")] public Image bottomArrow; //used by WorldMap Rotation script
-        [FoldoutGroup("World Map")] public GameObject playButton;
         #endregion         
 
         #region BURGER MENU
@@ -203,9 +204,10 @@ namespace Kubika.Game
             if (worldMapCanvas != null) worldMapCanvas.enabled = true;
             worldMapCanvas.sortingOrder = 1000;
 
-            //playButton.SetActive(false);
+            playButton.SetActive(false);
             levelNameWM.enabled = false;
 
+            mainMenuButton.gameObject.SetActive(false);
             topArrow.gameObject.SetActive(false);
             bottomArrow.gameObject.SetActive(false);
         }
@@ -220,6 +222,10 @@ namespace Kubika.Game
 
             yield return new WaitForSeconds(1.5f);
 
+            playButton.SetActive(true);
+            levelNameWM.enabled = true;
+
+            mainMenuButton.gameObject.SetActive(true);
             topArrow.gameObject.SetActive(true);
             bottomArrow.gameObject.SetActive(true);
 
@@ -323,6 +329,10 @@ namespace Kubika.Game
 
                 case "WORLDMAP_LevelEditor":
                     ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
+                    break;
+
+                case "WORLDMAP_LevelEditorLevelsList":
+                    //IMPLEMENT CODE
                     break;
 
                 case "WORLDMAP_UpArrow":
@@ -439,7 +449,7 @@ namespace Kubika.Game
         #endregion
 
         #region GAME
-        void UpdateText()
+        public void UpdateText()
         {
             currentMoves.text = PlayerMoves.instance.numberOfMoves.ToString();
             minimumMoves.text = LevelsManager.instance._minimumMoves.ToString();
@@ -462,6 +472,12 @@ namespace Kubika.Game
             {
                 rightRotate.enabled = false;
                 leftRotate.enabled = false;
+
+                rightRotateButton.enabled = false;
+                leftRotateButton.enabled = false;
+
+                rightRotateBackground.enabled = false;
+                leftRotateBackground.enabled = false;
             }
 
             else TurnOffRotate();
@@ -473,11 +489,17 @@ namespace Kubika.Game
             rightRotate.enabled = true;
             leftRotate.enabled = true;
 
+            rightRotateButton.enabled = true;
+            leftRotateButton.enabled = true;
+
+            rightRotateBackground.enabled = true;
+            leftRotateBackground.enabled = true;
+
             rightRotate.sprite = rightRotateOn;
             leftRotate.sprite = leftRotateOn;
 
-            rightRotateButton.enabled = true;
-            leftRotateButton.enabled = true;
+            rightRotateBackground.sprite = rotateOnBackground;
+            leftRotateBackground.sprite = rotateOnBackground;
         }
 
         // called by rotator lock
@@ -486,11 +508,17 @@ namespace Kubika.Game
             rightRotate.enabled = true;
             leftRotate.enabled = true;
 
+            rightRotateButton.enabled = false;
+            leftRotateButton.enabled = false;
+
+            rightRotateBackground.enabled = true;
+            leftRotateBackground.enabled = true;
+
             rightRotate.sprite = rotateLock;
             leftRotate.sprite = rotateLock;
 
-            rightRotateButton.enabled = false;
-            leftRotateButton.enabled = false;
+            rightRotateBackground.sprite = rotateLockBackground;
+            leftRotateBackground.sprite = rotateLockBackground;
         }
 
         //opens next level window
@@ -508,6 +536,7 @@ namespace Kubika.Game
         public void NextLevel()
         {
             levelPassedCanvas.enabled = false;
+
             StartCoroutine(LevelsManager.instance.MoveToNextLevel());
 
             LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;

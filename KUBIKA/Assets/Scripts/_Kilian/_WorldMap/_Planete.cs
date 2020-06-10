@@ -330,6 +330,8 @@ namespace Kubika.Game
 
             CameraTransition(raycastFaces[faceEnQuestion + 1]);
 
+            WorldmapManager.instance.UpdateWorldMap();
+
             StartCoroutine(FocusOnNextLevel(LevelsManager.instance._Kubicode, faceEnQuestion + 1));
 
             yield return null;

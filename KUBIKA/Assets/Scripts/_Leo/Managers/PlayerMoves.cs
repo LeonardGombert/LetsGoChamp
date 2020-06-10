@@ -33,6 +33,7 @@ namespace Kubika.Game
         {
             numberOfMoves = 0;
             _DataManager.instance.isGolded = false;
+            UIManager.instance.UpdateText();
         }
 
         public bool CheckIfGolden()
