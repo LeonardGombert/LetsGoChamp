@@ -82,11 +82,10 @@ namespace Kubika.Game
                 case TouchPhase.Began:
                     if (Physics.Raycast(ray, out hit))
                     {
-                        Debug.Log("Touch Hit " + hit.collider.gameObject.name);
+        
 
                         if (hit.collider.gameObject.GetComponent<_ScriptMatFaceCube>())
                         {
-                            Debug.Log("ClickedOnLevel");
                             hasTouchedLevel = true;
                         }
                         else
@@ -115,11 +114,9 @@ namespace Kubika.Game
             {
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Touch Hit " + hit.collider.gameObject.name);
 
                     if (hit.collider.gameObject.GetComponent<_ScriptMatFaceCube>())
                     {
-                        Debug.Log("ClickedOnLevel");
                         hasTouchedLevel = true;
                     }
                     else
@@ -171,20 +168,12 @@ namespace Kubika.Game
                     CurrentScroll = hit.point;
                 }
 
-                //Debug.Log("TEST CurrentScroll " + CurrentScroll + " || TEST CurrentScrollScreen " + CurrentScrollScreen + " || TEST BaseScroll " + BaseScroll + " || TEST BaseScrollScreen " + BaseScrollScreen);
-
+                
                 CurrentPositionSymbol = Mathf.Sign(CurrentScrollScreen.y - BaseScrollScreen.y);
 
                 actualPosCam = InverseLerp(LimitStart.position, LimitEnd.position, pivotVCam.transform.position);
                 actualPosScroll = (((actualPosCam - ((Vector3.Distance(BaseScroll, CurrentScroll) / distanceLimitScroll) * CurrentPositionSymbol))));
 
-
-
-                //Debug.Log(" CAM = " + (Vector3.Distance(LimitStartScroll.position, CurrentScroll) / distanceLimitScroll) * 100 +
-                //" || Scroll2 = " + (Vector3.Distance(LimitStartScroll.position, BaseScroll) / distanceLimitScroll) +
-               // " || Scroll3 = " + ((Vector3.Distance(LimitStartScroll.position, BaseScroll) / distanceLimitScroll) - ((Vector3.Distance(BaseScroll, CurrentScroll) / distanceLimitScroll) * CurrentPositionSymbol)) +
-                //" || Scroll4 = " + (Vector3.Distance(LimitStartScroll.position, BaseScroll) / distanceLimitScroll - (Vector3.Distance(BaseScroll, CurrentScroll) / distanceLimitScroll)) +
-                //" || Scroll = " + actualPosCam);
 
                 currentPivotPosition = Vector3.Lerp(LimitStart.position, LimitEnd.position, Mathf.Clamp(Mathf.Abs(actualPosScroll),0.05f , 0.95f));
                 pivotVCam.transform.position = currentPivotPosition;

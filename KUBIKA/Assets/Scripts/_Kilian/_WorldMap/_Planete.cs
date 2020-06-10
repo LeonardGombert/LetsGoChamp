@@ -146,7 +146,6 @@ namespace Kubika.Game
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Touch Hit Mobile " + hit.collider.gameObject.name);
                     nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();                                              
                     
                     if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
@@ -197,7 +196,6 @@ namespace Kubika.Game
 
                 if (Physics.Raycast(ray, out hit))
                 {
-                    Debug.Log("Touch Hit " + hit.collider.gameObject.name);
 
                     if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
                     {
@@ -281,7 +279,6 @@ namespace Kubika.Game
         public IEnumerator MainPlaneteView()
         {
             ResetAllCameras();
-            Debug.Log("BackToMainVeiw");
             
             ZoomOutPlanetCalls();
 
@@ -313,8 +310,6 @@ namespace Kubika.Game
         public IEnumerator StartOnFace(int faceEnQuestion)
         {
             brainVCam.m_CustomBlends = blenderCUTSettingsVCam;
-
-            Debug.Log("After");
 
             _MOON.instance.gameObject.SetActive(false);
             isMoonDisabled = true;
@@ -366,11 +361,9 @@ namespace Kubika.Game
         //for rotation
         public void AfterFace()
         {
-            Debug.Log("A");
 
             if (actualIndex + 1 < raycastFaces.Length)
             {
-                Debug.Log("After");
                 raycastFaces[actualIndex].isActive = false;
                 CameraTransition(raycastFaces[actualIndex + 1]);
             }
@@ -379,11 +372,9 @@ namespace Kubika.Game
         //for rotation
         public void BeforeFace()
         {
-            Debug.Log("B");
 
             if (actualIndex - 1 >= 0)
             {
-                Debug.Log("Before");
                 ResetAllCameras();
                 raycastFaces[actualIndex].isActive = false;
                 CameraTransition(raycastFaces[actualIndex - 1]);
@@ -433,7 +424,6 @@ namespace Kubika.Game
             else if (Input.GetMouseButton(0))
             {
                 mouse0 = Input.mousePosition;
-                Debug.Log("mouse0 " + mouse0);
                 ScrollingSimple(mouse0, mouse0LastPos);
             }
 

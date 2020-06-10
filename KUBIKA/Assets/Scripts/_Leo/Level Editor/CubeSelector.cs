@@ -17,14 +17,13 @@ namespace Kubika.Game
         public void ChangeCubeSelection()
         {
             UIManager.instance.ButtonCallback("LEVELEDITOR_isPlacing");
-            Debug.Log("You've pressed " + selectedCubeType.ToString());
             LevelEditor.instance.currentCube = selectedCubeType;
         }
 
         public void ChangeUniverseSelection()
         {
             //UIManager.instance.ButtonCallback("LEVELEDITOR_isPlacing");
-            Debug.Log("You've pressed " + biomes.ToString());
+
             _MaterialCentral.instance.ChangeUniverse(biomes);
 
             CubePopulatorManager.instance.RefreshDecoratorCubes();

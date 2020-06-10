@@ -47,7 +47,6 @@ namespace Kubika.Game
             if(LevelsManager.instance._lockRotate == false)
             {
                 pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
-                Debug.DrawRay(transform.position, Vector3.up, Color.green);
 
                 //locked == false ensures that the function doesn't loop
                 if (pressedDown && locked == false)
@@ -69,7 +68,6 @@ namespace Kubika.Game
             if (LevelsManager.instance._lockRotate == true)
             {
                 pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
-                Debug.DrawRay(transform.position, Vector3.up, Color.green);
 
                 //locked == false ensures that the function doesn't loop
                 if (pressedDown && locked == false)
@@ -93,13 +91,13 @@ namespace Kubika.Game
         //allow the player to access the UI buttons
         private void UnlockRotation()
         {
-            Debug.Log("I'm unlocking your Rotation UI");
+
             UIManager.instance.TurnOnRotate();
         }
 
         private void LockRotation()
         {
-            Debug.Log("Your Rotation UI is locked");
+
             UIManager.instance.TurnOffRotate();
         }
 

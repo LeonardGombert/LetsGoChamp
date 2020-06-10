@@ -20,7 +20,6 @@ namespace Kubika.Game
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                Debug.Log("CLIK");
                 CreateGrid0();
                 CreateGrid1();
                 CreateGrid2();

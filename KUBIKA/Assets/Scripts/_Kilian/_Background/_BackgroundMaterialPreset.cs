@@ -98,7 +98,6 @@ namespace Kubika.Game
 
         public void SetScriptablePreset()
         {
-            Debug.Log("_BGTex = " + _MaterialCentral.instance.actualPack._BGTex.name);
             _MainTex = _MaterialCentral.instance.actualPack._BGTex;
             _Hue2 = _MaterialCentral.instance.actualPack._HueBG;
             _Contrast2 = _MaterialCentral.instance.actualPack._ContrastBG;

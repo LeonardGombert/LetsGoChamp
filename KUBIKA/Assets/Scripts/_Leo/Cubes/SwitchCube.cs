@@ -24,7 +24,6 @@ namespace Kubika.Game
             base.Start();
 
             SetOutlineColor(false);
-            Debug.Log("_EmoteIdleOffTex = " + _EmoteIdleOffTex.name);
             ChangeEmoteFace(_EmoteIdleOffTex);
             isSelectable = false;
         }
@@ -81,7 +80,6 @@ namespace Kubika.Game
 
                     currentValue = Mathf.SmoothStep(actualnsideStrength, maxValueStrnght, currentOfValueChange / timeOfValueChange);
 
-                    Debug.Log("CHANGING COLOR ON");
                     MatProp.SetFloat("_InsideTexStrength", currentValue);
 
                     meshRenderer.SetPropertyBlock(MatProp);
@@ -96,7 +94,7 @@ namespace Kubika.Game
 
                     currentValue = Mathf.SmoothStep(maxValueStrnght, actualnsideStrength, currentOfValueChange / timeOfValueChange);
 
-                    Debug.Log("CHANGING COLOR OFF");
+
                     MatProp.SetFloat("_InsideTexStrength", currentValue);
 
                     meshRenderer.SetPropertyBlock(MatProp);

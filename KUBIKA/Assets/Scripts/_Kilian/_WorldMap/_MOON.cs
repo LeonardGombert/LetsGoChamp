@@ -96,7 +96,7 @@ namespace Kubika.Game
 
         public void MoveToMoon()
         {
-            Debug.Log("MoonView");
+
             BaseView.Priority = 50;
             isMoonView = true;
         }
