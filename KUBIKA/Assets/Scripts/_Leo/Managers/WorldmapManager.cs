@@ -27,7 +27,7 @@ namespace Kubika.Game
         public Transform bottomArrowObj;
 
         public GameObject worldMap;
-        GameObject activeFace;
+        public GameObject activeFace;
         public Transform[] faces;
 
         public string nextLevelInProgression;
@@ -72,8 +72,8 @@ namespace Kubika.Game
         {
             activeFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
 
-            topArrowObj = activeFace.transform.GetChild(3).GetChild(0).transform;
-            bottomArrowObj = activeFace.transform.GetChild(3).GetChild(1).transform;
+            topArrowObj = activeFace.transform.GetChild(2).GetChild(0).transform;
+            bottomArrowObj = activeFace.transform.GetChild(2).GetChild(1).transform;
         }
 
         //this updates the arrow's positions
