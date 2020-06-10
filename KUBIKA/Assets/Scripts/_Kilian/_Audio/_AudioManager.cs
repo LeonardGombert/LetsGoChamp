@@ -63,6 +63,7 @@ namespace Kubika.Game
         [Space]
         [Header("IN GAME SOUNDS")]
         public AudioClip Explosion;
+        public AudioClip EndPush;
         public AudioClip Pop;
         public AudioClip Pastille;
         public AudioClip VictoryBase;
@@ -72,6 +73,8 @@ namespace Kubika.Game
         public AudioClip SwitchON;
         public AudioClip SwitchOFF;
         public AudioClip CANTMOVE;
+        public AudioClip Selection;
+        public AudioClip Move;
 
         [Space]
         [Header("LEVEL EDITOR SOUNDS")]

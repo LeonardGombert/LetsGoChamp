@@ -15,7 +15,7 @@ namespace Kubika.Game
         Vector3 newRotate = new Vector3();
 
         // VICTORY FX
-        _CubeBase victoryCubeTracker;
+        public _CubeBase victoryCubeTracker;
         Vector3 pushDirection;
 
         [HideInInspector] public ParticleSystem ExplosionEND_PS;
@@ -131,13 +131,13 @@ namespace Kubika.Game
             yield return new WaitForSeconds(StartExplosion);
             SetupSoundExplosion();
             PlaySound();
+            AddForceToVictoryCube();
             ExplosionEND_PS.Play();
             BlowUpDirection();
-            AddForceToVictoryCube();
             _InGameCamera.instance.ScreenShake();
             GetComponent<MeshRenderer>().enabled = false;
             LightShaftTrue.GetComponent<MeshRenderer>().enabled = false;
-            yield return new WaitForSeconds(ExplosionEND_PS.main.duration);
+            yield return new WaitForSeconds(15);
             Destroy(gameObject);
         }
 
@@ -158,8 +158,9 @@ namespace Kubika.Game
 
         void AddForceToVictoryCube()
         {
-            pushDirection = transform.position - victoryCubeTracker.transform.position;
-            victoryCubeTracker.ApplyRigidbody(pushDirection);
+            pushDirection = transform.position - victoryCubeOnPistion.transform.position;
+            Debug.LogError("pushDirection = " + pushDirection);
+            victoryCubeOnPistion.ApplyRigidbody(pushDirection);
         }
 
         void SetupSoundPastille()
@@ -169,7 +170,7 @@ namespace Kubika.Game
 
         void SetupSoundExplosion()
         {
-            audioSourceCube.clip = _AudioManager.instance.Explosion;
+            audioSourceCube.clip = _AudioManager.instance.EndPush;
         }
     }
 }

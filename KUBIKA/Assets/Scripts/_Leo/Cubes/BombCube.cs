@@ -17,7 +17,6 @@ namespace Kubika.Game
             base.Start();
 
             SetScanDirections();
-            SetupBombAudio();
             _DataManager.instance.EndFalling.AddListener(CheckBlowUp);
         }
 
@@ -55,6 +54,7 @@ namespace Kubika.Game
         void BlowUp()
         {
             _InGameCamera.instance.ScreenShake();
+            SetupBombAudio();
             PlaySound();
 
             if(victoryBomb == false)

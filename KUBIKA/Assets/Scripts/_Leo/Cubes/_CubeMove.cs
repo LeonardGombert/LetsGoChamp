@@ -103,6 +103,8 @@ namespace Kubika.Game
             _DataManager.instance.EndMoving.AddListener(ResetReadyToMove);
             _DataManager.instance.StartFalling.AddListener(FallMoveFunction);
             _DataManager.instance.EndSwipe.AddListener(ResetOutline);
+
+            audioSourceCube.clip = _AudioManager.instance.Move;
         }
 
         // Update is called once per frame
@@ -338,7 +340,11 @@ namespace Kubika.Game
             isMoving = true;
             Debug.Log("IS MOVING || isMoving = " + isMoving);
 
-            if (isSeletedNow && movingToPos) PlayerMoves.instance.IncrementMoves();
+            if (isSeletedNow && movingToPos)
+            {
+                PlayerMoves.instance.IncrementMoves();
+                PlaySound();
+            }
             movingToPos = false;
 
             grid.kuboGrid[myIndex - 1].cubeOnPosition = null;

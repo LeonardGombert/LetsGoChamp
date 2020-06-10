@@ -5,7 +5,7 @@ namespace Kubika.Game
     public class _CubeScanner : _CubeBase
     {
         public int[] indexesToCheck = new int[6];
-        [HideInInspector] public _CubeBase victoryCubeOnPistion;
+        public _CubeBase victoryCubeOnPistion;
 
         // Start is called before the first frame update
         public override void Start()
