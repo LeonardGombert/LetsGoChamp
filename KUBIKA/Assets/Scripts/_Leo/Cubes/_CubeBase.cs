@@ -1059,6 +1059,8 @@ namespace Kubika.Game
         {
             Debug.Log("Popping out");
 
+            gameObject.GetComponent<Collider>().enabled = false;
+
             audioSourceCube.clip = _AudioManager.instance.Pop;
             currentOfValueChange = 0;
             baseScale = transform.localScale;
@@ -1130,10 +1132,13 @@ namespace Kubika.Game
             rigidbody.useGravity = false;
 
             rigidbody.maxAngularVelocity = UnityEngine.Random.Range(10, 80);
-            rigidbody.AddTorque(new Vector3(UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1)));
+            rigidbody.AddTorque(new Vector3(UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1)), ForceMode.Impulse);
 
-            rigidbody.velocity = force * 10.0f;
-            rigidbody.AddForce(force * 10.0f);
+            rigidbody.velocity = force * 6.0f;
+            rigidbody.AddForce(force * 6.0f, ForceMode.Impulse);
+
+            Debug.LogError("rigidbody.velocity = " + rigidbody.velocity);
+            Debug.LogError("rigidbody.maxAngularVelocity = " + rigidbody.maxAngularVelocity);
         }
 
 

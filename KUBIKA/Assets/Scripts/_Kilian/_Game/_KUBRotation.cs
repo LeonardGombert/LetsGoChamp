@@ -17,7 +17,7 @@ namespace Kubika.Game
         public int actualRotation;
 
         // BOOL CHECK
-        bool isTurning;
+        public bool isTurning;
 
         // ROTATION LERP
         Vector3 currentRot;

@@ -199,31 +199,33 @@ namespace Kubika.Game
                 {
                     //When a touch has first been detected, change the message and record the starting position
                     case TouchPhase.Began:
-
-                        if (Physics.Raycast(rayTouch, out aimingHit))
+                        if (_KUBRotation.instance.isTurning == false)
                         {
-                            if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
+                            if (Physics.Raycast(rayTouch, out aimingHit))
                             {
-                                cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
+                                if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
+                                {
+                                    cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
 
-                                if (cubeMove.isSelectable == true)
-                                {
-                                    cubeMove.isSeletedNow = true;
-                                    cubeMove.GetBasePoint();
-                                    cubeMove.AddOutline();
-                                    audioSource.Play();
-                                }
-                                else
-                                {
-                                    cubeMove.SetupCantMoveSound();
-                                    cubeMove.AddOutline();
+                                    if (cubeMove.isSelectable == true)
+                                    {
+                                        cubeMove.isSeletedNow = true;
+                                        cubeMove.GetBasePoint();
+                                        cubeMove.AddOutline();
+                                        audioSource.Play();
+                                    }
+                                    else
+                                    {
+                                        cubeMove.SetupCantMoveSound();
+                                        cubeMove.AddOutline();
+                                    }
                                 }
                             }
-                        }
-                        else
-                        {
-                            _InGameCamera.instance.isCameraMove = true;
+                            else
+                            {
+                                _InGameCamera.instance.isCameraMove = true;
 
+                            }
                         }
 
 
@@ -263,29 +265,32 @@ namespace Kubika.Game
         {
             if (Input.GetMouseButtonDown(0))
             {
-                rayPC = _InGameCamera.instance.NormalCam.ScreenPointToRay(Input.mousePosition);
-
-                inputPosition = Input.mousePosition;
-
-                if (Physics.Raycast(rayPC, out aimingHit))
+                if (_KUBRotation.instance.isTurning == false)
                 {
-                    if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
-                    {
-                        cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
+                    rayPC = _InGameCamera.instance.NormalCam.ScreenPointToRay(Input.mousePosition);
 
-                        if (cubeMove.isSelectable == true)
+                    inputPosition = Input.mousePosition;
+
+                    if (Physics.Raycast(rayPC, out aimingHit))
+                    {
+                        if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
                         {
-                            cubeMove.isSeletedNow = true;
-                            cubeMove.GetBasePoint();
-                            cubeMove.AddOutline();
-                            audioSource.Play();
+                            cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
+
+                            if (cubeMove.isSelectable == true)
+                            {
+                                cubeMove.isSeletedNow = true;
+                                cubeMove.GetBasePoint();
+                                cubeMove.AddOutline();
+                                audioSource.Play();
+                            }
                         }
                     }
-                }
-                else
-                {
-                    _InGameCamera.instance.isCameraMove = true;
+                    else
+                    {
+                        _InGameCamera.instance.isCameraMove = true;
 
+                    }
                 }
 
             }
