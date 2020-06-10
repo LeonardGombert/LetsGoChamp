@@ -103,8 +103,6 @@ namespace Kubika.Game
 
         public void UpdateWorldMap()
         {
-
-
             //the progress file holds the next player's level
             nextLevelInProgression = SaveAndLoad.instance.SaveAndLoadPlayerProgress().nextLevelKubicode;
             playerBeatenLevels = SaveAndLoad.instance.SaveAndLoadPlayerProgress().beatenLevels;

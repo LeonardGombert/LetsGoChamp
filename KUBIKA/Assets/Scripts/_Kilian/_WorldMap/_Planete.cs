@@ -318,6 +318,9 @@ namespace Kubika.Game
             isMoonDisabled = true;
 
             planeteView = false;
+            
+            StartCoroutine(UIManager.instance.ZoomedWorldMapPriority());
+
             raycastFaces[faceEnQuestion + 1].isActive = true;
             foreach (_PlaneteCamera faces in raycastFaces)
             {
@@ -330,7 +333,7 @@ namespace Kubika.Game
 
             WorldmapManager.instance.UpdateWorldMap();
 
-            StartCoroutine(FocusOnNextLevel(LevelsManager.instance._Kubicode, faceEnQuestion + 1));
+            //StartCoroutine(FocusOnNextLevel(LevelsManager.instance._Kubicode, faceEnQuestion + 1));
 
             yield return null;
         }
