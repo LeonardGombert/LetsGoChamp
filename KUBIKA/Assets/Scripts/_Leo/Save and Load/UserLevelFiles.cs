@@ -83,7 +83,9 @@ namespace Kubika.Saving
                 UserLevels userInfoFile = JsonUtility.FromJson<UserLevels>(json);
 
                 userInfoFile.levelNames.Remove(levelName);
-                userInfoFile.numberOfUserLevels--;
+
+                if (userInfoFile.numberOfUserLevels > 0) userInfoFile.numberOfUserLevels--;
+                else userInfoFile.numberOfUserLevels = 0;
 
                 File.Delete(pathToLevelFile);
 
