@@ -276,12 +276,16 @@ namespace Kubika.Game
             if(isGreen == true)
             {
                 isGreen = false;
+                audioSourceCube.clip = _AudioManager.instance.ElevatorGoDoxn;
+                PlaySound();
                 ChangeElevatorTexture(_MaterialCentral.instance.actualPack._ElevatorBackTex);
                 Debug.Log("IS_NOT_GREEN");
             }
             else 
             {
                 isGreen = true;
+                audioSourceCube.clip = _AudioManager.instance.ElevatorGoUp;
+                PlaySound();
                 ChangeElevatorTexture(_MaterialCentral.instance.actualPack._ElevatorTex);
                 Debug.Log("IS_GREEN");
             }

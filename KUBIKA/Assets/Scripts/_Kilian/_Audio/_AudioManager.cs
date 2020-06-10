@@ -79,6 +79,9 @@ namespace Kubika.Game
         public AudioClip CANTMOVE;
         public AudioClip Selection;
         public AudioClip Move;
+        public AudioClip ElevatorGoUp;
+        public AudioClip ElevatorGoDoxn;
+        public AudioClip FatalChute;
 
         [Space]
         [Header("LEVEL EDITOR SOUNDS")]
