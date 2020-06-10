@@ -57,6 +57,7 @@ namespace Kubika.Game
             if (pressedDown == false && locked == true)
             {
                 locked = false;
+                _KUBRotation.instance.RightTurn();
             }            
         }
 
