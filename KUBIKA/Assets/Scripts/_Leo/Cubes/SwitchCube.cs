@@ -23,7 +23,9 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
 
+            SetOutlineColor(false);
             ChangeEmoteFace(_EmoteIdleOffTex);
+            isSelectable = false;
         }
 
         // Update is called once per frame
@@ -38,9 +40,6 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Remove(this);
                 isStatic = true;
-                ChangeEmoteFace(_EmoteIdleOffTex);
-                SetupSoundSwitch(false);
-                PlaySound();
                 if(isSwitchVictory == false)
                     ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOff);
                 else
@@ -54,9 +53,6 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
-                ChangeEmoteFace(_EmoteIdleTex);
-                SetupSoundSwitch(true);
-                PlaySound();
                 if (isSwitchVictory == false)
                     ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOn);
                 else
@@ -116,18 +112,20 @@ namespace Kubika.Game
                     yield return currentValue;
                 }
             }
+
         }
 
-        #region AUDIO
-
-        void SetupSoundSwitch(bool isON)
+        public void SetOutlineColor(bool isWhite)
         {
-            if (isON == true)
-                audioSourceCube.clip = _AudioManager.instance.SwitchON;
+            meshRenderer.GetPropertyBlock(MatProp);
+
+            if (isWhite == true)
+                MatProp.SetColor("_ColorOutline", Color.white);
             else
-                audioSourceCube.clip = _AudioManager.instance.SwitchOFF;
+                MatProp.SetColor("_ColorOutline", Color.black);
+
+            meshRenderer.SetPropertyBlock(MatProp);
         }
 
-        #endregion
     }
 }

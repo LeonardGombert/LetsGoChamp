@@ -211,13 +211,13 @@ namespace Kubika.Game
                                     {
                                         cubeMove.isSeletedNow = true;
                                         cubeMove.GetBasePoint();
-                                        cubeMove.AddOutline();
+                                        cubeMove.AddOutline(true);
                                         audioSource.Play();
                                     }
                                     else
                                     {
                                         cubeMove.SetupCantMoveSound();
-                                        cubeMove.AddOutline();
+                                        cubeMove.AddOutline(false);
                                     }
                                 }
                             }
@@ -281,8 +281,13 @@ namespace Kubika.Game
                             {
                                 cubeMove.isSeletedNow = true;
                                 cubeMove.GetBasePoint();
-                                cubeMove.AddOutline();
+                                cubeMove.AddOutline(true);
                                 audioSource.Play();
+                            }
+                            else
+                            {
+                                cubeMove.SetupCantMoveSound();
+                                cubeMove.AddOutline(false);
                             }
                         }
                     }

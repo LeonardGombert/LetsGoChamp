@@ -50,14 +50,18 @@ namespace Kubika.Game
             
             if (isPressed == true && locked == false)
             {
+                SetupSoundSwitch(true);
                 locked = true;
                 ActivateSwitches();
+                PlaySound();
             }
 
             if(isPressed == false && locked == true)
             {
+                SetupSoundSwitch(false);
                 locked = false;
                 DeactivateSwitches();
+                PlaySound();
             }
         }
 
@@ -67,8 +71,11 @@ namespace Kubika.Game
 
             foreach (SwitchCube cube in switchCubes)
             {
-                cube.isActive = true;
+                cube.isSelectable = true;
                 cube.StatusUpdate();
+                cube.ChangeEmoteFace(cube._EmoteIdleTex);
+                cube.SetOutlineColor(true);
+                cube.isActive = true;
             }
         }
 
@@ -78,8 +85,11 @@ namespace Kubika.Game
 
             foreach (SwitchCube cube in switchCubes)
             {
-                cube.isActive = false;
+                cube.SetOutlineColor(false);
+                cube.isSelectable = false;
                 cube.StatusUpdate();
+                cube.ChangeEmoteFace(cube._EmoteIdleOffTex);
+                cube.isActive = false;
             }
         }
 
@@ -128,6 +138,15 @@ namespace Kubika.Game
                     Button.transform.eulerAngles = newRotate;
                     break;
             }
+        }
+
+
+        void SetupSoundSwitch(bool isON)
+        {
+            if (isON == true)
+                audioSourceCube.clip = _AudioManager.instance.SwitchON;
+            else
+                audioSourceCube.clip = _AudioManager.instance.SwitchOFF;
         }
     }
 }

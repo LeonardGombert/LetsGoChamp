@@ -796,11 +796,15 @@ namespace Kubika.Game
             meshRenderer.SetPropertyBlock(MatProp);
         }
 
-        public virtual void AddOutline()
+        public virtual void AddOutline(bool Selected)
         {
             OutlineActive(1);
-            ChangeEmoteFace(_EmoteSelectedTex);
-            GetChildRecursive(myIndex);
+            if(Selected == true)
+            {
+                ChangeEmoteFace(_EmoteSelectedTex);
+                GetChildRecursive(myIndex);
+            }
+
         }
 
         public void GetChildRecursive(int index)
