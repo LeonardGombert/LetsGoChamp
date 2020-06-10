@@ -47,14 +47,6 @@ public class LevelCubeEditorWindow : EditorWindow
         currentBiome = (Biomes)EditorGUILayout.EnumPopup(currentBiome);
         activeFace = GameObject.Find(currentBiome.ToString());
 
-        LevelCubeRoot = activeFace.transform.GetChild(0);
-        optLevelCubeRoot = activeFace.transform.GetChild(1);
-        anchorNodeRoot = activeFace.transform.GetChild(2);
-
-        GameObject worldMap = GameObject.Find("PLANETE");
-        worldMapFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
-        EditorGUILayout.ObjectField(worldMapFace, typeof(GameObject), true);
-
         if (LevelCubeRoot == null || optLevelCubeRoot == null || anchorNodeRoot == null)
         {
             EditorGUILayout.HelpBox("Root transforms must be selected. Please assign the root transforms", MessageType.Warning);
@@ -62,6 +54,14 @@ public class LevelCubeEditorWindow : EditorWindow
 
         else
         {
+            LevelCubeRoot = activeFace.transform.GetChild(0);
+            optLevelCubeRoot = activeFace.transform.GetChild(1);
+            anchorNodeRoot = activeFace.transform.GetChild(2);
+
+            GameObject worldMap = GameObject.Find("PLANETE");
+            worldMapFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
+            EditorGUILayout.ObjectField(worldMapFace, typeof(GameObject), true);
+
             EditorGUILayout.BeginVertical("");
             EditorGUILayout.LabelField("Create Nodes", EditorStyles.boldLabel);
             DrawCreateButtons();

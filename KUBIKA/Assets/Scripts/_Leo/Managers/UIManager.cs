@@ -313,6 +313,11 @@ namespace Kubika.Game
                 case "GAME_Undo":
                     break;
 
+                case "GAME_Skip":
+                    LevelsManager.instance._LoadNextLevel();
+                    LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;
+                    break;
+
                 case "GAME_BurgerMenu":
                     StartCoroutine(DimGame());
                     break;

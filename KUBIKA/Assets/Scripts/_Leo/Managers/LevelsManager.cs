@@ -5,7 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
@@ -104,7 +103,8 @@ namespace Kubika.Game
             }
         }
 
-        // called when Game Scene is loaded, load specific level or set to baseState
+        #region //LOAD TO KUBICODE
+        // called when Game Scene is loaded, load the lloadTOKubicode level or set to baseState
         public void BakeLevels()
         {
             for (int i = 0; i < gameMasterList.Count; i++)
@@ -131,6 +131,7 @@ namespace Kubika.Game
             }
             _LoadNextLevel();
         }
+        #endregion
 
         // called when the user selects a level on the worlldmap
         public void SelectLevel(string kubicode)
@@ -320,7 +321,7 @@ namespace Kubika.Game
 
             UIManager.instance.TransitionStart();
 
-            StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue, 
+            StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue,
                             targetAlphaValue, transitionDuration, timePassed));
 
             UIManager.instance.TransitionOver();

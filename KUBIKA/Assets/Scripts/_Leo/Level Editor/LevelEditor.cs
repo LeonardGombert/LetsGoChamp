@@ -1,16 +1,8 @@
-﻿using Kubika.Gam;
-using Kubika.Game;
+﻿using Kubika.Game;
 using Kubika.Saving;
-using Sirenix.Utilities;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 namespace Kubika.CustomLevelEditor
 {

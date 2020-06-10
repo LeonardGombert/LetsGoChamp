@@ -3,10 +3,6 @@ using Kubika.CustomLevelEditor;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
-using System;
-using Kubika.Gam;
-using UnityEditor;
 
 namespace Kubika.Saving
 {
