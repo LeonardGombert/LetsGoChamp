@@ -20,7 +20,7 @@ namespace Kubika.Game
 
         [Space]
         public float distanceInGround;
-        public float moveSpeed;
+        float moveSpeed = 0.5f;
         public float currentTime;
         Vector3 basePosition;
         Vector3 nextPosition;
@@ -80,25 +80,21 @@ namespace Kubika.Game
 
             if (boolDoneOnce1 == false && isUnlocked == true)
             {
-                Debug.Log("DE");
                 StartCoroutine(Unlocking());
                 boolDoneOnce1 = true;
             }
             if (boolDoneOnce2 == false && isPlayed == true)
             {
-                Debug.Log("LA");
                 HasBeenPlayed();
                 boolDoneOnce2 = true;
             }
             if (boolDoneOnce3 == false && isGold == true)
             {
-                Debug.Log("MERDE");
                 HasBeenGold();
                 boolDoneOnce3 = true;
             }
             if (boolDoneOnce4 == false && isSelected == true)
             {
-                Debug.Log("YES");
                 meshRenderer.GetPropertyBlock(MatProp);
                 MatProp.SetFloat("_Outline", 0.1f);
                 meshRenderer.SetPropertyBlock(MatProp);
@@ -118,7 +114,6 @@ namespace Kubika.Game
 
             while (currentTime <= 1)
             {
-                Debug.Log("A CHIER");
 
                 currentTime += Time.deltaTime;
                 currentTime = (currentTime / moveSpeed);

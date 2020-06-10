@@ -54,8 +54,6 @@ namespace Kubika.Game
         void BlowUp()
         {
             _InGameCamera.instance.ScreenShake();
-            SetupBombAudio();
-            PlaySound();
 
             if(victoryBomb == false)
             {
@@ -79,6 +77,9 @@ namespace Kubika.Game
                 RemoveCube(position);
                 if (!MatrixLimitCalcul(position, _DirectionCustom.down)) break;
             }
+
+            SetupBombAudio();
+            PlaySound();
 
             StartCoroutine(BombDeleteLatence());
 
