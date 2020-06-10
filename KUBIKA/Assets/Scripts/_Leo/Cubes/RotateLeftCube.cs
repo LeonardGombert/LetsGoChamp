@@ -80,7 +80,9 @@ namespace Kubika.Game
             //locked == false ensures that the function doesn't loop
             if (pressedDown && locked == false)
             {
-                Debug.Log("I'm turning the game world to the right");
+                audioSourceCube.clip = _AudioManager.instance.Bouton;
+                PlaySound();
+                Debug.Log("I'm turning the game world to the left");
                 locked = true;
                 _KUBRotation.instance.RightTurn();
             }

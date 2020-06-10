@@ -300,6 +300,9 @@ namespace Kubika.Game
             willPOP = true;
             isFalling = true;
 
+            audioSourceCube.clip = _AudioManager.instance.FatalChute;
+            PlaySound();
+
             ChangeEmoteFace(_EmoteFatalFallTex);
             basePos = transform.position;
             currentTime = 0;

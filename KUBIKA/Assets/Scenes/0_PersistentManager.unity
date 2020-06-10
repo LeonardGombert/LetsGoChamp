@@ -183,7 +183,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Bouton
       value: 
-      objectReference: {fileID: 8300000, guid: 76f1d9af7c423534bb8169ced70b0116, type: 3}
+      objectReference: {fileID: 8300000, guid: b6319f5a1e5f66c408faf6fbb31fb533, type: 3}
     - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
         type: 3}
       propertyPath: BoutonLE
@@ -255,6 +255,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24300002, guid: 3fa3c45bafc256b4d93048cd7abb85ed,
         type: 2}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: ElevatorGoDoxn
+      value: 
+      objectReference: {fileID: 8300000, guid: bf17d24ceb593ea4182183efecb1ab05, type: 3}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: ElevatorGoUp
+      value: 
+      objectReference: {fileID: 8300000, guid: feb9b8a5446c03141946e15c6a7fa439, type: 3}
+    - target: {fileID: 6813202359721789646, guid: 0ab89cb74073ce545ad26c8b693113ea,
+        type: 3}
+      propertyPath: FatalChute
+      value: 
+      objectReference: {fileID: 8300000, guid: 552914cc10d09dc4c9ec445a4570316e, type: 3}
     - target: {fileID: 6813202359721789647, guid: 0ab89cb74073ce545ad26c8b693113ea,
         type: 3}
       propertyPath: m_LocalPosition.x
