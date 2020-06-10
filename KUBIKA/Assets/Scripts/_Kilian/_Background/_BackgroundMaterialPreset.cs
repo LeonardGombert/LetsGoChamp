@@ -67,6 +67,10 @@ namespace Kubika.Game
 
         public void SetMaterial()
         {
+            MatProp = new MaterialPropertyBlock();
+            meshRenderer = GetComponent<MeshRenderer>();
+            meshFilter = GetComponent<MeshFilter>();
+
             meshRenderer.GetPropertyBlock(MatProp);
 
             MatProp.SetTexture("_MainTex", _MainTex);

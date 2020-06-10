@@ -268,7 +268,6 @@ namespace Kubika.Game
 
         IEnumerator LoadUserLevel()
         {
-            /*
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
 
@@ -285,7 +284,6 @@ namespace Kubika.Game
             _MaterialCentral.instance.ChangeUniverse(_levelBiome);
 
             UIManager.instance.CustomLevelCanvasPriority();
-            */
             yield return null;
         }
 
