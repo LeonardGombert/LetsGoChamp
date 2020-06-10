@@ -47,7 +47,6 @@ namespace Kubika.Game
 
         void CheckBlowUp()
         {
-            Debug.Log("Check If Blow = " + nbrCubeEmptyBelow);
             if (nbrCubeEmptyBelow > 0) BlowUp();
         }
 

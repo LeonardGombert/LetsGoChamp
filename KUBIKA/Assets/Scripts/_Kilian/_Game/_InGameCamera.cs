@@ -172,7 +172,6 @@ namespace Kubika.Game
             }
 
             mouse0 = Input.mousePosition;
-            Debug.Log("mouse0 " + mouse0);
             GetScreenSwipeAngle();
             ScrollingSimple(mouse0, mouse0LastPos);
 

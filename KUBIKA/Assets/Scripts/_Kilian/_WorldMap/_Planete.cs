@@ -388,6 +388,9 @@ namespace Kubika.Game
         {
             if (Input.touchCount == 1)
             {
+                if(touch.phase == TouchPhase.Began)
+                    baseRotation = transform.eulerAngles;
+
                 touch0 = Input.GetTouch(0);
                 Scrolling(touch0.deltaPosition, touch0.deltaPosition);
                 //GetScreenSwipeAngle();
@@ -419,7 +422,7 @@ namespace Kubika.Game
             if (Input.GetMouseButtonDown(0))
             {
                 mouse0LastPos = Input.mousePosition;
-                baseRotation = currentRotation = pivotMainCamera.eulerAngles;
+                baseRotation = currentRotation = transform.eulerAngles;
             }
             else if (Input.GetMouseButton(0))
             {
@@ -445,11 +448,10 @@ namespace Kubika.Game
 
             baseRotation = transform.eulerAngles;
 
-            baseRotation = pivotMainCamera.eulerAngles;
             baseYRotation = baseRotation.y;
             baseXRotation = baseRotation.x;
-            baseRotation.y = baseYRotation + mediumYMouv;
-            baseRotation.x = baseXRotation - mediumXMouv;
+            baseRotation.y = baseYRotation - mediumYMouv;
+            baseRotation.x = baseXRotation + mediumXMouv;
             transform.eulerAngles = baseRotation;
             //baseYRotation = baseRotation.y + mediumYMouv;
             //baseXRotation = baseRotation.x - mediumXMouv;
@@ -472,13 +474,10 @@ namespace Kubika.Game
             mediumYMouv = ((touch0Pos.x + touch1Pos.x) * 0.5f) * mouvPower;
             mediumXMouv = ((touch0Pos.y + touch1Pos.y) * 0.5f) * mouvPower;
 
-            baseRotation = transform.eulerAngles;
-
-            baseRotation = pivotMainCamera.eulerAngles;
             baseYRotation = baseRotation.y;
             baseXRotation = baseRotation.x;
-            baseRotation.y = baseYRotation + mediumYMouv;
-            baseRotation.x = baseXRotation - mediumXMouv;
+            baseRotation.y = baseYRotation - mediumYMouv;
+            baseRotation.x = baseXRotation + mediumXMouv;
             transform.eulerAngles = baseRotation;
         }
         #endregion

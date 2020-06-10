@@ -94,7 +94,7 @@ namespace Kubika.Game
                 {
                     foreach (LevelCube cube in worldMapLevels) cube.GetComponent<_ScriptMatFaceCube>().IsNotSelectedAnymore();
 
-                    Debug.Log("CubeISSelected");
+
                     levelCube.gameObject.GetComponent<_ScriptMatFaceCube>().isSelected = true;
                     LevelsManager.instance.SelectLevel(levelCube.kubicode);
                 }
@@ -103,7 +103,7 @@ namespace Kubika.Game
 
         public void UpdateWorldMap()
         {
-            Debug.Log("Updating world map");
+
 
             //the progress file holds the next player's level
             nextLevelInProgression = SaveAndLoad.instance.SaveAndLoadPlayerProgress().nextLevelKubicode;

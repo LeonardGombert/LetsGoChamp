@@ -67,7 +67,7 @@ namespace Kubika.Game
 
         private void ActivateSwitches()
         {
-            Debug.Log("A Cube is pressing down on me, I'm activating switch cubes");
+
 
             foreach (SwitchCube cube in switchCubes)
             {
@@ -88,7 +88,7 @@ namespace Kubika.Game
 
         private void DeactivateSwitches()
         {
-            Debug.Log("The Cube left, I'm deactivating all switch cubes");
+
 
             foreach (SwitchCube cube in switchCubes)
             {

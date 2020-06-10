@@ -12,7 +12,6 @@ namespace Kubika.Game
 
         public void ActivatePSFB()
         {
-            Debug.Log("MOON FACES");
             PS.Play();
             StartCoroutine(TransitionTime());
         }
