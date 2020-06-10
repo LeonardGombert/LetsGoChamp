@@ -54,10 +54,13 @@ namespace Kubika.Game
 
         // FEEDBACKS
         float actualContrast;
+        float actualSaturation;
         float currentOfValueChange;
         float timeOfValueChange = 0.5f;
         float currentValue;
+        float currentValueSaturation;
         float maxValueColor = 2;
+        float maxValueColorSaturation = 1.1f;
 
         //POP_OUT 
         float scaleMul = 1.2f;
@@ -1024,15 +1027,18 @@ namespace Kubika.Game
             if (isON)
             {
                 actualContrast = _Contrast;
+                actualSaturation = _Saturation;
 
                 while (currentOfValueChangePOP <= timeOfValueChangePOP)
                 {
                     currentOfValueChangePOP += Time.deltaTime;
 
                     currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChangePOP / timeOfValueChangePOP);
+                    currentValueSaturation = Mathf.SmoothStep(actualSaturation, maxValueColorSaturation, currentOfValueChangePOP / timeOfValueChangePOP);
 
                     Debug.Log("CHANGING COLOR ON");
                     MatProp.SetFloat("_Contrast", currentValue);
+                    MatProp.SetFloat("_Saturation", currentValueSaturation);
 
                     meshRenderer.SetPropertyBlock(MatProp);
                     yield return currentValue;
@@ -1045,9 +1051,11 @@ namespace Kubika.Game
                     currentOfValueChange += Time.deltaTime;
 
                     currentValue = Mathf.SmoothStep(maxValueColor, actualContrast, currentOfValueChange / timeOfValueChange);
+                    currentValueSaturation = Mathf.SmoothStep(maxValueColorSaturation, actualSaturation, currentOfValueChange / timeOfValueChange);
 
                     Debug.Log("CHANGING COLOR OFF");
                     MatProp.SetFloat("_Contrast", currentValue);
+                    MatProp.SetFloat("_Saturation", currentValueSaturation);
 
                     meshRenderer.SetPropertyBlock(MatProp);
                     yield return currentValue;
