@@ -70,7 +70,7 @@ namespace Kubika.Game
         //Refresh where the arrows should be positioned
         public void RefreshWorldArrowTargets()
         {
-            activeFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
+            activeFace = worldMap.transform.GetChild(0).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
 
             topArrowObj = activeFace.transform.GetChild(2).GetChild(0).transform;
             bottomArrowObj = activeFace.transform.GetChild(2).GetChild(1).transform;
