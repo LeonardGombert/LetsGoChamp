@@ -106,12 +106,15 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 77a7588e9e90a7c42a0d4deba897bbc3, type: 3}
   - {fileID: 4900000, guid: ab675fdde3b484a4cbfa6366fbe46496, type: 3}
   - {fileID: 4900000, guid: 969a9234d36fcb841a4db1bb6a16e872, type: 3}
-  biome6: []
+  biome6:
+  - {fileID: 4900000, guid: 0ee9469298c8c1144ba04fdce2a24232, type: 3}
+  - {fileID: 4900000, guid: 1b6e4626841885b46aeb014fa43cc812, type: 3}
+  - {fileID: 4900000, guid: 9c8981ff6d52188409a2cb4023836795, type: 3}
   biome7: []
   levelNames: []
   userLevelsList: []
   userSceneToTest: 
-  loadToKubicode: Worl101
+  loadToKubicode: Worl604
   testLevel: {fileID: 0}
   _levelFile: {fileID: 0}
   _levelName: 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +10,11 @@ namespace Kubika.Game
         GameObject Button;
         _BoutonFB BoutonScript;
         Vector3 newRotate;
-        private bool pressedDown;
+        public bool pressedDown;
         private bool locked;
+
+        List<RotateLeftCube> otherRotators = new List<RotateLeftCube>();
+        private bool isSoloToucher;
 
         // Start is called before the first frame update
         public override void Start()
@@ -20,6 +24,18 @@ namespace Kubika.Game
 
             _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
             SpawnButton();
+
+            StartCoroutine(CheckForOthers());
+        }
+
+        private IEnumerator CheckForOthers()
+        {
+            yield return new WaitForSeconds(.5f);
+
+            otherRotators.AddRange(FindObjectsOfType<RotateLeftCube>());
+            otherRotators.Remove(this);
+
+            yield return null;
         }
 
         public override void UndoProcedure()
@@ -40,27 +56,42 @@ namespace Kubika.Game
             base.Update();
         }
 
-        void CheckIfTouched()
+        void CheckIfOthersTouched()
         {
+            isSoloToucher = true;
+
             pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
             Debug.DrawRay(transform.position, Vector3.up, Color.green);
 
+            foreach (RotateLeftCube cube in otherRotators)
+            {
+                if (cube.pressedDown == true)
+                {
+                    isSoloToucher = false;
+                    break;
+                }
+            }
+
+            if (isSoloToucher) CheckIfTouched();
+        }
+
+        void CheckIfTouched()
+        {
             //locked == false ensures that the function doesn't loop
             if (pressedDown && locked == false)
             {
-                Debug.Log("I'm turning the game world to the left");
+                Debug.Log("I'm turning the game world to the right");
                 locked = true;
-                _KUBRotation.instance.LeftTurn();
+                _KUBRotation.instance.RightTurn();
             }
 
             // flip the bools when the delivery cube loses track of the victory cube
             if (pressedDown == false && locked == true)
             {
                 locked = false;
-                _KUBRotation.instance.RightTurn();
-            }            
+                _KUBRotation.instance.LeftTurn();
+            }
         }
-
         void SpawnButton()
         {
             switch (facingDirection)
