@@ -345,7 +345,8 @@ namespace Kubika.Saving
                 _Grid.instance.placedCubes.Add(newCube);
 
                 // get the kuboGrid and set the information on each of the nodes
-                SetNodeInfo(newCube, recoveredNode.nodeIndex, recoveredNode.worldPosition, recoveredNode.worldRotation, recoveredNode.facingDirection, recoveredNode.cubeLayers, recoveredNode.cubeType);
+                SetNodeInfo(newCube, recoveredNode.nodeIndex, recoveredNode.worldPosition, recoveredNode.worldRotation, 
+                    recoveredNode.facingDirection, recoveredNode.cubeLayers, recoveredNode.cubeType);
 
                 // check the node's cube type and setup the relevant cube and its transform + individual information
                 switch (recoveredNode.cubeType)

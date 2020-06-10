@@ -72,22 +72,30 @@ namespace Kubika.CustomLevelEditor
         #region PLACE AND REMOVE CUBES
         public void SwitchAction(string received)
         {
-            isPlacing = false;
-            isDeleting = false;
-            isRotating = false;
-
             switch (received)
             {
                 case "isPlacing":
-                    isPlacing = true;
+                    isPlacing = !isPlacing;
+                    isDeleting = false;
+                    isRotating = false;
                     break;
 
                 case "isDeleting":
-                    isDeleting = true;
+                    isDeleting = !isDeleting;
+                    if (isDeleting == true) UIManager.instance.deleteLogo.color = Color.red;
+                    else if (isDeleting == false) UIManager.instance.deleteLogo.color = Color.white;
+
+                    isPlacing = false;
+                    isRotating = false;
                     break;
 
                 case "isRotating":
-                    isRotating = true;
+                    isRotating = !isRotating;
+                    if (isRotating == true) UIManager.instance.rotateLogo.color = Color.red;
+                    else if (isRotating == false) UIManager.instance.rotateLogo.color = Color.white;
+
+                    isPlacing = false;
+                    isDeleting = false;
                     break;
 
                 default:
@@ -122,7 +130,7 @@ namespace Kubika.CustomLevelEditor
             if (isRotating)
             {
                 // one release, set the rotation
-                if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+                if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     GetUserPlatform();
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);

@@ -74,6 +74,8 @@ namespace Kubika.Game
         [FoldoutGroup("Level Editor")] public Dropdown playerLevelsDropdown;
         [FoldoutGroup("Level Editor")] public InputField saveLevelName;
 
+        [FoldoutGroup("Level Editor")] public Image deleteLogo, rotateLogo;
+
         [FoldoutGroup("Level Editor")] [SerializeField] Sprite BackgroundSelected, BackgroundUnselected;
         [FoldoutGroup("Level Editor")] [SerializeField] Text playerMovesInEditor;
 
