@@ -1,11 +1,21 @@
 ﻿using Kubika.CustomLevelEditor;
 using UnityEngine;
+using System;
+using System.Collections;
 
 namespace Kubika.Game
 {
     public class SwitchCube : _CubeMove
     {
         public bool isActive;
+        public bool isSwitchVictory = false;
+
+        // FEEDBACKS
+        float actualnsideStrength;
+        float currentOfValueChange;
+        float timeOfValueChange = 0.5f;
+        float currentValue;
+        float maxValueStrnght = 1;
 
         // Start is called before the first frame update
         public override void Start()
@@ -13,7 +23,10 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
 
+            SetOutlineColor(false);
+            Debug.Log("_EmoteIdleOffTex = " + _EmoteIdleOffTex.name);
             ChangeEmoteFace(_EmoteIdleOffTex);
+            isSelectable = false;
         }
 
         // Update is called once per frame
@@ -28,10 +41,7 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Remove(this);
                 isStatic = true;
-                ChangeEmoteFace(_EmoteIdleOffTex);
-                SetupSoundSwitch(false);
-                PlaySound();
-                ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOff);
+
                 myCubeLayer = CubeLayers.cubeFull;
             }
 
@@ -39,17 +49,14 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
-                ChangeEmoteFace(_EmoteIdleTex);
-                SetupSoundSwitch(true);
-                PlaySound();
-                ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOn);
+
                 myCubeLayer = CubeLayers.cubeMoveable;
             }
 
             SetRelevantNodeInfo();
         }
 
-        void ChangeTex(Texture tex)
+        public void ChangeTex(Texture tex)
         {
             meshRenderer.GetPropertyBlock(MatProp);
 
@@ -58,16 +65,58 @@ namespace Kubika.Game
             meshRenderer.SetPropertyBlock(MatProp);
         }
 
-        #region AUDIO
 
-        void SetupSoundSwitch(bool isON)
+        public IEnumerator IncreaseInside(bool isON)
         {
-            if (isON == true)
-                audioSourceCube.clip = _AudioManager.instance.SwitchON;
+            meshRenderer.GetPropertyBlock(MatProp);
+            currentOfValueChange = 0;
+
+            if (isON)
+            {
+                actualnsideStrength = _InsideStrength;
+
+                while (currentOfValueChange <= timeOfValueChange)
+                {
+                    currentOfValueChange += Time.deltaTime;
+
+                    currentValue = Mathf.SmoothStep(actualnsideStrength, maxValueStrnght, currentOfValueChange / timeOfValueChange);
+
+                    Debug.Log("CHANGING COLOR ON");
+                    MatProp.SetFloat("_InsideTexStrength", currentValue);
+
+                    meshRenderer.SetPropertyBlock(MatProp);
+                    yield return currentValue;
+                }
+            }
             else
-                audioSourceCube.clip = _AudioManager.instance.SwitchOFF;
+            {
+                while (currentOfValueChange <= timeOfValueChange)
+                {
+                    currentOfValueChange += Time.deltaTime;
+
+                    currentValue = Mathf.SmoothStep(maxValueStrnght, actualnsideStrength, currentOfValueChange / timeOfValueChange);
+
+                    Debug.Log("CHANGING COLOR OFF");
+                    MatProp.SetFloat("_InsideTexStrength", currentValue);
+
+                    meshRenderer.SetPropertyBlock(MatProp);
+                    yield return currentValue;
+                }
+            }
+
         }
 
-        #endregion
+        public void SetOutlineColor(bool isWhite)
+        {
+            meshRenderer.GetPropertyBlock(MatProp);
+
+            if (isWhite == true)
+                MatProp.SetColor("_ColorOutline", Color.white);
+            else
+                MatProp.SetColor("_ColorOutline", Color.black);
+
+            meshRenderer.SetPropertyBlock(MatProp);
+        }
+
     }
 }

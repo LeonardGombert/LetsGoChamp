@@ -54,15 +54,18 @@ namespace Kubika.Game
 
         // FEEDBACKS
         float actualContrast;
+        float actualSaturation;
         float currentOfValueChange;
         float timeOfValueChange = 0.5f;
         float currentValue;
+        float currentValueSaturation;
         float maxValueColor = 2;
+        float maxValueColorSaturation = 1.1f;
 
         //POP_OUT 
         float scaleMul = 1.2f;
         float currentOfValueChangePOP;
-        float timeOfValueChangePOP = 0.5f;
+        float timeOfValueChangePOP = 0.2f;
         Vector3 actualScale;
         Vector3 baseScale;
         Vector3 targetScale;
@@ -74,7 +77,6 @@ namespace Kubika.Game
 
         // AUDIO 
         public AudioSource audioSourceCube;
-
 
         // Start is called before the first frame update
         public virtual void Start()
@@ -838,7 +840,7 @@ namespace Kubika.Game
                     break;
                 case CubeTypes.SwitchVictoryCube:
                     {
-                        _MainTex = _MaterialCentral.instance.actualPack._SwitchTexOff; ///////
+                        _MainTex = _MaterialCentral.instance.actualPack._SwitchVTexOff; ///////
                         _MainMesh = _MaterialCentral.instance.actualPack._SwitchVMesh;
                         _MainColor = _MaterialCentral.instance.actualPack._SwitchVColor;
 
@@ -1024,15 +1026,18 @@ namespace Kubika.Game
             if (isON)
             {
                 actualContrast = _Contrast;
+                actualSaturation = _Saturation;
 
-                while (currentOfValueChangePOP <= timeOfValueChangePOP)
+                while (currentOfValueChangePOP <= timeOfValueChange)
                 {
                     currentOfValueChangePOP += Time.deltaTime;
 
-                    currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChangePOP / timeOfValueChangePOP);
+                    currentValue = Mathf.SmoothStep(actualContrast, maxValueColor, currentOfValueChangePOP / timeOfValueChange);
+                    currentValueSaturation = Mathf.SmoothStep(actualSaturation, maxValueColorSaturation, currentOfValueChangePOP / timeOfValueChange);
 
                     Debug.Log("CHANGING COLOR ON");
                     MatProp.SetFloat("_Contrast", currentValue);
+                    MatProp.SetFloat("_Saturation", currentValueSaturation);
 
                     meshRenderer.SetPropertyBlock(MatProp);
                     yield return currentValue;
@@ -1045,9 +1050,11 @@ namespace Kubika.Game
                     currentOfValueChange += Time.deltaTime;
 
                     currentValue = Mathf.SmoothStep(maxValueColor, actualContrast, currentOfValueChange / timeOfValueChange);
+                    currentValueSaturation = Mathf.SmoothStep(maxValueColorSaturation, actualSaturation, currentOfValueChange / timeOfValueChange);
 
                     Debug.Log("CHANGING COLOR OFF");
                     MatProp.SetFloat("_Contrast", currentValue);
+                    MatProp.SetFloat("_Saturation", currentValueSaturation);
 
                     meshRenderer.SetPropertyBlock(MatProp);
                     yield return currentValue;
@@ -1057,14 +1064,27 @@ namespace Kubika.Game
 
         virtual public IEnumerator PopOut(bool timer)
         {
+            willPOP = true;
             Debug.Log("Popping out");
+
+            gameObject.GetComponent<Collider>().enabled = false;
 
             audioSourceCube.clip = _AudioManager.instance.Pop;
             currentOfValueChange = 0;
             baseScale = transform.localScale;
             targetScale = new Vector3(baseScale.x * scaleMul, baseScale.y * scaleMul, baseScale.z * scaleMul);
 
-            while (currentOfValueChange <= timeOfValueChange)
+            grid.kuboGrid[myIndex - 1].cubeOnPosition = null;
+            grid.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
+            grid.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
+
+            if (timer == true)
+            {
+                _DataManager.instance.timers.Remove(this as TimerCube);
+            }
+
+
+            while (currentOfValueChange <= timeOfValueChangePOP)
             {
                 currentOfValueChange += Time.deltaTime;
 
@@ -1072,9 +1092,9 @@ namespace Kubika.Game
 
                 //transform.localScale = actualScale;
 
-                transform.localScale = new Vector3(Mathf.Clamp(baseScale.x + ((baseScale.x * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.x),
-                    Mathf.Clamp(baseScale.y + ((baseScale.y * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.y),
-                    Mathf.Clamp(baseScale.z + ((baseScale.z * EaseInBack(currentOfValueChange / timeOfValueChange))), 0, targetScale.z));
+                transform.localScale = new Vector3(Mathf.Clamp(baseScale.x + ((baseScale.x * EaseInBack(currentOfValueChange / timeOfValueChangePOP))), 0, targetScale.x),
+                    Mathf.Clamp(baseScale.y + ((baseScale.y * EaseInBack(currentOfValueChange / timeOfValueChangePOP))), 0, targetScale.y),
+                    Mathf.Clamp(baseScale.z + ((baseScale.z * EaseInBack(currentOfValueChange / timeOfValueChangePOP))), 0, targetScale.z));
 
                 yield return transform.localScale;
             }
@@ -1084,12 +1104,9 @@ namespace Kubika.Game
             PopOutPS = Instantiate(_FeedBackManager.instance.PopOutParticleSystem, transform.position, Quaternion.identity);
             PlaySound();
 
-            yield return new WaitForSeconds(_FeedBackManager.instance.PopOutParticleSystem.main.duration);
+            willPOP = false;
 
-            if (timer == true)
-            {
-                _DataManager.instance.MakeFall();
-            }
+            yield return new WaitForSeconds(_FeedBackManager.instance.PopOutParticleSystem.main.duration);
 
             Destroy(PopOutPS.gameObject);
             gameObject.SetActive(false);
@@ -1120,7 +1137,11 @@ namespace Kubika.Game
         {
             Debug.Log("Destroyed " + indexToDestroy);
 
-            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut(false));
+            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube)
+            {
+                willPOP = true; 
+                StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut(false));
+            }
             else return;
         }
 
@@ -1130,10 +1151,13 @@ namespace Kubika.Game
             rigidbody.useGravity = false;
 
             rigidbody.maxAngularVelocity = UnityEngine.Random.Range(10, 80);
-            rigidbody.AddTorque(new Vector3(UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1)));
+            rigidbody.AddTorque(new Vector3(UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1), UnityEngine.Random.Range(0, 1)), ForceMode.Impulse);
 
-            rigidbody.velocity = force * 10.0f;
-            rigidbody.AddForce(force * 10.0f);
+            rigidbody.velocity = force * 6.0f;
+            rigidbody.AddForce(force * 6.0f, ForceMode.Impulse);
+
+            Debug.LogError("rigidbody.velocity = " + rigidbody.velocity);
+            Debug.LogError("rigidbody.maxAngularVelocity = " + rigidbody.maxAngularVelocity);
         }
 
 

@@ -17,7 +17,7 @@ namespace Kubika.Game
         public int actualRotation;
 
         // BOOL CHECK
-        bool isTurning;
+        public bool isTurning;
 
         // ROTATION LERP
         Vector3 currentRot;
@@ -76,6 +76,7 @@ namespace Kubika.Game
         {
             if (_DataManager.instance.AreCubesEndingToFall(_DataManager.instance.moveCube.ToArray()) == true && _DataManager.instance.AreCubesEndingToMove(_DataManager.instance.moveCube.ToArray()) == true)
             {
+                yield return new WaitForSeconds(0.1f);
 
                 isTurning = true;
 

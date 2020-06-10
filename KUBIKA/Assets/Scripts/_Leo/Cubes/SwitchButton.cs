@@ -23,6 +23,7 @@ namespace Kubika.Game
             _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
             switchCubes = FindObjectsOfType<SwitchCube>();
             SpawnButton();
+            CheckIfPressed();
         }
 
         public override void UndoProcedure()
@@ -49,14 +50,18 @@ namespace Kubika.Game
             
             if (isPressed == true && locked == false)
             {
+                SetupSoundSwitch(true);
                 locked = true;
                 ActivateSwitches();
+                PlaySound();
             }
 
             if(isPressed == false && locked == true)
             {
+                SetupSoundSwitch(false);
                 locked = false;
                 DeactivateSwitches();
+                PlaySound();
             }
         }
 
@@ -66,6 +71,16 @@ namespace Kubika.Game
 
             foreach (SwitchCube cube in switchCubes)
             {
+                cube.isSelectable = true;
+                cube.ChangeEmoteFace(cube._EmoteIdleTex);
+                cube.SetOutlineColor(true);
+                StartCoroutine(cube.IncreaseInside(true));
+
+                if (cube.isSwitchVictory == false)
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOn);
+                else
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchVTexOn);
+
                 cube.isActive = true;
                 cube.StatusUpdate();
             }
@@ -77,6 +92,16 @@ namespace Kubika.Game
 
             foreach (SwitchCube cube in switchCubes)
             {
+                cube.SetOutlineColor(false);
+                cube.isSelectable = false;
+                cube.ChangeEmoteFace(cube._EmoteIdleOffTex);
+                StartCoroutine(cube.IncreaseInside(false));
+
+                if (cube.isSwitchVictory == false)
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchTexOff);
+                else
+                    cube.ChangeTex(_MaterialCentral.instance.actualPack._SwitchVTexOff);
+
                 cube.isActive = false;
                 cube.StatusUpdate();
             }
@@ -127,6 +152,15 @@ namespace Kubika.Game
                     Button.transform.eulerAngles = newRotate;
                     break;
             }
+        }
+
+
+        void SetupSoundSwitch(bool isON)
+        {
+            if (isON == true)
+                audioSourceCube.clip = _AudioManager.instance.SwitchON;
+            else
+                audioSourceCube.clip = _AudioManager.instance.SwitchOFF;
         }
     }
 }

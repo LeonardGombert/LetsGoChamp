@@ -22,9 +22,11 @@ namespace Kubika.Game
         public List<_CubeBase> baseCubeArray = new List<_CubeBase>();
         public List<_CubeMove> moveCubeArray = new List<_CubeMove>();
         public List<ElevatorCube> elevatorsArray = new List<ElevatorCube>();
+        public List<TimerCube> timersArray = new List<TimerCube>();
 
         public List<_CubeMove> moveCube = new List<_CubeMove>();
         public List<ElevatorCube> elevators = new List<ElevatorCube>();
+        public List<TimerCube> timers = new List<TimerCube>();
 
         //UNITY EVENT
         public UnityEvent StartChecking;
@@ -96,10 +98,12 @@ namespace Kubika.Game
             baseCubeArray = new List<_CubeBase>();
             moveCubeArray = new List<_CubeMove>();
             elevatorsArray = new List<ElevatorCube>();
+            timersArray = new List<TimerCube>();
 
             baseCube = new List<_CubeBase>();
             moveCube = new List<_CubeMove>();
             elevators = new List<ElevatorCube>();
+            timers = new List<TimerCube>();
 
             foreach (var item in _Grid.instance.kuboGrid)
             {
@@ -108,6 +112,7 @@ namespace Kubika.Game
                     _CubeBase baseCube = item.cubeOnPosition.gameObject.GetComponent<_CubeBase>();
                     _CubeMove cubeMove = item.cubeOnPosition.gameObject.GetComponent<_CubeMove>();
                     ElevatorCube elevatorCube = item.cubeOnPosition.gameObject.GetComponent<ElevatorCube>();
+                    TimerCube timerCube = item.cubeOnPosition.gameObject.GetComponent<TimerCube>();
 
                     if (cubeMove != null)
                     {
@@ -122,6 +127,11 @@ namespace Kubika.Game
                     if (elevatorCube != null)
                     {
                         elevatorsArray.Add(elevatorCube);
+                    }
+
+                    if(timerCube != null)
+                    {
+                        timersArray.Add(timerCube);
                     }
                 }
             }
@@ -156,6 +166,11 @@ namespace Kubika.Game
             {
                 baseCube.Add(cube);
             }
+            foreach (TimerCube cube in timersArray)
+            {
+                timers.Add(cube);
+            }
+
 
         }
 
@@ -199,31 +214,33 @@ namespace Kubika.Game
                 {
                     //When a touch has first been detected, change the message and record the starting position
                     case TouchPhase.Began:
-
-                        if (Physics.Raycast(rayTouch, out aimingHit))
+                        if (_KUBRotation.instance.isTurning == false)
                         {
-                            if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
+                            if (Physics.Raycast(rayTouch, out aimingHit))
                             {
-                                cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
+                                if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
+                                {
+                                    cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
 
-                                if (cubeMove.isSelectable == true)
-                                {
-                                    cubeMove.isSeletedNow = true;
-                                    cubeMove.GetBasePoint();
-                                    cubeMove.AddOutline();
-                                    audioSource.Play();
-                                }
-                                else
-                                {
-                                    cubeMove.SetupCantMoveSound();
-                                    cubeMove.AddOutline();
+                                    if (cubeMove.isSelectable == true)
+                                    {
+                                        cubeMove.isSeletedNow = true;
+                                        cubeMove.GetBasePoint();
+                                        cubeMove.AddOutline(true);
+                                        audioSource.Play();
+                                    }
+                                    else
+                                    {
+                                        cubeMove.SetupCantMoveSound();
+                                        cubeMove.AddOutline(false);
+                                    }
                                 }
                             }
-                        }
-                        else
-                        {
-                            _InGameCamera.instance.isCameraMove = true;
+                            else
+                            {
+                                _InGameCamera.instance.isCameraMove = true;
 
+                            }
                         }
 
 
@@ -263,29 +280,37 @@ namespace Kubika.Game
         {
             if (Input.GetMouseButtonDown(0))
             {
-                rayPC = _InGameCamera.instance.NormalCam.ScreenPointToRay(Input.mousePosition);
-
-                inputPosition = Input.mousePosition;
-
-                if (Physics.Raycast(rayPC, out aimingHit))
+                if (_KUBRotation.instance.isTurning == false)
                 {
-                    if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
-                    {
-                        cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
+                    rayPC = _InGameCamera.instance.NormalCam.ScreenPointToRay(Input.mousePosition);
 
-                        if (cubeMove.isSelectable == true)
+                    inputPosition = Input.mousePosition;
+
+                    if (Physics.Raycast(rayPC, out aimingHit))
+                    {
+                        if (aimingHit.collider.gameObject.GetComponent<_CubeMove>() == true)
                         {
-                            cubeMove.isSeletedNow = true;
-                            cubeMove.GetBasePoint();
-                            cubeMove.AddOutline();
-                            audioSource.Play();
+                            cubeMove = aimingHit.collider.gameObject.GetComponent<_CubeMove>();
+
+                            if (cubeMove.isSelectable == true)
+                            {
+                                cubeMove.isSeletedNow = true;
+                                cubeMove.GetBasePoint();
+                                cubeMove.AddOutline(true);
+                                audioSource.Play();
+                            }
+                            else
+                            {
+                                cubeMove.SetupCantMoveSound();
+                                cubeMove.AddOutline(false);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    _InGameCamera.instance.isCameraMove = true;
+                    else
+                    {
+                        _InGameCamera.instance.isCameraMove = true;
 
+                    }
                 }
 
             }
@@ -405,7 +430,7 @@ namespace Kubika.Game
 
         public IEnumerator CubesAndElevatorAreCheckingMove()
         {
-            while (AreCubesAndElevatorsCheckingMove(elevators.ToArray(), moveCube.ToArray()) == false)
+            while (AreCubesAndElevatorsAndTimerCheckingMove(elevators.ToArray(), moveCube.ToArray(), timers.ToArray()) == false)
             {
                 yield return null;
             }
@@ -562,9 +587,9 @@ namespace Kubika.Game
             return true;
         }
 
-        public bool AreCubesAndElevatorsCheckingMove(ElevatorCube[] elevators, _CubeMove[] cubeMove)
+        public bool AreCubesAndElevatorsAndTimerCheckingMove(ElevatorCube[] elevators, _CubeMove[] cubeMove, TimerCube[] timer)
         {
-            if(AreElevatorsCheckingMove(elevators) == true && AreCubesCheckingMove(cubeMove) == true)
+            if(AreElevatorsCheckingMove(elevators) == true && AreCubesCheckingMove(cubeMove) == true && AreTimersPoping(timer))
             {
                 Debug.Log("ELE & Cube Checking False");
                 return true;
@@ -574,6 +599,22 @@ namespace Kubika.Game
                 Debug.Log("ELE & Cube Checking True");
                 return false;
             }
+
+        }
+
+        public bool AreTimersPoping(TimerCube[] timer)
+        {
+            for (int i = 0; i < timer.Length; i++)
+            {
+                if (timer[i].willPOP == true)
+                {
+                    Debug.Log("timer[i].willPOP = " + timer[i].willPOP);
+                    return false;
+                }
+            }
+
+            Debug.Log("TRUE POP ");
+            return true;
 
         }
 
