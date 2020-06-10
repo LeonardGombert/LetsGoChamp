@@ -23,6 +23,7 @@ namespace Kubika.Game
             _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
             switchCubes = FindObjectsOfType<SwitchCube>();
             SpawnButton();
+            CheckIfPressed();
         }
 
         public override void UndoProcedure()

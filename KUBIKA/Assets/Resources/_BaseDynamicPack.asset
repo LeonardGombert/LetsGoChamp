@@ -112,16 +112,16 @@ MonoBehaviour:
   Bomb_Brightness: 0
   _SwitchTexOn: {fileID: 2800000, guid: bb1e2fc56de616441958379d032020f3, type: 3}
   _SwitchTexOff: {fileID: 2800000, guid: 75801dc72f1a7cc4eb34e420711143f9, type: 3}
-  _SwitchTexInside: {fileID: 2800000, guid: b6839a60f61934e438dc3668dffddd08, type: 3}
+  _SwitchTexInside: {fileID: 2800000, guid: 128cf5204081f2a429f833ffd7d23d40, type: 3}
   _SwitchMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _SwitchColor: {r: 1, g: 1, b: 1, a: 0}
-  _SwitchColorInside: {r: 0.48380208, g: 0.6612688, b: 0.6792453, a: 0}
-  _SwitchInsideStrength: 1
+  _SwitchColorInside: {r: 1, g: 0.7019608, b: 0.9843138, a: 1}
+  _SwitchInsideStrength: 0
   Switch_Hue: -291
-  Switch_Contrast: 1.534
-  Switch_Saturation: 1.59
-  Switch_Brightness: 0.287
+  Switch_Contrast: 1.603
+  Switch_Saturation: 1.929
+  Switch_Brightness: 0.338
   _SwitchTexOnButton: {fileID: 2800000, guid: 1770f52863c39614eb45e9b03679f33e, type: 3}
   _SwitchTexOffButton: {fileID: 2800000, guid: 1770f52863c39614eb45e9b03679f33e, type: 3}
   _SwitchTexInsideButton: {fileID: 2800000, guid: b6839a60f61934e438dc3668dffddd08,
@@ -175,18 +175,18 @@ MonoBehaviour:
   BallV_Contrast: 0
   BallV_Saturation: 0
   BallV_Brightness: 0
-  _SwitchVTexOn: {fileID: 2800000, guid: 541becf32faaf1f4fa620ca848c6978f, type: 3}
+  _SwitchVTexOn: {fileID: 2800000, guid: 9684cc59356c7304ab54c8621b905a7f, type: 3}
   _SwitchVTexOff: {fileID: 2800000, guid: 75801dc72f1a7cc4eb34e420711143f9, type: 3}
   _SwitchVTexInside: {fileID: 2800000, guid: 128cf5204081f2a429f833ffd7d23d40, type: 3}
   _SwitchVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _SwitchVColor: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
-  _SwitchVColorInside: {r: 0.48235294, g: 0.6627451, b: 0.6784314, a: 0}
-  _SwitchVInsideStrength: 1
-  SwitchV_Hue: -204
-  SwitchV_Contrast: 1.829
-  SwitchV_Saturation: 0.582
-  SwitchV_Brightness: 0.106
+  _SwitchVColor: {r: 0.99215686, g: 0.7921569, b: 0.7921569, a: 0}
+  _SwitchVColorInside: {r: 1, g: 0.5294118, b: 0.44705886, a: 1}
+  _SwitchVInsideStrength: 0
+  SwitchV_Hue: 0
+  SwitchV_Contrast: 1.35
+  SwitchV_Saturation: 1.37
+  SwitchV_Brightness: 0.338
   _BaseVTex: {fileID: 2800000, guid: 9776ab2659ceadb47a032377626341ea, type: 3}
   _BaseVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}

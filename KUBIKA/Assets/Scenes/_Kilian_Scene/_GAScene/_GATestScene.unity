@@ -196,6 +196,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &17968937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -318,6 +319,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &36143444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -440,6 +442,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &82589912
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -936,6 +939,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &141951523
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1058,6 +1062,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &160395541
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1180,6 +1185,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &167821573
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1690,6 +1696,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &256627286
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2127,6 +2134,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &272562123
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2322,6 +2330,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &293762864
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2444,6 +2453,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &315644313
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2718,6 +2728,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!1 &329411847
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,6 +2909,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &346354074
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3020,6 +3032,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &347835896
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3142,6 +3155,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &362467086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3521,6 +3535,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!1 &399597883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,6 +3611,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &399597886
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3859,6 +3875,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &513659255
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4028,6 +4045,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!1 &524174658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,6 +4513,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &599155888
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4617,6 +4636,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &626560280
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5410,6 +5430,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &710064381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5532,6 +5553,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &728773109
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5654,6 +5676,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &734929241
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5776,6 +5799,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &737193551
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6213,6 +6237,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &761278632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6335,6 +6360,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &773247812
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6866,6 +6892,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &834333589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7198,6 +7225,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &884317761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7320,6 +7348,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &887270044
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7547,6 +7576,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &905976560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7798,6 +7828,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &913037470
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7920,6 +7951,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &916399868
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8042,6 +8074,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &923413776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8689,6 +8722,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &982854429
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8877,6 +8911,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1029325254
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8999,6 +9034,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1081022850
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9226,6 +9262,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1108040422
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9453,6 +9490,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1155308433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9575,6 +9613,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1169955204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9697,6 +9736,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1192505359
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9924,6 +9964,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1205163826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10046,6 +10087,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1224927930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10168,6 +10210,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1225619878
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10290,6 +10333,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1241295299
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10664,6 +10708,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1282548014
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10786,6 +10831,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1284810500
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11013,6 +11059,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1321247651
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11428,6 +11475,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1363956314
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11579,6 +11627,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1381983980
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12095,6 +12144,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1470937099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12322,6 +12372,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1525733201
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12549,6 +12600,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1530814351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12800,6 +12852,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1531634384
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12922,6 +12975,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1535726124
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13091,6 +13145,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!1 &1544838767
 GameObject:
   m_ObjectHideFlags: 0
@@ -13166,6 +13221,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1544838770
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13882,6 +13938,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1597578356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14004,6 +14061,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1661429252
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14050,6 +14108,129 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661429249}
+  m_Mesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9, type: 3}
+--- !u!1 &1683536133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683536134}
+  - component: {fileID: 1683536137}
+  - component: {fileID: 1683536136}
+  - component: {fileID: 1683536135}
+  m_Layer: 0
+  m_Name: Cube4.001 (55)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683536134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683536133}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.34, y: 3.89, z: -3.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2137998561}
+  m_RootOrder: 67
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1683536135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683536133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e2c3047ccba1c944aac94ae7d0993e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myIndex: 0
+  myCubeType: 11
+  myCubeLayer: 0
+  facingDirection: 0
+  isStatic: 0
+  grid: {fileID: 0}
+  _MainTex: {fileID: 0}
+  _MainMesh: {fileID: 0}
+  _MainColor: {r: 0, g: 0, b: 0, a: 0}
+  _Hue: 0
+  _Contrast: 0
+  _Saturation: 0
+  _Brightness: 0
+  _EmoteIdleTex: {fileID: 0}
+  _EmoteIdleOffTex: {fileID: 0}
+  _EmoteFallTex: {fileID: 0}
+  _EmoteFatalFallTex: {fileID: 0}
+  _EmoteSelectedTex: {fileID: 0}
+  _EmotePastilleTex: {fileID: 0}
+  _EmoteStrength: 0
+  isPastilleAndIsOn: 0
+  _InsideTex: {fileID: 0}
+  _InsideColor: {r: 0, g: 0, b: 0, a: 0}
+  _InsideStrength: 0
+  _EdgeTex: {fileID: 0}
+  _EdgeColor: {r: 0, g: 0, b: 0, a: 0}
+  _EdgeStrength: 0
+  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 0}
+  willPOP: 0
+  audioSourceCube: {fileID: 0}
+--- !u!23 &1683536136
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683536133}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 7a6cd84cc209f6142bc4923e82a6757d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1683536137
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683536133}
   m_Mesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9, type: 3}
 --- !u!1 &1717609799
 GameObject:
@@ -14231,6 +14412,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1718643560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14353,6 +14535,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1740584881
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14475,6 +14658,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1757536907
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14886,6 +15070,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1825742969
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15323,6 +15508,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1862656645
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15445,6 +15631,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1889552662
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15567,6 +15754,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1932204380
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15736,6 +15924,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!1 &1936349479
 GameObject:
   m_ObjectHideFlags: 0
@@ -15916,6 +16105,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1937669067
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16308,6 +16498,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1987218317
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16430,6 +16621,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &1991515290
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16848,6 +17040,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &2068078796
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17017,6 +17210,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!1 &2108007799
 GameObject:
   m_ObjectHideFlags: 0
@@ -17092,6 +17286,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &2108007802
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17424,6 +17619,7 @@ MonoBehaviour:
   meshRenderer: {fileID: 0}
   meshFilter: {fileID: 0}
   willPOP: 0
+  audioSourceCube: {fileID: 0}
 --- !u!23 &2132709610
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17565,6 +17761,7 @@ Transform:
   - {fileID: 1284810498}
   - {fileID: 141951521}
   - {fileID: 1029325252}
+  - {fileID: 1683536134}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -25.644001, z: 0}

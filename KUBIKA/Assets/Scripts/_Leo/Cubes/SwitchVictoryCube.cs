@@ -11,6 +11,7 @@ namespace Kubika.Game
         public override void Start()
         {
             base.Start();
+            isSwitchVictory = true;
         }
 
         // Update is called once per frame
