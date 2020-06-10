@@ -41,11 +41,15 @@ namespace Kubika.Game
         private static _AudioManager _instance;
         public static _AudioManager instance { get { return _instance; } }
 
+        bool MusicON = true;
+        bool SFXON = true;
+
         public DifferentSceneSound SoundScene;
 
         [Space]
         [Header("AUDIO MIXER")]
         public AudioMixerGroup audioMixer;
+        public AudioMixerGroup audioMixerBGMusic;
 
         [Space]
         [Header("BG MUSIC")]
@@ -100,6 +104,36 @@ namespace Kubika.Game
         void Update()
         {
 
+        }
+
+        public void TurnMusicOnOff()
+        {
+            if(MusicON == true)
+            {
+                MusicON = false;
+                audioMixerBGMusic.audioMixer.SetFloat("VolumeMusic", -80);
+            }
+            else
+            {
+                MusicON = true;
+                audioMixerBGMusic.audioMixer.SetFloat("VolumeMusic", 0);
+            }
+
+        }
+
+
+        public void TurnSFXOnOff()
+        {
+            if (SFXON == true)
+            {
+                SFXON = false;
+                audioMixer.audioMixer.SetFloat("Volume", -80);
+            }
+            else
+            {
+                SFXON = true;
+                audioMixer.audioMixer.SetFloat("Volume", 0);
+            }
         }
     }
 }
