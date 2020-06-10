@@ -91,7 +91,7 @@ namespace Kubika.Saving
                 levelData.decorToSave.Add(decor);
             }
 
-            Debug.Log(levelData.decorToSave.Count);
+
 
             string json = JsonUtility.ToJson(levelData);
             string folder;
@@ -119,7 +119,6 @@ namespace Kubika.Saving
             activeNodes.Clear();
             activeDecor.Clear();
 
-            Debug.Log("Level Saved by Dev at " + path);
         }
 
         public void DevSavingCurrentLevel()
@@ -169,7 +168,7 @@ namespace Kubika.Saving
 
         public void DevLoadLevel(string levelName, Biomes biome)
         {
-            Debug.Log("Dev is Loading a Level !");
+
             string folder = Application.dataPath + "/Resources/MainLevels";
             string levelFile = levelName + ".json";
             string levelFolder = GetLevelFolder(biome);
@@ -232,7 +231,7 @@ namespace Kubika.Saving
             levelData.nodesToSave.Clear();
             activeNodes.Clear();
 
-            Debug.Log("Level Saved by User at " + path);
+
         }
 
         public void UserSavingCurrentLevel()
@@ -246,7 +245,7 @@ namespace Kubika.Saving
 
         public void UserLoadLevel(string levelName)
         {
-            Debug.Log("User is Loading a Level !");
+
 
             string folder = Application.persistentDataPath + "/UserLevels";
             string levelFile = levelName + ".json";
@@ -254,7 +253,7 @@ namespace Kubika.Saving
 
             if (File.Exists(path))
             {
-                Debug.Log("User is Loading a Level from " + path);
+
 
                 string json = File.ReadAllText(path);
                 levelData = JsonUtility.FromJson<LevelEditorData>(json);
@@ -323,7 +322,7 @@ namespace Kubika.Saving
 
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)
         {
-            Debug.Log("I'm building the level");
+
 
             finishedBuilding = false;
 
@@ -557,7 +556,6 @@ namespace Kubika.Saving
                 }
             }
 
-            Debug.Log(recoveredData.decorToSave.Count);
 
             foreach (Decor recoveredDecor in recoveredData.decorToSave)
             {
