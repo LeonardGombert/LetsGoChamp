@@ -113,7 +113,7 @@ namespace Kubika.Game
         {
             if (planeteView == true)
             {
-                RotationPlanete();
+                //RotationPlanete();
 
                 if (Input.GetMouseButtonUp(0) || Input.touchCount == 1)
                     CheckTouch();
@@ -453,11 +453,19 @@ namespace Kubika.Game
             mediumYMouv = ((touch0Pos.x - base0Pos.x)) * mouvPower;
             mediumXMouv = ((touch0Pos.y - base0Pos.y)) * mouvPower;
 
-            baseYRotation = baseRotation.y + mediumYMouv;
-            baseXRotation = baseRotation.x - mediumXMouv;
-            currentRotation.y = baseYRotation;
-            currentRotation.x = baseXRotation;
-            pivotMainCamera.eulerAngles = currentRotation;
+            baseRotation = transform.eulerAngles;
+
+            baseRotation = pivotMainCamera.eulerAngles;
+            baseYRotation = baseRotation.y;
+            baseXRotation = baseRotation.x;
+            baseRotation.y = baseYRotation + mediumYMouv;
+            baseRotation.x = baseXRotation - mediumXMouv;
+            transform.eulerAngles = baseRotation;
+            //baseYRotation = baseRotation.y + mediumYMouv;
+            //baseXRotation = baseRotation.x - mediumXMouv;
+            //currentRotation.y = baseYRotation;
+            //currentRotation.x = baseXRotation;
+            //pivotMainCamera.eulerAngles = currentRotation;
         }
 
         #region SCROLL & ZOOM
@@ -474,12 +482,14 @@ namespace Kubika.Game
             mediumYMouv = ((touch0Pos.x + touch1Pos.x) * 0.5f) * mouvPower;
             mediumXMouv = ((touch0Pos.y + touch1Pos.y) * 0.5f) * mouvPower;
 
+            baseRotation = transform.eulerAngles;
+
             baseRotation = pivotMainCamera.eulerAngles;
             baseYRotation = baseRotation.y;
             baseXRotation = baseRotation.x;
             baseRotation.y = baseYRotation + mediumYMouv;
             baseRotation.x = baseXRotation - mediumXMouv;
-            pivotMainCamera.eulerAngles = baseRotation;
+            transform.eulerAngles = baseRotation;
         }
         #endregion
     }
