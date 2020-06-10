@@ -49,22 +49,6 @@ namespace Kubika.Game
 
         #endregion
 
-
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                LeftTurn();
-            }
-            else if (Input.GetKeyDown(KeyCode.E))
-            {
-                RightTurn();
-            }
-
-
-        }
-
         public void RightTurn()
         {
             if (isTurning == false)

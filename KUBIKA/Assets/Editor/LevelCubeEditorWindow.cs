@@ -49,15 +49,15 @@ public class LevelCubeEditorWindow : EditorWindow
 
         if (LevelCubeRoot == null || optLevelCubeRoot == null || anchorNodeRoot == null)
         {
+            LevelCubeRoot = activeFace.transform.GetChild(0);
+            optLevelCubeRoot = activeFace.transform.GetChild(1);
+            anchorNodeRoot = activeFace.transform.GetChild(2);
+
             EditorGUILayout.HelpBox("Root transforms must be selected. Please assign the root transforms", MessageType.Warning);
         }
 
         else
         {
-            LevelCubeRoot = activeFace.transform.GetChild(0);
-            optLevelCubeRoot = activeFace.transform.GetChild(1);
-            anchorNodeRoot = activeFace.transform.GetChild(2);
-
             GameObject worldMap = GameObject.Find("PLANETE");
             worldMapFace = worldMap.transform.GetChild(1).transform.GetChild(0).transform.GetChild((int)currentBiome).gameObject;
             EditorGUILayout.ObjectField(worldMapFace, typeof(GameObject), true);

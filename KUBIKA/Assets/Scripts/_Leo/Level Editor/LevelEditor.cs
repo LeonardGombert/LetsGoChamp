@@ -94,41 +94,9 @@ namespace Kubika.CustomLevelEditor
                     break;
             }
         }
+
         private void DetectInputs()
         {
-            /*
-            //add the cubes you hit to a list of RaycastHits
-            if (Input.GetMouseButton(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)
-            {
-                CheckUserPlatform();
-
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(userInputPosition), out hit))
-                    if (!placeHits.Contains(hit)) placeHits.Add(hit);
-            }
-
-            //when the user releases the mouse, place all the cubes at once
-            if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-            {
-                foreach (RaycastHit hit in placeHits) PlaceCube(hit);
-                placeHits.Clear();
-            }
-
-            //add the cubes you hit to a list of RaycastHits
-            if (Input.GetMouseButton(1))
-            {
-                CheckUserPlatform();
-
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(userInputPosition), out hit))
-                    if (!deleteHits.Contains(hit)) deleteHits.Add(hit);
-            }
-
-            //when the user releases the mouse, delete alll cubes at once
-            if (Input.GetMouseButtonUp(1) || Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Ended)
-            {
-                foreach (RaycastHit hit in deleteHits) DeleteCube(hit);
-                deleteHits.Clear();
-            }*/
-
             if (isPlacing)
             {
                 //single click and place
@@ -153,16 +121,10 @@ namespace Kubika.CustomLevelEditor
 
             if (isRotating)
             {
-                //select cube and set the rotation to the difference between cube and finger w/ a preview
-                if (Input.GetMouseButton(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+                // one release, set the rotation
+                if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     GetUserPlatform();
-                    Camera.main.ScreenPointToRay(GetUserPlatform());
-                }
-
-                // one release, set the rotation
-                if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
                     hitIndex = 0;
                 }
@@ -200,11 +162,12 @@ namespace Kubika.CustomLevelEditor
             {
                 currentHitCube.ResetCubeInfo();
                 //reset the grid info
-                               
+
                 Instantiate(_FeedBackManagerLevelEditor.instance.Deleting_FB, currentHitCube.transform.position, Quaternion.identity);
                 _AudioLevelManager.instance.PlaySoundDelete();
                 Destroy(currentHitCube.gameObject);
             }
+
             grid.placedCubes.Remove(hit.collider.gameObject);
             //if there are no more gridObjects, redraw the grid
             if (grid.placedCubes.Count == 0) grid.RefreshGrid();
@@ -212,78 +175,76 @@ namespace Kubika.CustomLevelEditor
 
         private void RotateCube(RaycastHit hit)
         {
-            //if you haven't hit a Timer Cube
-            if(!IncrementTimer(hit))
+            currentHitCube = hit.collider.gameObject.GetComponent<_CubeBase>();
+            hitIndex = currentHitCube.myIndex;
+
+            Quaternion newRotation;
+
+            #region rotation
+            /*if (hitIndex != 0 && hit.collider.gameObject != null)
             {
-                currentHitCube = hit.collider.gameObject.GetComponent<_CubeBase>();
-                hitIndex = currentHitCube.myIndex;
+                int rotationX = (int)CustomScaler.Scale((int)userInputPosition.x, 0, Camera.main.pixelWidth, -360, 360);
+                rotationX = rotationX / 10;
 
-                Quaternion newRotation;
+                int rotationY = (int)CustomScaler.Scale((int)userInputPosition.y, 0, Camera.main.pixelHeight, -360, 360);
+                rotationY = rotationY / 10;
 
-                #region rotation
-                /*if (hitIndex != 0 && hit.collider.gameObject != null)
+                if (rotationX % 9 * rotationDampen == 0)
                 {
-                    int rotationX = (int)CustomScaler.Scale((int)userInputPosition.x, 0, Camera.main.pixelWidth, -360, 360);
-                    rotationX = rotationX / 10;
+                    Vector3 rotationVector = new Vector3(rotationX * 10,
+                        hit.collider.gameObject.transform.rotation.y,
+                        hit.collider.gameObject.transform.rotation.z);
 
-                    int rotationY = (int)CustomScaler.Scale((int)userInputPosition.y, 0, Camera.main.pixelHeight, -360, 360);
-                    rotationY = rotationY / 10;
-
-                    if (rotationX % 9 * rotationDampen == 0)
-                    {
-                        Vector3 rotationVector = new Vector3(rotationX * 10,
-                            hit.collider.gameObject.transform.rotation.y,
-                            hit.collider.gameObject.transform.rotation.z);
-
-                        newRotation = Quaternion.Euler(rotationVector);
-
-                        Debug.Log(rotationVector);
-                        hit.collider.gameObject.transform.rotation = newRotation;
-                    }
-
-                    if (rotationY % 9 * rotationDampen == 0)
-                    {
-                        Vector3 rotationVector = new Vector3(hit.collider.gameObject.transform.rotation.y,
-                            rotationY * 10,
-                            hit.collider.gameObject.transform.rotation.z);
-
-                        newRotation = Quaternion.Euler(rotationVector);
-
-                        Debug.Log(rotationVector);
-                        hit.collider.gameObject.transform.rotation = newRotation;
-                    }
-                }*/
-                #endregion
-
-                if (hitIndex != 0 && hit.collider.gameObject != null)
-                {
-                    if (currentHitCube.myCubeType == CubeTypes.CornerStaticCube)
-                    {
-                        //increment the enum if it isn't the last one, else reset it to the first
-                        if (currentHitCube.facingDirection < FacingDirection.downright) currentHitCube.facingDirection++;
-                        else currentHitCube.facingDirection = FacingDirection.up;
-                    }
-
-                    else
-                    {
-                        //increment the enum if it isn't the last one, else reset it to the first
-                        if (currentHitCube.facingDirection < FacingDirection.left) currentHitCube.facingDirection++;
-                        else currentHitCube.facingDirection = FacingDirection.up;
-                    }
-
-
-                    //returns the coordinates that the cube should adopt according to its enum
-                    Vector3 rotationVector = CubeFacingDirection.CubeFacing(currentHitCube.facingDirection);
-
-                    //convert the coordinates to a euler angle
                     newRotation = Quaternion.Euler(rotationVector);
 
-                    //assign the quaternion to the cube's transform
+                    Debug.Log(rotationVector);
                     hit.collider.gameObject.transform.rotation = newRotation;
-
-                    //set the rotation info in node grid
-                    currentHitCube.SetRelevantNodeInfo();
                 }
+
+                if (rotationY % 9 * rotationDampen == 0)
+                {
+                    Vector3 rotationVector = new Vector3(hit.collider.gameObject.transform.rotation.y,
+                        rotationY * 10,
+                        hit.collider.gameObject.transform.rotation.z);
+
+                    newRotation = Quaternion.Euler(rotationVector);
+
+                    Debug.Log(rotationVector);
+                    hit.collider.gameObject.transform.rotation = newRotation;
+                }
+            }*/
+            #endregion
+
+            Debug.LogError("Rotating2");
+
+            if (hitIndex != 0 && hit.collider.gameObject != null)
+            {
+                if (currentHitCube.myCubeType == CubeTypes.CornerStaticCube)
+                {
+                    //increment the enum if it isn't the last one, else reset it to the first
+                    if (currentHitCube.facingDirection < FacingDirection.downright) currentHitCube.facingDirection++;
+                    else currentHitCube.facingDirection = FacingDirection.up;
+                }
+
+                else
+                {
+                    //increment the enum if it isn't the last one, else reset it to the first
+                    if (currentHitCube.facingDirection < FacingDirection.left) currentHitCube.facingDirection++;
+                    else currentHitCube.facingDirection = FacingDirection.up;
+                }
+
+
+                //returns the coordinates that the cube should adopt according to its enum
+                Vector3 rotationVector = CubeFacingDirection.CubeFacing(currentHitCube.facingDirection);
+
+                //convert the coordinates to a euler angle
+                newRotation = Quaternion.Euler(rotationVector);
+
+                //assign the quaternion to the cube's transform
+                hit.collider.gameObject.transform.rotation = newRotation;
+
+                //set the rotation info in node grid
+                currentHitCube.SetRelevantNodeInfo();
             }
         }
 
