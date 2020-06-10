@@ -82,18 +82,12 @@ namespace Kubika.CustomLevelEditor
 
                 case "isDeleting":
                     isDeleting = !isDeleting;
-                    if (isDeleting == true) UIManager.instance.deleteLogo.color = Color.red;
-                    else if (isDeleting == false) UIManager.instance.deleteLogo.color = Color.white;
-
                     isPlacing = false;
                     isRotating = false;
                     break;
 
                 case "isRotating":
                     isRotating = !isRotating;
-                    if (isRotating == true) UIManager.instance.rotateLogo.color = Color.red;
-                    else if (isRotating == false) UIManager.instance.rotateLogo.color = Color.white;
-
                     isPlacing = false;
                     isDeleting = false;
                     break;
@@ -101,6 +95,12 @@ namespace Kubika.CustomLevelEditor
                 default:
                     break;
             }
+
+            if (isDeleting == true) UIManager.instance.deleteLogo.color = Color.red;
+            else if (isDeleting == false) UIManager.instance.deleteLogo.color = Color.white;
+
+            if (isRotating == true) UIManager.instance.rotateLogo.color = Color.red;
+            else if (isRotating == false) UIManager.instance.rotateLogo.color = Color.white;
         }
 
         private void DetectInputs()
