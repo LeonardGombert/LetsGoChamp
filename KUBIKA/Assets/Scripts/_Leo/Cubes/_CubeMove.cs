@@ -452,13 +452,11 @@ namespace Kubika.Game
 
         public void MoveToTargetPile()
         {
-            Debug.Log("MoveToTargetPile-MOVING-PILE");
             StartCoroutine(Move(soloPileTarget));
         }
 
         public void ResetReadyToMove()
         {
-            Debug.Log("RESET");
             isReadyToMove = false;
             pileNodeCubeMove = null;
             pushNextNodeCubeMove = null;
@@ -819,7 +817,7 @@ namespace Kubika.Game
             if (grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeLayers == CubeLayers.cubeMoveable && MatrixLimitCalcul(index, _DirectionCustom.up))
             {
                 grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>().OutlineActive(1);
-                grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>().ChangeEmoteFace(_EmoteSelectedTex);
+                grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>().ChangeEmoteFace(grid.kuboGrid[index - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>()._EmoteSelectedTex);
                 GetChildRecursive(grid.kuboGrid[index + _DirectionCustom.up].nodeIndex - 1);
             }
         }

@@ -25,7 +25,7 @@ public class LevelCube : MonoBehaviour
     {
         if(!isAnchorNode)
         {
-            //gameObject.name = gameObject.name.Replace("Level Node ", "Worl");
+            gameObject.name = gameObject.name.Replace("Level Node ", "Worl");
 
             for (int i = 0; i < LevelsManager.instance.gameMasterList.Count; i++)
             {
