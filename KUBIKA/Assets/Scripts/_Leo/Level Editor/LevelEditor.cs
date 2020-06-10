@@ -96,11 +96,11 @@ namespace Kubika.CustomLevelEditor
                     break;
             }
 
-            if (isDeleting == true) UIManager.instance.deleteLogo.color = Color.red;
-            else if (isDeleting == false) UIManager.instance.deleteLogo.color = Color.white;
+            if (isDeleting == true && UIManager.instance != null) UIManager.instance.deleteLogo.color = Color.red;
+            else if (isDeleting == false && UIManager.instance != null) UIManager.instance.deleteLogo.color = Color.white;
 
-            if (isRotating == true) UIManager.instance.rotateLogo.color = Color.red;
-            else if (isRotating == false) UIManager.instance.rotateLogo.color = Color.white;
+            if (isRotating == true && UIManager.instance != null) UIManager.instance.rotateLogo.color = Color.red;
+            else if (isRotating == false && UIManager.instance != null) UIManager.instance.rotateLogo.color = Color.white;
         }
 
         private void DetectInputs()
@@ -130,7 +130,7 @@ namespace Kubika.CustomLevelEditor
             if (isRotating)
             {
                 // one release, set the rotation
-                if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+                if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     GetUserPlatform();
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
