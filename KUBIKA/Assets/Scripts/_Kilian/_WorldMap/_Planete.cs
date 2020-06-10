@@ -141,51 +141,54 @@ namespace Kubika.Game
         {
             if (isMobilePlatform == true)
             {
-                touch = Input.GetTouch(0);
-                ray = Camera.main.ScreenPointToRay(touch.position);
-
-                if (Physics.Raycast(ray, out hit))
+                if (touch.phase == TouchPhase.Began)
                 {
-                    nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();                                              
-                    
-                    if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
+                    touch = Input.GetTouch(0);
+                    ray = Camera.main.ScreenPointToRay(touch.position);
+
+                    if (Physics.Raycast(ray, out hit))
                     {
                         nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
-                    }
-                    else if(hit.collider.gameObject.tag == "Moon")
-                    {
-                        planeteView = false;
-                        audioSource.Play();
-                        _MOON.instance.MoveToMoon();
-                        return;
-                    }
 
-                    if (nextFace != null && touch.phase == TouchPhase.Ended)
-                    {
-                        if (planeteView == true)
+                        if (hit.collider.gameObject.GetComponent<_PlaneteCamera>() == true)
                         {
-                            nextFace.isActive = true;
-                            nextFace.ActivatePSFB();
+                            nextFace = hit.collider.gameObject.GetComponent<_PlaneteCamera>();
+                        }
+                        else if (hit.collider.gameObject.tag == "Moon")
+                        {
+                            planeteView = false;
                             audioSource.Play();
-                            foreach (_PlaneteCamera faces in raycastFaces)
+                            _MOON.instance.MoveToMoon();
+                            return;
+                        }
+
+                        if (nextFace != null && touch.phase == TouchPhase.Ended)
+                        {
+                            if (planeteView == true)
                             {
-                                faces.gameObject.GetComponent<Collider>().enabled = false;
+                                nextFace.isActive = true;
+                                nextFace.ActivatePSFB();
+                                audioSource.Play();
+                                foreach (_PlaneteCamera faces in raycastFaces)
+                                {
+                                    faces.gameObject.GetComponent<Collider>().enabled = false;
+                                }
+
+                                facesSpeed = rotationSpeed * 0.33f;
+                                rotationSpeed = facesSpeed;
                             }
 
-                            facesSpeed = rotationSpeed * 0.33f;
-                            rotationSpeed = facesSpeed;
+                            OnZoomToPlanetCalls();
+
+                            CameraTransition(nextFace);
+                            if (isMoonDisabled == false)
+                            {
+                                StartCoroutine(DisableMoon());
+                                isMoonDisabled = true;
+                            }
+                            planeteView = false;
+
                         }
-
-                        OnZoomToPlanetCalls();
-
-                        CameraTransition(nextFace);
-                        if(isMoonDisabled == false)
-                        {
-                            StartCoroutine(DisableMoon());
-                            isMoonDisabled = true;
-                        }
-                        planeteView = false;
-
                     }
                 }
             }

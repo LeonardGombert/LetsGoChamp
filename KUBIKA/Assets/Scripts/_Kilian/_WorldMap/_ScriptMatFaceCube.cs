@@ -130,7 +130,7 @@ namespace Kubika.Game
                 yield return DESATURATION_CURRENT_VALUE;
             }
 
-            ring.enabled = true;
+            //ring.enabled = true;
             meshRenderer.SetPropertyBlock(MatProp);
         }
 
