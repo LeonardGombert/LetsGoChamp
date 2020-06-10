@@ -97,11 +97,11 @@ public class LevelFileSearchBar : EditorWindow
             case Biomes.Ruins:
                 levelFolder = "04_Ruins";
                 break;
-            case Biomes.Temple:
-                levelFolder = "05_Temple";
-                break;
             case Biomes.Statues:
-                levelFolder = "06_Statues";
+                levelFolder = "05_Statues";
+                break;
+            case Biomes.Temple:
+                levelFolder = "06_Temple";
                 break;
             case Biomes.Chaos:
                 levelFolder = "07_Chaos";

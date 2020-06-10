@@ -50,14 +50,14 @@ namespace Kubika.Game
             if (!touchingCube)
             {
                 //returns the gameobject you are touching
-                touchingGO = AnyMoveableChecker(_DirectionCustom.up);
+                touchingGO = TimerChecker(_DirectionCustom.up);
 
                 if (touchingGO != null) touchingCube = true;
             }
 
             else if (touchingCube)
             {
-                newTouchingGO = AnyMoveableChecker(_DirectionCustom.up);
+                newTouchingGO = TimerChecker(_DirectionCustom.up);
 
                 if (newTouchingGO != touchingGO || newTouchingGO == null)
                 {

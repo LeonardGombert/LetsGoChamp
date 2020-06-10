@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,28 +10,43 @@ namespace Kubika.Game
         GameObject Button;
         _BoutonFB BoutonScript;
         Vector3 newRotate;
-        private bool pressedDown;
+        public bool pressedDown;
         private bool locked;
+
+        List<RotateRightCube> otherRotators = new List<RotateRightCube>();
+        private bool isSoloToucher;
 
         // Start is called before the first frame update
         public override void Start()
         {
             //call base.start AFTER assigning the cube's layers
             base.Start();
-            _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
+            _DataManager.instance.EndFalling.AddListener(CheckIfOthersTouched);
             SpawnButton();
+
+            StartCoroutine(CheckForOthers());
+        }
+
+        private IEnumerator CheckForOthers()
+        {
+            yield return new WaitForSeconds(.5f);
+
+            otherRotators.AddRange(FindObjectsOfType<RotateRightCube>());
+            otherRotators.Remove(this);
+
+            yield return null;
         }
 
         public override void UndoProcedure()
         {
             base.UndoProcedure();
-            _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
+            _DataManager.instance.EndFalling.AddListener(CheckIfOthersTouched);
         }
 
         public override void HideCubeProcedure()
         {
             base.HideCubeProcedure();
-            _DataManager.instance.EndFalling.RemoveListener(CheckIfTouched);
+            _DataManager.instance.EndFalling.RemoveListener(CheckIfOthersTouched);
         }
 
         // Update is called once per frame
@@ -39,11 +55,27 @@ namespace Kubika.Game
             base.Update();
         }
 
-        void CheckIfTouched()
+        void CheckIfOthersTouched()
         {
+            isSoloToucher = true;
+
             pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
             Debug.DrawRay(transform.position, Vector3.up, Color.green);
 
+            foreach (RotateRightCube cube in otherRotators)
+            {
+                if (cube.pressedDown == true)
+                {
+                    isSoloToucher = false;
+                    break;
+                }
+            }           
+
+            if(isSoloToucher) CheckIfTouched();
+        }
+
+        void CheckIfTouched()
+        {
             //locked == false ensures that the function doesn't loop
             if (pressedDown && locked == false)
             {
@@ -59,7 +91,7 @@ namespace Kubika.Game
             {
                 locked = false;
                 _KUBRotation.instance.LeftTurn();
-            }            
+            }
         }
 
         void SpawnButton()

@@ -18,8 +18,9 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
             _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
+            
+            if(UIManager.instance != null) LockRotation();
 
-            LockRotation();
             SpawnButton();
         }
 
@@ -43,23 +44,48 @@ namespace Kubika.Game
 
         void CheckIfTouched()
         {
-            pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
-            Debug.DrawRay(transform.position, Vector3.up, Color.green);
-
-            //locked == false ensures that the function doesn't loop
-            if (pressedDown && locked == false)
+            if(LevelsManager.instance._lockRotate == true)
             {
-                audioSourceCube.clip = _AudioManager.instance.Bouton;
-                PlaySound();
-                locked = true; 
-                UnlockRotation();
+                pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
+                Debug.DrawRay(transform.position, Vector3.up, Color.green);
+
+                //locked == false ensures that the function doesn't loop
+                if (pressedDown && locked == false)
+                {
+                    audioSourceCube.clip = _AudioManager.instance.Bouton;
+                    PlaySound();
+                    locked = true;
+                    UnlockRotation();
+                }
+
+                // flip the bools when the delivery cube loses track of the victory cube
+                if (pressedDown == false && locked == true)
+                {
+                    locked = false;
+                    LockRotation();
+                }
             }
 
-            // flip the bools when the delivery cube loses track of the victory cube
-            if (pressedDown == false && locked == true)
+            if (LevelsManager.instance._lockRotate == true)
             {
-                locked = false;
-                LockRotation();
+                pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
+                Debug.DrawRay(transform.position, Vector3.up, Color.green);
+
+                //locked == false ensures that the function doesn't loop
+                if (pressedDown && locked == false)
+                {
+                    audioSourceCube.clip = _AudioManager.instance.Bouton;
+                    PlaySound();
+                    locked = true;
+                    LockRotation();
+                }
+
+                // flip the bools when the delivery cube loses track of the victory cube
+                if (pressedDown == false && locked == true)
+                {
+                    locked = false;
+                    UnlockRotation();
+                }
             }
         }
 
