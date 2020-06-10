@@ -78,7 +78,6 @@ namespace Kubika.Game
         // AUDIO 
         public AudioSource audioSourceCube;
 
-
         // Start is called before the first frame update
         public virtual void Start()
         {
@@ -1065,6 +1064,7 @@ namespace Kubika.Game
 
         virtual public IEnumerator PopOut(bool timer)
         {
+            willPOP = true;
             Debug.Log("Popping out");
 
             gameObject.GetComponent<Collider>().enabled = false;
@@ -1094,12 +1094,17 @@ namespace Kubika.Game
             PopOutPS = Instantiate(_FeedBackManager.instance.PopOutParticleSystem, transform.position, Quaternion.identity);
             PlaySound();
 
-            yield return new WaitForSeconds(_FeedBackManager.instance.PopOutParticleSystem.main.duration);
+
 
             if (timer == true)
             {
+                _DataManager.instance.timers.Remove(this as TimerCube);
                 _DataManager.instance.MakeFall();
             }
+
+            willPOP = false;
+
+            yield return new WaitForSeconds(_FeedBackManager.instance.PopOutParticleSystem.main.duration);
 
             Destroy(PopOutPS.gameObject);
             gameObject.SetActive(false);
@@ -1130,7 +1135,11 @@ namespace Kubika.Game
         {
             Debug.Log("Destroyed " + indexToDestroy);
 
-            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube) StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut(false));
+            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube)
+            {
+                willPOP = true; 
+                StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut(false));
+            }
             else return;
         }
 

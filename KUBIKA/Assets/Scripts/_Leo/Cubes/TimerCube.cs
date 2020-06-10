@@ -68,6 +68,7 @@ namespace Kubika.Game
 
             if (timerValue <= 0)
             {
+                willPOP = true;
                 StartCoroutine(PopOut(true));
             }
         }

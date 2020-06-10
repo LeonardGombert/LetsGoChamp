@@ -297,6 +297,7 @@ namespace Kubika.Game
 
         public IEnumerator FallFromMap(Vector3 fallFromMapPosition, int nbrCaseBelow)
         {
+            willPOP = true;
             isFalling = true;
 
             ChangeEmoteFace(_EmoteFatalFallTex);
