@@ -9,8 +9,8 @@ namespace Kubika.Game
         GameObject Button;
         _BoutonFB BoutonScript;
         Vector3 newRotate;
-        private bool pressedDown;
-        private bool locked;
+        [SerializeField] private bool pressedDown;
+        [SerializeField] private bool locked;
 
         // Start is called before the first frame update
         public override void Start()
@@ -44,7 +44,7 @@ namespace Kubika.Game
 
         void CheckIfTouched()
         {
-            if(LevelsManager.instance._lockRotate == true)
+            if(LevelsManager.instance._lockRotate == false)
             {
                 pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
                 Debug.DrawRay(transform.position, Vector3.up, Color.green);
@@ -55,14 +55,14 @@ namespace Kubika.Game
                     audioSourceCube.clip = _AudioManager.instance.Bouton;
                     PlaySound();
                     locked = true;
-                    UnlockRotation();
+                    LockRotation();
                 }
 
                 // flip the bools when the delivery cube loses track of the victory cube
                 if (pressedDown == false && locked == true)
                 {
                     locked = false;
-                    LockRotation();
+                    UnlockRotation();
                 }
             }
 
@@ -77,7 +77,7 @@ namespace Kubika.Game
                     audioSourceCube.clip = _AudioManager.instance.Bouton;
                     PlaySound();
                     locked = true;
-                    LockRotation();
+                    UnlockRotation();
                 }
 
                 // flip the bools when the delivery cube loses track of the victory cube
@@ -85,6 +85,7 @@ namespace Kubika.Game
                 {
                     locked = false;
                     UnlockRotation();
+                    LockRotation();
                 }
             }
         }
