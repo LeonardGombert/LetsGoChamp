@@ -101,6 +101,9 @@ namespace Kubika.Game
                 currentValue = 0;
                 Debug.LogError("START_ROTATION " + transform.eulerAngles.z);
 
+                audioSource.Play();
+
+
                 // There is two axis of rotation (left and right) , TODO = OPTI
                 if (rightSide)
                 {
@@ -149,9 +152,6 @@ namespace Kubika.Game
                 transform.eulerAngles = currentRot;
 
                 //=============// //
-
-
-                audioSource.Play();
 
 
                 //Debug.Log("Tout les Cubes sont posé");

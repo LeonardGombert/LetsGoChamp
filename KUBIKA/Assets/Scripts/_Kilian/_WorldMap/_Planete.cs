@@ -87,6 +87,9 @@ namespace Kubika.Game
         // MOON
         public bool isMoonDisabled = false;
 
+        //AUDIO
+        [SerializeField] AudioSource audioSource;
+
 
         // Start is called before the first frame update
         void Start()
@@ -98,6 +101,8 @@ namespace Kubika.Game
             planeteSpeed = rotationSpeed;
 
             levelCubes = FindObjectsOfType<LevelCube>();
+
+            audioSource.clip = _AudioManager.instance.SelectPlanete;
 
             if (_CheckCurrentPlatform.platform == RuntimePlatform.Android || _CheckCurrentPlatform.platform == RuntimePlatform.IPhonePlayer)
                 isMobilePlatform = true;
@@ -151,6 +156,7 @@ namespace Kubika.Game
                     else if(hit.collider.gameObject.tag == "Moon")
                     {
                         planeteView = false;
+                        audioSource.Play();
                         _MOON.instance.MoveToMoon();
                         return;
                     }
@@ -161,6 +167,7 @@ namespace Kubika.Game
                         {
                             nextFace.isActive = true;
                             nextFace.ActivatePSFB();
+                            audioSource.Play();
                             foreach (_PlaneteCamera faces in raycastFaces)
                             {
                                 faces.gameObject.GetComponent<Collider>().enabled = false;
@@ -199,6 +206,7 @@ namespace Kubika.Game
                     else if (hit.collider.gameObject.tag == "Moon")
                     {
                         planeteView = false;
+                        audioSource.Play();
                         _MOON.instance.MoveToMoon();
                         return;
                     }
@@ -209,6 +217,7 @@ namespace Kubika.Game
                         {
                             nextFace.isActive = true;
                             nextFace.ActivatePSFB();
+                            audioSource.Play();
                             foreach (_PlaneteCamera faces in raycastFaces)
                             {
                                 faces.gameObject.GetComponent<Collider>().enabled = false;

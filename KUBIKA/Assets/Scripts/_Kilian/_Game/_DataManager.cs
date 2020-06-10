@@ -62,6 +62,8 @@ namespace Kubika.Game
         // GOLD
         public bool isGolded;
 
+        //AUDIO
+        [SerializeField] AudioSource audioSource;
 
         private void Awake()
         {
@@ -82,6 +84,8 @@ namespace Kubika.Game
                 platform = Platform.PC;
                 swipeMinimalDistance /= 3;
             }
+            audioSource.clip = _AudioManager.instance.Selection;
+
         }
 
         // Start is called before the first frame update
@@ -207,6 +211,7 @@ namespace Kubika.Game
                                     cubeMove.isSeletedNow = true;
                                     cubeMove.GetBasePoint();
                                     cubeMove.AddOutline();
+                                    audioSource.Play();
                                 }
                                 else
                                 {
@@ -273,6 +278,7 @@ namespace Kubika.Game
                             cubeMove.isSeletedNow = true;
                             cubeMove.GetBasePoint();
                             cubeMove.AddOutline();
+                            audioSource.Play();
                         }
                     }
                 }
