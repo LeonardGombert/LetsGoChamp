@@ -103,6 +103,8 @@ namespace Kubika.CustomLevelEditor
 
                 placedCubes.Clear();
             }
+
+            foreach (Transform child in transform) Destroy(child.gameObject);
         }
     }
 }
