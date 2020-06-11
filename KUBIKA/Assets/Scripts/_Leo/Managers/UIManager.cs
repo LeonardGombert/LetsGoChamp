@@ -49,6 +49,7 @@ namespace Kubika.Game
         #endregion
 
         #region IN GAME
+        [FoldoutGroup("In-Game")] [SerializeField] Text inGameLevelName;
         [FoldoutGroup("In-Game")] [SerializeField] Image rightRotate, leftRotate;
         [FoldoutGroup("In-Game")] [SerializeField] Image rightRotateBackground, leftRotateBackground;
         [FoldoutGroup("In-Game")] [SerializeField] Button rightRotateButton, leftRotateButton;
@@ -262,8 +263,11 @@ namespace Kubika.Game
             if (hamburgerMenuCanvas2 != null) hamburgerMenuCanvas2.enabled = true;
             if (levelPassedCanvas != null) levelPassedCanvas.enabled = false;
 
+            inGameLevelName.text = LevelsManager.instance._levelName;
+
             hiddenMenuButtons.SetActive(false);
             gameCanvas.sortingOrder = 1000;
+
 
             //Checking if the current level has ROtation enabled
             /*if (!_LoaderQueuer.instance._hasRotate) foreach (Button item in RotateButtons) item.gameObject.SetActive(false);
@@ -308,7 +312,7 @@ namespace Kubika.Game
                     break;
 
                 case "GAME_Restart":
-                    RefreshActiveScene();
+                    RefreshActiveScene(); 
                     LevelsManager.instance.RestartLevel();
                     break;
 
@@ -316,6 +320,7 @@ namespace Kubika.Game
                     break;
 
                 case "GAME_Skip":
+                    StartCoroutine(DimGame());
                     LevelsManager.instance._LoadNextLevel();
                     LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;
                     break;
@@ -452,7 +457,6 @@ namespace Kubika.Game
                     break;
             }
         }
-
         #endregion
 
         #region GAME
@@ -712,8 +716,6 @@ namespace Kubika.Game
 
         IEnumerator DimGame()
         {
-            //ResetCanvasSortOrder();
-            
             if (gameDimmed == false)
             {
                 TransitionStart();
@@ -746,8 +748,6 @@ namespace Kubika.Game
                 openBurgerMenuButton.SetActive(true);
 
                 TransitionOver();
-
-                //RefreshActiveScene();
             }
         }
 
