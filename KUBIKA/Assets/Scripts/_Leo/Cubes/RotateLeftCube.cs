@@ -56,27 +56,11 @@ namespace Kubika.Game
             base.Update();
         }
 
-        void CheckIfOthersTouched()
-        {
-            isSoloToucher = true;
 
+        void CheckIfTouched()
+        {
             pressedDown = AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
 
-            foreach (RotateLeftCube cube in otherRotators)
-            {
-                if (cube.pressedDown == true)
-                {
-                    isSoloToucher = false;
-                    break;
-                }
-                else isSoloToucher = true;
-            }
-
-            if (isSoloToucher) CheckIfTouched();
-        }
-
-            void CheckIfTouched()
-        {
             //locked == false ensures that the function doesn't loop
             if (pressedDown && locked == false)
             {
@@ -84,16 +68,34 @@ namespace Kubika.Game
                 PlaySound();
 
                 locked = true;
-                if (isSoloToucher) _KUBRotation.instance.RightTurn();
+                if (CheckIfOthersTouch() == false) _KUBRotation.instance.LeftTurn();
             }
 
             // flip the bools when the delivery cube loses track of the victory cube
             if (pressedDown == false && locked == true)
             {
                 locked = false;
-                if (isSoloToucher) _KUBRotation.instance.LeftTurn();
+                if (CheckIfOthersTouch() == false) _KUBRotation.instance.RightTurn();
             }
         }
+
+        bool CheckIfOthersTouch()
+        {
+            foreach (RotateLeftCube cube in otherRotators)
+            {
+                if (cube.IsTouching())
+                    return true;
+                else continue;
+            }
+
+            return false;
+        }
+
+        public bool IsTouching()
+        {
+            return AnyMoveableChecker(_DirectionCustom.LocalScanner(facingDirection));
+        }
+
         void SpawnButton()
         {
             switch (facingDirection)
