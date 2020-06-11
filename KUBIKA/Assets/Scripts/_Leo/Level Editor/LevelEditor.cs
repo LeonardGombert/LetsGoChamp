@@ -110,6 +110,8 @@ namespace Kubika.CustomLevelEditor
                 //single click and place
                 if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
+                    Debug.Log("isPlacing");
+
                     GetUserPlatform();
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) PlaceCube(hit);
                     hitIndex = 0;
@@ -121,6 +123,8 @@ namespace Kubika.CustomLevelEditor
                 //single click and delete
                 if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
                 {
+                    Debug.Log("isDeleting");
+
                     GetUserPlatform();
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) DeleteCube(hit);
                     hitIndex = 0;
@@ -129,12 +133,30 @@ namespace Kubika.CustomLevelEditor
 
             if (isRotating)
             {
-                // one release, set the rotation
-                if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+                if(Application.isMobilePlatform)
                 {
-                    GetUserPlatform();
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
-                    hitIndex = 0;
+                    // one release, set the rotation
+                    if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+                    {
+                        Debug.Log("isRotating");
+
+                        GetUserPlatform();
+                        if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
+                        hitIndex = 0;
+                    }
+                }
+
+                else
+                {
+                    // one release, set the rotation
+                    if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
+                    {
+                        Debug.Log("Deleting");
+
+                        GetUserPlatform();
+                        if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
+                        hitIndex = 0;
+                    }
                 }
             }
         }
