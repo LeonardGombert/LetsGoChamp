@@ -19,7 +19,7 @@ namespace Kubika.Game
             base.Start();
             _DataManager.instance.EndFalling.AddListener(CheckIfTouched);
             
-            if(UIManager.instance != null) LockRotation();
+//            if(UIManager.instance != null) LockRotation();
 
             SpawnButton();
         }
@@ -91,13 +91,11 @@ namespace Kubika.Game
         //allow the player to access the UI buttons
         private void UnlockRotation()
         {
-
             UIManager.instance.TurnOnRotate();
         }
 
         private void LockRotation()
         {
-
             UIManager.instance.TurnOffRotate();
         }
 
