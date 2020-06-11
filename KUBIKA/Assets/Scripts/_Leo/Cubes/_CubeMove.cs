@@ -245,12 +245,15 @@ namespace Kubika.Game
         public IEnumerator FallMove(Vector3 fallPosition, int nbrCub, int nbrCubeBelowParam)
         {
 
-
+            Debug.Log("yes " + grid.kuboGrid[myIndex - 1].cubeLayers);
             ChangeEmoteFace(_EmoteFallTex);
 
             grid.kuboGrid[myIndex - 1].cubeOnPosition = null;
             grid.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
             grid.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
+
+
+            Debug.Log("yes2 " + grid.kuboGrid[myIndex - 1].cubeLayers);
 
             basePos = transform.position;
             currentTime = 0;
@@ -266,7 +269,11 @@ namespace Kubika.Game
                 yield return transform.position;
             }
 
+            grid.kuboGrid[myIndex - 1].cubeOnPosition = null;
+            grid.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
+            grid.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
 
+            Debug.Log("yes2.25 " + grid.kuboGrid[myIndex - 1].cubeLayers + " " + grid.kuboGrid[indexTargetNode - 1].cubeLayers);
             myIndex = indexTargetNode;
             grid.kuboGrid[indexTargetNode - 1].cubeOnPosition = gameObject;
             //set updated index to cubeMoveable
@@ -279,7 +286,7 @@ namespace Kubika.Game
 
             ChangeEmoteFace(_EmoteIdleTex);
             isFalling = false;
-
+            Debug.Log("yes2.5 " + grid.kuboGrid[myIndex - 1].cubeLayers + " " + grid.kuboGrid[indexTargetNode - 1].cubeLayers);
         }
 
 
@@ -619,8 +626,9 @@ namespace Kubika.Game
 
                             if (grid.kuboGrid[myIndex - 1 + _DirectionCustom.up].cubeLayers == CubeLayers.cubeMoveable && MatrixLimitCalcul(myIndex, _DirectionCustom.up))
                             {
-
+                                Debug.Log("TEST1");
                                 pileNodeCubeMove = grid.kuboGrid[myIndex - 1 + _DirectionCustom.up].cubeOnPosition.GetComponent<_CubeMove>();
+                                Debug.Log("TEST 2 = " + pileNodeCubeMove);
                                 pileNodeCubeMove.CheckingPile(pileNodeCubeMove.myIndex - 1, nodeDirection);
                             }
 
