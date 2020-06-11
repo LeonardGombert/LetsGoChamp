@@ -1135,19 +1135,20 @@ namespace Kubika.Game
 
             if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null 
                 && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube
-                && grid.kuboGrid[indexToDestroy - 1].cubeType > CubeTypes.TimerCube1 
-                && grid.kuboGrid[indexToDestroy - 1].cubeType < CubeTypes.TimerCube9)
+                /*&& grid.kuboGrid[indexToDestroy - 1].cubeType > CubeTypes.TimerCube1 
+                && grid.kuboGrid[indexToDestroy - 1].cubeType < CubeTypes.TimerCube9*/)
             {
                 willPOP = true; 
                 StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut(false));
             }
 
+            /*
             if(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null 
                 && grid.kuboGrid[indexToDestroy - 1].cubeType <= CubeTypes.TimerCube1
                 && grid.kuboGrid[indexToDestroy - 1].cubeType >= CubeTypes.TimerCube9)
             {
                 grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<TimerCube>().BombDecrementMe();
-            }
+            }*/
 
             else return;
         }
