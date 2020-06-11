@@ -75,7 +75,6 @@ namespace Kubika.CustomLevelEditor
             switch (received)
             {
                 case "isPlacing":
-                    isPlacing = !isPlacing;
                     isDeleting = false;
                     isRotating = false;
                     break;
