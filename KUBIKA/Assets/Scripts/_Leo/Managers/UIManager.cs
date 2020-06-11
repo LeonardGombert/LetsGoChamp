@@ -747,7 +747,7 @@ namespace Kubika.Game
 
                 TransitionOver();
 
-                RefreshActiveScene();
+                //RefreshActiveScene();
             }
         }
 

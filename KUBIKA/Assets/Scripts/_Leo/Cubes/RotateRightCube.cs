@@ -68,6 +68,7 @@ namespace Kubika.Game
                     isSoloToucher = false;
                     break;
                 }
+                else isSoloToucher = true;
             }           
 
             if(isSoloToucher) CheckIfTouched();
@@ -82,14 +83,14 @@ namespace Kubika.Game
                 PlaySound();
 
                 locked = true;
-                _KUBRotation.instance.RightTurn();
+                if (isSoloToucher) _KUBRotation.instance.RightTurn();
             }
 
             // flip the bools when the delivery cube loses track of the victory cube
             if (pressedDown == false && locked == true)
             {
                 locked = false;
-                _KUBRotation.instance.LeftTurn();
+                if (isSoloToucher) _KUBRotation.instance.LeftTurn();
             }
         }
 
