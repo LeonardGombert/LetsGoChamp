@@ -67,8 +67,6 @@ namespace Kubika.Game
 
         private void ActivateSwitches()
         {
-
-
             foreach (SwitchCube cube in switchCubes)
             {
                 cube.isSelectable = true;
@@ -88,8 +86,6 @@ namespace Kubika.Game
 
         private void DeactivateSwitches()
         {
-
-
             foreach (SwitchCube cube in switchCubes)
             {
                 cube.SetOutlineColor(false);

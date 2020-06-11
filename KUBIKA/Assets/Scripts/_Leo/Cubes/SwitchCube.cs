@@ -48,7 +48,6 @@ namespace Kubika.Game
             {
                 _DataManager.instance.moveCube.Add(this);
                 isStatic = false;
-
                 myCubeLayer = CubeLayers.cubeMoveable;
             }
 

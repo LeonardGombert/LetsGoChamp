@@ -230,7 +230,6 @@ namespace Kubika.Game
 
         public void FallMoveFunction()
         {
-
             if (thereIsEmpty == true && isOutside == false)
             {
                 isFalling = true;
