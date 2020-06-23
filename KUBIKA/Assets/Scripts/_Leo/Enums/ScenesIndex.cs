@@ -5,8 +5,8 @@
     TITLE_SCREEN,
     WORLD_MAP,
     GAME_SCENE,
-    WIN,
     LEVEL_EDITOR,
     CUSTOM_LEVELS,
     CREDITS,
+    EXTRAS,
 }

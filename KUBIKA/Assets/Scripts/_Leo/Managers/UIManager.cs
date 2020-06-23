@@ -151,7 +151,7 @@ namespace Kubika.Game
                     _DataManager.instance.EndFalling.AddListener(UpdateText);
                     break;
 
-                case ScenesIndex.WIN:
+                case ScenesIndex.EXTRAS:
                     WinScreenSettings();
                     break;
 
