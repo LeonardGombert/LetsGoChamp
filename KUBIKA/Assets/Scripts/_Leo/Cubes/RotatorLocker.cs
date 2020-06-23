@@ -22,6 +22,7 @@ namespace Kubika.Game
 //            if(UIManager.instance != null) LockRotation();
 
             SpawnButton();
+            LockRotation();
         }
 
         public override void UndoProcedure()
@@ -78,11 +79,10 @@ namespace Kubika.Game
                     UnlockRotation();
                 }
 
-                // flip the bools when the delivery cube loses track of the victory cube
+                // flip the bools when the locker cube loses track of the detected cube
                 if (pressedDown == false && locked == true)
                 {
                     locked = false;
-                    UnlockRotation();
                     LockRotation();
                 }
             }
