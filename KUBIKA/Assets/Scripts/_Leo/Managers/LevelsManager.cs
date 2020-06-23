@@ -16,7 +16,6 @@ namespace Kubika.Game
         private static LevelsManager _instance;
         public static LevelsManager instance { get { return _instance; } }
 
-
         #region MAIN LEVELS
         [FoldoutGroup("Game Levels")] public List<LevelFile> gameMasterList = new List<LevelFile>();
         [FoldoutGroup("Game Levels")] [ShowInInspector] Queue<LevelFile> gameLevelQueue = new Queue<LevelFile>();
@@ -299,7 +298,7 @@ namespace Kubika.Game
 
         public IEnumerator MoveToNextLevel()
         {
-            ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
+            ScenesManager.instance._LoadScene(ScenesIndex.TITLE_SCREEN);
 
             while (!ScenesManager.instance.finishedLoadingScene) yield return null;
 

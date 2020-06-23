@@ -6,27 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/0_PersistentManager.unity
+    path: Assets/Scenes/00_MANAGERS.unity
     guid: 32e302b56b298c0469c1c3aded905cc5
   - enabled: 1
-    path: Assets/Scenes/1_User Interface.unity
+    path: Assets/Scenes/01_UI.unity
     guid: e1d8665411ddb8b4bac19d9c30ba73fa
   - enabled: 1
-    path: Assets/Scenes/2_World Map.unity
+    path: Assets/Scenes/02_TITLESCREEN.unity
     guid: 0e1fd3b740b03fb42860cc6edcd91106
   - enabled: 1
-    path: Assets/Scenes/3_GameScene.unity
+    path: Assets/Scenes/03_WORLDMAP.unity
+    guid: 6a517c81d0228e34bb76b9aa99d69e3d
+  - enabled: 1
+    path: Assets/Scenes/04_GAME.unity
     guid: a64f33025a6a5534d913d14bfdbeef01
   - enabled: 1
-    path: Assets/Scenes/4_Win Scene.unity
-    guid: 41aba19b555d9aa458195fd4a1a548c5
-  - enabled: 1
-    path: Assets/Scenes/5_LevelEditor.unity
+    path: Assets/Scenes/05_LEVEL EDITOR.unity
     guid: faac58df56f481d4e9d270c92db3ef44
   - enabled: 1
-    path: Assets/Scenes/6_CustomLevels.unity
+    path: Assets/Scenes/06_CUSTOM LEVELS.unity
     guid: 802a24460e6c2bc4da4ad22525ae2304
   - enabled: 1
-    path: Assets/Scenes/7_Credits.unity
+    path: Assets/Scenes/07_CREDITS.unity
     guid: a492a3b216248b24cbc6f0fc5eda38cf
+  - enabled: 1
+    path: Assets/Scenes/08_EXTRAS.unity
+    guid: 41aba19b555d9aa458195fd4a1a548c5
   m_configObjects: {}

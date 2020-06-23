@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -76,7 +76,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Level
+  m_Text: 
 --- !u!1 &6956760562932829948
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +789,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: WORLDMAP_ZoomOut
+          m_StringArgument: TITLE_SCREEN
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 5211472466263543860}
@@ -1319,7 +1319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -3, y: -90.75391}
+  m_AnchoredPosition: {x: -3, y: -372}
   m_SizeDelta: {x: 524, y: 476}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6956760564134352079
@@ -1395,7 +1395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 281}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 188, y: 103}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &6956760564367880584
@@ -1497,17 +1497,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: ButtonCallback
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: WORLDMAP_Play
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6956760564456097493

@@ -15,6 +15,7 @@ namespace Kubika.Game
 
         #region VARIABLE DECLARATIONS
         #region SCENE CANVASES
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas titleScreenCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas worldMapCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas transitionCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas hamburgerMenuCanvas;
@@ -24,6 +25,9 @@ namespace Kubika.Game
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelEditorCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas customTestCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas winCanvas;
+        #endregion
+
+        #region TITLE SCREEN
         #endregion
 
         #region WORLDMAP
@@ -132,7 +136,11 @@ namespace Kubika.Game
                 case ScenesIndex.USER_INTERFACE:
                     break;*/
 
-                case ScenesIndex.TITLE_WORLD_MAP:
+                case ScenesIndex.TITLE_SCREEN:
+                    TitleScreenPriority();
+                    break;
+
+                case ScenesIndex.WORLD_MAP:
                     WorldMapPriority();
                     break;
 
@@ -175,6 +183,7 @@ namespace Kubika.Game
 
         void ResetCanvasSortOrder()
         {
+            titleScreenCanvas.sortingOrder = 0;
             worldMapCanvas.sortingOrder = 0;
             //transitionCanvas.sortingOrder = 0;
             gameCanvas.sortingOrder = 0;
@@ -186,6 +195,7 @@ namespace Kubika.Game
 
         void TurnOffAllCanvases()
         {
+            titleScreenCanvas.enabled = false;
             worldMapCanvas.enabled = false;
             //transitionCanvas.enabled = false;
             gameCanvas.enabled = false;
@@ -200,6 +210,13 @@ namespace Kubika.Game
             openBurgerMenuButton.SetActive(false);
             levelEditorOptionsWindow.SetActive(false);
             levelEditorSaveWindow.SetActive(false);
+        }
+
+        public void TitleScreenPriority()
+        {
+            ResetCanvasSortOrder();
+            if (titleScreenCanvas != null) titleScreenCanvas.enabled = true;
+            titleScreenCanvas.sortingOrder = 1000;
         }
 
         public void WorldMapPriority()
@@ -319,12 +336,6 @@ namespace Kubika.Game
                 case "GAME_Undo":
                     break;
 
-                case "GAME_Skip":
-                    StartCoroutine(DimGame());
-                    LevelsManager.instance._LoadNextLevel();
-                    LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;
-                    break;
-
                 case "GAME_BurgerMenu":
                     StartCoroutine(DimGame());
                     break;
@@ -369,6 +380,12 @@ namespace Kubika.Game
                 case "BURGER_Music":
                     musicIsOn = !musicIsOn;
                     SwitchButtonSprite();
+                    break;
+
+                case "BURGER_Skip":
+                    StartCoroutine(DimGame());
+                    LevelsManager.instance._LoadNextLevel();
+                    LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;
                     break;
 
                 case "BURGER_Close":
@@ -445,11 +462,15 @@ namespace Kubika.Game
 
                 #region //GENERAL
                 case "MAIN_MENU":
-                    ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
+                    ScenesManager.instance._LoadScene(ScenesIndex.TITLE_SCREEN);
                     break;
 
-                case "TITLE_WORLDMAP":
-                    ScenesManager.instance._LoadScene(ScenesIndex.TITLE_WORLD_MAP);
+                case "TITLE_SCREEN":
+                    ScenesManager.instance._LoadScene(ScenesIndex.TITLE_SCREEN);
+                    break;
+
+                case "WORLD_MAP":
+                    ScenesManager.instance._LoadScene(ScenesIndex.WORLD_MAP);
                     break;
                 #endregion
 
@@ -550,8 +571,7 @@ namespace Kubika.Game
         {
             levelPassedCanvas.enabled = false;
 
-            StartCoroutine(LevelsManager.instance.MoveToNextLevel());
-
+            LevelsManager.instance._LoadNextLevel();
             LevelsManager.instance.loadToKubicode = LevelsManager.instance._Kubicode;
         }
         #endregion
