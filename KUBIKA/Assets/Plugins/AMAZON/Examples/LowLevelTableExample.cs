@@ -20,14 +20,24 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 using System.Collections.Generic;
 using System;
+using Amazon;
+using Amazon.CognitoIdentity;
+using Amazon.DynamoDBv2.DataModel;
+using Amazon.Runtime;
 
 namespace AWSSDK.Examples
 {
     public class LowLevelTableExample : DynamoDbBaseExample
     {
+        public string identityPoolId;
+        AmazonDynamoDBClient client;
+        DynamoDBContext context;
+        private AWSCredentials credentials;
+        public int bookID;
 
         public Button backButton;
         public Button createTableButton;
+        public Button createObjectButton;
         public Button listTableButton;
         public Button updateTableButton;
         public Button describeTableButton;
@@ -37,12 +47,41 @@ namespace AWSSDK.Examples
         // Use this for initialization
         void Start()
         {
+            UnityInitializer.AttachToGameObject(this.gameObject);
+            AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
+            InitValues();
+
             backButton.onClick.AddListener(BackListener);
             createTableButton.onClick.AddListener(CreateTableListener);
             listTableButton.onClick.AddListener(ListTableListener);
             updateTableButton.onClick.AddListener(UpdateTableListener);
             describeTableButton.onClick.AddListener(DescribeTableListener);
             deleteTableButton.onClick.AddListener(DeleteTableListener);
+            createObjectButton.onClick.AddListener(PerformCreateOperation);
+        }
+
+        void InitValues()
+        {
+            credentials = new CognitoAWSCredentials(identityPoolId, RegionEndpoint.EUCentral1);
+            client = new AmazonDynamoDBClient(credentials, RegionEndpoint.EUCentral1);
+            context = new DynamoDBContext(client);
+        }
+
+
+        private void PerformCreateOperation()
+        {
+            Book myBook = new Book
+            {
+                Id = ++bookID,
+                Title = "object persistence-AWS SDK for.NET SDK-Book 1001",
+                ISBN = "111-1111111001",
+                BookAuthors = new List<string> { "Author 1", "Author 2" },
+            };
+            // Save the book.
+            context.SaveAsync(myBook, (result) => {
+                if (result.Exception == null)
+                    resultText.text += @"book saved";
+            });
         }
 
         void CreateTableListener()
@@ -136,6 +175,7 @@ namespace AWSSDK.Examples
                 resultText.text += ("Allow a few seconds for changes to reflect...");
             });
 
+
             var threadTableRequest = new CreateTableRequest
             {
                 AttributeDefinitions = new List<AttributeDefinition>()
@@ -188,6 +228,7 @@ namespace AWSSDK.Examples
                 resultText.text += (result.Request.TableName + "-" + tableDescription.TableStatus + "\n");
                 resultText.text += ("Allow a few seconds for changes to reflect...");
             });
+
 
             var replyTableRequest = new CreateTableRequest
             {

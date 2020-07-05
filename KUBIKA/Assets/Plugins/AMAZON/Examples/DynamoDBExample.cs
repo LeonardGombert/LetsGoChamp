@@ -24,7 +24,6 @@ namespace AWSSDK.Examples
 {
     public class DynamoDBExample : MonoBehaviour
     {
-
         public Button lowLevelButton;
         public Button midLevelScanButton;
         public Button highLevelobjectMapperButton;

@@ -147,11 +147,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 466665092}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0734d088148498479976d55d5473906, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c782538540e4464aa201ce56e5f8000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identityPoolID: eu-central-1:05b3f8f2-0056-45f1-b1a8-73c6ddce974b
-  bookID: 1
+  identityPoolId: eu-central-1:05b3f8f2-0056-45f1-b1a8-73c6ddce974b
   resultText: {fileID: 1849433158}
 --- !u!4 &466665094
 Transform:

@@ -332,8 +332,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IdentityPoolId: eu-central-1:05b3f8f2-0056-45f1-b1a8-73c6ddce974b
-  CognitoPoolRegion: eu_central-1
-  DynamoRegion: eu_central-1
+  CognitoPoolRegion: eu-central-1
+  DynamoRegion: eu-central-1
   back: {fileID: 2049227834}
   loadTable: {fileID: 1135822103}
   findRepliesInLast15DaysWithConfig: {fileID: 870929412}

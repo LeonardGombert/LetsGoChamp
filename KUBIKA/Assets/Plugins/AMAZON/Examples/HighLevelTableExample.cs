@@ -19,7 +19,7 @@ using Amazon.DynamoDBv2.DataModel;
 using System.Collections.Generic;
 using Amazon.DynamoDBv2;
 using UnityEngine.UI;
-
+using Amazon;
 
 namespace AWSSDK.Examples
 {
@@ -49,6 +49,9 @@ namespace AWSSDK.Examples
         
         void Awake()
         {
+            UnityInitializer.AttachToGameObject(this.gameObject);
+            AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
+
             back.onClick.AddListener(BackListener);
             createOperation.onClick.AddListener(PerformCreateOperation);
             updateOperation.onClick.AddListener(PerformUpdateOperation);

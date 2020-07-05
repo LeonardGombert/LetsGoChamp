@@ -3,8 +3,7 @@
 <aws
     region="eu-central-1"
     correctForClockSkew="true">
-
-  //this prints all outputs to the debug.log console
+  
   <logging
       logTo="UnityLogger"
       logResponses="Always"
