@@ -26,8 +26,8 @@ namespace AWSSDK.Examples
     public class DynamoDbBaseExample : MonoBehaviour
     {
         public string IdentityPoolId = "";
-        public string CognitoPoolRegion = RegionEndpoint.USEast1.SystemName;
-        public string DynamoRegion = RegionEndpoint.USEast1.SystemName;
+        public string CognitoPoolRegion = RegionEndpoint.EUCentral1.SystemName;
+        public string DynamoRegion = RegionEndpoint.EUCentral1.SystemName;
 
         private RegionEndpoint _CognitoPoolRegion
         {

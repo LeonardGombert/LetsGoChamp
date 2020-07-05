@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 
 <aws
-    region="eu-west-3"
+    region="eu-central-1"
     correctForClockSkew="true">
 
   //this prints all outputs to the debug.log console
