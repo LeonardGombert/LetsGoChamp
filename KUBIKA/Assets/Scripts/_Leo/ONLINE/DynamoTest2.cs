@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
+using Amazon.DynamoDBv2.Model;
 
 public class DynamoTest2 : MonoBehaviour
 {
@@ -41,6 +42,8 @@ public class DynamoTest2 : MonoBehaviour
             {
                 _ddbClient = new AmazonDynamoDBClient(credentials, _DynamoRegion);
             }
+            _ddbClient.Config.Validate();
+            _ddbClient.DescribeTableAsync("Bookshelf", new CreateTableRequest());
 
             return _ddbClient;
         }
