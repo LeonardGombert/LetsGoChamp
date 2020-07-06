@@ -1,17 +1,16 @@
-﻿using Amazon;
+﻿using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DocumentModel;
+using Amazon;
 using Amazon.CognitoIdentity;
-using Amazon.DynamoDBv2;
-using Amazon.DynamoDBv2.DataModel;
 using Amazon.Runtime;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Collections.Generic;
 
-public class DynamoDBTest : MonoBehaviour
+public class DynamoTest2 : MonoBehaviour
 {
     public string identityPoolId;
-    DynamoDBContext context;
 
     public string CognitoPoolRegion = RegionEndpoint.EUCentral1.SystemName;
     public string DynamoRegion = RegionEndpoint.EUCentral1.SystemName;
@@ -23,6 +22,8 @@ public class DynamoDBTest : MonoBehaviour
 
     private static AmazonDynamoDBClient _ddbClient;
 
+    public Text resultText;
+    public TextAsset textAsset;
     private AWSCredentials credentials
     {
         get
@@ -32,8 +33,7 @@ public class DynamoDBTest : MonoBehaviour
             return _credentials;
         }
     }
-
-    protected AmazonDynamoDBClient client
+    protected IAmazonDynamoDB client
     {
         get
         {
@@ -46,46 +46,21 @@ public class DynamoDBTest : MonoBehaviour
         }
     }
 
-    public Text resultText;
-    public int bookID;
-
     // Start is called before the first frame update
     void Start()
     {
         UnityInitializer.AttachToGameObject(this.gameObject);
         AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
+        Run();
     }
 
-    [DynamoDBTable("ProductCatalog")]
-    public class Book
+    private void Run()
     {
-        [DynamoDBHashKey] // Hash key.
-        public int Id { get; set; }
-        [DynamoDBProperty]
-        public string Title { get; set; }
-        [DynamoDBProperty]
-        public string ISBN { get; set; }
-        [DynamoDBProperty("Authors")] // Multi-valued (set type) attribute.
-        public List<string> BookAuthors { get; set; }
-    }
+        Table table = Table.LoadTable(client, new TableConfig("Bookshelf"));
 
-    private void PerformCreateOperation()
-    {
-        Book myBook = new Book
-        {
-            Id = ++bookID,
-            Title = "object persistence-AWS SDK for.NET SDK-Book 1001",
-            ISBN = "111-1111111001",
-            BookAuthors = new List<string> { "Author 1", "Author 2" },
-        };
+        string jsonText = textAsset.ToString();
+        Document item = Document.FromJson(jsonText);
 
-        // Save the book.
-        context.SaveAsync(myBook, (result) => { if (result.Exception == null) resultText.text += @"book saved"; });
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)) PerformCreateOperation();
+        table.PutItemAsync(item, (result) => { if (result.Exception == null) resultText.text += @"book saved"; });
     }
 }

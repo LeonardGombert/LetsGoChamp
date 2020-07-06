@@ -67,7 +67,6 @@ namespace AWSSDK.Examples
             context = new DynamoDBContext(client);
         }
 
-
         private void PerformCreateOperation()
         {
             Book myBook = new Book

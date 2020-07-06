@@ -22,7 +22,6 @@ using Amazon;
 
 namespace AWSSDK.Examples
 {
-
     public class DynamoDbBaseExample : MonoBehaviour
     {
         public string IdentityPoolId = "";
