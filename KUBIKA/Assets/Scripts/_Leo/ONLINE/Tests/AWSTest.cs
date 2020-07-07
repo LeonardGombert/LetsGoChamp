@@ -21,7 +21,9 @@ public class AWSTest : MonoBehaviour
     IDynamoDBContext _context;
     DynamoDBOperationConfig _operationConfig;
 
-    public TextAsset myLevelBruther;
+    public string kubiCode;
+    public string levelName;
+    public TextAsset levelFile;
 
     // Start is called before the first frame update
     void Start()
@@ -70,9 +72,11 @@ public class AWSTest : MonoBehaviour
             Item = attributes
         };
 
-        attributes["kubikaID"] = new AttributeValue { N = "999" };
+        attributes["kubikaID"] = new AttributeValue { N = kubiCode };
+        attributes["levelName"] = new AttributeValue { S = levelName };
+        attributes["levelFile"] = new AttributeValue { S = levelFile.ToString()};
 
-        client.PutItemAsync("KUBIKA_Testing", attributes, (result) => {...}, null);
+        client.PutItemAsync("KUBIKA_Testing", attributes, (result) =>
         {
             if (result.Exception != null)
             {

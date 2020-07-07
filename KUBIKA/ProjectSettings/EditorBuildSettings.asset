@@ -32,16 +32,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/08_EXTRAS.unity
     guid: 41aba19b555d9aa458195fd4a1a548c5
-  - enabled: 1
-    path: Assets/Plugins/AMAZON/Examples/DynamoDBExample.unity
-    guid: a51f15e277c4168438967d34dbb1d4c5
-  - enabled: 1
-    path: Assets/Plugins/AMAZON/Examples/LowLevelDynamoDBExample.unity
-    guid: fadbaf1baf65eac42bb09174a854442d
-  - enabled: 1
-    path: Assets/Plugins/AMAZON/Examples/TableQueryAndScanExample.unity
-    guid: 9916fbc8cb11c694db70b3333d3de1f8
-  - enabled: 1
-    path: Assets/Plugins/AMAZON/Examples/HighLevelExample.unity
-    guid: 6f282018a87c13b41a088511b9f2c715
   m_configObjects: {}
