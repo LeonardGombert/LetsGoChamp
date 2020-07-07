@@ -4,6 +4,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.DataModel;
 using Amazon.DynamoDBv2.DocumentModel;
 using Amazon.DynamoDBv2.Model;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,7 +30,7 @@ public class AWSTest : MonoBehaviour
         AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
 
         GetUserCredentials();
-        DescribeTable(); 
+        //DescribeTable();
         SaveLevel();
     }
 
@@ -53,12 +54,55 @@ public class AWSTest : MonoBehaviour
 
     public void SaveLevel()
     {
-        _operationConfig = new DynamoDBOperationConfig
+        // Define item attributes
+        Dictionary<string, AttributeValue> attributes = new Dictionary<string, AttributeValue>();
+        /*
+        // Author is hash-key
+        attributes["kubikaID"] = new AttributeValue { N = "1"};
+        // Title is range-key
+        attributes["Title"] = new AttributeValue { S = "The Adventures of Tom Sawyer" };
+        // Other attributes
+        attributes["Year"] = new AttributeValue { N = "1876" };
+        attributes["Setting"] = new AttributeValue { S = "Missouri" };
+        attributes["Pages"] = new AttributeValue { N = "275" };
+        attributes["Genres"] = new AttributeValue
         {
-            OverrideTableName = "KUBIKA_Testing"
+            SS = new List<string> { "Satire", "Folk", "Children's Novel" }
+        };*/
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        var request = new PutItemRequest
+        {
+            TableName = @"KUBIKA_Testing",
+            Item = attributes
         };
 
-        context.SaveAsync(Document.FromJson(myLevelBruther.ToString()), _operationConfig, null);
+        var _operationConfig = new DynamoDBOperationConfig
+        {
+            OverrideTableName = @"KUBIKA_Testing"
+        };
+
+        //string item = Document.FromJson(myLevelBruther.ToString());
+        attributes["kubikaID"] = new AttributeValue { N = "01" };
+        //attributes["levelName"] = new AttributeValue { S = myLevelBruther.ToString() };
+
+        client.PutItemAsync("KUBIKA_Testing", attributes, (result) =>
+        {
+            if (result.Exception != null)
+            {
+                resultText.text += result.Exception.Message;
+                Debug.Log(result.Exception);
+                return;
+            }
+
+            var response = result.Response;
+            PutItemResponse description = new PutItemResponse();
+            var metaData = response.ResponseMetadata.Metadata.ToString();
+            resultText.text += ("Name: " + metaData + "\n");
+        }, null);
+        //context.SaveAsync(request, _operationConfig, null);
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     private void DescribeTable()
