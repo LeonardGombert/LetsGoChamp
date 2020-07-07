@@ -43,19 +43,11 @@ public class AWSTest : MonoBehaviour
         Debug.Log("My Received credentials are : " + credentials.AccountId);
     }
 
-    private void CreateAnObject()
-    {
-        context.SaveAsync<TextAsset>(myLevelBruther, (result) =>
-        {
-            if (result.Exception == null)
-                resultText.text += @"book saved";
-        });
-    }
-
     public void SaveLevel()
     {
         // Define item attributes
         Dictionary<string, AttributeValue> attributes = new Dictionary<string, AttributeValue>();
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
         /*
         // Author is hash-key
         attributes["kubikaID"] = new AttributeValue { N = "1"};
@@ -71,22 +63,16 @@ public class AWSTest : MonoBehaviour
         };*/
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
         var request = new PutItemRequest
         {
             TableName = @"KUBIKA_Testing",
             Item = attributes
         };
 
-        var _operationConfig = new DynamoDBOperationConfig
-        {
-            OverrideTableName = @"KUBIKA_Testing"
-        };
+        attributes["kubikaID"] = new AttributeValue { N = "999" };
 
-        //string item = Document.FromJson(myLevelBruther.ToString());
-        attributes["kubikaID"] = new AttributeValue { N = "01" };
-        //attributes["levelName"] = new AttributeValue { S = myLevelBruther.ToString() };
-
-        client.PutItemAsync("KUBIKA_Testing", attributes, (result) =>
+        client.PutItemAsync("KUBIKA_Testing", attributes, (result) => {...}, null);
         {
             if (result.Exception != null)
             {
@@ -95,14 +81,11 @@ public class AWSTest : MonoBehaviour
                 return;
             }
 
-            var response = result.Response;
-            PutItemResponse description = new PutItemResponse();
-            var metaData = response.ResponseMetadata.Metadata.ToString();
-            resultText.text += ("Name: " + metaData + "\n");
-        }, null);
-        //context.SaveAsync(request, _operationConfig, null);
+            PutItemResponse description = result.Response;
+            var metaData = description.Attributes.ToString();
+            resultText.text += ("kubikaID: " + metaData + "\n");
 
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        }, null);
     }
 
     private void DescribeTable()
