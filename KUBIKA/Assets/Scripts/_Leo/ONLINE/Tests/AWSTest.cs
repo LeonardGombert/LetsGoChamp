@@ -23,6 +23,10 @@ public class AWSTest : MonoBehaviour
     public string levelName;
     public TextAsset levelFile;
 
+    public string receivedId;
+    public string receivedName;
+    public string receivedFile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -117,9 +121,12 @@ public class AWSTest : MonoBehaviour
             }
 
             //var is of type KeyValuePair
-            foreach (var bruh in result.Response.Item)
+            foreach (var keyValuePair in result.Response.Item)
             {
-                Debug.Log(bruh.Key + " " + bruh.Value.S + " " + bruh.Value.S);
+                //if what you're reaading it the levelFile
+                if(keyValuePair.Key == "kubikaID") receivedId = "Worl" + keyValuePair.Value.N;
+                if(keyValuePair.Key == "levelName") receivedName = keyValuePair.Value.S;
+                if(keyValuePair.Key == "levelFile") receivedFile = keyValuePair.Value.S;
             }
 
         }, null);
