@@ -108,6 +108,7 @@ public class AWSTest : MonoBehaviour
 
         client.GetItemAsync(request, (result) =>
         {
+            // use this to get error and warning debugs
             if (result.Exception != null)
             {
                 resultText.text += result.Exception.Message;
@@ -115,8 +116,11 @@ public class AWSTest : MonoBehaviour
                 return;
             }
 
-            var callback = result.Response.Item;
-            Debug.Log(callback.Keys + " " + callback.Values);
+            //var is of type KeyValuePair
+            foreach (var bruh in result.Response.Item)
+            {
+                Debug.Log(bruh.Key + " " + bruh.Value.S + " " + bruh.Value.S);
+            }
 
         }, null);
     }
