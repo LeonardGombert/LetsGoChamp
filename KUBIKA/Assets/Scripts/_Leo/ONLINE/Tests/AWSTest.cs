@@ -18,8 +18,6 @@ public class AWSTest : MonoBehaviour
     CognitoAWSCredentials credentials;
     IAmazonDynamoDB client;
     DynamoDBContext context;
-    IDynamoDBContext _context;
-    DynamoDBOperationConfig _operationConfig;
 
     public string kubiCode;
     public string levelName;
@@ -34,6 +32,7 @@ public class AWSTest : MonoBehaviour
         GetUserCredentials();
         //DescribeTable();
         SaveLevel();
+        DownloadLevel();
     }
 
     private void GetUserCredentials()
@@ -47,36 +46,18 @@ public class AWSTest : MonoBehaviour
 
     public void SaveLevel()
     {
-        // Define item attributes
-        Dictionary<string, AttributeValue> attributes = new Dictionary<string, AttributeValue>();
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        /*
-        // Author is hash-key
-        attributes["kubikaID"] = new AttributeValue { N = "1"};
-        // Title is range-key
-        attributes["Title"] = new AttributeValue { S = "The Adventures of Tom Sawyer" };
-        // Other attributes
-        attributes["Year"] = new AttributeValue { N = "1876" };
-        attributes["Setting"] = new AttributeValue { S = "Missouri" };
-        attributes["Pages"] = new AttributeValue { N = "275" };
-        attributes["Genres"] = new AttributeValue
-        {
-            SS = new List<string> { "Satire", "Folk", "Children's Novel" }
-        };*/
-
-        //////////////////////////////////////////////////////////////////////////////////////////////////////////
-        ///
         var request = new PutItemRequest
         {
-            TableName = @"KUBIKA_Testing",
-            Item = attributes
+            TableName = "KUBIKA_Testing",
+            Item = new Dictionary<string, AttributeValue>()
+            {
+                { "kubikaID", new AttributeValue { N = kubiCode } },
+                { "levelName", new AttributeValue { S = levelName } },
+                { "levelFile", new AttributeValue { S = levelFile.ToString() } }
+            }
         };
 
-        attributes["kubikaID"] = new AttributeValue { N = kubiCode };
-        attributes["levelName"] = new AttributeValue { S = levelName };
-        attributes["levelFile"] = new AttributeValue { S = levelFile.ToString()};
-
-        client.PutItemAsync("KUBIKA_Testing", attributes, (result) =>
+        client.PutItemAsync(request, (result) =>
         {
             if (result.Exception != null)
             {
@@ -88,6 +69,54 @@ public class AWSTest : MonoBehaviour
             PutItemResponse description = result.Response;
             var metaData = description.Attributes.ToString();
             resultText.text += ("kubikaID: " + metaData + "\n");
+
+        }, null);
+
+        #region test shiz
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Define item attributes
+        /* Dictionary<string, AttributeValue> attributes = new Dictionary<string, AttributeValue>();
+
+         // Author is hash-key
+         attributes["kubikaID"] = new AttributeValue { N = "1"};
+         // Title is range-key
+         attributes["Title"] = new AttributeValue { S = "The Adventures of Tom Sawyer" };
+         // Other attributes
+         attributes["Year"] = new AttributeValue { N = "1876" };
+         attributes["Setting"] = new AttributeValue { S = "Missouri" };
+         attributes["Pages"] = new AttributeValue { N = "275" };
+         attributes["Genres"] = new AttributeValue
+         {
+             SS = new List<string> { "Satire", "Folk", "Children's Novel" }
+         };*/
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////
+        #endregion
+    }
+
+    private void DownloadLevel()
+    {
+        Dictionary<string, AttributeValue> targetKeys = new Dictionary<string, AttributeValue>();
+
+        var request = new GetItemRequest
+        {
+            TableName = "KUBIKA_Testing",
+            Key = new Dictionary<string, AttributeValue>() 
+            { 
+                { "kubikaID", new AttributeValue { N = kubiCode } } 
+            },
+        };
+
+        client.GetItemAsync(request, (result) =>
+        {
+            if (result.Exception != null)
+            {
+                resultText.text += result.Exception.Message;
+                Debug.Log(result.Exception);
+                return;
+            }
+
+            var callback = result.Response.Item;
+            Debug.Log(callback.Keys + " " + callback.Values);
 
         }, null);
     }
