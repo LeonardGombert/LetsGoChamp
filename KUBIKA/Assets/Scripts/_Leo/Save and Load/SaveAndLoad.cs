@@ -3,6 +3,7 @@ using Kubika.CustomLevelEditor;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System;
 
 namespace Kubika.Saving
 {
@@ -10,7 +11,7 @@ namespace Kubika.Saving
     {
         private static SaveAndLoad _instance;
         public static SaveAndLoad instance { get { return _instance; } }
-                
+
         List<Node> activeNodes = new List<Node>(); //a list of the nodes in grid node that have cubes on them
         public List<Decor> activeDecor = new List<Decor>(); //list filed when an object is placed
 
@@ -59,6 +60,7 @@ namespace Kubika.Saving
             return playerProgress;
         }
 
+        #region // DEVELOPER LEVELS
         public void DevSavingLevel(string levelName, string kubiCode, Biomes biome, bool rotateLock, int minimumMoves = 0, bool testLevel = false)
         {
             for (int i = 0; i < _Grid.instance.kuboGrid.Length; i++)
@@ -90,8 +92,6 @@ namespace Kubika.Saving
             {
                 levelData.decorToSave.Add(decor);
             }
-
-
 
             string json = JsonUtility.ToJson(levelData);
             string folder;
@@ -192,7 +192,9 @@ namespace Kubika.Saving
             levelData.nodesToSave.Clear();
             activeNodes.Clear();
         }
+        #endregion
 
+        #region // USER LEVELS
         public void UserSavingLevel(string levelName)
         {
             for (int i = 0; i < _Grid.instance.kuboGrid.Length; i++)
@@ -230,8 +232,6 @@ namespace Kubika.Saving
 
             levelData.nodesToSave.Clear();
             activeNodes.Clear();
-
-
         }
 
         public void UserSavingCurrentLevel()
@@ -245,16 +245,12 @@ namespace Kubika.Saving
 
         public void UserLoadLevel(string levelName)
         {
-
-
             string folder = Application.persistentDataPath + "/UserLevels";
             string levelFile = levelName + ".json";
             string path = Path.Combine(folder, levelFile);
 
             if (File.Exists(path))
             {
-
-
                 string json = File.ReadAllText(path);
                 levelData = JsonUtility.FromJson<LevelEditorData>(json);
 
@@ -274,7 +270,30 @@ namespace Kubika.Saving
             UserLevelFiles.DeleteUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();
         }
-        
+
+        #endregion
+
+        #region // USER GENERATED CONTENT
+        public void UserDownloadingLevel(string levelName, string levelFile)
+        {
+            string json = JsonUtility.ToJson(levelFile);
+            string fileName = levelName + ".json";
+
+            string folder = Application.persistentDataPath + "/CommunityLevels";
+
+            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
+
+            string path = Path.Combine(folder, fileName);
+
+            if (File.Exists(path)) File.Delete(path);
+
+            File.WriteAllText(path, json);
+            
+            /*UserLevelFiles.AddNewUserLevel(levelName);
+            LevelsManager.instance.RefreshUserLevels();*/
+        }
+        #endregion
+
         //saves player progress at the end of each level and loads next level
         public PlayerProgress SaveAndLoadPlayerProgress(string currentLevelKubicode = "", string nextLevelKubiCode = "", bool isGolden = false)
         {
@@ -290,10 +309,10 @@ namespace Kubika.Saving
                 PlayerProgress loadedPlayerProgress = JsonUtility.FromJson<PlayerProgress>(json);
 
                 //checks if you're saving or loading the level
-                if(currentLevelKubicode != "" && nextLevelKubiCode != "" && isGolden != false)
+                if (currentLevelKubicode != "" && nextLevelKubiCode != "" && isGolden != false)
                 {
                     loadedPlayerProgress.nextLevelKubicode = nextLevelKubiCode;
-                    if(!loadedPlayerProgress.beatenLevels.Contains(currentLevelKubicode)) loadedPlayerProgress.beatenLevels.Add(currentLevelKubicode);
+                    if (!loadedPlayerProgress.beatenLevels.Contains(currentLevelKubicode)) loadedPlayerProgress.beatenLevels.Add(currentLevelKubicode);
                     if (isGolden && !loadedPlayerProgress.goldenLevels.Contains(currentLevelKubicode)) loadedPlayerProgress.goldenLevels.Add(currentLevelKubicode);
                 }
 
@@ -322,8 +341,6 @@ namespace Kubika.Saving
 
         public void ExtractAndRebuildLevel(LevelEditorData recoveredData)
         {
-
-
             finishedBuilding = false;
 
             // start by resetting the grid's nodes to their base states
@@ -344,7 +361,7 @@ namespace Kubika.Saving
                 _Grid.instance.placedCubes.Add(newCube);
 
                 // get the kuboGrid and set the information on each of the nodes
-                SetNodeInfo(newCube, recoveredNode.nodeIndex, recoveredNode.worldPosition, recoveredNode.worldRotation, 
+                SetNodeInfo(newCube, recoveredNode.nodeIndex, recoveredNode.worldPosition, recoveredNode.worldRotation,
                     recoveredNode.facingDirection, recoveredNode.cubeLayers, recoveredNode.cubeType);
 
                 // check the node's cube type and setup the relevant cube and its transform + individual information
