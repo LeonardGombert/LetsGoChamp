@@ -53,7 +53,6 @@ namespace Kubika.Saving
             return levelData;
         }
 
-
         private PlayerProgress CreatePlayerProgressData()
         {
             playerProgress = new PlayerProgress();
@@ -168,7 +167,6 @@ namespace Kubika.Saving
 
         public void DevLoadLevel(string levelName, Biomes biome)
         {
-
             string folder = Application.dataPath + "/Resources/MainLevels";
             string levelFile = levelName + ".json";
             string levelFolder = GetLevelFolder(biome);

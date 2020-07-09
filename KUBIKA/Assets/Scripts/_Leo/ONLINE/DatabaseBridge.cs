@@ -5,14 +5,21 @@ using Kubika.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http.Headers;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Kubika.Online
 {
+    // functions are called from inside the COmmunity Levels scene
     public class DatabaseBridge : MonoBehaviour
     {
         IAmazonDynamoDB client;
+
+        public Dropdown uploadLevelDropdown;
+        public Dropdown downloadLevel;
 
         // Start is called before the first frame update
         void Start()
@@ -20,11 +27,50 @@ namespace Kubika.Online
             //requiered to communicate with DynamoDB database
             UnityInitializer.AttachToGameObject(gameObject);
 
+            //create a new client to make function calls
             client = ClientFactory.ConfirmUserIdentity();
         }
 
-        void UploadLevel(int kubiCode, string levelName, TextAsset levelFile)
+        // load one of the levels from the Biome 1 folder
+        TextAsset GetLevelFromUserFolder(string targetLevel)
         {
+            string folder = Application.dataPath + "/Resources/MainLevels/01_Plains";
+            string fileName = targetLevel + ".json";
+
+            string path = Path.Combine(folder, fileName);
+
+            if (File.Exists(path))
+            {
+                TextAsset target = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
+                Debug.Log("Foud a level, returning to upload routine");
+                return target;
+            }
+
+            else
+            {
+                Debug.Log("Couldn't find that leve");
+                return null;
+            }
+        }
+
+        // when the player wants to upload his level directly from the editor
+        public void UploadLevelFromEditor()
+        {
+
+        }
+
+        // when the player is uploading a level from the levelsList on the community page
+        // called by Upload Button onClick Event
+        public void UploadLevelFromList()
+        {
+            // translate the name of the level in the dropdown list to a levelFile
+            TextAsset levelFile = GetLevelFromUserFolder(uploadLevelDropdown.captionText.text);
+
+            LevelEditorData level = JsonUtility.FromJson<LevelEditorData>(levelFile.ToString());
+
+            string kubiCode = level.Kubicode;
+            string levelName = level.levelName;
+
             // create a new upload request, input the relevant information
             var putItemRequest = new PutItemRequest
             {
@@ -41,7 +87,7 @@ namespace Kubika.Online
             client.PutItemAsync(putItemRequest, (result) =>
             {
                 // if something goes wrong, debug the log message from AWS
-                if(result.Exception != null)
+                if (result.Exception != null)
                 {
                     Debug.Log(result.Exception.Message);
                     return;
@@ -63,7 +109,8 @@ namespace Kubika.Online
 
         }
 
-        void DownloadLevel(string kubiCode)
+        // called by Download Button onCLick Event
+        public void DownloadLevel(string kubiCode)
         {
             var getItemRequest = new GetItemRequest
             {
@@ -74,9 +121,9 @@ namespace Kubika.Online
                 }
             };
 
-            client.GetItemAsync(getItemRequest, (result)=>
+            client.GetItemAsync(getItemRequest, (result) =>
             {
-                if(result.Exception != null)
+                if (result.Exception != null)
                 {
                     Debug.Log(result.Exception.Message);
                     return;
@@ -93,15 +140,11 @@ namespace Kubika.Online
                         if (keyValuePair.Key == DynamoDBTableInfo.table_Json) jsonFile = keyValuePair.Value.S;
                     }
 
+                    // call the save and load instance to convert the received information into a useable JSON file
                     SaveAndLoad.instance.UserDownloadingLevel(levelName, jsonFile);
                 }
 
             }, null);
-        }
-
-        private void ExportToJsonFile()
-        {
-            throw new NotImplementedException();
         }
     }
 }

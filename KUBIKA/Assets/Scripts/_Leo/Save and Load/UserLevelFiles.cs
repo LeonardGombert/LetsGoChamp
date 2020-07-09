@@ -73,12 +73,8 @@ namespace Kubika.Saving
             string pathToInfoFile = Path.Combine(folder, levelsInfo) + ".json";
             string pathToLevelFile = Path.Combine(folder, levelName) + ".json";
 
-
-
             if (File.Exists(pathToInfoFile))
             {
-
-
                 string json = File.ReadAllText(pathToInfoFile);
                 UserLevels userInfoFile = JsonUtility.FromJson<UserLevels>(json);
 

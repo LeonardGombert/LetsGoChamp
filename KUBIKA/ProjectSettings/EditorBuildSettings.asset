@@ -27,9 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/06_CUSTOM LEVELS.unity
     guid: 802a24460e6c2bc4da4ad22525ae2304
   - enabled: 1
-    path: Assets/Scenes/07_CREDITS.unity
+    path: Assets/Scenes/07_COMMUNITY LEVELS.unity
     guid: a492a3b216248b24cbc6f0fc5eda38cf
   - enabled: 1
-    path: Assets/Scenes/08_EXTRAS.unity
+    path: Assets/Scenes/08_CREDITS.unity
     guid: 41aba19b555d9aa458195fd4a1a548c5
+  - enabled: 1
+    path: Assets/Scenes/09_EXTRAS.unity
+    guid: 95a40392c39b27d45896a2dd4f995cf6
   m_configObjects: {}
