@@ -19,7 +19,12 @@ namespace Kubika.Online
         IAmazonDynamoDB client;
 
         public Dropdown uploadLevelDropdown;
-        public Dropdown downloadLevel;
+        public Dropdown downloadLevelDropdown;
+
+        public List<string> uploadDropdownOptions = new List<string>();
+        List<string> downloadDropdownOptions = new List<string>();
+
+        public List<UnityEngine.Object> assets = new List<UnityEngine.Object>();
 
         // Start is called before the first frame update
         void Start()
@@ -29,28 +34,21 @@ namespace Kubika.Online
 
             //create a new client to make function calls
             client = ClientFactory.ConfirmUserIdentity();
+
+            PopulateDropdownList();
         }
 
-        // load one of the levels from the Biome 1 folder
-        TextAsset GetLevelFromUserFolder(string targetLevel)
+        // call this when dropdown buttons are on screen to populate them
+        private void PopulateDropdownList()
         {
-            string folder = Application.dataPath + "/Resources/MainLevels/01_Plains";
-            string fileName = targetLevel + ".json";
+            string path = Application.dataPath + "/Resources/MainLevels/01_Plains/A Cube Story.json";
 
-            string path = Path.Combine(folder, fileName);
+            //assets.Add(AssetDatabase.LoadAssetAtPath<TextAsset>(path));
 
-            if (File.Exists(path))
-            {
-                TextAsset target = AssetDatabase.LoadAssetAtPath<TextAsset>(path);
-                Debug.Log("Foud a level, returning to upload routine");
-                return target;
-            }
-
-            else
-            {
-                Debug.Log("Couldn't find that leve");
-                return null;
-            }
+            foreach (TextAsset item in assets) uploadDropdownOptions.Add(item.name);
+           
+            uploadLevelDropdown.ClearOptions();
+            uploadLevelDropdown.AddOptions(uploadDropdownOptions);
         }
 
         // when the player wants to upload his level directly from the editor
@@ -66,9 +64,10 @@ namespace Kubika.Online
             // translate the name of the level in the dropdown list to a levelFile
             TextAsset levelFile = GetLevelFromUserFolder(uploadLevelDropdown.captionText.text);
 
-            LevelEditorData level = JsonUtility.FromJson<LevelEditorData>(levelFile.ToString());
+            LevelEditorData level = new LevelEditorData();
+            level= JsonUtility.FromJson<LevelEditorData>(levelFile.ToString());
 
-            string kubiCode = level.Kubicode;
+            string kubiCode = level.Kubicode.Replace("Worl", "");
             string levelName = level.levelName;
 
             // create a new upload request, input the relevant information
@@ -78,7 +77,7 @@ namespace Kubika.Online
                 Item = new Dictionary<string, AttributeValue>()
                 {
                     { DynamoDBTableInfo.table_PPKey, new AttributeValue{ N = kubiCode.ToString()} },
-                    { DynamoDBTableInfo.table_levelName, new AttributeValue { S = levelName } },
+                    { DynamoDBTableInfo.table_name, new AttributeValue { S = levelName } },
                     { DynamoDBTableInfo.table_Json, new AttributeValue { S = levelFile.ToString() }}
                 }
             };
@@ -97,6 +96,31 @@ namespace Kubika.Online
                 else Debug.Log(levelName + " has been uploaded successfully!");
 
             }, null);
+        }
+
+        // load one of the levels from the Biome 1 folder
+        TextAsset GetLevelFromUserFolder(string targetLevel)
+        {
+            Debug.Log(targetLevel);
+
+            string folder = Application.dataPath + "/Resources/MainLevels/01_Plains";
+            string fileName = targetLevel + ".json";
+
+            string path = Path.Combine(folder, fileName);
+
+            if (File.Exists(path))
+            {
+                TextAsset target = new TextAsset(File.ReadAllText(path));
+                target.name = "new level";
+                Debug.Log("Foud target " + target.name + ", returning to upload routine");
+                return target;
+            }
+
+            else
+            {
+                Debug.Log("Couldn't find that level");
+                return null;
+            }
         }
 
         void UpdateLevel()
@@ -136,7 +160,7 @@ namespace Kubika.Online
 
                     foreach (var keyValuePair in result.Response.Item)
                     {
-                        if (keyValuePair.Key == DynamoDBTableInfo.table_levelName) levelName = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DynamoDBTableInfo.table_name) levelName = keyValuePair.Value.S;
                         if (keyValuePair.Key == DynamoDBTableInfo.table_Json) jsonFile = keyValuePair.Value.S;
                     }
 
