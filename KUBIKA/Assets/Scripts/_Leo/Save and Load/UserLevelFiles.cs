@@ -11,6 +11,7 @@ namespace Kubika.Saving
         public static LevelFile ConvertToLevelInfo(TextAsset levelFile)
         {
             LevelFile levelInfo = new LevelFile();
+
             LevelEditorData levelData = JsonUtility.FromJson<LevelEditorData>(levelFile.ToString());
 
             levelInfo.levelFile = levelFile;

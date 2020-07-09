@@ -35,18 +35,58 @@ namespace Kubika.Online
             //create a new client to make function calls
             client = ClientFactory.ConfirmUserIdentity();
 
+            OnLoadScene();
+        }
+
+        void OnLoadScene()
+        {
             PopulateDropdownList();
+            RequestIDs();
+        }
+
+        // get information concerning the last id that was uploaded to the server. This happens in the KUBIKA_information table
+        private void RequestIDs()
+        {
+            var request = new GetItemRequest
+            {
+                ConsistentRead = true,
+                TableName = DynamoDBTableInfo.infoTable_Name,
+                Key = new Dictionary<string, AttributeValue>() 
+                {
+                    { DynamoDBTableInfo.infoTable_PPKey, new AttributeValue{ N = DynamoDBTableInfo.infoTable_key}  }
+                }
+            };
+
+            client.GetItemAsync(request, (result) =>
+            {
+                if (result.Exception != null)
+                {
+                    Debug.Log(result.Exception.Message);
+                    return;
+                }
+
+                else
+                {
+                    string jsonFile = "";
+
+                    foreach (var keyValuePair in result.Response.Item)
+                    {
+                        if (keyValuePair.Key == DynamoDBTableInfo.infoTable_info) jsonFile = keyValuePair.Value.S;
+                    }
+
+                    // create a DynamoDBInfo file from the json information stored in the Table
+                    DynamoDBInfo info = JsonUtility.FromJson<DynamoDBInfo>(jsonFile);
+
+                    //info.lastIdUsed;
+                }
+
+            }, null);
         }
 
         // call this when dropdown buttons are on screen to populate them
         private void PopulateDropdownList()
         {
-            string path = Application.dataPath + "/Resources/MainLevels/01_Plains/A Cube Story.json";
-
-            //assets.Add(AssetDatabase.LoadAssetAtPath<TextAsset>(path));
-
-            foreach (TextAsset item in assets) uploadDropdownOptions.Add(item.name);
-           
+            uploadDropdownOptions = UserLevelFiles.GetUserLevelNames();
             uploadLevelDropdown.ClearOptions();
             uploadLevelDropdown.AddOptions(uploadDropdownOptions);
         }
@@ -54,6 +94,8 @@ namespace Kubika.Online
         // when the player wants to upload his level directly from the editor
         public void UploadLevelFromEditor()
         {
+            string json = SaveAndLoad.instance.SaveToPublish();
+
 
         }
 
@@ -62,13 +104,13 @@ namespace Kubika.Online
         public void UploadLevelFromList()
         {
             // translate the name of the level in the dropdown list to a levelFile
-            TextAsset levelFile = GetLevelFromUserFolder(uploadLevelDropdown.captionText.text);
+            string json = GetLevelFromUserFolder(uploadLevelDropdown.captionText.text);
 
             LevelEditorData level = new LevelEditorData();
-            level= JsonUtility.FromJson<LevelEditorData>(levelFile.ToString());
+            level = JsonUtility.FromJson<LevelEditorData>(json);
 
-            string kubiCode = level.Kubicode.Replace("Worl", "");
             string levelName = level.levelName;
+            string kubicode = GenerateKubiCode();
 
             // create a new upload request, input the relevant information
             var putItemRequest = new PutItemRequest
@@ -76,9 +118,9 @@ namespace Kubika.Online
                 TableName = DynamoDBTableInfo.table_Name,
                 Item = new Dictionary<string, AttributeValue>()
                 {
-                    { DynamoDBTableInfo.table_PPKey, new AttributeValue{ N = kubiCode.ToString()} },
-                    { DynamoDBTableInfo.table_name, new AttributeValue { S = levelName } },
-                    { DynamoDBTableInfo.table_Json, new AttributeValue { S = levelFile.ToString() }}
+                    { DynamoDBTableInfo.table_PPKey, new AttributeValue{ N =  kubicode } },
+                    { DynamoDBTableInfo.table_level, new AttributeValue { S = levelName } },
+                    { DynamoDBTableInfo.table_Json, new AttributeValue { S = json } }
                 }
             };
 
@@ -93,26 +135,33 @@ namespace Kubika.Online
                 }
 
                 // else, the item has successfully been uploaded
-                else Debug.Log(levelName + " has been uploaded successfully!");
+                else Debug.Log(DynamoDBTableInfo.table_retrievedLevel + " has been uploaded successfully!");
 
             }, null);
+
+            DynamoDBTableInfo.CleanInfo();
+        }
+
+        private string GenerateKubiCode()
+        {
+            return "";
         }
 
         // load one of the levels from the Biome 1 folder
-        TextAsset GetLevelFromUserFolder(string targetLevel)
+        string GetLevelFromUserFolder(string targetLevel)
         {
             Debug.Log(targetLevel);
 
-            string folder = Application.dataPath + "/Resources/MainLevels/01_Plains";
+            string folder = Application.persistentDataPath + "/UserLevels";
             string fileName = targetLevel + ".json";
 
             string path = Path.Combine(folder, fileName);
 
             if (File.Exists(path))
             {
-                TextAsset target = new TextAsset(File.ReadAllText(path));
-                target.name = "new level";
-                Debug.Log("Foud target " + target.name + ", returning to upload routine");
+                string target = File.ReadAllText(path);
+
+                Debug.Log("Foud target, returning to upload routine");
                 return target;
             }
 
@@ -134,10 +183,13 @@ namespace Kubika.Online
         }
 
         // called by Download Button onCLick Event
-        public void DownloadLevel(string kubiCode)
+        public void DownloadLevel()
         {
+            string kubiCode = downloadLevelDropdown.captionText.text;
+
             var getItemRequest = new GetItemRequest
             {
+                ConsistentRead = true,
                 TableName = DynamoDBTableInfo.table_Name,
                 Key = new Dictionary<string, AttributeValue>()
                 {
@@ -155,20 +207,21 @@ namespace Kubika.Online
 
                 else
                 {
-                    string levelName = "";
-                    string jsonFile = "";
-
                     foreach (var keyValuePair in result.Response.Item)
                     {
-                        if (keyValuePair.Key == DynamoDBTableInfo.table_name) levelName = keyValuePair.Value.S;
-                        if (keyValuePair.Key == DynamoDBTableInfo.table_Json) jsonFile = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DynamoDBTableInfo.table_level) DynamoDBTableInfo.table_retrievedLevel = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DynamoDBTableInfo.table_Json) DynamoDBTableInfo.table_retrievedJson = keyValuePair.Value.S;
                     }
 
+                    Debug.Log("Downloading " + DynamoDBTableInfo.table_retrievedLevel);
+
                     // call the save and load instance to convert the received information into a useable JSON file
-                    SaveAndLoad.instance.UserDownloadingLevel(levelName, jsonFile);
+                    SaveAndLoad.instance.UserDownloadingLevel(DynamoDBTableInfo.table_retrievedLevel, DynamoDBTableInfo.table_retrievedJson);
                 }
 
             }, null);
+
+            DynamoDBTableInfo.CleanInfo();
         }
     }
 }

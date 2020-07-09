@@ -23,4 +23,11 @@ namespace Kubika.Saving
         public int numberOfUserLevels;
         public List<string> levelNames  = new List<string>();
     }
+
+
+    [System.Serializable]
+    public class DynamoDBInfo
+    {
+        public int lastIdUsed;
+    }
 }

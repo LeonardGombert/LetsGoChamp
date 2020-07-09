@@ -232,6 +232,12 @@ namespace Kubika.Saving
             activeNodes.Clear();
         }
 
+        public string SaveToPublish()
+        {
+            UIManager.instance.UserSavedCurrentLevel();
+            return levelData.ToString();
+        }
+
         public void UserSavingCurrentLevel()
         {
             levelData.levelName = currentOpenLevelName;
@@ -274,18 +280,26 @@ namespace Kubika.Saving
         #region // USER GENERATED CONTENT
         public void UserDownloadingLevel(string levelName, string levelFile)
         {
-            string json = JsonUtility.ToJson(levelFile);
             string fileName = levelName + ".json";
-
             string folder = Application.persistentDataPath + "/CommunityLevels";
-
-            if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
             string path = Path.Combine(folder, fileName);
 
-            if (File.Exists(path)) File.Delete(path);
+            if (!Directory.Exists(folder))
+            {
+                Debug.Log("Creating a CommunityLevels directory");
+                Directory.CreateDirectory(folder);
+            }
 
-            File.WriteAllText(path, json);
+            if (File.Exists(path))
+            {
+                Debug.Log("Deleting a pre-existing instance of this particular level");
+                File.Delete(path);
+            }
+
+            File.WriteAllText(path, levelFile);
+
+            Debug.Log("Level sucessfully downloaded");
             
             /*UserLevelFiles.AddNewUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();*/

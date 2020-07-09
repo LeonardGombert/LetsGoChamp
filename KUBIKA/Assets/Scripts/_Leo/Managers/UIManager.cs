@@ -666,7 +666,7 @@ namespace Kubika.Game
         }
 
         //called by user when saving a level
-        void UserSavedCurrentLevel()
+        public void UserSavedCurrentLevel()
         {
             if (SaveAndLoad.instance.currentOpenLevelName != "") SaveAndLoad.instance.UserSavingCurrentLevel();
             else OpenSaveWindow();
