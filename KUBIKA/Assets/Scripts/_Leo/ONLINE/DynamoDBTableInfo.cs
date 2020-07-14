@@ -19,8 +19,8 @@ public struct DynamoDBTableInfo
     //AWS DynamoDB Information Table
     public static string infoTable_Name = "KUBIKA_Information";
     public static string infoTable_PPKey = "id";
-    public static string infoTable_info = "info";
     public static string infoTable_key = "00";
+    public static string infoTable_json = "info";
 
     public static string infoTable_retrivedInfo = "";
     public static string infoTable_retrivedKey = "";

@@ -28,6 +28,8 @@ namespace Kubika.Saving
     [System.Serializable]
     public class DynamoDBInfo
     {
+        public List<int> listOfIndexes = new List<int>();
+        public List<int> backupListOfIndexes = new List<int>();
         public int lastIdUsed;
     }
 }
