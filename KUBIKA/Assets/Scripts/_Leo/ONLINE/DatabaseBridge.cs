@@ -5,6 +5,7 @@ using Amazon.DynamoDBv2.Model.Internal.MarshallTransformations;
 using Amazon.Runtime;
 using Amazon.Runtime.Internal;
 using Kubika.Saving;
+using Sirenix.Utilities;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
+using Random = UnityEngine.Random;
 
 namespace Kubika.Online
 {
@@ -20,6 +22,7 @@ namespace Kubika.Online
     public class DatabaseBridge : MonoBehaviour
     {
         IAmazonDynamoDB client;
+        AmazonDynamoDBClient client2;
 
         public Dropdown uploadLevelDropdown;
         public Dropdown downloadLevelDropdown;
@@ -28,6 +31,9 @@ namespace Kubika.Online
         List<string> downloadDropdownOptions = new List<string>();
 
         public List<Object> assets = new List<Object>();
+
+        public int numberOfLevelsToGet;
+        public Text levelname1, levelname2, kubiCode1, kubiCode2, levelname3, kubiCode3;
 
         // Start is called before the first frame update
         void Start()
@@ -39,7 +45,86 @@ namespace Kubika.Online
             client = ClientFactory.ConfirmUserIdentity();
 
             OnLoadScene();
+
+            GetRandomLevels();
         }
+
+        public void GetRandomLevels()
+        {
+            List<int> idsToGet = SelectRandomLevels(numberOfLevelsToGet);
+
+            foreach (int levelId in idsToGet)
+            {
+                DynamoReceivedInfo receivedInfo = GetLevelById(levelId);
+
+            }
+
+            for (int i = 0; i < idsToGet.Count; i++)
+            {
+                DynamoReceivedInfo receivedInfo = GetLevelById(idsToGet[i]);
+
+                if (i == 0) levelname1.text = receivedInfo.levelName;
+                if (i == 0) kubiCode1.text = receivedInfo.kubicode;
+
+                if (i == 1) levelname2.text = receivedInfo.levelName;
+                if (i == 1) kubiCode2.text = receivedInfo.kubicode;
+
+                if (i == 2) levelname3.text = receivedInfo.levelName;
+                if (i == 2) kubiCode3.text = receivedInfo.kubicode;
+            }
+        }
+
+        private DynamoReceivedInfo GetLevelById(int id)
+        {
+            DynamoReceivedInfo info = new DynamoReceivedInfo();
+
+            var getLevelRequest = new GetItemRequest
+            {
+                TableName = DynamoDBTableInfo.testingTable_tableName,
+                Key = new Dictionary<string, AttributeValue>()
+                {
+                    { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ S = id.ToString()} }
+                }
+            };
+
+            client.GetItemAsync(getLevelRequest, (result) =>
+            {
+                if (result.Exception != null)
+                {
+                    Debug.Log(result.Exception.Message);
+                    return;
+                }
+
+                else
+                {
+                    foreach (var keyValuePair in result.Response.Item)
+                    {
+                        if (keyValuePair.Key == DynamoDBTableInfo.testingTable_levelName) info.levelName = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DynamoDBTableInfo.testingTable_pKey) info.kubicode = keyValuePair.Value.S;
+                    }
+                }
+            });
+
+            return info;
+        }
+
+        public List<int> SelectRandomLevels(int amountOfLevels)
+        {
+            DynamoDBInfo ids = RequestIDs();
+            
+            List<int> randomLevels = new List<int>();
+
+            for (int i = 0; i < amountOfLevels; i++)
+            {
+                int randomLevelToGet = ids.listOfIndexes[Random.Range(0, ids.listOfIndexes.Count)];
+                ids.listOfIndexes.Remove(randomLevelToGet);
+
+                randomLevels.Add(randomLevelToGet);
+            }
+
+            return randomLevels;
+        }
+
 
         #region // BASIC SETUP METHODS
         void OnLoadScene()
@@ -90,7 +175,7 @@ namespace Kubika.Online
             // create a new upload request, input the relevant information
             var putItemRequest = new PutItemRequest
             {
-                TableName = DynamoDBTableInfo.testingTable_name,
+                TableName = DynamoDBTableInfo.testingTable_tableName,
                 Item = new Dictionary<string, AttributeValue>()
                 {
                     { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ S =  kubicode } },
@@ -110,7 +195,7 @@ namespace Kubika.Online
                 }
 
                 // else, the item has successfully been uploaded
-                else Debug.Log(DynamoDBTableInfo.testingTable_retrievedLevel + " has been uploaded successfully!");
+                else Debug.Log(levelName + " has been uploaded successfully!");
 
             }, null);
 
@@ -130,18 +215,14 @@ namespace Kubika.Online
             {
                 LevelEditorData levelFile = JsonUtility.FromJson<LevelEditorData>(level.ToString());
 
-                Debug.Log(levelFile.Kubicode);
-                Debug.Log(levelFile.levelName);
-                Debug.Log(level.ToString());
-
                 var uploadRequest = new PutItemRequest
                 {
-                    TableName = DynamoDBTableInfo.levelsTable_name,
+                    TableName = DynamoDBTableInfo.levelsTable_tableName,
                     Item = new Dictionary<string, AttributeValue>()
                     {
                         { DynamoDBTableInfo.levelsTable_pKey, new AttributeValue{ S = levelFile.Kubicode } },
-                        { DynamoDBTableInfo.levelsTable_level, new AttributeValue{ S = levelFile.levelName } },
-                        { DynamoDBTableInfo.levelsTable_json, new AttributeValue{ S = level.ToString() } },
+                        { DynamoDBTableInfo.levelsTable_levelName, new AttributeValue{ S = levelFile.levelName } },
+                        { DynamoDBTableInfo.levelsTable_jsonFile, new AttributeValue{ S = level.ToString() } },
                     }
                 };
 
@@ -246,7 +327,7 @@ namespace Kubika.Online
 
                         foreach (var keyValuePair in result.Response.Item)
                         {
-                            if (keyValuePair.Key == DynamoDBTableInfo.infoTable_json) jsonFile = keyValuePair.Value.S;
+                            if (keyValuePair.Key == DynamoDBTableInfo.infoTable_jsonFile) jsonFile = keyValuePair.Value.S;
                         }
 
                         if (jsonFile == "" || jsonFile == null) CreateIDsFile();
@@ -275,7 +356,7 @@ namespace Kubika.Online
             var request = new GetItemRequest
             {
                 ConsistentRead = true,
-                TableName = DynamoDBTableInfo.infoTable_name,
+                TableName = DynamoDBTableInfo.infoTable_tableName,
                 Key = new Dictionary<string, AttributeValue>()
                 {
                     { DynamoDBTableInfo.infoTable_pKey, new AttributeValue{ N = DynamoDBTableInfo.infoTable_key} }
@@ -298,7 +379,7 @@ namespace Kubika.Online
 
                     foreach (var keyValuePair in result.Response.Item)
                     {
-                        if (keyValuePair.Key == DynamoDBTableInfo.infoTable_json) jsonFile = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DynamoDBTableInfo.infoTable_jsonFile) jsonFile = keyValuePair.Value.S;
                     }
 
                     if (jsonFile == "" || jsonFile == null) CreateIDsFile();
@@ -334,11 +415,11 @@ namespace Kubika.Online
 
             var request = new PutItemRequest
             {
-                TableName = DynamoDBTableInfo.infoTable_name,
+                TableName = DynamoDBTableInfo.infoTable_tableName,
                 Item = new Dictionary<string, AttributeValue>
                 {
                     { DynamoDBTableInfo.infoTable_pKey, new AttributeValue { N = DynamoDBTableInfo.infoTable_key} },
-                    { DynamoDBTableInfo.infoTable_json, new AttributeValue{ S = json} }
+                    { DynamoDBTableInfo.infoTable_jsonFile, new AttributeValue{ S = json} }
                 }
             };
 
@@ -361,7 +442,7 @@ namespace Kubika.Online
 
             var UpdateRequest = new UpdateItemRequest
             {
-                TableName = DynamoDBTableInfo.infoTable_name,
+                TableName = DynamoDBTableInfo.infoTable_tableName,
                 Key = new Dictionary<string, AttributeValue>
                 {
                     { DynamoDBTableInfo.infoTable_pKey, new AttributeValue { N = DynamoDBTableInfo.infoTable_key } }
@@ -370,7 +451,7 @@ namespace Kubika.Online
                 AttributeUpdates = new Dictionary<string, AttributeValueUpdate>
                 {
                     {
-                        DynamoDBTableInfo.infoTable_json, new AttributeValueUpdate
+                        DynamoDBTableInfo.infoTable_jsonFile, new AttributeValueUpdate
                         {
                             Action = AttributeAction.PUT,
                             Value = new AttributeValue {S = json }
@@ -412,7 +493,7 @@ namespace Kubika.Online
             var getItemRequest = new GetItemRequest
             {
                 ConsistentRead = true,
-                TableName = DynamoDBTableInfo.testingTable_name,
+                TableName = DynamoDBTableInfo.testingTable_tableName,
                 Key = new Dictionary<string, AttributeValue>()
                 {
                     { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ S = kubiCode} }

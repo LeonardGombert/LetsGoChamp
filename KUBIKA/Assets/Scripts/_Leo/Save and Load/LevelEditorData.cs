@@ -32,4 +32,10 @@ namespace Kubika.Saving
         public List<int> backupListOfIndexes = new List<int>();
         public int lastIdUsed;
     }
+
+    public struct DynamoReceivedInfo
+    {
+        public string kubicode;
+        public string levelName;
+    }
 }
