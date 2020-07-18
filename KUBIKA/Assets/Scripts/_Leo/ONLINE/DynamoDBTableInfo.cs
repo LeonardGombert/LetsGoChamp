@@ -27,7 +27,7 @@ public struct DynamoDBTableInfo
 
     //AWS DynamoDB Levels Table
     public static string levelsTable_name = "KUBIKA_Levels";
-    public static string levelsTable_pKey = "kubikCode";
+    public static string levelsTable_pKey = "kubicode";
     public static string levelsTable_level = "levelName";
     public static string levelsTable_json = "levelFile";
 

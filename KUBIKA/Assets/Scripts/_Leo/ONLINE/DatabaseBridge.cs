@@ -93,7 +93,7 @@ namespace Kubika.Online
                 TableName = DynamoDBTableInfo.testingTable_name,
                 Item = new Dictionary<string, AttributeValue>()
                 {
-                    { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ N =  kubicode } },
+                    { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ S =  kubicode } },
                     { DynamoDBTableInfo.testingTable_levelName, new AttributeValue { S = levelName } },
                     { DynamoDBTableInfo.testingTable_jsonFile, new AttributeValue { S = json } }
                 }
@@ -415,7 +415,7 @@ namespace Kubika.Online
                 TableName = DynamoDBTableInfo.testingTable_name,
                 Key = new Dictionary<string, AttributeValue>()
                 {
-                    { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ N = kubiCode} }
+                    { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ S = kubiCode} }
                 }
             };
 
