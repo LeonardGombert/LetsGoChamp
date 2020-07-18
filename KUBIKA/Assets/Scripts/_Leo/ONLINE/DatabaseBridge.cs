@@ -1,15 +1,18 @@
 ﻿using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
+using Amazon.DynamoDBv2.Model.Internal.MarshallTransformations;
+using Amazon.Runtime;
+using Amazon.Runtime.Internal;
 using Kubika.Saving;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http.Headers;
-using UnityEditor;
+using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 namespace Kubika.Online
 {
@@ -24,7 +27,7 @@ namespace Kubika.Online
         public List<string> uploadDropdownOptions = new List<string>();
         List<string> downloadDropdownOptions = new List<string>();
 
-        public List<UnityEngine.Object> assets = new List<UnityEngine.Object>();
+        public List<Object> assets = new List<Object>();
 
         // Start is called before the first frame update
         void Start()
@@ -38,6 +41,7 @@ namespace Kubika.Online
             OnLoadScene();
         }
 
+        #region // BASIC SETUP METHODS
         void OnLoadScene()
         {
             PopulateDropdownList();
@@ -55,10 +59,10 @@ namespace Kubika.Online
         public void UploadLevelFromEditor()
         {
             string json = SaveAndLoad.instance.SaveToPublish();
-
-
         }
+        #endregion
 
+        #region // UPLOAD USER GENERATED CONTENT LEVELS
         // when the player is uploading a level from the levelsList on the community page
         // called by Upload Button onClick Event
         public void UploadLevelFromList()
@@ -86,12 +90,12 @@ namespace Kubika.Online
             // create a new upload request, input the relevant information
             var putItemRequest = new PutItemRequest
             {
-                TableName = DynamoDBTableInfo.table_Name,
+                TableName = DynamoDBTableInfo.testingTable_name,
                 Item = new Dictionary<string, AttributeValue>()
                 {
-                    { DynamoDBTableInfo.table_PPKey, new AttributeValue{ N =  kubicode } },
-                    { DynamoDBTableInfo.table_level, new AttributeValue { S = levelName } },
-                    { DynamoDBTableInfo.table_Json, new AttributeValue { S = json } }
+                    { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ N =  kubicode } },
+                    { DynamoDBTableInfo.testingTable_levelName, new AttributeValue { S = levelName } },
+                    { DynamoDBTableInfo.testingTable_jsonFile, new AttributeValue { S = json } }
                 }
             };
 
@@ -106,15 +110,87 @@ namespace Kubika.Online
                 }
 
                 // else, the item has successfully been uploaded
-                else Debug.Log(DynamoDBTableInfo.table_retrievedLevel + " has been uploaded successfully!");
+                else Debug.Log(DynamoDBTableInfo.testingTable_retrievedLevel + " has been uploaded successfully!");
 
             }, null);
 
-            DynamoDBTableInfo.CleanInfo();
+            yield return null;
+        }
+        #endregion
+
+        #region // ADDITIONAL UPLOAD METHODS
+        public void UploadBaseLevels()
+        {
+            StartCoroutine(UploadAllGameLevel());
+        }
+
+        IEnumerator UploadAllGameLevel()
+        {
+            foreach (Object level in assets)
+            {
+                LevelFile levelFile = JsonUtility.FromJson<LevelFile>(level.ToString());
+
+                Debug.Log(levelFile.kubicode);
+                Debug.Log(levelFile.levelName);
+                Debug.Log(level.ToString());
+
+                var uploadRequest = new PutItemRequest
+                {
+                    TableName = DynamoDBTableInfo.levelsTable_name,
+                    Item = new Dictionary<string, AttributeValue>()
+                    {
+                        { DynamoDBTableInfo.levelsTable_pKey, new AttributeValue{ S = levelFile.kubicode } },
+                        { DynamoDBTableInfo.levelsTable_level, new AttributeValue{ S = levelFile.levelName } },
+                        { DynamoDBTableInfo.levelsTable_json, new AttributeValue{ S = level.ToString() } },
+                    }
+                };
+
+                client.PutItemAsync(uploadRequest, (result) =>
+                {
+                    // if something goes wrong, debug the log message from AWS
+                    if (result.Exception != null)
+                    {
+                        Debug.Log(result.Exception.Message);
+                        return;
+                    }
+
+                    // else, the item has successfully been uploaded
+                    else Debug.Log(levelFile.levelName + " has been uploaded successfully!");
+
+                }, null);
+
+                DynamoDBTableInfo.CleanInfo();
+            }
 
             yield return null;
         }
 
+        // load one of the levels from the Biome 1 folder
+        string GetLevelFromUserFolder(string targetLevel)
+        {
+            Debug.Log(targetLevel);
+
+            string folder = Application.persistentDataPath + "/UserLevels";
+            string fileName = targetLevel + ".json";
+
+            string path = Path.Combine(folder, fileName);
+
+            if (File.Exists(path))
+            {
+                string target = File.ReadAllText(path);
+
+                Debug.Log("Foud target, returning to upload routine");
+                return target;
+            }
+
+            else
+            {
+                Debug.Log("Couldn't find that level");
+                return null;
+            }
+        }
+
+        // use to generate a new code based on the last existing one
         private string GenerateKubiCode(DynamoDBInfo requested)
         {
             int index = ++requested.lastIdUsed;
@@ -129,42 +205,68 @@ namespace Kubika.Online
             return index.ToString();
         }
 
-        private void UpdateInfoFile(DynamoDBInfo file)
+        public void ClientHandler(PutItemRequest putRequest = null, GetItemRequest getRequest = null)
         {
-            string json = JsonUtility.ToJson(file);
-
-            var UpdateRequest = new UpdateItemRequest
+            if (putRequest != null)
             {
-                TableName = DynamoDBTableInfo.infoTable_Name,
-                Key = new Dictionary<string, AttributeValue>
+                client.PutItemAsync(putRequest, (result) =>
                 {
-                    { DynamoDBTableInfo.infoTable_PPKey, new AttributeValue { N = DynamoDBTableInfo.infoTable_key } }
-                },
-
-                AttributeUpdates = new Dictionary<string, AttributeValueUpdate>
-                {
+                    // if something goes wrong, debug the log message from AWS
+                    if (result.Exception != null)
                     {
-                        DynamoDBTableInfo.infoTable_json, new AttributeValueUpdate
-                        {
-                            Action = AttributeAction.PUT,
-                            Value = new AttributeValue {S = json }
-                        }
+                        Debug.Log(result.Exception.Message);
+                        return;
                     }
-                }
-            };
 
-            client.UpdateItemAsync(UpdateRequest, (result) =>
+                    // else, the item has successfully been uploaded
+                    else Debug.Log(DynamoDBTableInfo.testingTable_retrievedLevel + " has been uploaded successfully!");
+
+                }, null);
+
+                DynamoDBTableInfo.CleanInfo();
+            }
+
+            if (getRequest != null)
             {
-                if (result.Exception != null)
+                DynamoDBInfo info = new DynamoDBInfo();
+
+                client.GetItemAsync(getRequest, (result) =>
                 {
-                    Debug.Log(result.Exception.Message);
-                    return;
-                }
+                    if (result.Exception != null)
+                    {
+                        Debug.Log(result.Exception.Message);
+                        return;
+                    }
 
-                else Debug.Log("The item has been updated");
-            });
+                    else
+                    {
+                        Debug.Log("Extracting an info file");
+
+                        string jsonFile = "";
+
+                        foreach (var keyValuePair in result.Response.Item)
+                        {
+                            if (keyValuePair.Key == DynamoDBTableInfo.infoTable_json) jsonFile = keyValuePair.Value.S;
+                        }
+
+                        if (jsonFile == "" || jsonFile == null) CreateIDsFile();
+
+                        // create a DynamoDBInfo file from the json information stored in the Table
+                        DynamoDBInfo copy = JsonUtility.FromJson<DynamoDBInfo>(jsonFile);
+
+                        info.backupListOfIndexes = copy.backupListOfIndexes;
+                        info.listOfIndexes = copy.listOfIndexes;
+                        info.lastIdUsed = copy.listOfIndexes[copy.listOfIndexes.Count - 1];
+
+                        Debug.Log("Last used is " + info.lastIdUsed);
+                    }
+
+                }, null);
+            }
         }
+        #endregion
 
+        #region // GET SET INFO TABLE IDs
         // get information concerning the last id that was uploaded to the server. This happens in the KUBIKA_information table
         private DynamoDBInfo RequestIDs()
         {
@@ -173,10 +275,10 @@ namespace Kubika.Online
             var request = new GetItemRequest
             {
                 ConsistentRead = true,
-                TableName = DynamoDBTableInfo.infoTable_Name,
+                TableName = DynamoDBTableInfo.infoTable_name,
                 Key = new Dictionary<string, AttributeValue>()
                 {
-                    { DynamoDBTableInfo.infoTable_PPKey, new AttributeValue{ N = DynamoDBTableInfo.infoTable_key} }
+                    { DynamoDBTableInfo.infoTable_pKey, new AttributeValue{ N = DynamoDBTableInfo.infoTable_key} }
                 }
             };
 
@@ -232,10 +334,10 @@ namespace Kubika.Online
 
             var request = new PutItemRequest
             {
-                TableName = DynamoDBTableInfo.infoTable_Name,
+                TableName = DynamoDBTableInfo.infoTable_name,
                 Item = new Dictionary<string, AttributeValue>
                 {
-                    { DynamoDBTableInfo.infoTable_PPKey, new AttributeValue { N = DynamoDBTableInfo.infoTable_key} },
+                    { DynamoDBTableInfo.infoTable_pKey, new AttributeValue { N = DynamoDBTableInfo.infoTable_key} },
                     { DynamoDBTableInfo.infoTable_json, new AttributeValue{ S = json} }
                 }
             };
@@ -253,32 +355,45 @@ namespace Kubika.Online
             }, null);
         }
 
-
-        // load one of the levels from the Biome 1 folder
-        string GetLevelFromUserFolder(string targetLevel)
+        private void UpdateInfoFile(DynamoDBInfo file)
         {
-            Debug.Log(targetLevel);
+            string json = JsonUtility.ToJson(file);
 
-            string folder = Application.persistentDataPath + "/UserLevels";
-            string fileName = targetLevel + ".json";
-
-            string path = Path.Combine(folder, fileName);
-
-            if (File.Exists(path))
+            var UpdateRequest = new UpdateItemRequest
             {
-                string target = File.ReadAllText(path);
+                TableName = DynamoDBTableInfo.infoTable_name,
+                Key = new Dictionary<string, AttributeValue>
+                {
+                    { DynamoDBTableInfo.infoTable_pKey, new AttributeValue { N = DynamoDBTableInfo.infoTable_key } }
+                },
 
-                Debug.Log("Foud target, returning to upload routine");
-                return target;
-            }
+                AttributeUpdates = new Dictionary<string, AttributeValueUpdate>
+                {
+                    {
+                        DynamoDBTableInfo.infoTable_json, new AttributeValueUpdate
+                        {
+                            Action = AttributeAction.PUT,
+                            Value = new AttributeValue {S = json }
+                        }
+                    }
+                }
+            };
 
-            else
+            client.UpdateItemAsync(UpdateRequest, (result) =>
             {
-                Debug.Log("Couldn't find that level");
-                return null;
-            }
+                if (result.Exception != null)
+                {
+                    Debug.Log(result.Exception.Message);
+                    return;
+                }
+
+                else Debug.Log("The item has been updated");
+            });
         }
 
+        #endregion
+
+        #region // GET, UPDATE, DELETE USER GENERATED CONTENT
         void UpdateLevel()
         {
 
@@ -297,10 +412,10 @@ namespace Kubika.Online
             var getItemRequest = new GetItemRequest
             {
                 ConsistentRead = true,
-                TableName = DynamoDBTableInfo.table_Name,
+                TableName = DynamoDBTableInfo.testingTable_name,
                 Key = new Dictionary<string, AttributeValue>()
                 {
-                    { DynamoDBTableInfo.table_PPKey, new AttributeValue{ N = kubiCode} }
+                    { DynamoDBTableInfo.testingTable_pKey, new AttributeValue{ N = kubiCode} }
                 }
             };
 
@@ -316,19 +431,21 @@ namespace Kubika.Online
                 {
                     foreach (var keyValuePair in result.Response.Item)
                     {
-                        if (keyValuePair.Key == DynamoDBTableInfo.table_level) DynamoDBTableInfo.table_retrievedLevel = keyValuePair.Value.S;
-                        if (keyValuePair.Key == DynamoDBTableInfo.table_Json) DynamoDBTableInfo.table_retrievedJson = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DynamoDBTableInfo.testingTable_levelName) DynamoDBTableInfo.testingTable_retrievedLevel = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DynamoDBTableInfo.testingTable_jsonFile) DynamoDBTableInfo.testingTable_retrievedJson = keyValuePair.Value.S;
                     }
 
-                    Debug.Log("Downloading " + DynamoDBTableInfo.table_retrievedLevel);
+                    Debug.Log("Downloading " + DynamoDBTableInfo.testingTable_retrievedLevel);
 
                     // call the save and load instance to convert the received information into a useable JSON file
-                    SaveAndLoad.instance.UserDownloadingLevel(DynamoDBTableInfo.table_retrievedLevel, DynamoDBTableInfo.table_retrievedJson);
+                    SaveAndLoad.instance.UserDownloadingLevel(DynamoDBTableInfo.testingTable_retrievedLevel, DynamoDBTableInfo.testingTable_retrievedJson);
                 }
 
             }, null);
 
             DynamoDBTableInfo.CleanInfo();
         }
-    }
-}
+        #endregion
+
+    } //class
+} //namespace
