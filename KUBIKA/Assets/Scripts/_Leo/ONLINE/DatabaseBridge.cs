@@ -128,9 +128,9 @@ namespace Kubika.Online
         {
             foreach (Object level in assets)
             {
-                LevelFile levelFile = JsonUtility.FromJson<LevelFile>(level.ToString());
+                LevelEditorData levelFile = JsonUtility.FromJson<LevelEditorData>(level.ToString());
 
-                Debug.Log(levelFile.kubicode);
+                Debug.Log(levelFile.Kubicode);
                 Debug.Log(levelFile.levelName);
                 Debug.Log(level.ToString());
 
@@ -139,7 +139,7 @@ namespace Kubika.Online
                     TableName = DynamoDBTableInfo.levelsTable_name,
                     Item = new Dictionary<string, AttributeValue>()
                     {
-                        { DynamoDBTableInfo.levelsTable_pKey, new AttributeValue{ S = levelFile.kubicode } },
+                        { DynamoDBTableInfo.levelsTable_pKey, new AttributeValue{ S = levelFile.Kubicode } },
                         { DynamoDBTableInfo.levelsTable_level, new AttributeValue{ S = levelFile.levelName } },
                         { DynamoDBTableInfo.levelsTable_json, new AttributeValue{ S = level.ToString() } },
                     }
