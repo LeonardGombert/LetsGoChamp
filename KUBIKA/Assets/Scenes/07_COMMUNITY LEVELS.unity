@@ -3319,13 +3319,20 @@ MonoBehaviour:
   - {fileID: 4900000, guid: fb43ae209539efc4aba697a588bd7f12, type: 3}
   - {fileID: 4900000, guid: 06e6562cc7df92f48935b18db1703606, type: 3}
   - {fileID: 4900000, guid: 4c2ef62f789b1e14bb0f06a249c62dbb, type: 3}
-  numberOfLevelsToGet: 2
+  numberOfLevelsToGet: 3
   levelname1: {fileID: 1549492818}
-  levelname2: {fileID: 1339161179}
-  kubiCode1: {fileID: 82187652}
-  kubiCode2: {fileID: 560828234}
+  levelname2: {fileID: 82187652}
   levelname3: {fileID: 2022413645}
+  kubiCode1: {fileID: 1339161179}
+  kubiCode2: {fileID: 560828234}
   kubiCode3: {fileID: 1775799797}
+  ids:
+    listOfIndexes: 
+    backupListOfIndexes: 
+    lastIdUsed: 0
+  info:
+    kubicode: 
+    levelName: 
 --- !u!1 &1866001008
 GameObject:
   m_ObjectHideFlags: 0

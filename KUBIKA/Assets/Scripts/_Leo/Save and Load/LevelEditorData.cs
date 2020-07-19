@@ -33,9 +33,10 @@ namespace Kubika.Saving
         public int lastIdUsed;
     }
 
-    public struct DynamoReceivedInfo
+    [System.Serializable]
+    public class DynamoReceivedInfo
     {
-        public string kubicode;
-        public string levelName;
+        public string kubicode = "";
+        public string levelName = "";
     }
 }

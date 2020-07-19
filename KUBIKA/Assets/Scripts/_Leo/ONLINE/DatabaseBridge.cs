@@ -1,18 +1,12 @@
 ﻿using Amazon;
 using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
-using Amazon.DynamoDBv2.Model.Internal.MarshallTransformations;
-using Amazon.Runtime;
-using Amazon.Runtime.Internal;
-using Kubika.Saving;
-using Sirenix.Utilities;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.PackageManager.Requests;
 using UnityEngine;
 using UnityEngine.UI;
+using Kubika.Saving;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -22,7 +16,6 @@ namespace Kubika.Online
     public class DatabaseBridge : MonoBehaviour
     {
         IAmazonDynamoDB client;
-        AmazonDynamoDBClient client2;
 
         public Dropdown uploadLevelDropdown;
         public Dropdown downloadLevelDropdown;
@@ -33,8 +26,10 @@ namespace Kubika.Online
         public List<Object> assets = new List<Object>();
 
         public int numberOfLevelsToGet;
-        public Text levelname1, levelname2, kubiCode1, kubiCode2, levelname3, kubiCode3;
-
+        public Text levelname1, levelname2, levelname3, kubiCode1, kubiCode2, kubiCode3;
+        
+        public DynamoDBInfo ids;
+        public DynamoReceivedInfo info;
         // Start is called before the first frame update
         void Start()
         {
@@ -44,24 +39,28 @@ namespace Kubika.Online
             //create a new client to make function calls
             client = ClientFactory.ConfirmUserIdentity();
 
-            OnLoadScene();
+            //OnLoadScene();
 
-            GetRandomLevels();
+            StartCoroutine(GetRandomLevels());
         }
 
-        public void GetRandomLevels()
+        public IEnumerator GetRandomLevels()
         {
-            List<int> idsToGet = SelectRandomLevels(numberOfLevelsToGet);
+            ids = RequestIDs();
 
-            foreach (int levelId in idsToGet)
-            {
-                DynamoReceivedInfo receivedInfo = GetLevelById(levelId);
+            yield return new WaitForSeconds(2f);
 
-            }
+            Debug.Log("Selecting Ids");
+
+            List<int> idsToGet = SelectRandomLevels(ids, numberOfLevelsToGet);
+
+            yield return new WaitForSeconds(2f);
 
             for (int i = 0; i < idsToGet.Count; i++)
             {
                 DynamoReceivedInfo receivedInfo = GetLevelById(idsToGet[i]);
+
+                yield return new WaitForSeconds(2f);
 
                 if (i == 0) levelname1.text = receivedInfo.levelName;
                 if (i == 0) kubiCode1.text = receivedInfo.kubicode;
@@ -71,15 +70,18 @@ namespace Kubika.Online
 
                 if (i == 2) levelname3.text = receivedInfo.levelName;
                 if (i == 2) kubiCode3.text = receivedInfo.kubicode;
+
+                yield return new WaitForSeconds(2f);
             }
+
+            yield return null;
         }
 
         private DynamoReceivedInfo GetLevelById(int id)
         {
-            DynamoReceivedInfo info = new DynamoReceivedInfo();
-
             var getLevelRequest = new GetItemRequest
             {
+                ConsistentRead = true,
                 TableName = DynamoDBTableInfo.testingTable_tableName,
                 Key = new Dictionary<string, AttributeValue>()
                 {
@@ -103,15 +105,16 @@ namespace Kubika.Online
                         if (keyValuePair.Key == DynamoDBTableInfo.testingTable_pKey) info.kubicode = keyValuePair.Value.S;
                     }
                 }
-            });
+            }, null);
+
+            Debug.Log("Retrived name is " + info.levelName);
+            Debug.Log("Retrived kubicode is " + info.kubicode);
 
             return info;
         }
 
-        public List<int> SelectRandomLevels(int amountOfLevels)
+        public List<int> SelectRandomLevels(DynamoDBInfo ids, int amountOfLevels)
         {
-            DynamoDBInfo ids = RequestIDs();
-            
             List<int> randomLevels = new List<int>();
 
             for (int i = 0; i < amountOfLevels; i++)
@@ -353,7 +356,7 @@ namespace Kubika.Online
         {
             DynamoDBInfo info = new DynamoDBInfo();
 
-            var request = new GetItemRequest
+            var getIdsRequest = new GetItemRequest
             {
                 ConsistentRead = true,
                 TableName = DynamoDBTableInfo.infoTable_tableName,
@@ -363,7 +366,7 @@ namespace Kubika.Online
                 }
             };
 
-            client.GetItemAsync(request, (result) =>
+            client.GetItemAsync(getIdsRequest, (result) =>
             {
                 if (result.Exception != null)
                 {
