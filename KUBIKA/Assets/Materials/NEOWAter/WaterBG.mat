@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: WaterBG
+  m_Shader: {fileID: 4800000, guid: 97d71d5bc3fca7e40897625cd2cc3ad4, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: a138b2d211d96594e887461ea4d9347e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _LightBands: 4.45
+    - _LightIntensity: 1
+    - _NoiseHeight: 63.07
+    - _NoiseSpeed: 0.68
+    - _NoiseTilling: 0.016
+    - _WaterMax: 1
+    - _WaterMin: 0
+    - _WaveAmplitude: 5.71
+    m_Colors:
+    - _LightColorAmbient: {r: 1, g: 1, b: 1, a: 1}
+    - _LightColorMain: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+    - _LightDir: {r: 1.64, g: 0.24, b: 0, a: 1}
+    - _WaterColorDeep: {r: 0.23376372, g: 0.23113209, b: 1, a: 1}
+    - _WaterColorSurface: {r: 0.07075471, g: 0.8823786, b: 1, a: 1}

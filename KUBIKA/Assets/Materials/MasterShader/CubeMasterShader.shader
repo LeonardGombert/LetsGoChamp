@@ -77,6 +77,7 @@ Shader "KILIAN/CUBE/CubeMasterShader"
         _LightIntensity("_LightIntensity", Float) = 1
         _LightColor("_LightColor", COLOR) = (1,1,1,1)
         _AmbientColor("_AmbientColor", COLOR) = (1,1,1,1)
+        _LightBands("_LightBands", Range(1., 20.)) = 5.
 
     }
         SubShader
@@ -154,6 +155,7 @@ Shader "KILIAN/CUBE/CubeMasterShader"
                 //LIGHT DIRECTIONNAL
                 float4 _LightDirection;
                 float  _LightIntensity;
+                float  _LightBands;
                 fixed4 _LightColor;
                 fixed4 _AmbientColor;
 
@@ -266,10 +268,15 @@ Shader "KILIAN/CUBE/CubeMasterShader"
                     finalColor = saturate(finalColor);
 
                     col = applyHSBEffect(col);
+                    NdotL = floor(NdotL * _LightBands) / (_LightBands - 0.5);
 
-                    fixed4 result = ((col * (_AmbientColor + (NdotL* _LightIntensity * _LightColor)))) - edgeTex.a - insideTex.a - emote.a;
+                    fixed4 Lighting = NdotL;
+                    Lighting *= _LightIntensity * _LightColor;
+                    Lighting += _AmbientColor;
 
-                    return result + (edgeTex * 2) + (insideTex * 2) + (emote * 2);
+                    fixed4 result = ((col * (Lighting))) - edgeTex.a - insideTex.a - emote.a;
+
+                    return result +( (edgeTex * 2) + (insideTex * 2) + (emote * 2));
                 }
                 ENDCG
             }

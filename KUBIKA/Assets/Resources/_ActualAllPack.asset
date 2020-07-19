@@ -19,10 +19,10 @@ MonoBehaviour:
   _BaseTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BaseInsideStrength: 0
   _BaseColorInside: {r: 0, g: 0, b: 0, a: 0}
-  Base_Hue: 14
-  Base_Contrast: 1.266
-  Base_Saturation: 1.107
-  Base_Brightness: 0.131
+  Base_Hue: -7
+  Base_Contrast: 2
+  Base_Saturation: 0.45
+  Base_Brightness: 0.11
   _BetonTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
   _BetonMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
@@ -185,7 +185,7 @@ MonoBehaviour:
   _SwitchVMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
   _SwitchVColor: {r: 0.99215686, g: 0.7921569, b: 0.7921569, a: 0}
-  _SwitchVColorInside: {r: 1, g: 0.5310739, b: 0.4481132, a: 1}
+  _SwitchVColorInside: {r: 1, g: 0.5294118, b: 0.44705886, a: 1}
   _SwitchVInsideStrength: 0
   SwitchV_Hue: 0
   SwitchV_Contrast: 1.35
@@ -198,10 +198,10 @@ MonoBehaviour:
   _BaseVTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BaseVInsideStrength: 0
   _BaseVColorInside: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
-  BaseV_Hue: -182
-  BaseV_Contrast: 1.62
-  BaseV_Saturation: 0.846
-  BaseV_Brightness: 0.172
+  BaseV_Hue: -196
+  BaseV_Contrast: 2
+  BaseV_Saturation: 0.39
+  BaseV_Brightness: 0.32
   _BetonVTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
   _BetonVMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
@@ -213,36 +213,36 @@ MonoBehaviour:
   BetonV_Contrast: 2
   BetonV_Saturation: 0.677
   BetonV_Brightness: 0.611
-  _EmptyTex: {fileID: 2800000, guid: f9eba4342ddb93e4ebcde24784bdf556, type: 3}
+  _EmptyTex: {fileID: 2800000, guid: d350f7c1942300d4e88330e71ecf3d5b, type: 3}
   _EmptyTex2: {fileID: 0}
   _EmptyMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _FullTex: {fileID: 2800000, guid: 745028d8b4427a34aa75230be7162ac9, type: 3}
+  _FullTex: {fileID: 2800000, guid: 002032e055d9ec5468811de7eb4cb0ba, type: 3}
   _FullTex2: {fileID: 0}
   _FullMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TopTex: {fileID: 2800000, guid: 5bbf292c6fa28d14485504176c1df930, type: 3}
+  _TopTex: {fileID: 2800000, guid: 84b3a6f4c1c368e4ea6e0f46ccda4826, type: 3}
   _TopTex2: {fileID: 0}
   _TopMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _CornerTex: {fileID: 2800000, guid: 8026d151fc0e43b41aa51408bd8e8c5a, type: 3}
+  _CornerTex: {fileID: 2800000, guid: c227c811d0d01fe4e9b6ee665e0ea6bd, type: 3}
   _CornerTex2: {fileID: 0}
   _CornerMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TripleTex: {fileID: 2800000, guid: 3dbe77a7be2bc304cb8e7230cfbdcbd3, type: 3}
+  _TripleTex: {fileID: 2800000, guid: 5f98d410235274e4690ec68fb4f0f996, type: 3}
   _TripleTex2: {fileID: 0}
   _TripleMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _QuadTex: {fileID: 2800000, guid: 5aab6532290ef814ca8a06a7315cd0d2, type: 3}
+  _QuadTex: {fileID: 2800000, guid: b26c8514be9a6bf4791671ff1827498d, type: 3}
   _QuadTex2: {fileID: 0}
   _QuadMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TextureColor: {r: 1, g: 1, b: 1, a: 1}
+  _TextureColor: {r: 0.3098039, g: 0.9263101, b: 0.98039216, a: 1}
   _Hue: 0
-  _Contrast: 0.833
-  _Saturation: 0.816
-  _Brightness: 0.118
-  _BGTex: {fileID: 2800000, guid: 7e0cffc51a1409d4c80b216a5df9623d, type: 3}
+  _Contrast: 2
+  _Saturation: 0.38
+  _Brightness: 0.15
+  _BGTex: {fileID: 2800000, guid: a0fffcbc4648abd46bc67344483cfadf, type: 3}
   _BGFX: {fileID: 4818063473645752405, guid: 7137078c0c9cde4408984da688889fa3, type: 3}
   _HueBG: 0
   _ContrastBG: 1
@@ -304,7 +304,7 @@ MonoBehaviour:
     type: 3}
   _BombVPastilleEmoteTex: {fileID: 2800000, guid: fb99f6bd818812d4a8534a5762990b05,
     type: 3}
-  _SwitchVIdleEmoteTex: {fileID: 2800000, guid: 94bf32f92f4fe7e408e5c9a9669917d7,
+  _SwitchVIdleEmoteTex: {fileID: 2800000, guid: 686e9fe1cad67b143823e223422ac089,
     type: 3}
   _SwitchVIdleOffEmoteTex: {fileID: 2800000, guid: 94bf32f92f4fe7e408e5c9a9669917d7,
     type: 3}
@@ -327,4 +327,4 @@ MonoBehaviour:
   _VoidTex: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _EdgeTex: {fileID: 2800000, guid: 0be32c24cae912145ab8df8103cccaee, type: 3}
   _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
-  _EdgeTexStrength: 0.56
+  _EdgeTexStrength: 0

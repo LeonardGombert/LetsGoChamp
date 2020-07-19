@@ -592,7 +592,7 @@ namespace Kubika.Game
         // Update is called once per frame
         void Update()
         {
-
+            MaterialSet(); ////// TODO : DEG
         }
     }
 }
