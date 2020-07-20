@@ -19,10 +19,10 @@ MonoBehaviour:
   _BaseTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BaseInsideStrength: 0
   _BaseColorInside: {r: 0, g: 0, b: 0, a: 0}
-  Base_Hue: -7
-  Base_Contrast: 2
-  Base_Saturation: 0.45
-  Base_Brightness: 0.11
+  Base_Hue: 0
+  Base_Contrast: 1.95
+  Base_Saturation: 0.57
+  Base_Brightness: 0.28
   _BetonTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
   _BetonMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
@@ -198,10 +198,10 @@ MonoBehaviour:
   _BaseVTexInside: {fileID: 2800000, guid: 669c548353b665841a806aca66a3e856, type: 3}
   _BaseVInsideStrength: 0
   _BaseVColorInside: {r: 0.94117653, g: 0.94117653, b: 0.94117653, a: 0}
-  BaseV_Hue: -196
+  BaseV_Hue: -190
   BaseV_Contrast: 2
-  BaseV_Saturation: 0.39
-  BaseV_Brightness: 0.32
+  BaseV_Saturation: 0.54
+  BaseV_Brightness: 0.37
   _BetonVTex: {fileID: 2800000, guid: 30c5fc19cab7743448ba30818b21f7eb, type: 3}
   _BetonVMesh: {fileID: 514992610114910546, guid: 24c91f365c414584fba74b43ef0f5e5f,
     type: 3}
@@ -237,11 +237,11 @@ MonoBehaviour:
   _QuadTex2: {fileID: 0}
   _QuadMesh: {fileID: 3375544620813248742, guid: 0ae77374bea2cff47809586cda7594c9,
     type: 3}
-  _TextureColor: {r: 0.3098039, g: 0.9263101, b: 0.98039216, a: 1}
+  _TextureColor: {r: 0.9960785, g: 0.5529412, b: 0.48235297, a: 0}
   _Hue: 0
   _Contrast: 2
-  _Saturation: 0.38
-  _Brightness: 0.15
+  _Saturation: 0.61
+  _Brightness: 0.4
   _BGTex: {fileID: 2800000, guid: a0fffcbc4648abd46bc67344483cfadf, type: 3}
   _BGFX: {fileID: 4818063473645752405, guid: 7137078c0c9cde4408984da688889fa3, type: 3}
   _HueBG: 0

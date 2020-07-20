@@ -29,16 +29,17 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _LightBands: 4.45
-    - _LightIntensity: 1
+    - _LightIntensity: 0.1
     - _NoiseHeight: 63.07
-    - _NoiseSpeed: 0.68
-    - _NoiseTilling: 0.016
-    - _WaterMax: 1
-    - _WaterMin: 0
-    - _WaveAmplitude: 5.71
+    - _NoiseSpeed: 0.44
+    - _NoiseTilling: -0.02
+    - _WaterMax: 1.41
+    - _WaterMin: -0.27
+    - _WaterOffsetHeight: -14.66
+    - _WaveAmplitude: -5.25
     m_Colors:
     - _LightColorAmbient: {r: 1, g: 1, b: 1, a: 1}
     - _LightColorMain: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
     - _LightDir: {r: 1.64, g: 0.24, b: 0, a: 1}
-    - _WaterColorDeep: {r: 0.23376372, g: 0.23113209, b: 1, a: 1}
-    - _WaterColorSurface: {r: 0.07075471, g: 0.8823786, b: 1, a: 1}
+    - _WaterColorDeep: {r: 0.33333334, g: 0.8000001, b: 0.8313726, a: 1}
+    - _WaterColorSurface: {r: 0.7971698, g: 0.9872233, b: 1, a: 1}

@@ -24,6 +24,7 @@ Shader "Unlit/WaterBG"
 
         _WaterMax("_WaterMax", Float) = 1
         _WaterMin("_WaterMin", Float) = 1
+        _WaterOffsetHeight("_WaterOffsetHeight", Float) = 1
     }
     SubShader
     {
@@ -53,12 +54,15 @@ Shader "Unlit/WaterBG"
             half4 _WaterColorDeep;
             half _WaterMax;
             half _WaterMin;
+            half _WaterOffsetHeight;
 
             float4 _LightDir;
             half4 _LightColorMain;
             half4 _LightColorAmbient;
             half _LightIntensity;
             half _LightBands;
+
+            float4 _WorldPos;
 
 
             struct appdata
@@ -84,7 +88,6 @@ Shader "Unlit/WaterBG"
             {
                 v2f o;
 
-                o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
                 o.vertCol = v.vertCol;
@@ -94,8 +97,12 @@ Shader "Unlit/WaterBG"
 
                 fixed4 noiseDisp = tex2Dlod(_NoiseTex, float4(NoiseUV, 0, 0)); //
 
-                o.vertex.y += (noiseDisp.r * _WaveAmplitude * o.vertCol) - (_WaveAmplitude * o.vertCol);
+                o.worldPos.y += (noiseDisp.r * _WaveAmplitude * o.vertCol) - (_WaveAmplitude * o.vertCol);
                 
+                _WorldPos = o.worldPos;
+
+                o.vertex = mul(UNITY_MATRIX_VP, o.worldPos);
+
                 return o;
             }
 
@@ -114,11 +121,13 @@ Shader "Unlit/WaterBG"
                 Lighting += _LightColorAmbient;
 
                 // COLOR WAVE
-                float _YDepth = clamp(((i.worldPos.y - _WaterMin) / (_WaterMax - _WaterMin)), _WaterMin, _WaterMax);
+                float waveHeight = i.worldPos.y - _WaterOffsetHeight;
+
+                float _YDepth = clamp(((waveHeight - _WaterMin) / (_WaterMax - _WaterMin)), _WaterMin, _WaterMax);
                 float4 _YColor = lerp(_WaterColorDeep, _WaterColorSurface, clamp(_YDepth, 0,1));
 
 
-                fixed4 col = _YColor;
+                fixed4 col = _YColor * Lighting;
                 return col;
             }
             ENDCG
