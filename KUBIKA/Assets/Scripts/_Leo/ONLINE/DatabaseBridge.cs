@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using Kubika.Saving;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
+using Kubika.Game;
 
 namespace Kubika.Online
 {
@@ -27,7 +28,7 @@ namespace Kubika.Online
 
         public int numberOfLevelsToGet;
         public Text levelname, kubiCode;
-        
+
         public DynamoDBInfo ids;
         public DynamoReceivedInfo info;
 
@@ -52,7 +53,7 @@ namespace Kubika.Online
         {
             ids = RequestIDs();
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
             Debug.Log("Selecting Ids");
 
@@ -75,8 +76,6 @@ namespace Kubika.Online
 
                 Button button = newListObj.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() => DownloadLevel(receivedInfo.kubicode));
-
-                yield return new WaitForSeconds(.5f);
             }
 
             yield return null;

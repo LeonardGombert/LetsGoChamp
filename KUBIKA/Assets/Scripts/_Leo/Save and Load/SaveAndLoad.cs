@@ -300,9 +300,33 @@ namespace Kubika.Saving
             File.WriteAllText(path, levelFile);
 
             Debug.Log("Level sucessfully downloaded");
-            
+
             /*UserLevelFiles.AddNewUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();*/
+
+            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(DatabaseInfo.content_retrievedLevel));
+        }
+
+        public void PlayCommunityLevel(string levelName)
+        {
+            string folder = Application.persistentDataPath + "/CommunityLevels";
+            string levelFile = levelName + ".json";
+            string path = Path.Combine(folder, levelFile);
+
+            Debug.Log("Path to level is " + path);
+
+            if(File.Exists(path))
+            {
+                Debug.Log("Foud the file");
+                string json = File.ReadAllText(path);
+                LevelEditorData levelData = JsonUtility.FromJson<LevelEditorData>(json);
+
+                ExtractAndRebuildLevel(levelData);
+                Debug.Log("Finished Building the Level bruh");
+            }
+
+            levelData.nodesToSave.Clear();
+            activeNodes.Clear();
         }
         #endregion
 

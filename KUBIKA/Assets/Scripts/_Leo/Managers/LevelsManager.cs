@@ -171,6 +171,7 @@ namespace Kubika.Game
             UIManager.instance.playerLevelsDropdown.RefreshShownValue();
         }
 
+        // use to play user's levels
         public IEnumerator OpenTestLevel()
         {
             SaveAndLoad.instance.UserSavingCurrentLevel();
@@ -184,6 +185,7 @@ namespace Kubika.Game
             yield return null;
         }
 
+        // return to the level editor
         public IEnumerator CloseTestLevel()
         {
             ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
@@ -194,9 +196,37 @@ namespace Kubika.Game
 
             yield return null;
         }
+
+        // load a downloaded level
+        public IEnumerator PlayCommunityLevel(string levelName)
+        {
+            ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
+
+            while (ScenesManager.instance.finishedLoadingScene != true) yield return null;
+
+            yield return null;
+
+            _KUBRotation.instance.ResetRotation();
+            _FeedBackManager.instance.ResetVictoryFX();
+
+            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
+            else UIManager.instance.TurnOnRotate();
+
+            SaveAndLoad.instance.PlayCommunityLevel(levelName);
+
+            while (!SaveAndLoad.instance.finishedBuilding) yield return null;
+
+            VictoryConditionManager.instance.CheckVictoryCubes();
+            _DataManager.instance.GameSet();
+            _MaterialCentral.instance.MaterialSet();
+            _MaterialCentral.instance.ChangeUniverse(_levelBiome);
+
+            UIManager.instance.CustomLevelCanvasPriority();
+            yield return null;
+        }
         #endregion
 
-        #region //LOAD LEVEL PIPELINE
+        #region //LOAD LEVEL PIPELINE & METHODS
         //this kubicode is save into the player's progress file
         public string GetNextKubicode()
         {
