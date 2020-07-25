@@ -69,9 +69,12 @@ namespace Kubika.Online
                 GameObject newListObj = Instantiate(listPrefab, listTransform);
                 levelname = newListObj.transform.GetChild(0).GetComponent<Text>();
                 kubiCode = newListObj.transform.GetChild(1).GetComponent<Text>();
-                
+
                 levelname.text = receivedInfo.levelName;
                 kubiCode.text = receivedInfo.kubicode;
+
+                Button button = newListObj.GetComponentInChildren<Button>();
+                button.onClick.AddListener(() => DownloadLevel(receivedInfo.kubicode));
 
                 yield return new WaitForSeconds(.5f);
             }
@@ -491,10 +494,8 @@ namespace Kubika.Online
         }
 
         // called by Download Button onCLick Event
-        public void DownloadLevel()
+        public void DownloadLevel(string kubiCode)
         {
-            string kubiCode = downloadLevelDropdown.captionText.text;
-
             var getItemRequest = new GetItemRequest
             {
                 ConsistentRead = true,
