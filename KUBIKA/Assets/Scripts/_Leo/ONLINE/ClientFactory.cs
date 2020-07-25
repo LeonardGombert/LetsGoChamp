@@ -10,8 +10,8 @@ namespace Kubika.Online
         {
             AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
 
-            var credentials = new CognitoAWSCredentials(DynamoDBTableInfo.identityPoolId, DynamoDBTableInfo.region);
-            var client = new AmazonDynamoDBClient(credentials, DynamoDBTableInfo.region);
+            var credentials = new CognitoAWSCredentials(DatabaseInfo.identityPoolId, DatabaseInfo.region);
+            var client = new AmazonDynamoDBClient(credentials, DatabaseInfo.region);
 
             return client;
         }
