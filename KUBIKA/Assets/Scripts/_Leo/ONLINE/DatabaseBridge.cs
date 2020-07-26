@@ -87,8 +87,8 @@ namespace Kubika.Online
                 TableName = DatabaseInfo.userContent_tableName,
                 Key = new Dictionary<string, AttributeValue>()
                 {
-                    { DatabaseInfo.userContent_pKey, new AttributeValue{ S = id.ToString() } }
-                }
+                    { DatabaseInfo.userContent_pKey, new AttributeValue { S = id.ToString() } }
+                },
             };
 
             client.GetItemAsync(getLevelRequest, (result) =>
@@ -107,7 +107,6 @@ namespace Kubika.Online
                         if (keyValuePair.Key == DatabaseInfo.userContent_pKey) info.kubicode = keyValuePair.Value.S;
                     }
                     Debug.Log("Retrived name is " + info.levelName);
-                    Debug.Log("Retrived kubicode is " + info.kubicode);
                 }
             }, null);
 
@@ -443,12 +442,12 @@ namespace Kubika.Online
 
             var getItemRequest = new GetItemRequest
             {
-                ConsistentRead = true,
                 TableName = DatabaseInfo.userContent_tableName,
                 Key = new Dictionary<string, AttributeValue>()
                 {
                     { DatabaseInfo.userContent_pKey, new AttributeValue{ S = kubicode} }
-                }
+                },
+                ConsistentRead = true
             };
 
             client.GetItemAsync(getItemRequest, (result) =>
