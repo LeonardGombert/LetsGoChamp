@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using System;
+using System.Collections;
 
 namespace Kubika.Saving
 {
@@ -289,26 +290,29 @@ namespace Kubika.Saving
 
             if (!Directory.Exists(folder))
             {
-                Debug.Log("Creating a CommunityLevels directory");
+                Debug.Log("Creating a CommunityLevels directory at " + path);
                 Directory.CreateDirectory(folder);
             }
 
             if (File.Exists(path))
             {
-                Debug.Log("Deleting a pre-existing instance of this particular level");
+                Debug.Log("Deleting a pre-existing instance of this particular level at " + path);
                 File.Delete(path);
             }
 
             File.WriteAllText(path, levelFile);
 
-            Debug.Log("Level sucessfully downloaded");
+            Debug.Log("Level sucessfully downloaded at " + path);
 
             /*UserLevelFiles.AddNewUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();*/
 
+            //ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
+
             StartCoroutine(LevelsManager.instance.PlayCommunityLevel(DatabaseInfo.userContent_retrievedLevel));
         }
 
+        // called from SaveAndLoad manager
         public void PlayCommunityLevel(string levelName)
         {
             string folder = Application.persistentDataPath + "/CommunityLevels";
@@ -325,10 +329,21 @@ namespace Kubika.Saving
 
                 ExtractAndRebuildLevel(levelData);
                 Debug.Log("Finished Building the Level bruh");
+
+                //StartCoroutine(GoToLE());
             }
 
             levelData.nodesToSave.Clear();
             activeNodes.Clear();
+        }
+
+        IEnumerator GoToLE()
+        {
+            Debug.Log("Counting down");
+
+            yield return new WaitForSeconds(3f);
+
+            ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
         }
         #endregion
 

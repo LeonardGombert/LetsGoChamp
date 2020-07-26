@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using Kubika.Saving;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
+using Kubika.Game;
 
 namespace Kubika.Online
 {
@@ -46,7 +47,11 @@ namespace Kubika.Online
         }
 
         #region // LIST RANDOM LEVELS
-        
+        public void WESH()
+        {
+            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(DatabaseInfo.userContent_retrievedLevel));
+        }
+
         IEnumerator GetRandomLevels()
         {
             DynamoDBInfo ids = RequestIDs();
