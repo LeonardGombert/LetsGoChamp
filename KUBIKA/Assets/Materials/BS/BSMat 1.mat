@@ -63,7 +63,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LightBands: 2
+    - _LightBands: 1.03
     - _LightIntensity: 0.1
     - _Metallic: 0
     - _Mode: 0
