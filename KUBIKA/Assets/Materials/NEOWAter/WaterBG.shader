@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
 Shader "Unlit/WaterBG"
 {
@@ -25,20 +27,23 @@ Shader "Unlit/WaterBG"
         _WaterMax("_WaterMax", Float) = 1
         _WaterMin("_WaterMin", Float) = 1
         _WaterOffsetHeight("_WaterOffsetHeight", Float) = 1
+
+        _FoamTest("FoamTest", Float) = 1
     }
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
-
-        Pass
+        SubShader
         {
-            CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
+            Tags { "Queue" = "Transparent" }
+            //LOD 100
 
-            #include "UnityCG.cginc"
+            Pass
+            {
+                CGPROGRAM
+                #pragma vertex vert
+                #pragma fragment frag
 
+                #include "UnityCG.cginc"
+
+            sampler2D _CameraDepthTexture;
 
             sampler2D _MainTex;
             sampler2D _NoiseTex;
@@ -64,6 +69,8 @@ Shader "Unlit/WaterBG"
 
             float4 _WorldPos;
 
+            half _FoamTest;
+
 
             struct appdata
             {
@@ -71,6 +78,7 @@ Shader "Unlit/WaterBG"
                 float2 uv : TEXCOORD0;
                 float4 vertCol : COLOR;
                 half3 worldNormal : NORMAL;
+                float4 screenPos : TEXCOORD3;
             };
 
             struct v2f
@@ -80,6 +88,7 @@ Shader "Unlit/WaterBG"
                 float4 vertCol : COLOR;
                 float4 worldPos : TEXCOORD1;
                 half3 worldNormal : TEXCOORD2;
+                float4 screenPos : TEXCOORD3;
             };
 
 
@@ -90,6 +99,7 @@ Shader "Unlit/WaterBG"
 
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
+                o.screenPos = ComputeScreenPos(UnityObjectToClipPos(v.vertex));
                 o.vertCol = v.vertCol;
                 o.worldNormal = UnityObjectToWorldNormal(v.worldNormal);
 
@@ -106,8 +116,13 @@ Shader "Unlit/WaterBG"
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag(v2f i) : SV_Target
             {
+                //Depth
+                half depth = LinearEyeDepth(SAMPLE_DEPTH_TEXTURE_PROJ(_CameraDepthTexture, UNITY_PROJ_COORD(i.screenPos)));
+                half4 foamLine = 1 - saturate(_FoamTest * (depth - i.screenPos.w));
+
+
                 // sample the texture
 
                 float3 normal = normalize(i.worldNormal); 
@@ -128,7 +143,9 @@ Shader "Unlit/WaterBG"
 
 
                 fixed4 col = _YColor * Lighting;
+                col += foamLine;
                 return col;
+
             }
             ENDCG
         }

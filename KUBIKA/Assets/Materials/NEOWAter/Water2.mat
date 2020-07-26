@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SurfaceDistortion:
         m_Texture: {fileID: 2800000, guid: 4609524373fae3c4783ecb7b64eba6fd, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -27,22 +31,50 @@ Material:
         m_Texture: {fileID: 2800000, guid: efec379def391ae498e4300602bc1636, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _WaterFoam2Tex:
+        m_Texture: {fileID: 2800000, guid: 78b305b609918a1498ad7faf8f171273, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaveNoiseTex:
+        m_Texture: {fileID: 2800000, guid: efec379def391ae498e4300602bc1636, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AlphaMax: 300
+    - _AlphaMin: 0
+    - _AlphaOffsetHeight: -55.8
     - _DepthMaxDistance: -3.3
     - _FoamMaxDistance: 1
     - _FoamMinDistance: -1
+    - _LightBands: 1
+    - _LightIntensity: 0.1
     - _SurfaceDistortionAmount: 0.27
     - _SurfaceNoiseCutoff: 0.777
+    - _WaterFoam2NoiseTilling: -16.8
+    - _WaterFoam2Thresold: 0.6
+    - _WaterMax: 50
+    - _WaterMin: 0
+    - _WaterOffsetHeight: -46.9
     - _WaveColorDistance: 0.01
     - _WaveColorHeight: -0.6
     - _WaveHeight: 0.4
+    - _WaveNoiseSpeed: 0.65
+    - _WaveNoiseThresold: 0.15
+    - _WaveNoiseTilling: 25.11
     - _WaveRealHeight: -18.41777
     m_Colors:
     - _DepthGradientDeep: {r: 0.086, g: 0.407, b: 1, a: 0.749}
     - _DepthGradientShallow: {r: 0.325, g: 0.807, b: 0.971, a: 0.725}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightColorAmbient: {r: 1, g: 1, b: 1, a: 1}
+    - _LightColorMain: {r: 0.45098042, g: 0.45098042, b: 0.45098042, a: 0}
+    - _LightDir: {r: 1.64, g: 0.24, b: 0, a: 0}
     - _SurfaceNoiseScroll: {r: 0.03, g: 0.03, b: 0, a: 0}
+    - _WaterColorDeep: {r: 0.3529412, g: 0.6627451, b: 0.64437467, a: 1}
+    - _WaterColorSurface: {r: 0.56078434, g: 0.827451, b: 0.720951, a: 1}
+    - _WaterFoam2Color: {r: 0, g: 0, b: 0, a: 0}
     - _WaveA: {r: 1, g: 0, b: 0.5, a: 10}
     - _WaveB: {r: 0, g: 1, b: 0.25, a: 20}
     - _WaveC: {r: 1, g: 1, b: 0.15, a: 10}
+    - _WaveColor: {r: 0.9528302, g: 0.9528302, b: 0.9528302, a: 1}
     - _WaveTopColor: {r: 0.5896226, g: 0.9820982, b: 1, a: 1}
