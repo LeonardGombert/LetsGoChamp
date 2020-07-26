@@ -46,6 +46,7 @@ namespace Kubika.Online
         }
 
         #region // LIST RANDOM LEVELS
+        
         IEnumerator GetRandomLevels()
         {
             DynamoDBInfo ids = RequestIDs();
@@ -59,7 +60,7 @@ namespace Kubika.Online
             {
                 receivedInfo.ClearNames();
                 receivedInfo = GetLevelById(idsToGet[i]);
-                
+
                 while (receivedInfo.levelName == "" && receivedInfo.kubicode == "") yield return null;
 
                 Debug.Log("I'm saving kubicode : " + receivedInfo.kubicode);
@@ -160,8 +161,9 @@ namespace Kubika.Online
 
         IEnumerator UploadLevel()
         {
+            string levelToGet = uploadLevelDropdown.captionText.text;
             // translate the name of the level in the dropdown list to a levelFile
-            string json = GetLevelFromUserFolder(uploadLevelDropdown.captionText.text);
+            string json = GetLevelFromUserFolder(levelToGet);
 
             LevelEditorData level = new LevelEditorData();
             level = JsonUtility.FromJson<LevelEditorData>(json);
@@ -196,12 +198,17 @@ namespace Kubika.Online
                 }
 
                 // else, the item has successfully been uploaded
-                else Debug.Log(levelName + " has been uploaded successfully!");
+                else
+                {
+                    Debug.Log(levelName + " has been uploaded successfully!");
+                    UserLevelFiles.AddToUploads(uploadLevelDropdown.captionText.text);
+                }
 
             }, null);
 
             yield return null;
         }
+        
         #endregion
 
         #region // UPLOAD GAME LEVELS
@@ -221,7 +228,7 @@ namespace Kubika.Online
                     TableName = DatabaseInfo.levels_tableName,
                     Item = new Dictionary<string, AttributeValue>()
                     {
-                        { DatabaseInfo.levels_pKey, new AttributeValue{ S = levelFile.Kubicode } },
+                        { DatabaseInfo.levels_pKey + ".MyManBro", new AttributeValue{ S = levelFile.Kubicode} },
                         { DatabaseInfo.levels_levelName, new AttributeValue{ S = levelFile.levelName } },
                         { DatabaseInfo.levels_jsonFile, new AttributeValue{ S = level.ToString() } },
                     }
@@ -425,7 +432,8 @@ namespace Kubika.Online
 
         void DeleteLevel()
         {
-
+            string levelToGet = uploadLevelDropdown.captionText.text;
+            UserLevelFiles.RemoveFromUploads(levelToGet);
         }
 
         // called by Download Button onCLick Event
