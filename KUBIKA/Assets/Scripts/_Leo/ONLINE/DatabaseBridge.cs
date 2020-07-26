@@ -37,7 +37,7 @@ namespace Kubika.Online
         void Start()
         {
             //requiered to communicate with DynamoDB database
-            UnityInitializer.AttachToGameObject(gameObject);
+            //UnityInitializer.AttachToGameObject(gameObject);
 
             //create a new client to make function calls
             client = ClientFactory.ConfirmUserIdentity();
@@ -91,7 +91,17 @@ namespace Kubika.Online
                 },
             };
 
-            client.GetItemAsync(getLevelRequest, (result) =>
+            var response = client.GetItemAsync(getLevelRequest);
+
+            foreach (var keyValuePair in response.Result.Item)
+            {
+                if (keyValuePair.Key == DatabaseInfo.userContent_levelName) info.levelName = keyValuePair.Value.S;
+                if (keyValuePair.Key == DatabaseInfo.userContent_pKey) info.kubicode = keyValuePair.Value.S;
+            }
+
+            return info;
+
+            /*client.GetItemAsync(getLevelRequest, (result) =>
             {
                 if (result.Exception != null)
                 {
@@ -108,9 +118,8 @@ namespace Kubika.Online
                     }
                     Debug.Log("Retrived name is " + info.levelName);
                 }
-            }, null);
+            }, null);*/
 
-            return info;
         }
 
         List<int> SelectRandomLevels(DynamoDBInfo ids, int amountOfLevels)
@@ -186,6 +195,21 @@ namespace Kubika.Online
                 }
             };
 
+            var response = client.PutItemAsync(putItemRequest);
+
+            // if something goes wrong, debug the log message from AWS
+            if (response.Exception != null)
+            {
+                Debug.Log(response.Exception.Message);
+            }
+
+            // else, the item has successfully been uploaded
+            else
+            {
+                Debug.Log(levelName + " has been uploaded successfully!");
+                UserLevelFiles.AddToUploads(uploadLevelDropdown.captionText.text);
+            }
+            /*
             // connect to dynamoDB database and pass the request information to upload the item
             client.PutItemAsync(putItemRequest, (result) =>
             {
@@ -203,7 +227,7 @@ namespace Kubika.Online
                     UserLevelFiles.AddToUploads(uploadLevelDropdown.captionText.text);
                 }
 
-            }, null);
+            }, null);*/
 
             yield return null;
         }
@@ -233,7 +257,15 @@ namespace Kubika.Online
                     }
                 };
 
-                client.PutItemAsync(uploadRequest, (result) =>
+                var response = client.PutItemAsync(uploadRequest);
+
+                // if something goes wrong, debug the log message from AWS
+                if (response.Exception != null) Debug.Log(response.Exception.Message);
+
+                // else, the item has successfully been uploaded
+                else Debug.Log(levelFile.levelName + " has been uploaded successfully!");
+
+                /*client.PutItemAsync(uploadRequest, (result) =>
                 {
                     // if something goes wrong, debug the log message from AWS
                     if (result.Exception != null)
@@ -245,7 +277,7 @@ namespace Kubika.Online
                     // else, the item has successfully been uploaded
                     else Debug.Log(levelFile.levelName + " has been uploaded successfully!");
 
-                }, null);
+                }, null);*/
 
                 DatabaseInfo.CleanInfo();
 
@@ -312,7 +344,25 @@ namespace Kubika.Online
                 }
             };
 
-            client.GetItemAsync(getIdsRequest, (result) =>
+            var response = client.GetItemAsync(getIdsRequest);
+
+            string jsonFile = "";
+
+            foreach (var keyValuePair in response.Result.Item)
+            {
+                if (keyValuePair.Key == DatabaseInfo.info_jsonFile) jsonFile = keyValuePair.Value.S;
+            }
+
+            if (jsonFile == "" || jsonFile == null) CreateIDsFile();
+
+            // create a DynamoDBInfo file from the json information stored in the Table
+            DynamoDBInfo copy = JsonUtility.FromJson<DynamoDBInfo>(jsonFile);
+
+            info.backupListOfIndexes = copy.backupListOfIndexes;
+            info.listOfIndexes = copy.listOfIndexes;
+            info.lastIdUsed = copy.listOfIndexes[copy.listOfIndexes.Count - 1];
+
+            /*client.GetItemAsync(getIdsRequest, (result) =>
             {
                 if (result.Exception != null)
                 {
@@ -343,7 +393,7 @@ namespace Kubika.Online
                     Debug.Log("Last used is " + info.lastIdUsed);
                 }
 
-            }, null);
+            }, null);*/
 
             return info;
         }
@@ -372,6 +422,10 @@ namespace Kubika.Online
                 }
             };
 
+            var response = client.PutItemAsync(request);
+            
+            if(response.Exception == null) Debug.Log("Info file has been uploaded successfully!");
+            /*
             client.PutItemAsync(request, (result) =>
             {
                 if (result.Exception != null)
@@ -382,14 +436,14 @@ namespace Kubika.Online
                 // else, the item has successfully been uploaded
                 else Debug.Log("Info file has been uploaded successfully!");
 
-            }, null);
+            }, null);*/
         }
 
         private void UpdateInfoFile(DynamoDBInfo file)
         {
             string json = JsonUtility.ToJson(file);
 
-            var UpdateRequest = new UpdateItemRequest
+            var updateRequest = new UpdateItemRequest
             {
                 TableName = DatabaseInfo.info_tableName,
                 Key = new Dictionary<string, AttributeValue>
@@ -409,7 +463,11 @@ namespace Kubika.Online
                 }
             };
 
-            client.UpdateItemAsync(UpdateRequest, (result) =>
+            var response = client.UpdateItemAsync(updateRequest);
+
+            if (response.Exception == null) Debug.Log("The item has been updated");
+
+            /*client.UpdateItemAsync(updateRequest, (result) =>
             {
                 if (result.Exception != null)
                 {
@@ -418,7 +476,7 @@ namespace Kubika.Online
                 }
 
                 else Debug.Log("The item has been updated");
-            });
+            });*/
         }
 
         #endregion
@@ -450,6 +508,20 @@ namespace Kubika.Online
                 ConsistentRead = true
             };
 
+            var response = client.GetItemAsync(getItemRequest);
+
+            foreach (var keyValuePair in response.Result.Item)
+            {
+                if (keyValuePair.Key == DatabaseInfo.userContent_levelName) DatabaseInfo.userContent_retrievedLevel = keyValuePair.Value.S;
+                if (keyValuePair.Key == DatabaseInfo.userContent_jsonFile) DatabaseInfo.userContent_retrievedJson = keyValuePair.Value.S;
+            }
+
+            Debug.Log("Downloading " + DatabaseInfo.userContent_retrievedLevel);
+
+            // call the save and load instance to convert the received information into a useable JSON file
+            SaveAndLoad.instance.UserDownloadingLevel(DatabaseInfo.userContent_retrievedLevel, DatabaseInfo.userContent_retrievedJson);
+
+            /*
             client.GetItemAsync(getItemRequest, (result) =>
             {
                 if (result.Exception != null)
@@ -472,7 +544,7 @@ namespace Kubika.Online
                     SaveAndLoad.instance.UserDownloadingLevel(DatabaseInfo.userContent_retrievedLevel, DatabaseInfo.userContent_retrievedJson);
                 }
 
-            }, null);
+            }, null);*/
 
             DatabaseInfo.CleanInfo();
         }

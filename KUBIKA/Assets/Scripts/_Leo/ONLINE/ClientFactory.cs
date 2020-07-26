@@ -8,7 +8,7 @@ namespace Kubika.Online
     {
         public static IAmazonDynamoDB ConfirmUserIdentity()
         {
-            AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
+            //AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
 
             var credentials = new CognitoAWSCredentials(DatabaseInfo.identityPoolId, DatabaseInfo.region);
             var client = new AmazonDynamoDBClient(credentials, DatabaseInfo.region);

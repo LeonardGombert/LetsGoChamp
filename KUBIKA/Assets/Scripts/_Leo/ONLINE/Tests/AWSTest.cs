@@ -32,8 +32,8 @@ namespace Kubika.Online.Tests
         // Start is called before the first frame update
         void Start()
         {
-            UnityInitializer.AttachToGameObject(this.gameObject);
-            AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;
+            /*UnityInitializer.AttachToGameObject(this.gameObject);
+            AWSConfigs.HttpClient = AWSConfigs.HttpClientOption.UnityWebRequest;*/
 
             GetUserCredentials();
             //DescribeTable();
@@ -63,7 +63,7 @@ namespace Kubika.Online.Tests
             }
             };
 
-            client.PutItemAsync(request, (result) =>
+            client.PutItemAsync(request);/*client.PutItemAsync(request, (result) =>
             {
                 if (result.Exception != null)
                 {
@@ -76,7 +76,7 @@ namespace Kubika.Online.Tests
                 var metaData = description.Attributes.ToString();
                 resultText.text += ("kubikaID: " + metaData + "\n");
 
-            }, null);
+            }, null);*/
 
             #region test shiz
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,7 +112,16 @@ namespace Kubika.Online.Tests
             },
             };
 
-            client.GetItemAsync(request, (result) =>
+            var response = client.GetItemAsync(request);
+
+            foreach (var keyValuePair in response.Result.Item)
+            {
+                if (keyValuePair.Key == "kubikaID") receivedId = "Worl" + keyValuePair.Value.N;
+                if (keyValuePair.Key == "levelName") receivedName = keyValuePair.Value.S;
+                if (keyValuePair.Key == "levelFile") receivedFile = keyValuePair.Value.S;
+            }
+
+            /*client.GetItemAsync(request, (result) =>
             {
             // use this to get error and warning debugs
             if (result.Exception != null)
@@ -131,11 +140,11 @@ namespace Kubika.Online.Tests
                     if (keyValuePair.Key == "levelFile") receivedFile = keyValuePair.Value.S;
                 }
 
-            }, null);
+            }, null);*/
         }
 
         private void DescribeTable()
-        {
+        {/*
             resultText.text += ("\n*** Retrieving table information ***\n");
             var request = new DescribeTableRequest
             {
@@ -157,7 +166,7 @@ namespace Kubika.Online.Tests
                 description.ProvisionedThroughput.ReadCapacityUnits + "\n");
                 resultText.text += ("Provision Throughput (reads/sec): " +
                 description.ProvisionedThroughput.WriteCapacityUnits + "\n");
-            }, null);
+            }, null);*/
         }
     }
 }

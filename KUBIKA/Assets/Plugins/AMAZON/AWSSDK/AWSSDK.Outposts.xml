@@ -1,0 +1,1664 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AWSSDK.Outposts</name>
+    </assembly>
+    <members>
+        <member name="T:Amazon.Outposts.AmazonOutpostsConfig">
+            <summary>
+            Configuration for accessing Amazon Outposts service
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsConfig.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.AmazonOutpostsConfig.RegionEndpointServiceName">
+            <summary>
+            The constant used to lookup in the region hash the endpoint.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.AmazonOutpostsConfig.ServiceVersion">
+            <summary>
+            Gets the ServiceVersion property.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.AmazonOutpostsConfig.UserAgent">
+            <summary>
+            Gets the value of UserAgent property.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.AmazonOutpostsException">
+            <summary>
+             Common exception for the Outposts service.
+             </summary>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsException.#ctor(System.String)">
+            <summary>
+            Construct instance of AmazonOutpostsException
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of AmazonOutpostsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of AmazonOutpostsException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonOutpostsException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AmazonOutpostsException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.Outposts.Internal.AmazonOutpostsMetadata">
+            <summary>
+            Service metadata for  Amazon Outposts service
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Internal.AmazonOutpostsMetadata.ServiceId">
+            <summary>
+            Gets the value of the Service Id.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Internal.AmazonOutpostsMetadata.OperationNameMapping">
+            <summary>
+            Gets the dictionary that gives mapping of renamed operations
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.AccessDeniedException">
+            <summary>
+            You do not have permission to perform this operation.
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.Model.AccessDeniedException.#ctor(System.String)">
+            <summary>
+            Constructs a new AccessDeniedException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.AccessDeniedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of AccessDeniedException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.AccessDeniedException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of AccessDeniedException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.AccessDeniedException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AccessDeniedException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.AccessDeniedException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of AccessDeniedException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.Outposts.Model.CreateOutpostRequest">
+            <summary>
+            Container for the parameters to the CreateOutpost operation.
+            Creates an Outpost.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.CreateOutpostRequest.AvailabilityZone">
+            <summary>
+            Gets and sets the property AvailabilityZone.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.CreateOutpostRequest.AvailabilityZoneId">
+            <summary>
+            Gets and sets the property AvailabilityZoneId.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.CreateOutpostRequest.Description">
+            <summary>
+            Gets and sets the property Description.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.CreateOutpostRequest.Name">
+            <summary>
+            Gets and sets the property Name.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.CreateOutpostRequest.SiteId">
+            <summary>
+            Gets and sets the property SiteId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.CreateOutpostResponse">
+            <summary>
+            This is the response object from the CreateOutpost operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.CreateOutpostResponse.Outpost">
+            <summary>
+            Gets and sets the property Outpost.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.DeleteOutpostRequest">
+            <summary>
+            Container for the parameters to the DeleteOutpost operation.
+            Deletes the Outpost.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.DeleteOutpostRequest.OutpostId">
+            <summary>
+            Gets and sets the property OutpostId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.DeleteOutpostResponse">
+            <summary>
+            This is the response object from the DeleteOutpost operation.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.DeleteSiteRequest">
+            <summary>
+            Container for the parameters to the DeleteSite operation.
+            Deletes the site.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.DeleteSiteRequest.SiteId">
+            <summary>
+            Gets and sets the property SiteId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.DeleteSiteResponse">
+            <summary>
+            This is the response object from the DeleteSite operation.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.GetOutpostInstanceTypesRequest">
+            <summary>
+            Container for the parameters to the GetOutpostInstanceTypes operation.
+            Lists the instance types for the specified Outpost.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostInstanceTypesRequest.MaxResults">
+            <summary>
+            Gets and sets the property MaxResults.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostInstanceTypesRequest.NextToken">
+            <summary>
+            Gets and sets the property NextToken.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostInstanceTypesRequest.OutpostId">
+            <summary>
+            Gets and sets the property OutpostId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.GetOutpostInstanceTypesResponse">
+            <summary>
+            This is the response object from the GetOutpostInstanceTypes operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostInstanceTypesResponse.InstanceTypes">
+            <summary>
+            Gets and sets the property InstanceTypes.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostInstanceTypesResponse.NextToken">
+            <summary>
+            Gets and sets the property NextToken.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostInstanceTypesResponse.OutpostArn">
+            <summary>
+            Gets and sets the property OutpostArn.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostInstanceTypesResponse.OutpostId">
+            <summary>
+            Gets and sets the property OutpostId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.GetOutpostRequest">
+            <summary>
+            Container for the parameters to the GetOutpost operation.
+            Gets information about the specified Outpost.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostRequest.OutpostId">
+            <summary>
+            Gets and sets the property OutpostId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.GetOutpostResponse">
+            <summary>
+            This is the response object from the GetOutpost operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.GetOutpostResponse.Outpost">
+            <summary>
+            Gets and sets the property Outpost.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.InstanceTypeItem">
+            <summary>
+            Information about an instance type.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.InstanceTypeItem.InstanceType">
+            <summary>
+            Gets and sets the property InstanceType.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.InternalServerException">
+            <summary>
+            An internal error has occurred.
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.Model.InternalServerException.#ctor(System.String)">
+            <summary>
+            Constructs a new InternalServerException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.InternalServerException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of InternalServerException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.InternalServerException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of InternalServerException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.InternalServerException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InternalServerException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.InternalServerException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of InternalServerException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.AccessDeniedExceptionUnmarshaller">
+            <summary>
+            Response Unmarshaller for AccessDeniedException Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.AccessDeniedExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.AccessDeniedExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,Amazon.Runtime.Internal.ErrorResponse)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <param name="errorResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.AccessDeniedExceptionUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostRequestMarshaller">
+            <summary>
+            CreateOutpost Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostRequestMarshaller.Marshall(Amazon.Outposts.Model.CreateOutpostRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostRequestMarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for CreateOutpost operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.CreateOutpostResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostRequestMarshaller">
+            <summary>
+            DeleteOutpost Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostRequestMarshaller.Marshall(Amazon.Outposts.Model.DeleteOutpostRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostRequestMarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for DeleteOutpost operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteOutpostResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteRequestMarshaller">
+            <summary>
+            DeleteSite Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteRequestMarshaller.Marshall(Amazon.Outposts.Model.DeleteSiteRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteRequestMarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for DeleteSite operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.DeleteSiteResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesRequestMarshaller">
+            <summary>
+            GetOutpostInstanceTypes Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesRequestMarshaller.Marshall(Amazon.Outposts.Model.GetOutpostInstanceTypesRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesRequestMarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for GetOutpostInstanceTypes operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostInstanceTypesResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostRequestMarshaller">
+            <summary>
+            GetOutpost Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostRequestMarshaller.Marshall(Amazon.Outposts.Model.GetOutpostRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostRequestMarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for GetOutpost operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.GetOutpostResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.InstanceTypeItemUnmarshaller">
+            <summary>
+            Response Unmarshaller for InstanceTypeItem Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.InstanceTypeItemUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#Outposts#Model#InstanceTypeItem,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.InstanceTypeItemUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.InstanceTypeItemUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.InternalServerExceptionUnmarshaller">
+            <summary>
+            Response Unmarshaller for InternalServerException Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.InternalServerExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.InternalServerExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,Amazon.Runtime.Internal.ErrorResponse)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <param name="errorResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.InternalServerExceptionUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsRequestMarshaller">
+            <summary>
+            ListOutposts Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsRequestMarshaller.Marshall(Amazon.Outposts.Model.ListOutpostsRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsRequestMarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for ListOutposts operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.ListOutpostsResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesRequestMarshaller">
+            <summary>
+            ListSites Request Marshaller
+            </summary>       
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesRequestMarshaller.Marshall(Amazon.Runtime.AmazonWebServiceRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesRequestMarshaller.Marshall(Amazon.Outposts.Model.ListSitesRequest)">
+            <summary>
+            Marshaller the request object to the HTTP request.
+            </summary>  
+            <param name="publicRequest"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesRequestMarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesResponseUnmarshaller">
+            <summary>
+            Response Unmarshaller for ListSites operation
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesResponseUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesResponseUnmarshaller.UnmarshallException(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,System.Exception,System.Net.HttpStatusCode)">
+            <summary>
+            Unmarshaller error response to exception.
+            </summary>  
+            <param name="context"></param>
+            <param name="innerException"></param>
+            <param name="statusCode"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.ListSitesResponseUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.NotFoundExceptionUnmarshaller">
+            <summary>
+            Response Unmarshaller for NotFoundException Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.NotFoundExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.NotFoundExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,Amazon.Runtime.Internal.ErrorResponse)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <param name="errorResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.NotFoundExceptionUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.OutpostUnmarshaller">
+            <summary>
+            Response Unmarshaller for Outpost Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.OutpostUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#Outposts#Model#Outpost,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.OutpostUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.OutpostUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.ServiceQuotaExceededExceptionUnmarshaller">
+            <summary>
+            Response Unmarshaller for ServiceQuotaExceededException Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ServiceQuotaExceededExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ServiceQuotaExceededExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,Amazon.Runtime.Internal.ErrorResponse)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <param name="errorResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.ServiceQuotaExceededExceptionUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.SiteUnmarshaller">
+            <summary>
+            Response Unmarshaller for Site Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.SiteUnmarshaller.Amazon#Runtime#Internal#Transform#IUnmarshaller{Amazon#Outposts#Model#Site,Amazon#Runtime#Internal#Transform#XmlUnmarshallerContext}#Unmarshall(Amazon.Runtime.Internal.Transform.XmlUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.SiteUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.SiteUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.Internal.MarshallTransformations.ValidationExceptionUnmarshaller">
+            <summary>
+            Response Unmarshaller for ValidationException Object
+            </summary>  
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ValidationExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Amazon.Outposts.Model.Internal.MarshallTransformations.ValidationExceptionUnmarshaller.Unmarshall(Amazon.Runtime.Internal.Transform.JsonUnmarshallerContext,Amazon.Runtime.Internal.ErrorResponse)">
+            <summary>
+            Unmarshaller the response from the service to the response class.
+            </summary>  
+            <param name="context"></param>
+            <param name="errorResponse"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Internal.MarshallTransformations.ValidationExceptionUnmarshaller.Instance">
+            <summary>
+            Gets the singleton.
+            </summary>  
+        </member>
+        <member name="T:Amazon.Outposts.Model.ListOutpostsRequest">
+            <summary>
+            Container for the parameters to the ListOutposts operation.
+            List the Outposts for your AWS account.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListOutpostsRequest.MaxResults">
+            <summary>
+            Gets and sets the property MaxResults.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListOutpostsRequest.NextToken">
+            <summary>
+            Gets and sets the property NextToken.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.ListOutpostsResponse">
+            <summary>
+            This is the response object from the ListOutposts operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListOutpostsResponse.NextToken">
+            <summary>
+            Gets and sets the property NextToken.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListOutpostsResponse.Outposts">
+            <summary>
+            Gets and sets the property Outposts.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.ListSitesRequest">
+            <summary>
+            Container for the parameters to the ListSites operation.
+            Lists the sites for the specified AWS account.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListSitesRequest.MaxResults">
+            <summary>
+            Gets and sets the property MaxResults.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListSitesRequest.NextToken">
+            <summary>
+            Gets and sets the property NextToken.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.ListSitesResponse">
+            <summary>
+            This is the response object from the ListSites operation.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListSitesResponse.NextToken">
+            <summary>
+            Gets and sets the property NextToken.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.ListSitesResponse.Sites">
+            <summary>
+            Gets and sets the property Sites.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.NotFoundException">
+            <summary>
+            The specified request is not valid.
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.Model.NotFoundException.#ctor(System.String)">
+            <summary>
+            Constructs a new NotFoundException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.NotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of NotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.NotFoundException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of NotFoundException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.NotFoundException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of NotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.NotFoundException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of NotFoundException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.Outposts.Model.Outpost">
+            <summary>
+            Information about an Outpost.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.AvailabilityZone">
+            <summary>
+            Gets and sets the property AvailabilityZone.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.AvailabilityZoneId">
+            <summary>
+            Gets and sets the property AvailabilityZoneId.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.Description">
+            <summary>
+            Gets and sets the property Description.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.LifeCycleStatus">
+            <summary>
+            Gets and sets the property LifeCycleStatus.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.Name">
+            <summary>
+            Gets and sets the property Name.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.OutpostArn">
+            <summary>
+            Gets and sets the property OutpostArn.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.OutpostId">
+            <summary>
+            Gets and sets the property OutpostId.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.OwnerId">
+            <summary>
+            Gets and sets the property OwnerId.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Outpost.SiteId">
+            <summary>
+            Gets and sets the property SiteId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.ServiceQuotaExceededException">
+            <summary>
+            You have exceeded a service quota.
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ServiceQuotaExceededException.#ctor(System.String)">
+            <summary>
+            Constructs a new ServiceQuotaExceededException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ServiceQuotaExceededException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of ServiceQuotaExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ServiceQuotaExceededException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of ServiceQuotaExceededException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ServiceQuotaExceededException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ServiceQuotaExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ServiceQuotaExceededException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ServiceQuotaExceededException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.Outposts.Model.Site">
+            <summary>
+            Information about a site.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Site.AccountId">
+            <summary>
+            Gets and sets the property AccountId.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Site.Description">
+            <summary>
+            Gets and sets the property Description.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Site.Name">
+            <summary>
+            Gets and sets the property Name.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.Model.Site.SiteId">
+            <summary>
+            Gets and sets the property SiteId.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.Model.ValidationException">
+            <summary>
+            A parameter is not valid.
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ValidationException.#ctor(System.String)">
+            <summary>
+            Constructs a new ValidationException with the specified error
+            message.
+            </summary>
+            <param name="message">
+            Describes the error encountered.
+            </param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Construct instance of ValidationException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ValidationException.#ctor(System.Exception)">
+            <summary>
+            Construct instance of ValidationException
+            </summary>
+            <param name="innerException"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ValidationException.#ctor(System.String,System.Exception,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ValidationException
+            </summary>
+            <param name="message"></param>
+            <param name="innerException"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="M:Amazon.Outposts.Model.ValidationException.#ctor(System.String,Amazon.Runtime.ErrorType,System.String,System.String,System.Net.HttpStatusCode)">
+            <summary>
+            Construct instance of ValidationException
+            </summary>
+            <param name="message"></param>
+            <param name="errorType"></param>
+            <param name="errorCode"></param>
+            <param name="requestId"></param>
+            <param name="statusCode"></param>
+        </member>
+        <member name="T:Amazon.Outposts.AmazonOutpostsRequest">
+            <summary>
+            Base class for Outposts operation requests.
+            </summary>
+        </member>
+        <member name="T:Amazon.Outposts.AmazonOutpostsClient">
+             <summary>
+             Implementation for accessing Outposts
+            
+             AWS Outposts is a fully-managed service that extends AWS infrastructure, APIs, and
+             tools to customer premises. By providing local access to AWS-managed infrastructure,
+             AWS Outposts enables customers to build and run applications on premises using the
+             same programming interfaces as in AWS Regions, while using local compute and storage
+             resources for lower latency and local data processing needs.
+             </summary>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor">
+             <summary>
+             Constructs AmazonOutpostsClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(Amazon.RegionEndpoint)">
+             <summary>
+             Constructs AmazonOutpostsClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(Amazon.Outposts.AmazonOutpostsConfig)">
+             <summary>
+             Constructs AmazonOutpostsClient with the credentials loaded from the application's
+             default configuration, and if unsuccessful from the Instance Profile service on an EC2 instance.
+             
+             Example App.config with credentials set. 
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+             &lt;configuration&gt;
+                 &lt;appSettings&gt;
+                     &lt;add key="AWSProfileName" value="AWS Default"/&gt;
+                 &lt;/appSettings&gt;
+             &lt;/configuration&gt;
+             </code>
+            
+             </summary>
+             <param name="config">The AmazonOutpostsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(Amazon.Runtime.AWSCredentials)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Credentials
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(Amazon.Runtime.AWSCredentials,Amazon.Outposts.AmazonOutpostsConfig)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Credentials and an
+            AmazonOutpostsClient Configuration object.
+            </summary>
+            <param name="credentials">AWS Credentials</param>
+            <param name="clientConfig">The AmazonOutpostsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(System.String,System.String)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(System.String,System.String,Amazon.Outposts.AmazonOutpostsConfig)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonOutpostsClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="clientConfig">The AmazonOutpostsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(System.String,System.String,System.String,Amazon.RegionEndpoint)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Access Key ID and AWS Secret Key
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="region">The region to connect.</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.#ctor(System.String,System.String,System.String,Amazon.Outposts.AmazonOutpostsConfig)">
+            <summary>
+            Constructs AmazonOutpostsClient with AWS Access Key ID, AWS Secret Key and an
+            AmazonOutpostsClient Configuration object. 
+            </summary>
+            <param name="awsAccessKeyId">AWS Access Key ID</param>
+            <param name="awsSecretAccessKey">AWS Secret Access Key</param>
+            <param name="awsSessionToken">AWS Session Token</param>
+            <param name="clientConfig">The AmazonOutpostsClient Configuration Object</param>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.CreateSigner">
+            <summary>
+            Creates the signer for the service.
+            </summary>
+        </member>
+        <member name="P:Amazon.Outposts.AmazonOutpostsClient.ServiceMetadata">
+            <summary>
+            Capture metadata for the service.
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.Dispose(System.Boolean)">
+            <summary>
+            Disposes the service client.
+            </summary>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.CreateOutpostAsync(Amazon.Outposts.Model.CreateOutpostRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates an Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the CreateOutpost service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the CreateOutpost service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ServiceQuotaExceededException">
+            You have exceeded a service quota.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/CreateOutpost">REST API Reference for CreateOutpost Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.DeleteOutpostAsync(Amazon.Outposts.Model.DeleteOutpostRequest,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteOutpost service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the DeleteOutpost service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/DeleteOutpost">REST API Reference for DeleteOutpost Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.DeleteSiteAsync(Amazon.Outposts.Model.DeleteSiteRequest,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the site.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteSite service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the DeleteSite service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/DeleteSite">REST API Reference for DeleteSite Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.GetOutpostAsync(Amazon.Outposts.Model.GetOutpostRequest,System.Threading.CancellationToken)">
+            <summary>
+            Gets information about the specified Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the GetOutpost service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the GetOutpost service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/GetOutpost">REST API Reference for GetOutpost Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.GetOutpostInstanceTypesAsync(Amazon.Outposts.Model.GetOutpostInstanceTypesRequest,System.Threading.CancellationToken)">
+            <summary>
+            Lists the instance types for the specified Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the GetOutpostInstanceTypes service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the GetOutpostInstanceTypes service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/GetOutpostInstanceTypes">REST API Reference for GetOutpostInstanceTypes Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.ListOutpostsAsync(Amazon.Outposts.Model.ListOutpostsRequest,System.Threading.CancellationToken)">
+            <summary>
+            List the Outposts for your AWS account.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListOutposts service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the ListOutposts service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/ListOutposts">REST API Reference for ListOutposts Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.AmazonOutpostsClient.ListSitesAsync(Amazon.Outposts.Model.ListSitesRequest,System.Threading.CancellationToken)">
+            <summary>
+            Lists the sites for the specified AWS account.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListSites service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the ListSites service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/ListSites">REST API Reference for ListSites Operation</seealso>
+        </member>
+        <member name="T:Amazon.Outposts.IAmazonOutposts">
+             <summary>
+             Interface for accessing Outposts
+            
+             AWS Outposts is a fully-managed service that extends AWS infrastructure, APIs, and
+             tools to customer premises. By providing local access to AWS-managed infrastructure,
+             AWS Outposts enables customers to build and run applications on premises using the
+             same programming interfaces as in AWS Regions, while using local compute and storage
+             resources for lower latency and local data processing needs.
+             </summary>
+        </member>
+        <member name="M:Amazon.Outposts.IAmazonOutposts.CreateOutpostAsync(Amazon.Outposts.Model.CreateOutpostRequest,System.Threading.CancellationToken)">
+            <summary>
+            Creates an Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the CreateOutpost service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the CreateOutpost service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ServiceQuotaExceededException">
+            You have exceeded a service quota.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/CreateOutpost">REST API Reference for CreateOutpost Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.IAmazonOutposts.DeleteOutpostAsync(Amazon.Outposts.Model.DeleteOutpostRequest,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteOutpost service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the DeleteOutpost service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/DeleteOutpost">REST API Reference for DeleteOutpost Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.IAmazonOutposts.DeleteSiteAsync(Amazon.Outposts.Model.DeleteSiteRequest,System.Threading.CancellationToken)">
+            <summary>
+            Deletes the site.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the DeleteSite service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the DeleteSite service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/DeleteSite">REST API Reference for DeleteSite Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.IAmazonOutposts.GetOutpostAsync(Amazon.Outposts.Model.GetOutpostRequest,System.Threading.CancellationToken)">
+            <summary>
+            Gets information about the specified Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the GetOutpost service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the GetOutpost service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/GetOutpost">REST API Reference for GetOutpost Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.IAmazonOutposts.GetOutpostInstanceTypesAsync(Amazon.Outposts.Model.GetOutpostInstanceTypesRequest,System.Threading.CancellationToken)">
+            <summary>
+            Lists the instance types for the specified Outpost.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the GetOutpostInstanceTypes service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the GetOutpostInstanceTypes service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.NotFoundException">
+            The specified request is not valid.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/GetOutpostInstanceTypes">REST API Reference for GetOutpostInstanceTypes Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.IAmazonOutposts.ListOutpostsAsync(Amazon.Outposts.Model.ListOutpostsRequest,System.Threading.CancellationToken)">
+            <summary>
+            List the Outposts for your AWS account.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListOutposts service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the ListOutposts service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/ListOutposts">REST API Reference for ListOutposts Operation</seealso>
+        </member>
+        <member name="M:Amazon.Outposts.IAmazonOutposts.ListSitesAsync(Amazon.Outposts.Model.ListSitesRequest,System.Threading.CancellationToken)">
+            <summary>
+            Lists the sites for the specified AWS account.
+            </summary>
+            <param name="request">Container for the necessary parameters to execute the ListSites service method.</param>
+            <param name="cancellationToken">
+                A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+            </param>
+            
+            <returns>The response from the ListSites service method, as returned by Outposts.</returns>
+            <exception cref="T:Amazon.Outposts.Model.AccessDeniedException">
+            You do not have permission to perform this operation.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.InternalServerException">
+            An internal error has occurred.
+            </exception>
+            <exception cref="T:Amazon.Outposts.Model.ValidationException">
+            A parameter is not valid.
+            </exception>
+            <seealso href="http://docs.aws.amazon.com/goto/WebAPI/outposts-2019-12-03/ListSites">REST API Reference for ListSites Operation</seealso>
+        </member>
+    </members>
+</doc>
