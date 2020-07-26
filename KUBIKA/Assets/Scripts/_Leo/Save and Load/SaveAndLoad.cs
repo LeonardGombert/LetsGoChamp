@@ -280,6 +280,8 @@ namespace Kubika.Saving
         #region // USER GENERATED CONTENT
         public void UserDownloadingLevel(string levelName, string levelFile)
         {
+            Debug.Log("Starting level download");
+
             string fileName = levelName + ".json";
             string folder = Application.persistentDataPath + "/CommunityLevels";
 
@@ -304,7 +306,7 @@ namespace Kubika.Saving
             /*UserLevelFiles.AddNewUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();*/
 
-            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(DatabaseInfo.content_retrievedLevel));
+            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(DatabaseInfo.userContent_retrievedLevel));
         }
 
         public void PlayCommunityLevel(string levelName)

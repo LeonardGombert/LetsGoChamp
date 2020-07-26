@@ -9,7 +9,6 @@ using UnityEngine.UI;
 using Kubika.Saving;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
-using Kubika.Game;
 
 namespace Kubika.Online
 {
@@ -29,7 +28,6 @@ namespace Kubika.Online
         public int numberOfLevelsToGet;
         public Text levelname, kubiCode;
 
-        public DynamoDBInfo ids;
         public DynamoReceivedInfo info;
 
         public GameObject listPrefab;
@@ -44,35 +42,34 @@ namespace Kubika.Online
             //create a new client to make function calls
             client = ClientFactory.ConfirmUserIdentity();
 
-            //OnLoadScene();
-
             StartCoroutine(GetRandomLevels());
         }
 
-        public IEnumerator GetRandomLevels()
+        #region // LIST RANDOM LEVELS
+        IEnumerator GetRandomLevels()
         {
-            ids = RequestIDs();
+            DynamoDBInfo ids = RequestIDs();
+            DynamoReceivedInfo receivedInfo = new DynamoReceivedInfo();
 
-            yield return new WaitForSeconds(1f);
-
-            Debug.Log("Selecting Ids");
+            while (ids.listOfIndexes.Count == 0) yield return null;
 
             List<int> idsToGet = SelectRandomLevels(ids, numberOfLevelsToGet);
 
-            yield return new WaitForSeconds(.5f);
-
             for (int i = 0; i < idsToGet.Count; i++)
             {
-                DynamoReceivedInfo receivedInfo = GetLevelById(idsToGet[i]);
+                receivedInfo.ClearNames();
+                receivedInfo = GetLevelById(idsToGet[i]);
+                
+                while (receivedInfo.levelName == "" && receivedInfo.kubicode == "") yield return null;
 
-                yield return new WaitForSeconds(.5f);
+                Debug.Log("I'm saving kubicode : " + receivedInfo.kubicode);
 
                 GameObject newListObj = Instantiate(listPrefab, listTransform);
-                levelname = newListObj.transform.GetChild(0).GetComponent<Text>();
                 kubiCode = newListObj.transform.GetChild(1).GetComponent<Text>();
+                levelname = newListObj.transform.GetChild(0).GetComponent<Text>();
 
-                levelname.text = receivedInfo.levelName;
                 kubiCode.text = receivedInfo.kubicode;
+                levelname.text = receivedInfo.levelName;
 
                 Button button = newListObj.GetComponentInChildren<Button>();
                 button.onClick.AddListener(() => DownloadLevel(receivedInfo.kubicode));
@@ -81,15 +78,15 @@ namespace Kubika.Online
             yield return null;
         }
 
-        private DynamoReceivedInfo GetLevelById(int id)
+        DynamoReceivedInfo GetLevelById(int id)
         {
             var getLevelRequest = new GetItemRequest
             {
                 ConsistentRead = true,
-                TableName = DatabaseInfo.content_tableName,
+                TableName = DatabaseInfo.userContent_tableName,
                 Key = new Dictionary<string, AttributeValue>()
                 {
-                    { DatabaseInfo.content_pKey, new AttributeValue{ S = id.ToString()} }
+                    { DatabaseInfo.userContent_pKey, new AttributeValue{ S = id.ToString() } }
                 }
             };
 
@@ -105,19 +102,18 @@ namespace Kubika.Online
                 {
                     foreach (var keyValuePair in result.Response.Item)
                     {
-                        if (keyValuePair.Key == DatabaseInfo.content_levelName) info.levelName = keyValuePair.Value.S;
-                        if (keyValuePair.Key == DatabaseInfo.content_pKey) info.kubicode = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DatabaseInfo.userContent_levelName) info.levelName = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DatabaseInfo.userContent_pKey) info.kubicode = keyValuePair.Value.S;
                     }
+                    Debug.Log("Retrived name is " + info.levelName);
+                    Debug.Log("Retrived kubicode is " + info.kubicode);
                 }
             }, null);
-
-            Debug.Log("Retrived name is " + info.levelName);
-            Debug.Log("Retrived kubicode is " + info.kubicode);
 
             return info;
         }
 
-        public List<int> SelectRandomLevels(DynamoDBInfo ids, int amountOfLevels)
+        List<int> SelectRandomLevels(DynamoDBInfo ids, int amountOfLevels)
         {
             List<int> randomLevels = new List<int>();
 
@@ -131,7 +127,7 @@ namespace Kubika.Online
 
             return randomLevels;
         }
-
+        #endregion
 
         #region // BASIC SETUP METHODS
         void OnLoadScene()
@@ -172,22 +168,20 @@ namespace Kubika.Online
 
             DynamoDBInfo requested = RequestIDs();
 
-            yield return new WaitForSeconds(.5f);
+            while (requested.listOfIndexes.Count == 0 || requested.lastIdUsed == 0) yield return null;
 
             string levelName = level.levelName;
             string kubicode = GenerateKubiCode(requested);
 
-            yield return new WaitForSeconds(.5f);
-
             // create a new upload request, input the relevant information
             var putItemRequest = new PutItemRequest
             {
-                TableName = DatabaseInfo.content_tableName,
+                TableName = DatabaseInfo.userContent_tableName,
                 Item = new Dictionary<string, AttributeValue>()
                 {
-                    { DatabaseInfo.content_pKey, new AttributeValue{ S =  kubicode } },
-                    { DatabaseInfo.content_levelName, new AttributeValue { S = levelName } },
-                    { DatabaseInfo.content_jsonFile, new AttributeValue { S = json } }
+                    { DatabaseInfo.userContent_pKey, new AttributeValue{ S =  kubicode } },
+                    { DatabaseInfo.userContent_levelName, new AttributeValue { S = levelName } },
+                    { DatabaseInfo.userContent_jsonFile, new AttributeValue { S = json } }
                 }
             };
 
@@ -210,7 +204,7 @@ namespace Kubika.Online
         }
         #endregion
 
-        #region // ADDITIONAL UPLOAD METHODS
+        #region // UPLOAD GAME LEVELS
         public void UploadBaseLevels()
         {
             StartCoroutine(UploadAllGameLevel());
@@ -248,6 +242,8 @@ namespace Kubika.Online
                 }, null);
 
                 DatabaseInfo.CleanInfo();
+
+                yield return new WaitForSeconds(1.5f);
             }
 
             yield return null;
@@ -291,66 +287,6 @@ namespace Kubika.Online
             UpdateInfoFile(requested);
 
             return index.ToString();
-        }
-
-        public void ClientHandler(PutItemRequest putRequest = null, GetItemRequest getRequest = null)
-        {
-            if (putRequest != null)
-            {
-                client.PutItemAsync(putRequest, (result) =>
-                {
-                    // if something goes wrong, debug the log message from AWS
-                    if (result.Exception != null)
-                    {
-                        Debug.Log(result.Exception.Message);
-                        return;
-                    }
-
-                    // else, the item has successfully been uploaded
-                    else Debug.Log(DatabaseInfo.content_retrievedLevel + " has been uploaded successfully!");
-
-                }, null);
-
-                DatabaseInfo.CleanInfo();
-            }
-
-            if (getRequest != null)
-            {
-                DynamoDBInfo info = new DynamoDBInfo();
-
-                client.GetItemAsync(getRequest, (result) =>
-                {
-                    if (result.Exception != null)
-                    {
-                        Debug.Log(result.Exception.Message);
-                        return;
-                    }
-
-                    else
-                    {
-                        Debug.Log("Extracting an info file");
-
-                        string jsonFile = "";
-
-                        foreach (var keyValuePair in result.Response.Item)
-                        {
-                            if (keyValuePair.Key == DatabaseInfo.info_jsonFile) jsonFile = keyValuePair.Value.S;
-                        }
-
-                        if (jsonFile == "" || jsonFile == null) CreateIDsFile();
-
-                        // create a DynamoDBInfo file from the json information stored in the Table
-                        DynamoDBInfo copy = JsonUtility.FromJson<DynamoDBInfo>(jsonFile);
-
-                        info.backupListOfIndexes = copy.backupListOfIndexes;
-                        info.listOfIndexes = copy.listOfIndexes;
-                        info.lastIdUsed = copy.listOfIndexes[copy.listOfIndexes.Count - 1];
-
-                        Debug.Log("Last used is " + info.lastIdUsed);
-                    }
-
-                }, null);
-            }
         }
         #endregion
 
@@ -493,15 +429,17 @@ namespace Kubika.Online
         }
 
         // called by Download Button onCLick Event
-        public void DownloadLevel(string kubiCode)
+        public void DownloadLevel(string kubicode)
         {
+            Debug.Log("I'm downloading level with kubicode : " + kubicode);
+
             var getItemRequest = new GetItemRequest
             {
                 ConsistentRead = true,
-                TableName = DatabaseInfo.content_tableName,
+                TableName = DatabaseInfo.userContent_tableName,
                 Key = new Dictionary<string, AttributeValue>()
                 {
-                    { DatabaseInfo.content_pKey, new AttributeValue{ S = kubiCode} }
+                    { DatabaseInfo.userContent_pKey, new AttributeValue{ S = kubicode} }
                 }
             };
 
@@ -517,14 +455,14 @@ namespace Kubika.Online
                 {
                     foreach (var keyValuePair in result.Response.Item)
                     {
-                        if (keyValuePair.Key == DatabaseInfo.content_levelName) DatabaseInfo.content_retrievedLevel = keyValuePair.Value.S;
-                        if (keyValuePair.Key == DatabaseInfo.content_jsonFile) DatabaseInfo.content_retrievedJson = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DatabaseInfo.userContent_levelName) DatabaseInfo.userContent_retrievedLevel = keyValuePair.Value.S;
+                        if (keyValuePair.Key == DatabaseInfo.userContent_jsonFile) DatabaseInfo.userContent_retrievedJson = keyValuePair.Value.S;
                     }
 
-                    Debug.Log("Downloading " + DatabaseInfo.content_retrievedLevel);
+                    Debug.Log("Downloading " + DatabaseInfo.userContent_retrievedLevel);
 
                     // call the save and load instance to convert the received information into a useable JSON file
-                    SaveAndLoad.instance.UserDownloadingLevel(DatabaseInfo.content_retrievedLevel, DatabaseInfo.content_retrievedJson);
+                    SaveAndLoad.instance.UserDownloadingLevel(DatabaseInfo.userContent_retrievedLevel, DatabaseInfo.userContent_retrievedJson);
                 }
 
             }, null);

@@ -22,6 +22,7 @@ namespace Kubika.Saving
     {
         public int numberOfUserLevels;
         public List<string> levelNames  = new List<string>();
+        public List<string> uploadedLevels = new List<string>(); // used to check which levels have previously been uploaded
     }
 
 
@@ -38,5 +39,11 @@ namespace Kubika.Saving
     {
         public string kubicode = "";
         public string levelName = "";
+
+        public void ClearNames()
+        {
+            kubicode = "";
+            levelName = "";
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Policy;
 using UnityEngine;
 
 namespace Kubika.Saving
@@ -112,6 +113,47 @@ namespace Kubika.Saving
             else levelsToLoad = userLevels.levelNames;
 
             return levelsToLoad;
+        }
+
+        public static void AddToUploads(string levelName)
+        {
+            UserLevels userLevels;
+            List<string> levelsToLoad = new List<string>();
+
+            string folder = Application.persistentDataPath + "/UserLevels";
+            string file = "_UserLevelInfo.json";
+            string path = Path.Combine(folder, file);
+
+            if (!File.Exists(path)) InitializeUserLevelInfo();
+
+            string json = File.ReadAllText(path);
+
+            userLevels = JsonUtility.FromJson<UserLevels>(json);
+
+            userLevels.uploadedLevels.Add(levelName);
+
+            InitializeUserLevelInfo(userLevels);
+
+        }
+
+        public static void RemoveFromUploads(string levelName)
+        {
+            UserLevels userLevels;
+            List<string> levelsToLoad = new List<string>();
+
+            string folder = Application.persistentDataPath + "/UserLevels";
+            string file = "_UserLevelInfo.json";
+            string path = Path.Combine(folder, file);
+
+            if (!File.Exists(path)) InitializeUserLevelInfo();
+
+            string json = File.ReadAllText(path);
+
+            userLevels = JsonUtility.FromJson<UserLevels>(json);
+
+            userLevels.uploadedLevels.Remove(levelName);
+
+            InitializeUserLevelInfo(userLevels);
         }
     }
 }

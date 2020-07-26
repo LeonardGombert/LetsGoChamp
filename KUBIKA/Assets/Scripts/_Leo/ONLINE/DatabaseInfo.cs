@@ -7,14 +7,14 @@ public struct DatabaseInfo
     public static RegionEndpoint region = RegionEndpoint.EUCentral1;
 
     //AWS DynamoDB content Table
-    public static string content_tableName = "KUBIKA_Testing";
-    public static string content_pKey = "kubikaID";
-    public static string content_levelName = "levelName";
-    public static string content_jsonFile = "levelFile";
+    public static string userContent_tableName = "KUBIKA_Testing";
+    public static string userContent_pKey = "kubikaID";
+    public static string userContent_levelName = "levelName";
+    public static string userContent_jsonFile = "levelFile";
 
-    public static string content_retrievedPKey = "";
-    public static string content_retrievedLevel = "";
-    public static string content_retrievedJson = "";
+    public static string userContent_retrievedPKey = "";
+    public static string userContent_retrievedLevel = "";
+    public static string userContent_retrievedJson = "";
 
     //AWS DynamoDB Information Table
     public static string info_tableName = "KUBIKA_Information";
@@ -34,9 +34,9 @@ public struct DatabaseInfo
     // reset retrieved info
     public static void CleanInfo()
     {
-        content_retrievedPKey = "";
-        content_retrievedLevel = "";
-        content_retrievedJson = "";
+        userContent_retrievedPKey = "";
+        userContent_retrievedLevel = "";
+        userContent_retrievedJson = "";
 
         info_retrivedInfo = "";
         info_retrivedKey = "";
