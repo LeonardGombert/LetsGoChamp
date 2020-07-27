@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using System;
 using Kubika.CustomLevelEditor;
 using Kubika.Saving;
+using Kubika.Online;
 
 namespace Kubika.Game
 {
@@ -431,6 +432,10 @@ namespace Kubika.Game
                     UserDeleteLevel();
                     break;
 
+                case "LEVELEDITOR_Upload":
+                    UserUploadLevel();
+                    break;
+
                 case "LEVELEDITOR_LeaveTestLevel":
                     ReturnToLevelEditor();
                     break;
@@ -668,6 +673,7 @@ namespace Kubika.Game
         //called by user when saving a level
         public void UserSavedCurrentLevel()
         {
+            // if level has already been saved
             if (SaveAndLoad.instance.currentOpenLevelName != "") SaveAndLoad.instance.UserSavingCurrentLevel();
             else OpenSaveWindow();
         }
@@ -684,6 +690,12 @@ namespace Kubika.Game
         {
             //these dropdown caption texts are filled with the info provided by User Level Files
             SaveAndLoad.instance.UserDeleteLevel(playerLevelsDropdown.captionText.text);
+        }
+
+        // called by user when uploading a level
+        void UserUploadLevel()
+        {
+            DatabaseBridge.instance.UploadLevelFromEditor();
         }
 
         private void UserCreateNewLevel()

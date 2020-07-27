@@ -654,13 +654,13 @@ RectTransform:
   - {fileID: 1434653837}
   - {fileID: 894629198}
   m_Father: {fileID: 988880697}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 35}
-  m_SizeDelta: {x: 400, y: 200}
-  m_Pivot: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 700}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450347289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,15 +1000,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 200
     m_Right: 0
-    m_Top: 0
+    m_Top: 60
     m_Bottom: 0
   m_ChildAlignment: 2
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 400, y: 75}
-  m_Spacing: {x: 15, y: 5}
+  m_Spacing: {x: 15, y: 100}
   m_Constraint: 1
   m_ConstraintCount: 1
 --- !u!114 &620082713
@@ -1244,7 +1244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &729010536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1809,7 +1809,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &905632965
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2011,7 +2011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &975034925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2025,7 +2025,7 @@ RectTransform:
   m_Children:
   - {fileID: 795891601}
   m_Father: {fileID: 988880697}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2217,8 +2217,8 @@ RectTransform:
   - {fileID: 729010536}
   - {fileID: 1593773656}
   - {fileID: 905632965}
-  - {fileID: 450347288}
   - {fileID: 975034925}
+  - {fileID: 450347288}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2424,7 +2424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1080813976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3067,7 +3067,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 441314706}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.9575
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3206,7 +3206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1593773656
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3739,7 +3739,7 @@ MonoBehaviour:
   uploadDropdownOptions: []
   assets:
   - {fileID: 4900000, guid: 939dd787c0870154cb65701eecf5bcb5, type: 3}
-  numberOfLevelsToGet: 1
+  numberOfLevelsToGet: 4
   levelname: {fileID: 0}
   kubiCode: {fileID: 0}
   info:
@@ -4263,7 +4263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2072887706
 RectTransform:
   m_ObjectHideFlags: 0

@@ -232,11 +232,13 @@ namespace Kubika.Saving
             levelData.nodesToSave.Clear();
             activeNodes.Clear();
         }
-
-        public string SaveToPublish()
+        
+        // get level save
+        public string GetLevelFile()
         {
             UIManager.instance.UserSavedCurrentLevel();
-            return levelData.ToString();
+            string json = JsonUtility.ToJson(levelData);
+            return json;
         }
 
         public void UserSavingCurrentLevel()

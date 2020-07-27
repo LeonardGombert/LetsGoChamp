@@ -16,6 +16,9 @@ namespace Kubika.Online
     // functions are called from inside the COmmunity Levels scene
     public class DatabaseBridge : MonoBehaviour
     {
+        private static DatabaseBridge _instance;
+        public static DatabaseBridge instance { get { return _instance; } }
+
         IAmazonDynamoDB client;
 
         public Dropdown uploadLevelDropdown;
@@ -34,6 +37,12 @@ namespace Kubika.Online
         public GameObject listPrefab;
         public Transform listTransform;
 
+        void Awake()
+        {
+            if (_instance != null && _instance != this) Destroy(this);
+            else _instance = this;
+        }
+
         // Start is called before the first frame update
         void Start()
         {
@@ -43,7 +52,7 @@ namespace Kubika.Online
             //create a new client to make function calls
             client = ClientFactory.ConfirmUserIdentity();
 
-            StartCoroutine(GetRandomLevels());
+            //StartCoroutine(GetRandomLevels());
         }
 
         #region // LIST RANDOM LEVELS
@@ -160,7 +169,9 @@ namespace Kubika.Online
         // when the player wants to upload his level directly from the editor
         public void UploadLevelFromEditor()
         {
-            string json = SaveAndLoad.instance.SaveToPublish();
+            string json = SaveAndLoad.instance.GetLevelFile();
+
+            StartCoroutine(UploadLevel(json));
         }
         #endregion
 
@@ -169,17 +180,17 @@ namespace Kubika.Online
         // called by Upload Button onClick Event
         public void UploadLevelFromList()
         {
-            StartCoroutine(UploadLevel());
-        }
-
-        IEnumerator UploadLevel()
-        {
             string levelToGet = uploadLevelDropdown.captionText.text;
             // translate the name of the level in the dropdown list to a levelFile
             string json = GetLevelFromUserFolder(levelToGet);
 
+            StartCoroutine(UploadLevel(json));
+        }
+
+        IEnumerator UploadLevel(string jsonFile)
+        {
             LevelEditorData level = new LevelEditorData();
-            level = JsonUtility.FromJson<LevelEditorData>(json);
+            level = JsonUtility.FromJson<LevelEditorData>(jsonFile);
 
             DynamoDBInfo requested = RequestIDs();
 
@@ -196,7 +207,7 @@ namespace Kubika.Online
                 {
                     { DatabaseInfo.userContent_pKey, new AttributeValue{ S =  kubicode } },
                     { DatabaseInfo.userContent_levelName, new AttributeValue { S = levelName } },
-                    { DatabaseInfo.userContent_jsonFile, new AttributeValue { S = json } }
+                    { DatabaseInfo.userContent_jsonFile, new AttributeValue { S = jsonFile } }
                 }
             };
 
