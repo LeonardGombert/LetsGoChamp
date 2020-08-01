@@ -56,13 +56,13 @@ namespace Kubika.Online
         public void UploadLevelFromEditor()
         {
             string json = SaveAndLoad.instance.GetLevelFile();
-            LevelEditorData level = JsonUtility.FromJson<LevelEditorData>(json);
+            DevEditorData level = JsonUtility.FromJson<DevEditorData>(json);
 
             UploadLevel(json, level);
         }
 
         // called by UIManager
-        void  UploadLevel(string jsonFile, LevelEditorData levelData)
+        void  UploadLevel(string jsonFile, DevEditorData levelData)
         {
             Debug.Log("Craeting new Request");
 

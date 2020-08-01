@@ -1,10 +1,11 @@
-﻿using Kubika.CustomLevelEditor;
+﻿using Amazon.ElasticMapReduce.Model;
+using Kubika.CustomLevelEditor;
 using System.Collections.Generic;
 
 namespace Kubika.Saving
 {
     [System.Serializable]
-    public class LevelEditorData
+    public class DevEditorData
     {
         public string levelName;
         public string Kubicode;
@@ -15,6 +16,20 @@ namespace Kubika.Saving
         public List<Decor> decorToSave;
     }
 
+    [System.Serializable]
+    public class UserEditorData
+    {
+        public string creatorId;
+        public string levelName;
+        public string creatorDifficulty;
+
+        public int minimumMoves; // necessary ????
+        public bool lockRotate;
+        public Biomes biome;
+
+        public List<Node> nodesToSave;
+        public List<Decor> decorToSave;
+    }
 
     //user info file is used to store all of the user's level names, which you can then use to find the files
     [System.Serializable]

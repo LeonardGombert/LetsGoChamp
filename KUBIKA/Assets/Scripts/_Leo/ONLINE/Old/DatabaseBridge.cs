@@ -189,8 +189,8 @@ namespace Kubika.Online.Test
 
         IEnumerator UploadLevel(string jsonFile)
         {
-            LevelEditorData level = new LevelEditorData();
-            level = JsonUtility.FromJson<LevelEditorData>(jsonFile);
+            DevEditorData level = new DevEditorData();
+            level = JsonUtility.FromJson<DevEditorData>(jsonFile);
 
             DynamoDBInfo requested = RequestIDs();
 
@@ -260,7 +260,7 @@ namespace Kubika.Online.Test
         {
             foreach (Object level in assets)
             {
-                LevelEditorData levelFile = JsonUtility.FromJson<LevelEditorData>(level.ToString());
+                DevEditorData levelFile = JsonUtility.FromJson<DevEditorData>(level.ToString());
 
                 var uploadRequest = new PutItemRequest
                 {

@@ -28,7 +28,7 @@ public class LevelFileSearchBar : EditorWindow
 
     bool modifiyingFile;
     bool hasFile;
-    LevelEditorData levelData;
+    DevEditorData levelData;
     string assetPath;
 
      [MenuItem("Tools/Level SearchBar")]
@@ -150,7 +150,7 @@ public class LevelFileSearchBar : EditorWindow
         {
             assetPath = AssetDatabase.GetAssetPath(levelTextFile);
             string json = File.ReadAllText(assetPath);
-            levelData = JsonUtility.FromJson<LevelEditorData>(json);
+            levelData = JsonUtility.FromJson<DevEditorData>(json);
             hasFile = true;
         }
 

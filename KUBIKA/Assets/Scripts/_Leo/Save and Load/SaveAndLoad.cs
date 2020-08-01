@@ -6,6 +6,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using Kubika.Online;
+using Amazon.ACMPCA.Model;
 
 namespace Kubika.Saving
 {
@@ -19,7 +20,8 @@ namespace Kubika.Saving
 
         Node currentNode;
 
-        LevelEditorData levelData;
+        DevEditorData devData;
+        UserEditorData userData;
 
         public GameObject cubePrefab;
         public GameObject decorPrefab;
@@ -43,16 +45,25 @@ namespace Kubika.Saving
         // Start is called before the first frame update
         void Start()
         {
-            CreateEditorData();
+            CreateDevEditorData();
+            CreateUserEditorData();
             CreatePlayerProgressData();
         }
 
-        private LevelEditorData CreateEditorData()
+        private DevEditorData CreateDevEditorData()
         {
-            levelData = new LevelEditorData();
-            levelData.nodesToSave = new List<Node>();
-            levelData.decorToSave = new List<Decor>();
-            return levelData;
+            devData = new DevEditorData();
+            devData.nodesToSave = new List<Node>();
+            devData.decorToSave = new List<Decor>();
+            return devData;
+        }
+        
+        private UserEditorData CreateUserEditorData()
+        {
+            userData = new UserEditorData();
+            userData.nodesToSave = new List<Node>();
+            userData.decorToSave = new List<Decor>();
+            return userData;
         }
 
         private PlayerProgress CreatePlayerProgressData()
@@ -70,11 +81,11 @@ namespace Kubika.Saving
             }
 
             //storing data in levelDataFile
-            levelData.levelName = levelName;
-            levelData.biome = _MaterialCentral.instance.staticIndex;
-            levelData.lockRotate = rotateLock;
-            levelData.minimumMoves = minimumMoves;
-            levelData.Kubicode = kubiCode;
+            devData.levelName = levelName;
+            devData.biome = _MaterialCentral.instance.staticIndex;
+            devData.lockRotate = rotateLock;
+            devData.minimumMoves = minimumMoves;
+            devData.Kubicode = kubiCode;
 
             currentOpenLevelName = levelName;
             currentKubicode = kubiCode;
@@ -85,16 +96,16 @@ namespace Kubika.Saving
             foreach (Node node in activeNodes)
             {
                 node.savedCubeType = Node.ConvertTypeToString(node.cubeType);
-                levelData.nodesToSave.Add(node);
+                devData.nodesToSave.Add(node);
             }
 
             // add the decor data to the list of levelData
             foreach (Decor decor in activeDecor)
             {
-                levelData.decorToSave.Add(decor);
+                devData.decorToSave.Add(decor);
             }
 
-            string json = JsonUtility.ToJson(levelData);
+            string json = JsonUtility.ToJson(devData);
             string folder;
             string levelFolder = GetLevelFolder(biome);
 
@@ -114,8 +125,8 @@ namespace Kubika.Saving
 
             File.WriteAllText(path, json);
 
-            levelData.nodesToSave.Clear();
-            levelData.decorToSave.Clear();
+            devData.nodesToSave.Clear();
+            devData.decorToSave.Clear();
 
             activeNodes.Clear();
             activeDecor.Clear();
@@ -124,11 +135,11 @@ namespace Kubika.Saving
 
         public void DevSavingCurrentLevel()
         {
-            levelData.levelName = currentOpenLevelName;
-            levelData.Kubicode = currentKubicode;
-            levelData.biome = currentBiome;
-            levelData.lockRotate = currentLevelLockRotate;
-            levelData.minimumMoves = currentMinimumMoves;
+            devData.levelName = currentOpenLevelName;
+            devData.Kubicode = currentKubicode;
+            devData.biome = currentBiome;
+            devData.lockRotate = currentLevelLockRotate;
+            devData.minimumMoves = currentMinimumMoves;
 
             DevSavingLevel(currentOpenLevelName, currentKubicode, currentBiome, currentLevelLockRotate, currentMinimumMoves);
         }
@@ -178,18 +189,18 @@ namespace Kubika.Saving
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);
-                levelData = JsonUtility.FromJson<LevelEditorData>(json);
+                devData = JsonUtility.FromJson<DevEditorData>(json);
 
-                ExtractAndRebuildLevel(levelData);
+                ExtractGameLevel(devData);
             }
 
-            currentOpenLevelName = levelData.levelName;
-            currentKubicode = levelData.Kubicode;
-            currentBiome = levelData.biome;
-            currentLevelLockRotate = levelData.lockRotate;
-            currentMinimumMoves = levelData.minimumMoves;
+            currentOpenLevelName = devData.levelName;
+            currentKubicode = devData.Kubicode;
+            currentBiome = devData.biome;
+            currentLevelLockRotate = devData.lockRotate;
+            currentMinimumMoves = devData.minimumMoves;
 
-            levelData.nodesToSave.Clear();
+            devData.nodesToSave.Clear();
             activeNodes.Clear();
         }
         #endregion
@@ -203,18 +214,18 @@ namespace Kubika.Saving
             }
 
             //storing data in levelDataFile
-            levelData.levelName = levelName;
-            levelData.biome = _MaterialCentral.instance.staticIndex;
+            userData.levelName = levelName;
+            userData.biome = _MaterialCentral.instance.staticIndex;
 
             currentOpenLevelName = levelName;
 
             foreach (Node node in activeNodes)
             {
                 node.savedCubeType = Node.ConvertTypeToString(node.cubeType);
-                levelData.nodesToSave.Add(node);
+                userData.nodesToSave.Add(node);
             }
 
-            string json = JsonUtility.ToJson(levelData);
+            string json = JsonUtility.ToJson(userData);
             string levelFile = levelName + ".json";
 
             string folder = Application.persistentDataPath + "/UserLevels";
@@ -230,7 +241,7 @@ namespace Kubika.Saving
             UserLevelFiles.AddNewUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();
 
-            levelData.nodesToSave.Clear();
+            userData.nodesToSave.Clear();
             activeNodes.Clear();
         }
         
@@ -238,15 +249,15 @@ namespace Kubika.Saving
         public string GetLevelFile()
         {
             UIManager.instance.UserSavedCurrentLevel();
-            string json = JsonUtility.ToJson(levelData);
+            string json = JsonUtility.ToJson(userData);
             return json;
         }
 
         public void UserSavingCurrentLevel()
         {
-            levelData.levelName = currentOpenLevelName;
-            levelData.Kubicode = currentKubicode;
-            levelData.biome = currentBiome;
+            userData.levelName = currentOpenLevelName;
+            userData.Kubicode = currentKubicode;
+            userData.biome = currentBiome;
 
             UserSavingLevel(currentOpenLevelName);
         }
@@ -260,16 +271,16 @@ namespace Kubika.Saving
             if (File.Exists(path))
             {
                 string json = File.ReadAllText(path);
-                levelData = JsonUtility.FromJson<LevelEditorData>(json);
+                userData = JsonUtility.FromJson<UserEditorData>(json);
 
-                ExtractAndRebuildLevel(levelData);
+                ExtractUserLevel(userData);
             }
 
-            currentOpenLevelName = levelData.levelName;
-            currentKubicode = levelData.Kubicode;
-            currentBiome = levelData.biome;
+            currentOpenLevelName = userData.levelName;
+            currentKubicode = userData.Kubicode;
+            currentBiome = userData.biome;
 
-            levelData.nodesToSave.Clear();
+            userData.nodesToSave.Clear();
             activeNodes.Clear();
         }
 
@@ -328,25 +339,14 @@ namespace Kubika.Saving
             {
                 Debug.Log("Foud the file");
                 string json = File.ReadAllText(path);
-                LevelEditorData levelData = JsonUtility.FromJson<LevelEditorData>(json);
+                UserEditorData levelData = JsonUtility.FromJson<UserEditorData>(json);
 
-                ExtractAndRebuildLevel(levelData);
+                ExtractUserLevel(levelData);
                 Debug.Log("Finished Building the Level bruh");
-
-                //StartCoroutine(GoToLE());
             }
 
-            levelData.nodesToSave.Clear();
+            userData.nodesToSave.Clear();
             activeNodes.Clear();
-        }
-
-        IEnumerator GoToLE()
-        {
-            Debug.Log("Counting down");
-
-            yield return new WaitForSeconds(3f);
-
-            ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
         }
         #endregion
 
@@ -395,20 +395,30 @@ namespace Kubika.Saving
             }
         }
 
-        public void ExtractAndRebuildLevel(LevelEditorData recoveredData)
+        public void ExtractGameLevel(DevEditorData recoveredData)
+        {
+            RebuildLevel(recoveredData.nodesToSave, recoveredData.biome, recoveredData.decorToSave);
+        }
+
+        public void ExtractUserLevel(UserEditorData recoveredData)
+        {
+            RebuildLevel(recoveredData.nodesToSave, recoveredData.biome, recoveredData.decorToSave);
+        }
+
+        public void RebuildLevel(List<Node> nodes, Biomes biome, List<Decor> decor)
         {
             finishedBuilding = false;
 
             // start by resetting the grid's nodes to their base states
             _Grid.instance.ResetIndexGrid();
 
-            foreach (Node recoveredNode in recoveredData.nodesToSave)
+            foreach (Node recoveredNode in nodes)
             {
                 // EXTREMELY IMPORTANT -> CONVERTS THE CUBE'S TYPE FROM STRING TO ENUM
                 recoveredNode.cubeType = Node.ConvertStringToCubeType(recoveredNode.savedCubeType);
 
                 //Set the universe textures
-                _MaterialCentral.instance.ChangeUniverse(recoveredData.biome);
+                _MaterialCentral.instance.ChangeUniverse(biome);
 
                 currentNode = recoveredNode;
 
@@ -631,7 +641,7 @@ namespace Kubika.Saving
             }
 
 
-            foreach (Decor recoveredDecor in recoveredData.decorToSave)
+            foreach (Decor recoveredDecor in decor)
             {
                 //Instantiate new decor thing
 

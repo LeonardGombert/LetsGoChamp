@@ -272,11 +272,11 @@ namespace Kubika.Game
 
             string json = _levelFile.ToString();
 
-            LevelEditorData levelData = JsonUtility.FromJson<LevelEditorData>(json);
+            DevEditorData levelData = JsonUtility.FromJson<DevEditorData>(json);
 
             SaveAndLoad.instance.finishedBuilding = false;
 
-            SaveAndLoad.instance.ExtractAndRebuildLevel(levelData);
+            SaveAndLoad.instance.ExtractGameLevel(levelData);
 
             while (!SaveAndLoad.instance.finishedBuilding) yield return null;
 

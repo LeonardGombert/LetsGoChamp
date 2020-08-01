@@ -307,32 +307,32 @@ namespace Kubika.CustomLevelEditor
             {
                 case LevelSetup.none:
                     string emptyGridJson = prefabLevels.Find(item => item.name.Contains("Empty")).ToString();
-                    LevelEditorData emptyGrid = JsonUtility.FromJson<LevelEditorData>(emptyGridJson);
-                    SaveAndLoad.instance.ExtractAndRebuildLevel(emptyGrid);
+                    DevEditorData emptyGrid = JsonUtility.FromJson<DevEditorData>(emptyGridJson);
+                    SaveAndLoad.instance.ExtractGameLevel(emptyGrid);
                     break;
 
                 case LevelSetup.BaseGrid:
                     string baseGridJson = prefabLevels.Find(item => item.name.Contains("Base")).ToString();
-                    LevelEditorData baseGrid = JsonUtility.FromJson<LevelEditorData>(baseGridJson);
-                    SaveAndLoad.instance.ExtractAndRebuildLevel(baseGrid);
+                    DevEditorData baseGrid = JsonUtility.FromJson<DevEditorData>(baseGridJson);
+                    SaveAndLoad.instance.ExtractGameLevel(baseGrid);
                     break;
 
                 case LevelSetup.Plane:
                     string planeJson = prefabLevels.Find(item => item.name.Contains("Plane")).ToString();
-                    LevelEditorData planeData = JsonUtility.FromJson<LevelEditorData>(planeJson);
-                    SaveAndLoad.instance.ExtractAndRebuildLevel(planeData);
+                    DevEditorData planeData = JsonUtility.FromJson<DevEditorData>(planeJson);
+                    SaveAndLoad.instance.ExtractGameLevel(planeData);
                     break;
 
                 case LevelSetup.RightDoublePlane:
                     string rightJson = prefabLevels.Find(item => item.name.Contains("Right")).ToString();
-                    LevelEditorData rightData = JsonUtility.FromJson<LevelEditorData>(rightJson);
-                    SaveAndLoad.instance.ExtractAndRebuildLevel(rightData);
+                    DevEditorData rightData = JsonUtility.FromJson<DevEditorData>(rightJson);
+                    SaveAndLoad.instance.ExtractGameLevel(rightData);
                     break;
 
                 case LevelSetup.LeftDoublePlane:
                     string leftJson = prefabLevels.Find(item => item.name.Contains("Left")).ToString();
-                    LevelEditorData leftData = JsonUtility.FromJson<LevelEditorData>(leftJson);
-                    SaveAndLoad.instance.ExtractAndRebuildLevel(leftData);
+                    DevEditorData leftData = JsonUtility.FromJson<DevEditorData>(leftJson);
+                    SaveAndLoad.instance.ExtractGameLevel(leftData);
                     break;
 
                 default:

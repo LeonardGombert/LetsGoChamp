@@ -12,7 +12,7 @@ namespace Kubika.Saving
         {
             LevelFile levelInfo = new LevelFile();
 
-            LevelEditorData levelData = JsonUtility.FromJson<LevelEditorData>(levelFile.ToString());
+            DevEditorData levelData = JsonUtility.FromJson<DevEditorData>(levelFile.ToString());
 
             levelInfo.levelFile = levelFile;
             levelInfo.levelName = levelData.levelName;
