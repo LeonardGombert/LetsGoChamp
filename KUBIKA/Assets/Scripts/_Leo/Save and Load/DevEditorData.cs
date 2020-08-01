@@ -21,7 +21,7 @@ namespace Kubika.Saving
     {
         public string creatorId;
         public string levelName;
-        public string creatorDifficulty;
+        public Difficulty creatorDifficulty;
 
         public int minimumMoves; // necessary ????
         public bool lockRotate;

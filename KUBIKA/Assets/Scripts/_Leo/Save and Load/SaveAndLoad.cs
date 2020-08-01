@@ -31,6 +31,7 @@ namespace Kubika.Saving
         public bool currentLevelLockRotate;
         public int currentMinimumMoves;
         public Biomes currentBiome; //sets itself on save
+        public Difficulty currentDifficltySetting;
 
         public bool finishedBuilding = false;
 
@@ -256,7 +257,7 @@ namespace Kubika.Saving
         public void UserSavingCurrentLevel()
         {
             userData.levelName = currentOpenLevelName;
-            userData.Kubicode = currentKubicode;
+            currentDifficltySetting = userData.creatorDifficulty;
             userData.biome = currentBiome;
 
             UserSavingLevel(currentOpenLevelName);
@@ -277,7 +278,7 @@ namespace Kubika.Saving
             }
 
             currentOpenLevelName = userData.levelName;
-            currentKubicode = userData.Kubicode;
+            currentDifficltySetting = userData.creatorDifficulty;
             currentBiome = userData.biome;
 
             userData.nodesToSave.Clear();
@@ -292,7 +293,7 @@ namespace Kubika.Saving
 
         #endregion
 
-        #region // USER GENERATED CONTENT
+        #region // COMMUNITY CONTENT
         public void UserDownloadingLevel(string levelName, string levelFile)
         {
             Debug.Log("Starting level download");
