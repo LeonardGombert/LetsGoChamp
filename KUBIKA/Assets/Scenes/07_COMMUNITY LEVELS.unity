@@ -3701,6 +3701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1864122932}
   - component: {fileID: 1864122933}
+  - component: {fileID: 1864122934}
   m_Layer: 0
   m_Name: DATABASE BRIDGE
   m_TagString: Untagged
@@ -3748,6 +3749,18 @@ MonoBehaviour:
   listPrefab: {fileID: 805001092187740563, guid: c62e054fac412d848a981eee1e5b5fd1,
     type: 3}
   listTransform: {fileID: 620082711}
+--- !u!114 &1864122934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864122931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81ffecd02987404b86e05dd342cd862, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1866001008
 GameObject:
   m_ObjectHideFlags: 0

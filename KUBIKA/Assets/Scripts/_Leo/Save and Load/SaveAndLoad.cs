@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using System;
 using System.Collections;
+using Kubika.Online;
 
 namespace Kubika.Saving
 {
@@ -311,7 +312,7 @@ namespace Kubika.Saving
 
             //ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
 
-            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(DatabaseInfo.userContent_retrievedLevel));
+            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(Kubika.Online.Test.DatabaseInfo.userContent_retrievedLevel));
         }
 
         // called from SaveAndLoad manager
