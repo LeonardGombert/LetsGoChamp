@@ -4,6 +4,7 @@ using yes = Amazon.DynamoDBv2.Model.PutItemRequest;
 using Kubika.Saving;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Kubika.Online
 {
@@ -72,9 +73,9 @@ namespace Kubika.Online
                 {
                     { CommunityDatabase.baseTablePK, new AttributeValue{ S = "12345"} },
                     { CommunityDatabase.baseTableSK, new AttributeValue{ S = levelData.levelName} },
-                    /*{ CommunityDatabase.levelFile, new AttributeValue{ S = jsonFile} },
+                    { CommunityDatabase.levelFile, new AttributeValue{ S = jsonFile} },
                     { CommunityDatabase.publishDate, new AttributeValue{ S = DateTime.Today.ToShortDateString()} },
-                    // { CommunityDatabase.creatorSetDifficulty, new AttributeValue{ S = ""} */
+                    // { CommunityDatabase.creatorSetDifficulty, new AttributeValue{ S = ""} 
                 }
             };
 
@@ -82,10 +83,8 @@ namespace Kubika.Online
 
             client.PutItemAsync(request);
             var response = client.PutItemAsync(request);
-            Debug.Log(response.Status.ToString());
-            Debug.Log(response.IsCompleted);
-            Debug.Log(response.IsCanceled);
-            Debug.Log(response.IsFaulted);
+
+            if (response.Exception != null) Debug.Log(response.Exception.Message);
         }
 
         void Update()
