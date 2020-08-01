@@ -1,11 +1,9 @@
 ﻿using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
+using yes = Amazon.DynamoDBv2.Model.PutItemRequest;
 using Kubika.Saving;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 namespace Kubika.Online
 {
@@ -59,11 +57,11 @@ namespace Kubika.Online
             string json = SaveAndLoad.instance.GetLevelFile();
             LevelEditorData level = JsonUtility.FromJson<LevelEditorData>(json);
 
-            StartCoroutine(UploadLevel(json, level));
+            UploadLevel(json, level);
         }
 
         // called by UIManager
-        IEnumerator UploadLevel(string jsonFile, LevelEditorData levelData)
+        void  UploadLevel(string jsonFile, LevelEditorData levelData)
         {
             Debug.Log("Craeting new Request");
 
@@ -82,13 +80,12 @@ namespace Kubika.Online
 
             Debug.Log("Uploading " + levelData.levelName);
 
+            client.PutItemAsync(request);
             var response = client.PutItemAsync(request);
-
-            //Debug.Log("Status is " + response.Result.HttpStatusCode.ToString());
-            if (response.Exception != null) Debug.Log(response.Exception.Message);
-            else Debug.Log("Uploaded successfully");
-            
-            yield return null;
+            Debug.Log(response.Status.ToString());
+            Debug.Log(response.IsCompleted);
+            Debug.Log(response.IsCanceled);
+            Debug.Log(response.IsFaulted);
         }
 
         void Update()
