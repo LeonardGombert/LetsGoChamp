@@ -10,7 +10,7 @@ namespace Kubika.Online
     public struct CommunityDatabase
     {
         // Base table info
-        public static string tableName = "KUBIKA_CommunityDatabse";
+        public static string tableName = "KUBIKA_CommunityDatabase";
         public static string baseTablePK = "CreatorId";
         public static string baseTableSK = "LevelName";
 
