@@ -8,6 +8,7 @@ namespace Kubika.Online
     {
         public static string identityPoolId = "eu-central-1:f8990c10-6786-4c01-adc7-6614e9da700b";
         public static RegionEndpoint region = RegionEndpoint.EUCentral1;
+        public static string authenticatedUserId = "12345";
     }
 
     public class ClientFactory

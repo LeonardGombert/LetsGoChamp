@@ -695,7 +695,7 @@ namespace Kubika.Game
         // called by user when uploading a level
         void UserUploadLevel()
         {
-            DatabaseBridge.instance.UploadLevelFromEditor();
+            StartCoroutine(DatabaseBridge.instance.UploadLevelFromEditor());
         }
 
         private void UserCreateNewLevel()
