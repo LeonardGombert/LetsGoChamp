@@ -16,21 +16,9 @@ public class ClientHandler : MonoBehaviour
     {
         if (_instance != null && _instance != this) Destroy(this);
         else _instance = this;
-    } 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    // signup method, called by SignUp button Event in UIManager
+    // sign-up method, called by UIManager
     public void TrySignUpRequest(string email, string password, Action OnFailureF = null, Action OnSuccessF = null)
     {
         SignUpRequest signUpRequest = new SignUpRequest
@@ -61,5 +49,11 @@ public class ClientHandler : MonoBehaviour
             Debug.Log("Signup Complete");
             if (OnSuccessF == null) OnSuccessF();
         }
+    }
+
+    // sign-in method, called by UIManager
+    public void TrySignInRequest()
+    {
+
     }
 }

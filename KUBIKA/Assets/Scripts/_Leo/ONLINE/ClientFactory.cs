@@ -8,16 +8,6 @@ using Amazon.CognitoIdentityProvider.Model;
 
 namespace Kubika.Online
 {
-    public struct AmazonCognito
-    {
-        public static string identityPoolId = "eu-central-1:f8990c10-6786-4c01-adc7-6614e9da700b";
-        public static string appClientId = "9db7pkdnppvrlui6sackifg6d";
-        public static string userPoolId = "eu-central-1_UXwaae0M4";
-        public static string userPoolName = "UXwaae0M4";
-        public static string authenticatedUserId = "12345";
-        public static RegionEndpoint cognitoIdentityRegion = RegionEndpoint.EUCentral1;
-    }
-
     public class ClientFactory
     {
         public static AmazonDynamoDBClient GetUserIdentity()

@@ -10,31 +10,6 @@ using Amazon.SimpleWorkflow.Model;
 
 namespace Kubika.Online
 {
-    public struct CommunityDatabase
-    {
-        // Base table info
-        public static string tableName = "KUBIKA_CommunityDatabase";
-        public static string baseTablePK = "CreatorId";
-        public static string baseTableSK = "LevelName";
-
-        // Table Attributes
-        public static string levelName = "LevelName";
-        public static string levelFile = "LevelFile";
-        public static string levelRating = "Rating";
-        public static string numberOfRatings = "RatingsNo";
-        public static string numberOfDownloads = "DownloadsNo";
-        public static string publishDate = "DatePosted";
-        public static string creatorSetDifficulty = "CreatorDifficulty";
-        public static string votedDifficulty = "PlayerDifficulty";
-
-        // View by Ratings Index --> global secondary index
-        public static string GSI_1_PK = "Rating";
-        public static string GSI_1_SK = "RatingsNo";
-
-        // View by Difficulty Index --> global secondary index
-        public static string GSI_2_PK = "Difficulty";
-        public static string GSI_2_SK = "LevelName";
-    }
 
     public class DatabaseBridge : MonoBehaviour
     {
@@ -71,13 +46,13 @@ namespace Kubika.Online
 
             var request = new PutItemRequest
             {
-                TableName = CommunityDatabase.tableName,
+                TableName = DynamoDB.tableName,
                 Item = new Dictionary<string, AttributeValue>()
                 {
-                    { CommunityDatabase.baseTablePK, new AttributeValue{ S = AmazonCognito.authenticatedUserId } },
-                    { CommunityDatabase.baseTableSK, new AttributeValue{ S = levelData.levelName} },
-                    { CommunityDatabase.levelFile, new AttributeValue{ S = jsonFile} },
-                    { CommunityDatabase.publishDate, new AttributeValue{ S = DateTime.Today.ToShortDateString()} },
+                    { DynamoDB.baseTablePK, new AttributeValue{ S = AmazonCognito.authenticatedUserId } },
+                    { DynamoDB.baseTableSK, new AttributeValue{ S = levelData.levelName} },
+                    { DynamoDB.levelFile, new AttributeValue{ S = jsonFile} },
+                    { DynamoDB.publishDate, new AttributeValue{ S = DateTime.Today.ToShortDateString()} },
                     // { CommunityDatabase.creatorSetDifficulty, new AttributeValue{ S = ""} 
                 }
             };
@@ -119,12 +94,12 @@ namespace Kubika.Online
 
             var request = new UpdateItemRequest
             {
-                TableName = CommunityDatabase.tableName,
+                TableName = DynamoDB.tableName,
 
                 Key = new Dictionary<string, AttributeValue>()
                 {
-                    { CommunityDatabase.baseTablePK, new AttributeValue { S = "12345" } },
-                    { CommunityDatabase.baseTableSK, new AttributeValue{ S = "azesd" } }
+                    { DynamoDB.baseTablePK, new AttributeValue { S = "12345" } },
+                    { DynamoDB.baseTableSK, new AttributeValue{ S = "azesd" } }
                 },
 
                 ExpressionAttributeNames = new Dictionary<string, string>()
