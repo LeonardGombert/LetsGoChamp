@@ -31,7 +31,7 @@ public class ClientHandler : MonoBehaviour
     }
 
     // signup method, called by SignUp button Event in UIManager
-    void TrySignUpRequest(string email, string password, Action OnFailure = null, Action OnSuccess = null)
+    public void TrySignUpRequest(string email, string password, Action OnFailureF = null, Action OnSuccessF = null)
     {
         SignUpRequest signUpRequest = new SignUpRequest
         {
@@ -53,13 +53,13 @@ public class ClientHandler : MonoBehaviour
         if(response.Exception != null)
         {
             Debug.Log("Failed to complete signup, returned error : \n " + response.Exception.ToString());
-            OnFailure();
+            if(OnSuccessF == null) OnFailureF();
         }
 
         else
         {
             Debug.Log("Signup Complete");
-            OnSuccess();
+            if (OnSuccessF == null) OnSuccessF();
         }
     }
 }

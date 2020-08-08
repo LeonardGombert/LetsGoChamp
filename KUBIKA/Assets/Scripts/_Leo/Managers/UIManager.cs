@@ -6,6 +6,8 @@ using System;
 using Kubika.CustomLevelEditor;
 using Kubika.Saving;
 using Kubika.Online;
+using System.Text;
+using Sirenix.Utilities.Editor.Expressions;
 
 namespace Kubika.Game
 {
@@ -98,6 +100,12 @@ namespace Kubika.Game
         [FoldoutGroup("Level Editor/Emote Panel")] [SerializeField] Sprite EmoteIconSelected, EmoteIconUnselected;
         #endregion
 
+        #region // ONLINE
+        [FoldoutGroup("Online")] [SerializeField] Text emailTextField;
+        [FoldoutGroup("Online")] [SerializeField] Text passwordTextField;
+        [FoldoutGroup("Online")] [SerializeField] Text debugStatusText;
+        #endregion
+
         #region TRANSITION
         [FoldoutGroup("Fade Transition")] [SerializeField] public Image fadeImage;
         [FoldoutGroup("Fade Transition")] [SerializeField] public TransitionType transitionType;
@@ -116,12 +124,6 @@ namespace Kubika.Game
             else _instance = this;
 
             RefreshActiveScene();
-        }
-
-        private void Update()
-        {
-            //MOVE THIS SOMWHERE ELSE
-            //
         }
 
         #region REFRESH ACTIVE CANVASES
@@ -824,6 +826,21 @@ namespace Kubika.Game
 
                 fadeImage.color = alphaColor;
             }
+        }
+        #endregion
+
+        #region // ONLINE METHODS
+        public void SignUpButton()
+        {
+            ClientHandler.instance.TrySignUpRequest(emailTextField.text, passwordTextField.text,
+                () =>
+                {
+                    debugStatusText.text = "Failed ! Check the log";
+                }, 
+                ()=>
+                {
+                    debugStatusText.text = "Success !" ;
+                });
         }
         #endregion
     }
