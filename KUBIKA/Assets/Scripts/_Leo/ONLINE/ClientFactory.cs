@@ -10,7 +10,7 @@ namespace Kubika.Online
 {
     public class ClientFactory
     {
-        public static AmazonDynamoDBClient GetUserIdentity()
+        public AmazonDynamoDBClient GetUserIdentity()
         {
             var credentials = new CognitoAWSCredentials(AmazonCognito.identityPoolId, AmazonCognito.cognitoIdentityRegion);
             var client = new AmazonDynamoDBClient(credentials, AmazonCognito.cognitoIdentityRegion);
@@ -18,8 +18,8 @@ namespace Kubika.Online
             return client;
         }
 
-        private static AmazonCognitoIdentityProviderClient _cognitoIdentityProvider = null;
-        public static AmazonCognitoIdentityProviderClient CognitoIdentityProvider 
+        private AmazonCognitoIdentityProviderClient _cognitoIdentityProvider = null;
+        public AmazonCognitoIdentityProviderClient CognitoIdentityProvider 
         {
             get {
                 if (_cognitoIdentityProvider == null)

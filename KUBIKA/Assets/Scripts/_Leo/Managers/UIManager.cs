@@ -332,7 +332,7 @@ namespace Kubika.Game
                     break;
 
                 case "GAME_Restart":
-                    RefreshActiveScene(); 
+                    RefreshActiveScene();
                     LevelsManager.instance.RestartLevel();
                     break;
 
@@ -464,6 +464,12 @@ namespace Kubika.Game
 
                 case "LEVELEDITOR_DecoratorMode":
                     DecoratorModePriority();
+                    break;
+                #endregion
+
+                #region
+                case "ONLINE_SignUp":
+                    CallSignUpRequest();
                     break;
                 #endregion
 
@@ -830,16 +836,16 @@ namespace Kubika.Game
         #endregion
 
         #region // ONLINE METHODS
-        public void SignUpButton()
+        void CallSignUpRequest()
         {
             ClientHandler.instance.TrySignUpRequest(emailTextField.text, passwordTextField.text,
                 () =>
                 {
                     debugStatusText.text = "Failed ! Check the log";
-                }, 
-                ()=>
+                },
+                () =>
                 {
-                    debugStatusText.text = "Success !" ;
+                    debugStatusText.text = "Success !";
                 });
         }
         #endregion

@@ -12,6 +12,8 @@ public class ClientHandler : MonoBehaviour
     private static ClientHandler _instance;
     public static ClientHandler instance { get { return _instance; } }
 
+    ClientFactory clientFactory = new ClientFactory();
+
     void Awake()
     {
         if (_instance != null && _instance != this) Destroy(this);
@@ -24,8 +26,8 @@ public class ClientHandler : MonoBehaviour
         SignUpRequest signUpRequest = new SignUpRequest
         {
             ClientId = AmazonCognito.appClientId,
-            Username = email,
-            Password = password
+            Password = password,
+            Username = email
         };
 
         var emailAttribute = new AttributeType
@@ -34,9 +36,11 @@ public class ClientHandler : MonoBehaviour
             Value = email
         };
 
+        Debug.Log("posting signup request...");
+
         signUpRequest.UserAttributes.Add(emailAttribute);
 
-        var response = ClientFactory.CognitoIdentityProvider.SignUpAsync(signUpRequest);
+        var response = clientFactory.CognitoIdentityProvider.SignUpAsync(signUpRequest);
 
         if(response.Exception != null)
         {
@@ -44,7 +48,7 @@ public class ClientHandler : MonoBehaviour
             if(OnSuccessF == null) OnFailureF();
         }
 
-        else
+        else if (response.Exception == null)
         {
             Debug.Log("Signup Complete");
             if (OnSuccessF == null) OnSuccessF();

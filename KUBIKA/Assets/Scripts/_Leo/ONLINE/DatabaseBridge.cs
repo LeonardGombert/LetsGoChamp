@@ -26,7 +26,7 @@ namespace Kubika.Online
 
         void Start()
         {
-            client = ClientFactory.GetUserIdentity();
+            //client = ClientFactory.GetUserIdentity();
             StartCoroutine(IncrementDownloadCount());
         }
 
