@@ -27,7 +27,7 @@ namespace Kubika.Online
         void Start()
         {
             //client = ClientFactory.GetUserIdentity();
-            StartCoroutine(IncrementDownloadCount());
+            //StartCoroutine(IncrementDownloadCount());
         }
 
         #region // Upload Levels
