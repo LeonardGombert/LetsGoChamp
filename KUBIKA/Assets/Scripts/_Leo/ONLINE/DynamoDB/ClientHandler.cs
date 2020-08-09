@@ -9,6 +9,8 @@ using Amazon.Lambda.Model;
 using Amazon.CognitoIdentityProvider;
 using Amazon.Runtime;
 using Amazon.AppSync.Model;
+using System.Globalization;
+using Amazon.CognitoIdentity.Model;
 
 namespace Kubika.Online
 {
@@ -24,7 +26,15 @@ namespace Kubika.Online
             else _instance = this;
 
             //TrySignUpRequest("Camenbert99@gmail.com", "Thesamething99");
-            TrySignInAdmin("Camenbert99@gmail.com", "Thesamething99");
+            TrySignInRequest("Camenbert99@gmail.com", "Thesamething99",
+            () =>
+            {
+                Debug.Log("Failed ! Check the log");
+            },
+                (token) =>
+                {
+                    Debug.Log("Success !" + token.Substring(0, 10) + "...");
+                });
         }
 
         private AmazonCognitoIdentityProviderClient _cognitoIdentityProvider = null;
@@ -80,7 +90,7 @@ namespace Kubika.Online
         }
 
         // sign-in method, called by UIManager
-        public void TrySignInRequest(string username, string password, Action OnFailureF = null, Action<string> OnSuccessF = null)
+        public void TrySignInRequest1(string username, string password, Action OnFailureF = null, Action<string> OnSuccessF = null)
         {
             InitiateAuthRequest authRequest = new InitiateAuthRequest()
             {
@@ -102,8 +112,8 @@ namespace Kubika.Online
                 RespondToAuthChallengeRequest respondRequest = new RespondToAuthChallengeRequest()
                 {
                     ClientId = AmazonCognito.appClientId,
-                    ChallengeName = authResponse.Result.ChallengeName,                
-                }; 
+                    ChallengeName = authResponse.Result.ChallengeName,
+                };
 
                 var finalResponse = cognitoIdentityProvider.RespondToAuthChallengeAsync(respondRequest);
 
@@ -140,8 +150,8 @@ namespace Kubika.Online
             authReq.AuthParameters.Add("USERNAME", username);
             authReq.AuthParameters.Add("PASSWORD", password);
 
-            var response = cognitoIdentityProvider.AdminInitiateAuthAsync(authReq); 
-            
+            var response = cognitoIdentityProvider.AdminInitiateAuthAsync(authReq);
+
             if (response.Exception != null)
             {
                 Debug.Log("Failed to complete signup, returned error : " + response.Exception.ToString());
@@ -158,7 +168,94 @@ namespace Kubika.Online
 
         public void TrySignInUser(string username, string password)
         {
-            
+
         }
+
+        public void TrySignInRequest(string username, string password,
+        Action OnFailureF = null, Action<string> OnSuccessF = null)
+        {
+            //Get the SRP variables A and a
+            var TupleAa = AuthenticationHelper.CreateAaTuple();
+
+            InitiateAuthRequest authRequest = new InitiateAuthRequest()
+            {
+                ClientId = AmazonCognito.appClientId,
+                AuthFlow = AuthFlowType.USER_SRP_AUTH,
+                AuthParameters = new Dictionary<string, string>() {
+                    { "USERNAME", username },
+                    { "SRP_A", TupleAa.Item1.ToString(16) } }
+            };
+
+            //
+            // This is a nested request / response / request. First we send the
+            // InitiateAuthRequest, with some crypto things. AWS sends back
+            // some of its own crypto things, in the authResponse object (this is the "challenge").
+            // We combine that with the actual password, using math, and send it back (the "challenge response").
+            // If AWS is happy with our answer, then it is convinced we know the password,
+            // and it sends us some tokens!
+            var authResponse = cognitoIdentityProvider.InitiateAuthAsync(authRequest);
+
+            if (authResponse.Exception != null)
+            {
+                Debug.Log("[TrySignInRequest] exception : " + authResponse.Exception.ToString());
+                if (OnFailureF != null)
+                    OnFailureF();
+                return;
+            }
+
+            //The timestamp format returned to AWS _needs_ to be in US Culture
+            DateTime timestamp = TimeZoneInfo.ConvertTimeToUtc(DateTime.Now);
+            CultureInfo usCulture = new CultureInfo("en-US");
+            String timeStr = timestamp.ToString("ddd MMM d HH:mm:ss \"UTC\" yyyy", usCulture);
+
+            //Do the hard work to generate the claim we return to AWS
+            var challegeParams = authResponse.Result.ChallengeParameters;
+            byte[] claim = AuthenticationHelper.authenticateUser(
+                                challegeParams["USERNAME"],
+                                password, AmazonCognito.userPoolName, TupleAa,
+                                challegeParams["SALT"], challegeParams["SRP_B"],
+                                challegeParams["SECRET_BLOCK"], timeStr);
+
+            String claimBase64 = Convert.ToBase64String(claim);
+
+            // construct the second request
+            RespondToAuthChallengeRequest respondRequest = new RespondToAuthChallengeRequest()
+            {
+                ChallengeName = authResponse.Result.ChallengeName,
+                ClientId = AmazonCognito.appClientId,
+                ChallengeResponses = new Dictionary<string, string>() {
+                            { "PASSWORD_CLAIM_SECRET_BLOCK", challegeParams["SECRET_BLOCK"] },
+                            { "PASSWORD_CLAIM_SIGNATURE", claimBase64 },
+                            { "USERNAME", username },
+                            { "TIMESTAMP", timeStr } }
+            };
+
+            // send the second request
+            var finalResponse = cognitoIdentityProvider.RespondToAuthChallengeAsync(respondRequest);
+
+            if (finalResponse.Exception != null)
+            {
+                // Note: if you have the wrong username/password, you will get an exception.
+                // It's up to you to differentiate that from other errors / etc.
+                Debug.Log("[TrySignInRequest] exception : " + finalResponse.Exception.ToString());
+                if (OnFailureF != null) OnFailureF();
+                return;
+            }
+
+            // Ok, if we got here, we logged in, and here are some tokens
+            AuthenticationResultType authResult = finalResponse.Result.AuthenticationResult;
+            string idToken = authResult.IdToken;
+            string accessToken = authResult.AccessToken;
+            string refreshToken = authResult.RefreshToken;
+            Debug.Log(idToken + ", " + accessToken + ", " + refreshToken);
+
+            Debug.Log("[TrySignInRequest] success!");
+            if (OnSuccessF != null) OnSuccessF(idToken);
+        }   // end of CognitoIDPClient.InitiateAuthAsync
+
+        GetCredentialsForIdentityRequest request = new GetCredentialsForIdentityRequest()
+        {
+            IdentityId = AmazonCognito.authenticatedUserId,
+        };
     }
 }
