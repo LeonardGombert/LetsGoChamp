@@ -467,9 +467,13 @@ namespace Kubika.Game
                     break;
                 #endregion
 
-                #region
+                #region //ONLINE
                 case "ONLINE_SignUp":
                     CallSignUpRequest();
+                    break;
+
+                case "ONLINE_SignIn":
+                    CallSignInRequest();
                     break;
                 #endregion
 
@@ -846,6 +850,19 @@ namespace Kubika.Game
                 () =>
                 {
                     debugStatusText.text = "Success !";
+                });
+        }
+
+        void CallSignInRequest()
+        {
+            ClientHandler.instance.TrySignInRequest(emailTextField.text, passwordTextField.text,
+                () =>
+                {
+                    debugStatusText.text = "Failed ! Check the log";
+                },
+                (token) =>
+                {
+                    debugStatusText.text = "Success !" + token.Substring(0, 10) + "...";
                 });
         }
         #endregion
