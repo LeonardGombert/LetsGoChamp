@@ -11,6 +11,11 @@ using Amazon.Runtime;
 using Amazon.AppSync.Model;
 using System.Globalization;
 using Amazon.CognitoIdentity.Model;
+using Amazon.DynamoDBv2;
+using UnityEditor.PackageManager;
+using Amazon.CognitoIdentity;
+using UnityEditor;
+using Amazon.DynamoDBv2.Model;
 
 namespace Kubika.Online
 {
@@ -24,9 +29,12 @@ namespace Kubika.Online
         {
             if (_instance != null && _instance != this) Destroy(this);
             else _instance = this;
+        }
 
+        private void Start()
+        { 
             //TrySignUpRequest("Camenbert99@gmail.com", "Thesamething99");
-            TrySignInRequest("Camenbert99@gmail.com", "Thesamething99",
+            StartCoroutine(TrySignInRequest("Camenbert99@gmail.com", "Thesamething99",
             () =>
             {
                 Debug.Log("Failed ! Check the log");
@@ -34,7 +42,8 @@ namespace Kubika.Online
                 (token) =>
                 {
                     Debug.Log("Success !" + token.Substring(0, 10) + "...");
-                });
+                }));
+
         }
 
         private AmazonCognitoIdentityProviderClient _cognitoIdentityProvider = null;
@@ -171,8 +180,7 @@ namespace Kubika.Online
 
         }
 
-        public void TrySignInRequest(string username, string password,
-        Action OnFailureF = null, Action<string> OnSuccessF = null)
+        public IEnumerator TrySignInRequest(string username, string password,Action OnFailureF = null, Action<string> OnSuccessF = null)
         {
             //Get the SRP variables A and a
             var TupleAa = AuthenticationHelper.CreateAaTuple();
@@ -200,7 +208,7 @@ namespace Kubika.Online
                 Debug.Log("[TrySignInRequest] exception : " + authResponse.Exception.ToString());
                 if (OnFailureF != null)
                     OnFailureF();
-                return;
+                yield return null;
             }
 
             //The timestamp format returned to AWS _needs_ to be in US Culture
@@ -239,7 +247,7 @@ namespace Kubika.Online
                 // It's up to you to differentiate that from other errors / etc.
                 Debug.Log("[TrySignInRequest] exception : " + finalResponse.Exception.ToString());
                 if (OnFailureF != null) OnFailureF();
-                return;
+                yield return null;
             }
 
             // Ok, if we got here, we logged in, and here are some tokens
@@ -251,11 +259,39 @@ namespace Kubika.Online
 
             Debug.Log("[TrySignInRequest] success!");
             if (OnSuccessF != null) OnSuccessF(idToken);
-        }   // end of CognitoIDPClient.InitiateAuthAsync
+            
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        GetCredentialsForIdentityRequest request = new GetCredentialsForIdentityRequest()
-        {
-            IdentityId = AmazonCognito.authenticatedUserId,
-        };
+            var credentials = new CognitoAWSCredentials(AmazonCognito.identityPoolId, AmazonCognito.cognitoIdentityRegion);
+            //CognitoAWSCredentials credentials = new CognitoAWSCredentials(username, AmazonCognito.identityPoolId, AmazonIAM.unauthARN, AmazonIAM.authARN, AmazonCognito.cognitoIdentityRegion);
+            credentials.AddLogin(cognitoIdentityProvider.ToString(), accessToken);
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, AmazonCognito.cognitoIdentityRegion);
+            
+            yield return null;
+
+            Debug.Log("Creating new Request");
+
+            var request = new PutItemRequest
+            {
+                TableName = DynamoDB.tableName,
+                Item = new Dictionary<string, AttributeValue>()
+                {
+                    { DynamoDB.baseTablePK, new AttributeValue{ S = AmazonCognito.authenticatedUserId } },
+                    { DynamoDB.baseTableSK, new AttributeValue{ S = "one eight hundred two four five"} },
+                    { DynamoDB.levelFile, new AttributeValue{ S = "OUI OUI OUI THIS IS WE TOWN MY MAN"} },
+                    { DynamoDB.publishDate, new AttributeValue{ S = DateTime.Today.ToShortDateString()} },
+                }
+            };
+
+            yield return null;
+
+            Debug.Log("Uploading test item");
+
+            var response = client.PutItemAsync(request);
+
+            yield return null;
+
+            if (response.Exception != null) Debug.Log(response.Exception.Message);
+        }
     }
 }

@@ -7,7 +7,7 @@ public struct AmazonCognito
     public static string appClientId = "9db7pkdnppvrlui6sackifg6d";
     public static string userPoolId = "eu-central-1_UXwaae0M4";
     public static string userPoolName = "UXwaae0M4";
-    public static string authenticatedUserId = "12345";
+    public static string authenticatedUserId = "1234567890";
     public static RegionEndpoint cognitoIdentityRegion = RegionEndpoint.EUCentral1;
 
     // assigned by clint handler
@@ -15,6 +15,13 @@ public struct AmazonCognito
     public static string accessToken = "";
     public static string refreshToken = "";
 }
+
+public struct AmazonIAM
+{
+    public static string authARN = "arn:aws:iam::427426409501:role/Cognito_KUBIKA_TestingPoolAuth_Role";
+    public static string unauthARN = "arn:aws:iam::427426409501:role/Cognito_KUBIKA_TestingPoolUnauth_Role";  
+}
+
 public struct DynamoDB
 {
     // Base table info
