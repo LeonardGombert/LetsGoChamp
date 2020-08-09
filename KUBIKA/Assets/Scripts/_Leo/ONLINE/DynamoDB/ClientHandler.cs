@@ -32,7 +32,7 @@ namespace Kubika.Online
         }
 
         private void Start()
-        { 
+        {
             //TrySignUpRequest("Camenbert99@gmail.com", "Thesamething99");
             StartCoroutine(TrySignInRequest("Camenbert99@gmail.com", "Thesamething99",
             () =>
@@ -180,7 +180,7 @@ namespace Kubika.Online
 
         }
 
-        public IEnumerator TrySignInRequest(string username, string password,Action OnFailureF = null, Action<string> OnSuccessF = null)
+        public IEnumerator TrySignInRequest(string username, string password, Action OnFailureF = null, Action<string> OnSuccessF = null)
         {
             //Get the SRP variables A and a
             var TupleAa = AuthenticationHelper.CreateAaTuple();
@@ -259,16 +259,91 @@ namespace Kubika.Online
 
             Debug.Log("[TrySignInRequest] success!");
             if (OnSuccessF != null) OnSuccessF(idToken);
-            
+
             //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             var credentials = new CognitoAWSCredentials(AmazonCognito.identityPoolId, AmazonCognito.cognitoIdentityRegion);
-            //CognitoAWSCredentials credentials = new CognitoAWSCredentials(username, AmazonCognito.identityPoolId, AmazonIAM.unauthARN, AmazonIAM.authARN, AmazonCognito.cognitoIdentityRegion);
-            credentials.AddLogin(cognitoIdentityProvider.ToString(), accessToken);
-            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, AmazonCognito.cognitoIdentityRegion);
-            
-            yield return null;
 
+            //CognitoAWSCredentials credentials = new CognitoAWSCredentials(username, AmazonCognito.identityPoolId, AmazonIAM.unauthARN, AmazonIAM.authARN, AmazonCognito.cognitoIdentityRegion);
+
+            credentials.AddLogin(cognitoIdentityProvider.ToString(), idToken);
+
+            Debug.Log("Account ID is " + credentials.AccountId);
+            Debug.Log("Auth Role ARN is " + credentials.AuthRoleArn);
+            
+            foreach (var item in credentials.CurrentLoginProviders) Debug.Log("Current Login Providers are " + item.ToString());
+
+            Debug.Log("Identity Pool ID is " + credentials.IdentityPoolId);
+            Debug.Log("Logins Count is " + credentials.LoginsCount);
+            Debug.Log("PreemptExpirty Time is " + credentials.PreemptExpiryTime);
+            Debug.Log("Unauth role ARN is " + credentials.UnAuthRoleArn);
+
+            credentials.RemoveLogin(cognitoIdentityProvider.ToString());
+
+            Debug.Log("Logins count is " + credentials.LoginsCount);
+
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            AmazonCognitoIdentityClient yes = new AmazonCognitoIdentityClient(idToken, accessToken, refreshToken, AmazonCognito.cognitoIdentityRegion);
+            
+            GetIdRequest request2 = new GetIdRequest()
+            {
+                IdentityPoolId = AmazonCognito.identityPoolId,
+            };
+
+            GetIdentityPoolRolesRequest request3 = new GetIdentityPoolRolesRequest()
+            {
+                IdentityPoolId = AmazonCognito.identityPoolId,
+            };
+
+
+
+
+
+            var requestResponse = yes.GetIdAsync(request2);
+
+            if (requestResponse.Exception != null)
+            {
+                Debug.Log(requestResponse.Exception.Message);
+                Debug.Log(requestResponse.Status);
+            }
+
+            else Debug.Log("Identity id is " + requestResponse.Result.IdentityId);
+
+
+
+
+
+
+
+            GetCredentialsForIdentityRequest request = new GetCredentialsForIdentityRequest()
+            {
+                IdentityId = requestResponse.Result.IdentityId,                
+                
+            };
+
+            var finalResultPlease = yes.GetCredentialsForIdentityAsync(request);
+
+            if (finalResultPlease.Exception != null)
+            {
+                Debug.Log(finalResultPlease.Exception.Message);
+                Debug.Log(finalResultPlease.Status);
+            }
+
+            else Debug.Log("Finally, credentials are " + finalResultPlease.Result.Credentials.AccessKeyId.ToString());
+
+            MakeNewClientForAuthUser(finalResultPlease.Result.Credentials);
+
+        }
+
+        private void MakeNewClientForAuthUser(Credentials credentials)
+        {
+            AmazonDynamoDBClient client = new AmazonDynamoDBClient(credentials, AmazonCognito.cognitoIdentityRegion);
+            StartCoroutine(UploadLevelFromEditor(client)); 
+        }
+
+        public IEnumerator UploadLevelFromEditor(AmazonDynamoDBClient client)
+        {
             Debug.Log("Creating new Request");
 
             var request = new PutItemRequest
@@ -277,15 +352,16 @@ namespace Kubika.Online
                 Item = new Dictionary<string, AttributeValue>()
                 {
                     { DynamoDB.baseTablePK, new AttributeValue{ S = AmazonCognito.authenticatedUserId } },
-                    { DynamoDB.baseTableSK, new AttributeValue{ S = "one eight hundred two four five"} },
-                    { DynamoDB.levelFile, new AttributeValue{ S = "OUI OUI OUI THIS IS WE TOWN MY MAN"} },
+                    { DynamoDB.baseTableSK, new AttributeValue{ S = "PLEASE WORK"} },
+                    { DynamoDB.levelFile, new AttributeValue{ S = "NOOGER"} },
                     { DynamoDB.publishDate, new AttributeValue{ S = DateTime.Today.ToShortDateString()} },
+                    // { CommunityDatabase.creatorSetDifficulty, new AttributeValue{ S = ""} 
                 }
             };
 
             yield return null;
 
-            Debug.Log("Uploading test item");
+            Debug.Log("Uploading a test item");
 
             var response = client.PutItemAsync(request);
 

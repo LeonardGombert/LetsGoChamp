@@ -4,11 +4,14 @@ public struct AmazonCognito
 {
     // user and identity pool access variables
     public static string identityPoolId = "eu-central-1:f8990c10-6786-4c01-adc7-6614e9da700b";
+    public static string providerName = "cognito-idp:eu-central-1:427426409501:userpool/eu-central-1_UXwaae0M4";
+
     public static string appClientId = "9db7pkdnppvrlui6sackifg6d";
     public static string userPoolId = "eu-central-1_UXwaae0M4";
     public static string userPoolName = "UXwaae0M4";
-    public static string authenticatedUserId = "1234567890";
     public static RegionEndpoint cognitoIdentityRegion = RegionEndpoint.EUCentral1;
+
+    public static string authenticatedUserId = "1234567890";
 
     // assigned by clint handler
     public static string idToken = "";
