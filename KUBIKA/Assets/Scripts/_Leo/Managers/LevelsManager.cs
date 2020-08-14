@@ -326,6 +326,7 @@ namespace Kubika.Game
             StartCoroutine(LoadGameLevel());
         }
 
+        // Obscelete
         public IEnumerator MoveToNextLevel()
         {
             ScenesManager.instance._LoadScene(ScenesIndex.TITLE_SCREEN);

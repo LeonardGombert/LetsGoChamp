@@ -479,7 +479,7 @@ namespace Kubika.Game
 
                 #region //GENERAL
                 case "MAIN_MENU":
-                    ScenesManager.instance._LoadScene(ScenesIndex.TITLE_SCREEN);
+                    ScenesManager.instance._LoadScene(ScenesIndex.WORLD_MAP);
                     break;
 
                 case "TITLE_SCREEN":
