@@ -225,13 +225,13 @@ namespace Kubika.Game
             if (worldMapCanvas != null) worldMapCanvas.enabled = true;
             worldMapCanvas.sortingOrder = 1000;
 
-            playButton.SetActive(false);
+            /*playButton.SetActive(false);
             levelNameWM.enabled = false;
             levelDifficulty.enabled = false;
 
             mainMenuButton.gameObject.SetActive(false);
             topArrow.gameObject.SetActive(false);
-            bottomArrow.gameObject.SetActive(false);
+            bottomArrow.gameObject.SetActive(false);*/
         }
 
         // called when camera is zoomed in
