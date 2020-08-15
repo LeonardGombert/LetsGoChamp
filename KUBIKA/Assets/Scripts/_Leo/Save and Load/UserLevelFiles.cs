@@ -17,9 +17,11 @@ namespace Kubika.Saving
             levelInfo.levelFile = levelFile;
             levelInfo.levelName = levelData.levelName;
             levelInfo.levelBiome = levelData.biome;
+            levelInfo.difficulty = levelData.difficulty;
             levelInfo.kubicode = levelData.Kubicode;
             levelInfo.minimumMoves = levelData.minimumMoves;
             levelInfo.lockRotate = levelData.lockRotate;
+            levelInfo.difficulty = levelData.difficulty;
 
             return levelInfo;
         }

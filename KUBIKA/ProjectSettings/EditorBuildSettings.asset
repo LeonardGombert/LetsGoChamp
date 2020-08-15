@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/02_TITLESCREEN.unity
     guid: 0e1fd3b740b03fb42860cc6edcd91106
   - enabled: 1
-    path: Assets/Scenes/03_WORLDMAP.unity
-    guid: 762195a2d35b00d48b1904efddf13b30
-  - enabled: 1
     path: Assets/Scenes/04_GAME.unity
     guid: a64f33025a6a5534d913d14bfdbeef01
   - enabled: 1

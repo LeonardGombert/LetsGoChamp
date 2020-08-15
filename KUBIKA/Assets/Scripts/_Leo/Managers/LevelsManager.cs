@@ -49,10 +49,10 @@ namespace Kubika.Game
         public TextAsset _levelFile;
         public string _levelName;
         public Biomes _levelBiome;
+        public Difficulty _difficulty;
         public string _Kubicode;
         public int _minimumMoves;
         public bool _lockRotate;
-
         float timePassed;
         float startAlphaValue;
         float targetAlphaValue;
@@ -257,6 +257,7 @@ namespace Kubika.Game
             _levelFile = gameLevelQueue.Peek().levelFile;
             _minimumMoves = gameLevelQueue.Peek().minimumMoves;
             _lockRotate = gameLevelQueue.Peek().lockRotate;
+            _difficulty = gameLevelQueue.Peek().difficulty;
         }
 
         // Load the next level (extract the file)
@@ -380,6 +381,7 @@ namespace Kubika.Saving
         public string levelName;
         public string kubicode;
         public Biomes levelBiome;
+        public Difficulty difficulty;
         public int minimumMoves;
         public bool lockRotate;
         [HideInInspector] public bool levelIsBeaten; //not saved in the file, but in player progress

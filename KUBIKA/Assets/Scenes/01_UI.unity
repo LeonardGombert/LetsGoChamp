@@ -294,6 +294,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &943453520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 943453520, guid: aeba16e64b99beb4e9b36b4c00ad5635,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880667868287510276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &974214344 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6956760563905375186, guid: b6e6cac74e049ba41b59b1516fdba42c,
@@ -1171,11 +1183,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game UI
       objectReference: {fileID: 0}
-    - target: {fileID: 1880667868721082032, guid: aeba16e64b99beb4e9b36b4c00ad5635,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1880667868721082033, guid: aeba16e64b99beb4e9b36b4c00ad5635,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1230,16 +1237,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880667868822498266, guid: aeba16e64b99beb4e9b36b4c00ad5635,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 4.1000977
-      objectReference: {fileID: 0}
-    - target: {fileID: 1880667868822498266, guid: aeba16e64b99beb4e9b36b4c00ad5635,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -126.19995
       objectReference: {fileID: 0}
     - target: {fileID: 1880667868859027742, guid: aeba16e64b99beb4e9b36b4c00ad5635,
         type: 3}
@@ -1440,6 +1437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
+      propertyPath: titleScreenCanvas
+      value: 
+      objectReference: {fileID: 1841158469}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
       propertyPath: worldMapCanvas
       value: 
       objectReference: {fileID: 290551025}
@@ -1528,6 +1530,16 @@ PrefabInstance:
       propertyPath: openBurgerMenuButton
       value: 
       objectReference: {fileID: 1964250777}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: inGameLevelName
+      value: 
+      objectReference: {fileID: 1535006515}
+    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
+        type: 3}
+      propertyPath: inGameLevelDifficulty
+      value: 
+      objectReference: {fileID: 943453520}
     - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
         type: 3}
       propertyPath: rightRotate
@@ -1683,31 +1695,6 @@ PrefabInstance:
       propertyPath: fadeImage
       value: 
       objectReference: {fileID: 1445805127}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: burgerLevelName
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: hamburgerMenuCanvas3
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: hiddenMenuText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: inGameLevelName
-      value: 
-      objectReference: {fileID: 1535006515}
-    - target: {fileID: 4163245710713187495, guid: f8fa7c61955974e4b868ffadae7cb1d3,
-        type: 3}
-      propertyPath: titleScreenCanvas
-      value: 
-      objectReference: {fileID: 1841158469}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped

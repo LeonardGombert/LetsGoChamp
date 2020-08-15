@@ -30,6 +30,7 @@ public class LevelEditorWindow : EditorWindow
 
     private string[] presetType;
     LevelSetup levelSetupLength;
+    private Difficulty difficulty;
 
     [MenuItem("Tools/Level Editor")]
     static void Init()
@@ -120,6 +121,7 @@ public class LevelEditorWindow : EditorWindow
             lockRotate = SaveAndLoad.instance.currentLevelLockRotate;
             miminumMoves = SaveAndLoad.instance.currentMinimumMoves;
             biomesIndex = (int)SaveAndLoad.instance.currentBiome;
+            difficulty = SaveAndLoad.instance.difficulty;
         }
     }
 
@@ -183,6 +185,7 @@ public class LevelEditorWindow : EditorWindow
         kubiCode = EditorGUILayout.TextField("KudiCode", kubiCode);
 
         levelBiome = (Biomes)EditorGUILayout.EnumPopup("Level Biome is ", levelBiome);
+        difficulty = (Difficulty)EditorGUILayout.EnumPopup("Level Difficulty is ", difficulty);
 
         _MaterialCentral.instance.ChangeUniverse(levelBiome); //change the current biome
 
@@ -191,12 +194,12 @@ public class LevelEditorWindow : EditorWindow
 
         EditorGUILayout.Space(20);
 
-        if (GUILayout.Button("Save Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, levelBiome, lockRotate, miminumMoves);
+        if (GUILayout.Button("Save Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, levelBiome, difficulty, lockRotate, miminumMoves);
     }
 
     private void SaveTestLevel()
     {
-        if (GUILayout.Button("Save Test Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, levelBiome, lockRotate, miminumMoves, true);
+        if (GUILayout.Button("Save Test Level")) SaveAndLoad.instance.DevSavingLevel(levelName, kubiCode, levelBiome, difficulty, lockRotate, miminumMoves, true);
     }
 
 

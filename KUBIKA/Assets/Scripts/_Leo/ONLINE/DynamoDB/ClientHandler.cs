@@ -3,18 +3,12 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Amazon.CognitoIdentityProvider.Model;
-using Kubika.Online;
-using Amazon.CodeCommit.Model;
-using Amazon.Lambda.Model;
 using Amazon.CognitoIdentityProvider;
 using Amazon.Runtime;
-using Amazon.AppSync.Model;
 using System.Globalization;
 using Amazon.CognitoIdentity.Model;
 using Amazon.DynamoDBv2;
-using UnityEditor.PackageManager;
 using Amazon.CognitoIdentity;
-using UnityEditor;
 using Amazon.DynamoDBv2.Model;
 
 namespace Kubika.Online

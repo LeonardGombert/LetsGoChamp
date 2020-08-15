@@ -31,7 +31,8 @@ namespace Kubika.Saving
         public bool currentLevelLockRotate;
         public int currentMinimumMoves;
         public Biomes currentBiome; //sets itself on save
-        public Difficulty currentDifficltySetting;
+        public Difficulty difficulty;
+        private Difficulty currentDifficulty;
 
         public bool finishedBuilding = false;
 
@@ -74,7 +75,7 @@ namespace Kubika.Saving
         }
 
         #region // DEVELOPER LEVELS
-        public void DevSavingLevel(string levelName, string kubiCode, Biomes biome, bool rotateLock, int minimumMoves = 0, bool testLevel = false)
+        public void DevSavingLevel(string levelName, string kubiCode, Biomes biome, Difficulty difficulty, bool rotateLock, int minimumMoves = 0, bool testLevel = false)
         {
             for (int i = 0; i < _Grid.instance.kuboGrid.Length; i++)
             {
@@ -84,6 +85,7 @@ namespace Kubika.Saving
             //storing data in levelDataFile
             devData.levelName = levelName;
             devData.biome = _MaterialCentral.instance.staticIndex;
+            devData.difficulty = difficulty;
             devData.lockRotate = rotateLock;
             devData.minimumMoves = minimumMoves;
             devData.Kubicode = kubiCode;
@@ -91,6 +93,7 @@ namespace Kubika.Saving
             currentOpenLevelName = levelName;
             currentKubicode = kubiCode;
             currentBiome = _MaterialCentral.instance.staticIndex;
+            currentDifficulty = difficulty;
             currentLevelLockRotate = rotateLock;
             currentMinimumMoves = minimumMoves;
 
@@ -139,10 +142,11 @@ namespace Kubika.Saving
             devData.levelName = currentOpenLevelName;
             devData.Kubicode = currentKubicode;
             devData.biome = currentBiome;
+            devData.difficulty = difficulty;
             devData.lockRotate = currentLevelLockRotate;
             devData.minimumMoves = currentMinimumMoves;
 
-            DevSavingLevel(currentOpenLevelName, currentKubicode, currentBiome, currentLevelLockRotate, currentMinimumMoves);
+            DevSavingLevel(currentOpenLevelName, currentKubicode, currentBiome, difficulty, currentLevelLockRotate, currentMinimumMoves);
         }
 
         public string GetLevelFolder(Biomes biome)
@@ -198,6 +202,7 @@ namespace Kubika.Saving
             currentOpenLevelName = devData.levelName;
             currentKubicode = devData.Kubicode;
             currentBiome = devData.biome;
+            currentDifficulty = devData.difficulty;
             currentLevelLockRotate = devData.lockRotate;
             currentMinimumMoves = devData.minimumMoves;
 
@@ -257,7 +262,7 @@ namespace Kubika.Saving
         public void UserSavingCurrentLevel()
         {
             userData.levelName = currentOpenLevelName;
-            currentDifficltySetting = userData.creatorDifficulty;
+            userData.creatorDifficulty = currentDifficulty;
             userData.biome = currentBiome;
 
             UserSavingLevel(currentOpenLevelName);
@@ -278,7 +283,7 @@ namespace Kubika.Saving
             }
 
             currentOpenLevelName = userData.levelName;
-            currentDifficltySetting = userData.creatorDifficulty;
+            currentDifficulty = userData.creatorDifficulty;
             currentBiome = userData.biome;
 
             userData.nodesToSave.Clear();

@@ -2,12 +2,9 @@
 using UnityEngine.UI;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using System;
 using Kubika.CustomLevelEditor;
 using Kubika.Saving;
 using Kubika.Online;
-using System.Text;
-using Sirenix.Utilities.Editor.Expressions;
 
 namespace Kubika.Game
 {
@@ -56,7 +53,7 @@ namespace Kubika.Game
         #endregion
 
         #region IN GAME
-        [FoldoutGroup("In-Game")] [SerializeField] Text inGameLevelName;
+        [FoldoutGroup("In-Game")] [SerializeField] Text inGameLevelName, inGameLevelDifficulty;
         [FoldoutGroup("In-Game")] [SerializeField] Image rightRotate, leftRotate;
         [FoldoutGroup("In-Game")] [SerializeField] Image rightRotateBackground, leftRotateBackground;
         [FoldoutGroup("In-Game")] [SerializeField] Button rightRotateButton, leftRotateButton;
@@ -284,6 +281,7 @@ namespace Kubika.Game
             if (levelPassedCanvas != null) levelPassedCanvas.enabled = false;
 
             inGameLevelName.text = LevelsManager.instance._levelName;
+            inGameLevelDifficulty.text = LevelsManager.instance._difficulty.ToString();
 
             hiddenMenuButtons.SetActive(false);
             gameCanvas.sortingOrder = 1000;

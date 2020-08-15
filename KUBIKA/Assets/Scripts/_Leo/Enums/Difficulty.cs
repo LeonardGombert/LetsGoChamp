@@ -1,7 +1,8 @@
 ﻿public enum Difficulty
 {
+    Introductory,
     Casual,
     Medium,
-    Complex,
+    Difficult,
     Hardcore
 }

@@ -12,6 +12,7 @@ public class LevelFileSearchBar : EditorWindow
 {
     private string searchIndex;
     Biomes loadLevelBiome;
+    Difficulty loaddLevelDIfficulty;
     UnityEngine.Object[] loadLevelFiles;
 
     private string path;
@@ -22,6 +23,7 @@ public class LevelFileSearchBar : EditorWindow
     string levelName;
     string Kubicode;
     Biomes levelBiome;
+    Difficulty difficulty;
     int minimumMoves;
     bool lockRotate;
     TextAsset levelTextFile;
@@ -130,6 +132,7 @@ public class LevelFileSearchBar : EditorWindow
                 minimumMoves = levelFiles[i].minimumMoves;
                 lockRotate = levelFiles[i].lockRotate;
                 levelTextFile = levelFiles[i].levelFile;
+                difficulty = levelFiles[i].difficulty;
             }
         }
     }
@@ -139,6 +142,7 @@ public class LevelFileSearchBar : EditorWindow
         levelName = EditorGUILayout.TextField("Level Name : ", levelName);
         Kubicode = EditorGUILayout.TextField("Kubicode : ", Kubicode);
         levelBiome = (Biomes)EditorGUILayout.EnumPopup("Biome : ", levelBiome);
+        difficulty = (Difficulty)EditorGUILayout.EnumPopup("Difficulty : ", difficulty);
         minimumMoves = EditorGUILayout.IntField("Minimum to Beat : ", minimumMoves);
         lockRotate = EditorGUILayout.Toggle("Rotate is Locked : ", lockRotate);
         levelTextFile = (TextAsset)EditorGUILayout.ObjectField(levelTextFile, typeof(UnityEngine.Object), true);
@@ -162,6 +166,7 @@ public class LevelFileSearchBar : EditorWindow
         levelData.levelName = levelName;
         levelData.Kubicode = Kubicode;
         levelData.biome = levelBiome;
+        levelData.difficulty = difficulty;
         levelData.minimumMoves = minimumMoves;
         levelData.lockRotate = lockRotate;
 
