@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class LevelInstantiator : MonoBehaviour
 {
-    [SerializeField] Text uiLevelName;
+    [SerializeField] Text uiLevelName, uiLevelDIfficulty;
     [SerializeField] Button uiPlayButton;
     string loadToKubiCode;
 
-    public void FillValues(string levelName, string kubiCode)
+    public void FillValues(string levelName, Difficulty difficulty, string kubiCode)
     {
         uiLevelName.text = levelName;
+        uiLevelDIfficulty.text = difficulty.ToString();
         loadToKubiCode = kubiCode;
     }
 

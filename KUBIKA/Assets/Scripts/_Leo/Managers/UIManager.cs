@@ -31,7 +31,7 @@ namespace Kubika.Game
         #endregion
 
         #region WORLDMAP
-        [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM;
+        [FoldoutGroup("World Map")] [SerializeField] Text levelNameWM, levelDifficulty;
         [FoldoutGroup("World Map")] [SerializeField] GameObject mainMenuButton;
         [FoldoutGroup("World Map")] [SerializeField] GameObject playButton;
         [FoldoutGroup("World Map")] public Image topArrow; //used by WorldMap Rotation script
@@ -227,6 +227,7 @@ namespace Kubika.Game
 
             playButton.SetActive(false);
             levelNameWM.enabled = false;
+            levelDifficulty.enabled = false;
 
             mainMenuButton.gameObject.SetActive(false);
             topArrow.gameObject.SetActive(false);
@@ -597,6 +598,8 @@ namespace Kubika.Game
         {
             levelNameWM.enabled = true;
             levelNameWM.text = levelFile.levelName;
+            levelDifficulty.enabled = true;
+            levelDifficulty.text = levelFile.difficulty.ToString();
             playButton.SetActive(true);
         }
         #endregion

@@ -25,7 +25,7 @@ public class WorldmapLevelPopulator : MonoBehaviour
             {
                 GameObject newObj = Instantiate(levelPrefab, Vector3.zero, Quaternion.identity, transform);
                 LevelInstantiator level = newObj.GetComponent<LevelInstantiator>();
-                level.FillValues(item.levelName, item.kubicode);
+                level.FillValues(item.levelName, item.difficulty, item.kubicode);
             }
         }
     }
