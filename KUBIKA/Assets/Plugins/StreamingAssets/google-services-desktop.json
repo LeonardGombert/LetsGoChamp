@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "808193056008",
+    "firebase_url": "https://kubika-champ-n-zee.firebaseio.com",
+    "project_id": "kubika-champ-n-zee",
+    "storage_bucket": "kubika-champ-n-zee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:808193056008:android:3957694d57e2c0d2d260bd",
+        "android_client_info": {
+          "package_name": "com.champzee.KUBIKA"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "808193056008-8vbt96nvf0p2nfinm85ir64dk349q31b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_xlSzPOR8d1H3q6MHCPE_-13-1BvqjWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "808193056008-8vbt96nvf0p2nfinm85ir64dk349q31b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
