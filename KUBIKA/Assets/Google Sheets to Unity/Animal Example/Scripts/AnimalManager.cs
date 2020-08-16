@@ -18,9 +18,11 @@ public class AnimalManager : MonoBehaviour
     public SheetStatus sheetStatus;
 
     [HideInInspector]
-    public string associatedSheet = "1GVXeyWCz0tCjyqE1GWJoayj92rx4a_hu4nQbYmW_PkE";
+    //public string associatedSheet = "1GVXeyWCz0tCjyqE1GWJoayj92rx4a_hu4nQbYmW_PkE";
+    public string associatedSheet = "1iZsNubFB2pePT0MlqBUyMg4la7p5V5hr6ER3WzXQ4Ww";
     [HideInInspector]
-    public string associatedWorksheet = "Stats";
+    //public string associatedWorksheet = "Stats";
+    public string associatedWorksheet = "Niveaux";
 
     public List<AnimalObject> animalObjects = new List<AnimalObject>();
     public AnimalContainer container;
@@ -50,6 +52,7 @@ public class AnimalManager : MonoBehaviour
 
     void UpdateAllAnimals(GstuSpreadSheet ss)
     {
+        Debug.Log(ss["D26"].value);
         foreach (Animal animal in container.allAnimals)
         {
             animal.UpdateStats(ss);

@@ -14,10 +14,10 @@ namespace GoogleSheetsToUnity
     public class GSTU_Search
     {
         public readonly string sheetId = "";
-        public readonly string worksheetName = "Sheet1";
+        public readonly string worksheetName = "";
 
-        public readonly string startCell = "A1";
-        public readonly string endCell = "Z100";
+        public readonly string startCell = "A4";
+        public readonly string endCell = "Z145";
 
         public readonly string titleColumn = "A";
         public readonly int titleRow = 1;
