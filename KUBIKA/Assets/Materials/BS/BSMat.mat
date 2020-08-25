@@ -57,6 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _ColorLerp: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -73,9 +74,12 @@ Material:
     - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _UVSec: 0
+    - _VertexHeight: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.46209142, g: 0.6320754, b: 0.45616764, a: 1}
+    - _ColorMax: {r: 0.817714, g: 0.9056604, b: 0.7048772, a: 1}
+    - _ColorMin: {r: 0.5107143, g: 0.7924528, b: 0.50462794, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _LightColorAmbient: {r: 1, g: 1, b: 1, a: 1}
     - _LightColorMain: {r: 0.7843138, g: 0.7803922, b: 0.7803922, a: 1}
