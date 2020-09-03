@@ -42,19 +42,6 @@ namespace Kubika.Game
 
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-            if (Input.touchCount > 0)
-            {
-                // release touch/dragging
-                if ((Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled))
-                {
-                    Debug.Log("Player touched the screen");
-                }
-            }
-        }
-
         public void _LoadScene(ScenesIndex targetScene)
         {
             finishedLoadingScene = false;

@@ -10,6 +10,7 @@ public class LevelInstantiator : MonoBehaviour
     [SerializeField] Button uiPlayButton;
     string loadToKubiCode;
 
+    //Called when instantiated by populator
     public void FillValues(string levelName, Difficulty difficulty, string kubiCode)
     {
         uiLevelName.text = levelName;
@@ -17,6 +18,7 @@ public class LevelInstantiator : MonoBehaviour
         loadToKubiCode = kubiCode;
     }
 
+    //called by Unity Event Button
     public void PlayLevel()
     {
         LevelsManager.instance.loadToKubicode = loadToKubiCode;
