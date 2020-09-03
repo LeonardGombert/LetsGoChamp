@@ -50,7 +50,7 @@ namespace Kubika.Game
 
         IEnumerator LoadScene(ScenesIndex targetScene)
         {
-            LevelsManager.instance._FadeToBlack();
+            StartCoroutine(LevelsManager.instance._FadeToBlack());
 
             while (!UIManager.instance.transitionFinished) yield return null;
 
@@ -66,7 +66,7 @@ namespace Kubika.Game
 
             while (!UIManager.instance.transitionFinished) yield return null;
 
-            LevelsManager.instance._FadeFromBlack();
+            StartCoroutine(LevelsManager.instance._FadeFromBlack());
 
             UIManager.instance.RefreshActiveScene();
 

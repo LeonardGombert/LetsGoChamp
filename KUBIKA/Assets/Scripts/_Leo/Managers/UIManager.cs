@@ -803,6 +803,8 @@ namespace Kubika.Game
 
             alphaColor = fadeImage.color;
 
+            transitionFinished = false;
+
             while (timePassed <= transitionDuration)
             {
                 timePassed += Time.deltaTime;
@@ -837,6 +839,8 @@ namespace Kubika.Game
 
                 fadeImage.color = alphaColor;
             }
+
+            transitionFinished = true;
         }
         #endregion
 

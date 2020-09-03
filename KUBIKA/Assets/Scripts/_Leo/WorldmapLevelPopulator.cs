@@ -8,23 +8,21 @@ public class WorldmapLevelPopulator : MonoBehaviour, IDragHandler, IEndDragHandl
     Transform LevelListTransfrom;
     LevelsManager levelsManager;
     public float percentThreshold = 0.2f;
-    Vector3 panelLocation;
 
     public int currentWorld = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        LevelListTransfrom = transform.GetChild(0).GetChild(0).GetChild(0);
         levelsManager = LevelsManager.instance;
+        LevelListTransfrom = transform.GetChild(0).GetChild(0).GetChild(0);
+
         PopulateScreen(1);
-        panelLocation = transform.position;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        //float difference = eventData.pressPosition.x - eventData.position.x;
-        //transform.position = panelLocation - new Vector3(difference, 0, 0);
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -34,7 +32,6 @@ public class WorldmapLevelPopulator : MonoBehaviour, IDragHandler, IEndDragHandl
         {
             foreach (Transform child in LevelListTransfrom) Destroy(child.gameObject);
 
-            //Vector3 newLocation = panelLocation;
             if (percentage > 0 && currentWorld < (int)Biomes.Count)
             {
                 currentWorld++;
@@ -45,18 +42,12 @@ public class WorldmapLevelPopulator : MonoBehaviour, IDragHandler, IEndDragHandl
                 currentWorld--;
             }
 
-            //transform.position = newLocation;
-            //panelLocation = newLocation;
             Debug.Log("Swiped to next page");
             Debug.Log("Current World is " + currentWorld);
             
             PopulateScreen(currentWorld);
         }
-        else
-        {
-            //transform.position = panelLocation;
-            Debug.Log("Failed swipe");
-        }
+        else Debug.Log("Failed swipe");
     }
 
     // populate the list with the levels in the current world
@@ -74,11 +65,5 @@ public class WorldmapLevelPopulator : MonoBehaviour, IDragHandler, IEndDragHandl
             // if you're reading items of the next world, stop the foreach loop to save on time
             else if (item.kubicode.Contains("World" + (_currentWorld + 1))) break;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

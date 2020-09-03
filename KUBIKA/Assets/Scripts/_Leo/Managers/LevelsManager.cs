@@ -340,7 +340,7 @@ namespace Kubika.Game
         }
 
         #region //FADE TRANSITION
-        public void _FadeToBlack()
+        public IEnumerator _FadeToBlack()
         {
             //base values for fade out
             timePassed = 0;
@@ -351,23 +351,23 @@ namespace Kubika.Game
 
             StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue,
                             targetAlphaValue, transitionDuration, timePassed));
-
-            UIManager.instance.TransitionOver();
+            yield return null;
         }
 
-        public void _FadeFromBlack()
+        public IEnumerator _FadeFromBlack()
         {
             //base values for fade out
             timePassed = 0;
             startAlphaValue = 1;
             targetAlphaValue = 0;
 
-            UIManager.instance.TransitionStart();
-
             StartCoroutine(UIManager.instance.FadeTransition(startAlphaValue,
                             targetAlphaValue, transitionDuration, timePassed));
 
+            while (!UIManager.instance.transitionFinished) yield return null;
+
             UIManager.instance.TransitionOver();
+
         }
         #endregion
     }
