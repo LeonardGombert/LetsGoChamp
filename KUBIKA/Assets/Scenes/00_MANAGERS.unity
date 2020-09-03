@@ -596,6 +596,141 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.size
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome2.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[27]
+      value: 
+      objectReference: {fileID: 4900000, guid: 6e78d516e86c4c2469a7a68ebb79a0de, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[14]
+      value: 
+      objectReference: {fileID: 4900000, guid: 255ce881ff1f47442901e9ecf8178cc3, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[15]
+      value: 
+      objectReference: {fileID: 4900000, guid: d8d92ded7f4d0e64d837e1d0303fef86, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[16]
+      value: 
+      objectReference: {fileID: 4900000, guid: aeccdc74e379e7342b242a9a89159bc2, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[17]
+      value: 
+      objectReference: {fileID: 4900000, guid: f2525c778e784564ba0f0eeb5a616aec, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[18]
+      value: 
+      objectReference: {fileID: 4900000, guid: fea1454e6bac1e147a14cafd847a45a2, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[19]
+      value: 
+      objectReference: {fileID: 4900000, guid: 70202febeb4331e4da1ff9c03d2d7ea0, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[20]
+      value: 
+      objectReference: {fileID: 4900000, guid: 52dd4fb9fda61a8438742a38a8369bd8, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[21]
+      value: 
+      objectReference: {fileID: 4900000, guid: 91ec66f3da9d4e6459b157ba52859990, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[22]
+      value: 
+      objectReference: {fileID: 4900000, guid: b6ec4aab9014f59479e866a0652e4072, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[23]
+      value: 
+      objectReference: {fileID: 4900000, guid: 312bb6f1c9e751c4b8335dc50800b363, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[24]
+      value: 
+      objectReference: {fileID: 4900000, guid: 355fe0dccf64f364d9d89d7ddc300d57, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[25]
+      value: 
+      objectReference: {fileID: 4900000, guid: 965cff75900d89c49a21fdbfb39a192a, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[26]
+      value: 
+      objectReference: {fileID: 4900000, guid: ecf68ed83e8828e4f8def89feb33694d, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[8]
+      value: 
+      objectReference: {fileID: 4900000, guid: eb7d107d6e4641c43a6c41f1e942955e, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[9]
+      value: 
+      objectReference: {fileID: 4900000, guid: 9f44a67f42e2fe943a72e768f3a675a9, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[10]
+      value: 
+      objectReference: {fileID: 4900000, guid: 8e01ffa00a49605459fae1464344b518, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[28]
+      value: 
+      objectReference: {fileID: 4900000, guid: ad3d021250a43384e980244cfac90188, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[12]
+      value: 
+      objectReference: {fileID: 4900000, guid: 0d2901d1c848ce94198495fe0aa5a2ba, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[13]
+      value: 
+      objectReference: {fileID: 4900000, guid: 4c3373481f967fd43ac146e22a494e62, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[29]
+      value: 
+      objectReference: {fileID: 4900000, guid: dede56be43a724f46bc3dbd2cddabd6c, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[30]
+      value: 
+      objectReference: {fileID: 4900000, guid: a3496d9755c2d3245a64bb6fba27537d, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[31]
+      value: 
+      objectReference: {fileID: 4900000, guid: 965cff75900d89c49a21fdbfb39a192a, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome1.Array.data[32]
+      value: 
+      objectReference: {fileID: 4900000, guid: 965cff75900d89c49a21fdbfb39a192a, type: 3}
+    - target: {fileID: 5858080383342632984, guid: 02cb5f1c23274d848ba72171ad90c663,
+        type: 3}
+      propertyPath: biome2.Array.data[16]
+      value: 
+      objectReference: {fileID: 4900000, guid: ecf68ed83e8828e4f8def89feb33694d, type: 3}
     - target: {fileID: 5858080383342632990, guid: 02cb5f1c23274d848ba72171ad90c663,
         type: 3}
       propertyPath: m_Name
