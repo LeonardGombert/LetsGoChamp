@@ -27,9 +27,12 @@ namespace Kubika.Game
         // Start is called before the first frame update
         void Start()
         {
-            StaticCubePopulator();
-            FunctionCubePopulator();
-            UniversePackPopulator();
+            if (ScenesManager.instance.currentActiveScene == ScenesIndex.LEVEL_EDITOR)
+            {
+                StaticCubePopulator();
+                FunctionCubePopulator();
+                UniversePackPopulator();
+            }
         }
 
         private void FunctionCubePopulator()
