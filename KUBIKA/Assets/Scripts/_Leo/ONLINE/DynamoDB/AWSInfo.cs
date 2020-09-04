@@ -30,7 +30,7 @@ public struct DynamoDB
     // Base table info
     public static string tableName = "KUBIKA_CommunityDatabase";
     public static string baseTablePK = "CreatorId";
-    public static string baseTableSK = "LevelName";
+    public static string baseTableSK = "LevelSerial";
 
     // Table Attributes
     public static string levelName = "LevelName";
