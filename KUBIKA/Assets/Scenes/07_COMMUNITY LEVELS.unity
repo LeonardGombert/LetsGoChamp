@@ -693,7 +693,7 @@ MonoBehaviour:
   listTransform: {fileID: 2017117918}
   levelToUpload: {fileID: 4900000, guid: 255ce881ff1f47442901e9ecf8178cc3, type: 3}
   uploadLevels: {fileID: 1716506610}
-  levelsToUpload: 50
+  levelsToUpload: 100
 --- !u!1 &2017117914
 GameObject:
   m_ObjectHideFlags: 0
