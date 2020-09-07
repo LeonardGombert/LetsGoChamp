@@ -40,10 +40,38 @@ namespace Kubika.Online
             //uploadLevels.onClick.AddListener(() => StartCoroutine(UploadTestLevels()));
             uploadLevels.onClick.AddListener(() => StartCoroutine(BatchUploadItems(0)));
 
-            StartCoroutine(BatchReadItems());
+            //StartCoroutine(BatchReadItems());
+            StartCoroutine(ScanTable());
         }
 
-        #region
+        IEnumerator ScanTable()
+        {
+            ScanRequest request = new ScanRequest
+            {
+                TableName = DynamoDB.tableName,
+            };
+
+            // Issue request
+            var result = client.ScanAsync(request);
+
+            // View all returned items
+            List<Dictionary<string, AttributeValue>> items = result.Result.Items;
+
+            foreach (Dictionary<string, AttributeValue> item in items)
+            {
+                GameObject level = Instantiate(levelListPrefab, listTransform);
+                OnlineLevelObject listObject = level.GetComponent<OnlineLevelObject>();
+
+                foreach (var keyValuePair in item)
+                {
+                    if(keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = keyValuePair.Value.S;
+                    if(keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
+                }
+                yield return null;
+            }
+        }
+
+        #region // Batch Reading Items
         IEnumerator UploadTestLevels()
         {
             DevEditorData levelFile = JsonUtility.FromJson<DevEditorData>(levelToUpload.ToString());
