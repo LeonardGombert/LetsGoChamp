@@ -25,6 +25,10 @@ namespace Kubika.Online
         public Button uploadLevels;
 
         public int levelsToUpload;
+        public int numberOfLevelsToDisplay;
+        public Dictionary<string, AttributeValue> lastScanned;
+
+        public Button loadMore;
 
         void Awake()
         {
@@ -39,23 +43,45 @@ namespace Kubika.Online
             //StartCoroutine(TableScan());
             //uploadLevels.onClick.AddListener(() => StartCoroutine(UploadTestLevels()));
             uploadLevels.onClick.AddListener(() => StartCoroutine(BatchUploadItems(0)));
+            loadMore.onClick.AddListener(() => StartCoroutine(ScanTable()));
 
             //StartCoroutine(BatchReadItems());
             StartCoroutine(ScanTable());
         }
 
+        // stepStart variable is used for the "load more levels"
         IEnumerator ScanTable()
         {
             ScanRequest request = new ScanRequest
             {
                 TableName = DynamoDB.tableName,
+                Limit = numberOfLevelsToDisplay,
+                ExclusiveStartKey = lastScanned
             };
 
             // Issue request
             var result = client.ScanAsync(request);
 
-            // View all returned items
+            lastScanned = result.Result.LastEvaluatedKey;
+
+            // List all returned items
             List<Dictionary<string, AttributeValue>> items = result.Result.Items;
+
+            // Visualize a preset number of levels
+            /*for (int i = stepStart; i < stepStart + numberOfLevelsToDisplay; i++)
+            {
+                if (i == stepStart + numberOfLevelsToDisplay - 1) lastScanned = i;
+
+                GameObject level = Instantiate(levelListPrefab, listTransform);
+                OnlineLevelObject listObject = level.GetComponent<OnlineLevelObject>();
+
+                foreach (var keyValuePair in items[i])
+                {
+                    if (keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
+                }
+                yield return null;
+            }*/
 
             foreach (Dictionary<string, AttributeValue> item in items)
             {
@@ -64,8 +90,9 @@ namespace Kubika.Online
 
                 foreach (var keyValuePair in item)
                 {
-                    if(keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = keyValuePair.Value.S;
-                    if(keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
                 }
                 yield return null;
             }
