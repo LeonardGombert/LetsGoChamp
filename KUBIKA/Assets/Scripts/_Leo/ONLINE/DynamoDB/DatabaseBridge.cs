@@ -25,7 +25,7 @@ namespace Kubika.Online
         public Button uploadLevels;
 
         public int levelsToUpload;
-        public int numberOfLevelsToDisplay;
+        public const int numberOfLevelsToDisplay = 50;
         public Dictionary<string, AttributeValue> lastScanned;
 
         public Button loadMore;
@@ -49,7 +49,7 @@ namespace Kubika.Online
             StartCoroutine(ScanTable());
         }
 
-        // stepStart variable is used for the "load more levels"
+        // Scan the entire table and return all levels
         IEnumerator ScanTable()
         {
             ScanRequest request = new ScanRequest
