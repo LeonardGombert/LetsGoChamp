@@ -45,12 +45,12 @@ namespace Kubika.Online
             //StartCoroutine(TableScan());
             //uploadLevels.onClick.AddListener(() => StartCoroutine(UploadTestLevels()));
             uploadLevels.onClick.AddListener(() => StartCoroutine(BatchUploadItems(0)));
-            loadMore.onClick.AddListener(() => StartCoroutine(DisplayCreators()));
+            loadMore.onClick.AddListener(() => StartCoroutine(ScanTableLevels()));
 
             creators.Clear();
 
             //StartCoroutine(BatchReadItems());
-            StartCoroutine(DisplayCreators());
+            StartCoroutine(ScanTableLevels());
         }
 
         // Scan the entire table and return all levels
