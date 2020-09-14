@@ -56,10 +56,6 @@ namespace Kubika.Online.Test
         }
 
         #region // LIST RANDOM LEVELS
-        public void WESH()
-        {
-            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(DatabaseInfo.userContent_retrievedLevel));
-        }
 
         IEnumerator GetRandomLevels()
         {

@@ -168,7 +168,7 @@ namespace Kubika.Game
                     CustomLevelCanvasPriority();
                     break;
 
-                case ScenesIndex.COMMUNITY_LEVELS:
+                case ScenesIndex.COMMUNITY_BROWSER:
                     CommunityLevelsPriority();
                     break;
 
@@ -509,7 +509,7 @@ namespace Kubika.Game
                     break;
 
                 case "COMMUNITY_LEVELS":
-                    ScenesManager.instance._LoadScene(ScenesIndex.COMMUNITY_LEVELS);
+                    ScenesManager.instance._LoadScene(ScenesIndex.COMMUNITY_BROWSER);
                     break;
 
                 case "WORLD_MAP":

@@ -98,11 +98,12 @@ namespace Kubika.Online
                 foreach (var keyValuePair in item)
                 {
                     if (keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = levelPK = keyValuePair.Value.S;
-                    if (keyValuePair.Key == DynamoDB.baseTableSK) levelSK = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.baseTableSK) levelSK = keyValuePair.Value.N;
                     if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
                 }
 
-                listObject.playButton.onClick.AddListener(() => DownloadLevel(levelPK, levelSK));
+                Debug.Log("Primary Composite Key is " + levelPK + ", Secondary Composite Key is " + levelSK);
+                listObject.playButton.onClick.AddListener(() => StartCoroutine(DownloadLevel(levelPK, levelSK)));
                 
                 yield return null;
             }
@@ -401,22 +402,26 @@ namespace Kubika.Online
         #endregion
 
         // also update number of downloads in same method
-        void DownloadLevel(string levelPK, string levelSK)
+        IEnumerator DownloadLevel(string levelPK, string levelSK)
         {
             GetItemRequest getItemRequest = new GetItemRequest
             {
                 TableName = DynamoDB.tableName,
-
                 Key = new Dictionary<string, AttributeValue>()
                 {
                     { DynamoDB.baseTablePK, new AttributeValue{ S = levelPK } },
-                    { DynamoDB.baseTableSK, new AttributeValue{ S = levelSK } }
+                    { DynamoDB.baseTableSK, new AttributeValue{ N = levelSK } }
                 }
             };
 
-            var result = client.GetItemAsync(getItemRequest);
+            yield return null;
 
-            Dictionary<string, AttributeValue> item = result.Result.Item;
+            var response = client.GetItemAsync(getItemRequest);
+
+            // if something goes wrong, debug the log message from AWS
+            if (response.Exception != null) Debug.Log(response.Exception.Message);
+
+            Dictionary<string, AttributeValue> item = response.Result.Item;
 
             string levelName = "", levelFile = "";
 
@@ -425,6 +430,8 @@ namespace Kubika.Online
                 if (keyValuePair.Key == DynamoDB.levelName) levelName = keyValuePair.Value.S;
                 if (keyValuePair.Key == DynamoDB.levelFile) levelFile = keyValuePair.Value.S;
             }
+
+            yield return null;
 
             SaveAndLoad.instance.UserDownloadingLevel(levelName, levelFile);
         }

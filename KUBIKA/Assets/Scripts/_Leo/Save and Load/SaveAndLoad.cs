@@ -329,10 +329,10 @@ namespace Kubika.Saving
 
             //ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
 
-            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(Kubika.Online.Test.DatabaseInfo.userContent_retrievedLevel));
+            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(levelName));
         }
 
-        // called from SaveAndLoad manager
+        // called from Levels Manager for some reason
         public void PlayCommunityLevel(string levelName)
         {
             string folder = Application.persistentDataPath + "/CommunityLevels";
