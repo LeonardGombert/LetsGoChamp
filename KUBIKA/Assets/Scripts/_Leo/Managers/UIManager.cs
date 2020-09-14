@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using Kubika.CustomLevelEditor;
 using Kubika.Saving;
 using Kubika.Online;
+using System;
 
 namespace Kubika.Game
 {
@@ -28,6 +29,7 @@ namespace Kubika.Game
         #endregion
 
         #region TITLE SCREEN
+        [FoldoutGroup("Title Screen Canvas")] [SerializeField] Button goTo_worldMap, goTo_levelEditor, goTo_communityLevels;
         #endregion
 
         #region WORLDMAP
@@ -166,6 +168,10 @@ namespace Kubika.Game
                     CustomLevelCanvasPriority();
                     break;
 
+                case ScenesIndex.COMMUNITY_LEVELS:
+                    CommunityLevelsPriority();
+                    break;
+
                 case ScenesIndex.CREDITS:
                     break;
 
@@ -173,6 +179,7 @@ namespace Kubika.Game
                     break;
             }
         }
+
 
         private void ResetCurrentValues()
         {
@@ -222,6 +229,12 @@ namespace Kubika.Game
         public void WorldMapPriority()
         {
             ResetCanvasSortOrder();
+
+            openBurgerMenuButton.SetActive(true);
+            if (hamburgerMenuCanvas != null) hamburgerMenuCanvas.enabled = true;
+            if (hamburgerMenuCanvas2 != null) hamburgerMenuCanvas2.enabled = true;
+            hiddenMenuButtons.SetActive(false);
+
             if (worldMapCanvas != null) worldMapCanvas.enabled = true;
             worldMapCanvas.sortingOrder = 1000;
 
@@ -304,6 +317,16 @@ namespace Kubika.Game
 
             customTestCanvas.enabled = true;
             customTestCanvas.sortingOrder = 1000;
+        }
+
+        private void CommunityLevelsPriority()
+        {
+            ResetCanvasSortOrder();
+            openBurgerMenuButton.SetActive(true);
+            if (hamburgerMenuCanvas != null) hamburgerMenuCanvas.enabled = true;
+            if (hamburgerMenuCanvas2 != null) hamburgerMenuCanvas2.enabled = true;
+            hiddenMenuButtons.SetActive(false);
+
         }
 
         private void WinScreenSettings()
@@ -478,15 +501,23 @@ namespace Kubika.Game
 
                 #region //GENERAL
                 case "MAIN_MENU":
-                    ScenesManager.instance._LoadScene(ScenesIndex.WORLD_MAP);
+                    ScenesManager.instance._LoadScene(ScenesIndex.TITLE_SCREEN);
                     break;
 
                 case "TITLE_SCREEN":
                     ScenesManager.instance._LoadScene(ScenesIndex.TITLE_SCREEN);
                     break;
 
+                case "COMMUNITY_LEVELS":
+                    ScenesManager.instance._LoadScene(ScenesIndex.COMMUNITY_LEVELS);
+                    break;
+
                 case "WORLD_MAP":
                     ScenesManager.instance._LoadScene(ScenesIndex.WORLD_MAP);
+                    break;
+
+                case "LEVEL_EDITOR":
+                    ScenesManager.instance._LoadScene(ScenesIndex.LEVEL_EDITOR);
                     break;
                 #endregion
 
@@ -494,6 +525,9 @@ namespace Kubika.Game
                     break;
             }
         }
+        #endregion
+
+        #region TITLE SCREEN
         #endregion
 
         #region GAME
