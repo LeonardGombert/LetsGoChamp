@@ -91,13 +91,19 @@ namespace Kubika.Online
             {
                 GameObject level = Instantiate(levelListPrefab, listTransform);
                 OnlineLevelObject listObject = level.GetComponent<OnlineLevelObject>();
+                
+                string levelPK = "", levelSK = "";
 
+                // extract the info from an item
                 foreach (var keyValuePair in item)
                 {
-                    if (keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = keyValuePair.Value.S;
-                    if (keyValuePair.Key == DynamoDB.baseTableSK) listObject.levelName.text = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = levelPK = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.baseTableSK) levelSK = keyValuePair.Value.S;
                     if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
                 }
+
+                listObject.playButton.onClick.AddListener(() => DownloadLevel(levelPK, levelSK));
+                
                 yield return null;
             }
         }
@@ -395,9 +401,32 @@ namespace Kubika.Online
         #endregion
 
         // also update number of downloads in same method
-        void DownloadLevel(string kubicode)
+        void DownloadLevel(string levelPK, string levelSK)
         {
+            GetItemRequest getItemRequest = new GetItemRequest
+            {
+                TableName = DynamoDB.tableName,
 
+                Key = new Dictionary<string, AttributeValue>()
+                {
+                    { DynamoDB.baseTablePK, new AttributeValue{ S = levelPK } },
+                    { DynamoDB.baseTableSK, new AttributeValue{ S = levelSK } }
+                }
+            };
+
+            var result = client.GetItemAsync(getItemRequest);
+
+            Dictionary<string, AttributeValue> item = result.Result.Item;
+
+            string levelName = "", levelFile = "";
+
+            foreach (var keyValuePair in item)
+            {
+                if (keyValuePair.Key == DynamoDB.levelName) levelName = keyValuePair.Value.S;
+                if (keyValuePair.Key == DynamoDB.levelFile) levelFile = keyValuePair.Value.S;
+            }
+
+            SaveAndLoad.instance.UserDownloadingLevel(levelName, levelFile);
         }
 
         void CreatorUpdateLevel()

@@ -7,4 +7,6 @@ public class OnlineLevelObject : MonoBehaviour
 {
     public Text levelCreator;
     public Text levelName;
+
+    public Button playButton;
 }
