@@ -200,7 +200,7 @@ namespace Kubika.Game
         // load a downloaded level
         public IEnumerator PlayCommunityLevel(string levelName)
         {
-            ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
+            ScenesManager.instance._LoadScene(ScenesIndex.COMMUNITY_LEVEL);
 
             while (ScenesManager.instance.finishedLoadingScene != true) yield return null;
 
@@ -220,8 +220,6 @@ namespace Kubika.Game
             _DataManager.instance.GameSet();
             _MaterialCentral.instance.MaterialSet();
             _MaterialCentral.instance.ChangeUniverse(_levelBiome);
-
-            UIManager.instance.CustomLevelCanvasPriority();
             yield return null;
         }
         #endregion

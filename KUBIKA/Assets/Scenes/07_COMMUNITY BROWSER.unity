@@ -1400,7 +1400,7 @@ MonoBehaviour:
   listTransform: {fileID: 432077366}
   levelToUpload: {fileID: 0}
   uploadLevels: {fileID: 1716506610}
-  levelsToUpload: 100
+  levelsToUpload: 10
   loadMore: {fileID: 1927800119}
   creators: []
 --- !u!1 &1927800117

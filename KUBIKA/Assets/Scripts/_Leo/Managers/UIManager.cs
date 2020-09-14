@@ -25,6 +25,7 @@ namespace Kubika.Game
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelPassedCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas levelEditorCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas customTestCanvas;
+        [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas communityLevelCanvas;
         [FoldoutGroup("Scene Canvases")] [SerializeField] Canvas winCanvas;
         #endregion
 
@@ -168,8 +169,8 @@ namespace Kubika.Game
                     CustomLevelCanvasPriority();
                     break;
 
-                case ScenesIndex.COMMUNITY_BROWSER:
-                    CommunityLevelsPriority();
+                case ScenesIndex.COMMUNITY_LEVEL:
+                    CommunityLevelPriority();
                     break;
 
                 case ScenesIndex.CREDITS:
@@ -198,6 +199,7 @@ namespace Kubika.Game
             levelEditorCanvas.sortingOrder = 0;
             levelPassedCanvas.sortingOrder = 0;
             customTestCanvas.sortingOrder = 0;
+            communityLevelCanvas.sortingOrder = 0;
         }
 
         void TurnOffAllCanvases()
@@ -212,6 +214,7 @@ namespace Kubika.Game
             hamburgerMenuCanvas2.enabled = false;
             levelPassedCanvas.enabled = false;
             customTestCanvas.enabled = false;
+            communityLevelCanvas.enabled = false;
 
             hiddenMenuButtons.SetActive(false);
             openBurgerMenuButton.SetActive(false);
@@ -319,14 +322,22 @@ namespace Kubika.Game
             customTestCanvas.sortingOrder = 1000;
         }
 
-        private void CommunityLevelsPriority()
+        private void CommunityLevelPriority()
         {
             ResetCanvasSortOrder();
+            
+            gameCanvas.enabled = false;
+
+            if (levelPassedCanvas != null) levelPassedCanvas.enabled = false;
+            levelPassedCanvas.sortingOrder = 1000;
+
+            communityLevelCanvas.enabled = true;
+            communityLevelCanvas.sortingOrder = 1000;
+
             openBurgerMenuButton.SetActive(true);
             if (hamburgerMenuCanvas != null) hamburgerMenuCanvas.enabled = true;
             if (hamburgerMenuCanvas2 != null) hamburgerMenuCanvas2.enabled = true;
-            hiddenMenuButtons.SetActive(false);
-
+            hiddenMenuButtons.SetActive(false);            
         }
 
         private void WinScreenSettings()
