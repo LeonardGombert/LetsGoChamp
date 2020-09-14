@@ -25,10 +25,12 @@ namespace Kubika.Online
         public Button uploadLevels;
 
         public int levelsToUpload;
-        public const int numberOfLevelsToDisplay = 50;
+        [SerializeField] const int numberOfLevelsToDisplay = 50;
         public Dictionary<string, AttributeValue> lastScanned;
 
         public Button loadMore;
+
+        [SerializeField] List<string> creators = new List<string>();
 
         void Awake()
         {
@@ -43,14 +45,16 @@ namespace Kubika.Online
             //StartCoroutine(TableScan());
             //uploadLevels.onClick.AddListener(() => StartCoroutine(UploadTestLevels()));
             uploadLevels.onClick.AddListener(() => StartCoroutine(BatchUploadItems(0)));
-            loadMore.onClick.AddListener(() => StartCoroutine(ScanTable()));
+            loadMore.onClick.AddListener(() => StartCoroutine(DisplayCreators()));
+
+            creators.Clear();
 
             //StartCoroutine(BatchReadItems());
-            StartCoroutine(ScanTable());
+            StartCoroutine(DisplayCreators());
         }
 
         // Scan the entire table and return all levels
-        IEnumerator ScanTable()
+        IEnumerator ScanTableLevels()
         {
             ScanRequest request = new ScanRequest
             {
@@ -91,11 +95,43 @@ namespace Kubika.Online
                 foreach (var keyValuePair in item)
                 {
                     if (keyValuePair.Key == DynamoDB.baseTablePK) listObject.levelCreator.text = keyValuePair.Value.S;
-                    if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
+                    if (keyValuePair.Key == DynamoDB.baseTableSK) listObject.levelName.text = keyValuePair.Value.S;
                     if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
                 }
                 yield return null;
             }
+        }
+
+        IEnumerator DisplayCreators()
+        {
+            ScanRequest queryRequest = new ScanRequest
+            {
+                TableName = DynamoDB.tableName,
+                Limit = 100,//numberOfLevelsToDisplay,
+                ExclusiveStartKey = lastScanned,
+                ProjectionExpression = DynamoDB.baseTablePK,
+            };
+
+            // Issue request
+            var result = client.ScanAsync(queryRequest);
+
+            // List all returned items
+            List<Dictionary<string, AttributeValue>> items = result.Result.Items;
+            foreach (Dictionary<string, AttributeValue> item in items)
+            {
+                foreach (var keyValuePair in item)
+                {
+                    if (keyValuePair.Key == DynamoDB.baseTablePK && !creators.Contains(keyValuePair.Value.S)) creators.Add(keyValuePair.Value.S);
+                }
+                yield return null;
+            }
+
+            foreach (string item in creators)
+            {
+                Debug.Log(item);
+            }
+
+            lastScanned = result.Result.LastEvaluatedKey;
         }
 
         #region // Batch Reading Items
