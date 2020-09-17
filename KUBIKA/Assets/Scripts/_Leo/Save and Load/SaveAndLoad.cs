@@ -301,7 +301,7 @@ namespace Kubika.Saving
         #region // COMMUNITY CONTENT
         public void UserDownloadingLevel(string levelName, string levelFile)
         {
-            LevelFile level = JsonUtility.FromJson<LevelFile>(levelFile);
+            CommunityLevel level = JsonUtility.FromJson<CommunityLevel>(levelFile);
 
             Debug.Log("Starting level download");
 

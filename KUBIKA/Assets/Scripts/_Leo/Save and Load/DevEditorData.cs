@@ -1,10 +1,12 @@
 ﻿using Amazon.ElasticMapReduce.Model;
 using Kubika.CustomLevelEditor;
 using System.Collections.Generic;
+using System;
+using UnityEngine;
 
 namespace Kubika.Saving
 {
-    [System.Serializable]
+    [Serializable]
     public class DevEditorData
     {
         public string levelName;
@@ -17,7 +19,7 @@ namespace Kubika.Saving
         public List<Decor> decorToSave;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class UserEditorData
     {
         public string creatorId;
@@ -32,8 +34,35 @@ namespace Kubika.Saving
         public List<Decor> decorToSave;
     }
 
+    [Serializable]
+    public struct LevelFile
+    {
+        public string levelName;
+        public string kubicode;
+        public Biomes levelBiome;
+        public Difficulty difficulty;
+        public int minimumMoves;
+        public bool lockRotate;
+        [HideInInspector] public bool levelIsBeaten; //not saved in the file, but in player progress
+        public TextAsset levelFile;
+    }
+
+    [Serializable]
+    public struct CommunityLevel
+    {
+        public string creatorId;
+        public string levelName;
+        public Difficulty creatorDifficulty;
+
+        public int minimumMoves;
+        public bool lockRotate;
+        public Biomes biome;
+
+        public TextAsset levelFile;
+    }
+
     //user info file is used to store all of the user's level names, which you can then use to find the files
-    [System.Serializable]
+    [Serializable]
     public class UserLevels
     {
         public int numberOfUserLevels;
@@ -42,7 +71,7 @@ namespace Kubika.Saving
     }
 
 
-    [System.Serializable]
+    [Serializable]
     public class DynamoDBInfo
     {
         public List<int> listOfIndexes = new List<int>();
@@ -50,7 +79,7 @@ namespace Kubika.Saving
         public int lastIdUsed;
     }
 
-    [System.Serializable]
+    [Serializable]
     public class DynamoReceivedInfo
     {
         public string kubicode = "";

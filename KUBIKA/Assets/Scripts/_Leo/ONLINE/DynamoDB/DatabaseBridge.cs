@@ -102,7 +102,6 @@ namespace Kubika.Online
                     if (keyValuePair.Key == DynamoDB.levelName) listObject.levelName.text = keyValuePair.Value.S;
                 }
 
-                Debug.Log("Primary Composite Key is " + levelPK + ", Secondary Composite Key is " + levelSK);
                 listObject.playButton.onClick.AddListener(() => StartCoroutine(DownloadLevel(levelPK, levelSK)));
                 
                 yield return null;

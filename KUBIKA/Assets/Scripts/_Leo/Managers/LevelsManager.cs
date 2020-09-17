@@ -198,7 +198,7 @@ namespace Kubika.Game
         }
 
         // load a downloaded level
-        public IEnumerator PlayCommunityLevel(LevelFile levelInfo)
+        public IEnumerator PlayCommunityLevel(CommunityLevel levelInfo)
         {
             GetCommunityLevelInfo(levelInfo);
 
@@ -225,15 +225,14 @@ namespace Kubika.Game
             yield return null;
         }
 
-        void GetCommunityLevelInfo(LevelFile levelInfo)
+        void GetCommunityLevelInfo(CommunityLevel levelInfo)
         {
             _levelName = levelInfo.levelName;
-            _levelBiome = levelInfo.levelBiome;
-            _Kubicode = levelInfo.kubicode;
+            _levelBiome = levelInfo.biome;
             _levelFile = levelInfo.levelFile;
             _minimumMoves = levelInfo.minimumMoves;
             _lockRotate = levelInfo.lockRotate;
-            _difficulty = levelInfo.difficulty;
+            _difficulty = levelInfo.creatorDifficulty;
         }
         #endregion
 
@@ -241,7 +240,6 @@ namespace Kubika.Game
         //this kubicode is save into the player's progress file
         public string GetNextKubicode()
         {
-
             //get info
             GetNextLevelInfo();
             return _Kubicode;
@@ -381,21 +379,5 @@ namespace Kubika.Game
 
         }
         #endregion
-    }
-}
-
-namespace Kubika.Saving
-{
-    [Serializable]
-    public struct LevelFile
-    {
-        public string levelName;
-        public string kubicode;
-        public Biomes levelBiome;
-        public Difficulty difficulty;
-        public int minimumMoves;
-        public bool lockRotate;
-        [HideInInspector] public bool levelIsBeaten; //not saved in the file, but in player progress
-        public TextAsset levelFile;
     }
 }
