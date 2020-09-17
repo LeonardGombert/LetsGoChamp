@@ -198,7 +198,7 @@ namespace Kubika.Game
         }
 
         // load a downloaded level
-        public IEnumerator PlayCommunityLevel(string levelName)
+        public IEnumerator PlayCommunityLevel(string levelName, bool levelRotate)
         {
             ScenesManager.instance._LoadScene(ScenesIndex.COMMUNITY_LEVEL);
 
@@ -208,9 +208,9 @@ namespace Kubika.Game
 
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
-
-            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
-            else UIManager.instance.TurnOnRotate();
+            
+            // turn rotate on or off
+            UIManager.instance.UpdateRotateButtons(levelRotate);
 
             SaveAndLoad.instance.PlayCommunityLevel(levelName);
 
@@ -266,8 +266,8 @@ namespace Kubika.Game
 
             PlayerMoves.instance.ResetMoves();
 
-            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
-            else UIManager.instance.TurnOnRotate();
+            // turn rotate on or off
+            UIManager.instance.UpdateRotateButtons(_lockRotate);
 
             string json = _levelFile.ToString();
 
@@ -298,8 +298,8 @@ namespace Kubika.Game
             _KUBRotation.instance.ResetRotation();
             _FeedBackManager.instance.ResetVictoryFX();
 
-            if (_lockRotate) UIManager.instance.UpdateRotateButtons(true);
-            else UIManager.instance.TurnOnRotate();
+            // turn rotate on or off
+            UIManager.instance.UpdateRotateButtons(_lockRotate);
 
             SaveAndLoad.instance.UserLoadLevel(SaveAndLoad.instance.currentOpenLevelName);
 

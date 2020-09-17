@@ -228,6 +228,12 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 8913624951218497942}
   m_PrefabAsset: {fileID: 0}
+--- !u!223 &143616830 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 143616830, guid: aeba16e64b99beb4e9b36b4c00ad5635,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880667868287510276}
+  m_PrefabAsset: {fileID: 0}
 --- !u!223 &197165809 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 557176488720930652, guid: b3ced5b1e623ddc47a90b18b5b819eaa,
@@ -1230,7 +1236,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 587377099, guid: aeba16e64b99beb4e9b36b4c00ad5635, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
     - target: {fileID: 806029965, guid: aeba16e64b99beb4e9b36b4c00ad5635, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 1123958459, guid: aeba16e64b99beb4e9b36b4c00ad5635, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4163245710987387166}
+    - target: {fileID: 1270542862, guid: aeba16e64b99beb4e9b36b4c00ad5635, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 4163245710987387166}
@@ -1434,12 +1452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!223 &1880667868287510286 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 4571285574870469206, guid: aeba16e64b99beb4e9b36b4c00ad5635,
-    type: 3}
-  m_PrefabInstance: {fileID: 1880667868287510276}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4163245710987387165
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1776,7 +1788,7 @@ PrefabInstance:
         type: 3}
       propertyPath: communityLevelCanvas
       value: 
-      objectReference: {fileID: 1880667868287510286}
+      objectReference: {fileID: 143616830}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8fa7c61955974e4b868ffadae7cb1d3, type: 3}
 --- !u!114 &4163245710987387166 stripped

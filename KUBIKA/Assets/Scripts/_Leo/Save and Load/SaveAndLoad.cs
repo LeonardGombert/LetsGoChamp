@@ -301,6 +301,8 @@ namespace Kubika.Saving
         #region // COMMUNITY CONTENT
         public void UserDownloadingLevel(string levelName, string levelFile)
         {
+            LevelFile level = JsonUtility.FromJson<LevelFile>(levelFile);
+
             Debug.Log("Starting level download");
 
             string fileName = levelName + ".json";
@@ -323,13 +325,13 @@ namespace Kubika.Saving
             File.WriteAllText(path, levelFile);
 
             Debug.Log("Level sucessfully downloaded at " + path);
-
+            
             /*UserLevelFiles.AddNewUserLevel(levelName);
             LevelsManager.instance.RefreshUserLevels();*/
 
             //ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
 
-            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(levelName));
+            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(levelName, level.lockRotate));
         }
 
         // called from Levels Manager for some reason

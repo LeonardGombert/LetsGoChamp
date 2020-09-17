@@ -561,18 +561,19 @@ namespace Kubika.Game
         }
 
         //called when loading a new scene
-        public void UpdateRotateButtons(bool isAbsent)
+        public void UpdateRotateButtons(bool isLocked)
         {
-            if (isAbsent)
+            if (!isLocked)
             {
-                rightRotate.enabled = false;
+                TurnOnRotate();
+                /*rightRotate.enabled = false;
                 leftRotate.enabled = false;
 
                 rightRotateButton.enabled = false;
                 leftRotateButton.enabled = false;
 
                 rightRotateBackground.enabled = false;
-                leftRotateBackground.enabled = false;
+                leftRotateBackground.enabled = false;*/
             }
 
             else TurnOffRotate();
