@@ -198,8 +198,10 @@ namespace Kubika.Game
         }
 
         // load a downloaded level
-        public IEnumerator PlayCommunityLevel(string levelName, bool levelRotate)
+        public IEnumerator PlayCommunityLevel(LevelFile levelInfo)
         {
+            GetCommunityLevelInfo(levelInfo);
+
             ScenesManager.instance._LoadScene(ScenesIndex.COMMUNITY_LEVEL);
 
             while (ScenesManager.instance.finishedLoadingScene != true) yield return null;
@@ -210,9 +212,9 @@ namespace Kubika.Game
             _FeedBackManager.instance.ResetVictoryFX();
             
             // turn rotate on or off
-            UIManager.instance.UpdateRotateButtons(levelRotate);
+            UIManager.instance.UpdateRotateButtons(_lockRotate);
 
-            SaveAndLoad.instance.PlayCommunityLevel(levelName);
+            SaveAndLoad.instance.PlayCommunityLevel(_levelName);
 
             while (!SaveAndLoad.instance.finishedBuilding) yield return null;
 
@@ -221,6 +223,17 @@ namespace Kubika.Game
             _MaterialCentral.instance.MaterialSet();
             _MaterialCentral.instance.ChangeUniverse(_levelBiome);
             yield return null;
+        }
+
+        void GetCommunityLevelInfo(LevelFile levelInfo)
+        {
+            _levelName = levelInfo.levelName;
+            _levelBiome = levelInfo.levelBiome;
+            _Kubicode = levelInfo.kubicode;
+            _levelFile = levelInfo.levelFile;
+            _minimumMoves = levelInfo.minimumMoves;
+            _lockRotate = levelInfo.lockRotate;
+            _difficulty = levelInfo.difficulty;
         }
         #endregion
 

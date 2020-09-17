@@ -100,10 +100,14 @@ namespace Kubika.Game
         [FoldoutGroup("Level Editor/Emote Panel")] [SerializeField] Sprite EmoteIconSelected, EmoteIconUnselected;
         #endregion
 
-        #region // ONLINE
+        #region ONLINE
         [FoldoutGroup("Online")] [SerializeField] Text emailTextField;
         [FoldoutGroup("Online")] [SerializeField] Text passwordTextField;
         [FoldoutGroup("Online")] [SerializeField] Text debugStatusText;
+        #endregion
+
+        #region COMMUNITY LEVELS
+        [FoldoutGroup("Community Levels")] [SerializeField] Text communityLevelName, communityLevelDifficulty;
         #endregion
 
         #region TRANSITION
@@ -326,10 +330,8 @@ namespace Kubika.Game
         {
             ResetCanvasSortOrder();
             
-            gameCanvas.enabled = false;
-
             if (levelPassedCanvas != null) levelPassedCanvas.enabled = false;
-            levelPassedCanvas.sortingOrder = 1000;
+            levelPassedCanvas.sortingOrder = 1010;
 
             communityLevelCanvas.enabled = true;
             communityLevelCanvas.sortingOrder = 1000;
@@ -337,7 +339,11 @@ namespace Kubika.Game
             openBurgerMenuButton.SetActive(true);
             if (hamburgerMenuCanvas != null) hamburgerMenuCanvas.enabled = true;
             if (hamburgerMenuCanvas2 != null) hamburgerMenuCanvas2.enabled = true;
-            hiddenMenuButtons.SetActive(false);            
+
+            communityLevelName.text = LevelsManager.instance._levelName;
+            communityLevelDifficulty.text = LevelsManager.instance._difficulty.ToString();
+
+            hiddenMenuButtons.SetActive(false);
         }
 
         private void WinScreenSettings()

@@ -331,7 +331,7 @@ namespace Kubika.Saving
 
             //ScenesManager.instance._LoadScene(ScenesIndex.CUSTOM_LEVELS);
 
-            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(levelName, level.lockRotate));
+            StartCoroutine(LevelsManager.instance.PlayCommunityLevel(level));
         }
 
         // called from Levels Manager for some reason

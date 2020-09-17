@@ -52,8 +52,13 @@ MonoBehaviour:
   levelPassedCanvas: {fileID: 0}
   levelEditorCanvas: {fileID: 0}
   customTestCanvas: {fileID: 0}
+  communityLevelCanvas: {fileID: 0}
   winCanvas: {fileID: 0}
+  goTo_worldMap: {fileID: 0}
+  goTo_levelEditor: {fileID: 0}
+  goTo_communityLevels: {fileID: 0}
   levelNameWM: {fileID: 0}
+  levelDifficulty: {fileID: 0}
   mainMenuButton: {fileID: 0}
   playButton: {fileID: 0}
   topArrow: {fileID: 0}
@@ -125,6 +130,8 @@ MonoBehaviour:
   emailTextField: {fileID: 0}
   passwordTextField: {fileID: 0}
   debugStatusText: {fileID: 0}
+  communityLevelName: {fileID: 0}
+  communityLevelDifficulty: {fileID: 0}
   fadeImage: {fileID: 0}
   transitionType: 0
   transitionDuration: 0.5
