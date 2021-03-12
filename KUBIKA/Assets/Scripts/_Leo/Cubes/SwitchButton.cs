@@ -20,7 +20,7 @@ namespace Kubika.Game
         { 
             //call base.start AFTER assigning the cube's layers
             base.Start();
-            _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
+            dataManager.EndFalling.AddListener(CheckIfPressed);
             switchCubes = FindObjectsOfType<SwitchCube>();
             SpawnButton();
             CheckIfPressed();
@@ -29,13 +29,13 @@ namespace Kubika.Game
         public override void UndoProcedure()
         {
             base.UndoProcedure();
-            _DataManager.instance.EndFalling.AddListener(CheckIfPressed);
+            dataManager.EndFalling.AddListener(CheckIfPressed);
         }
 
         public override void HideCubeProcedure()
         {
             base.HideCubeProcedure();
-            _DataManager.instance.EndFalling.RemoveListener(CheckIfPressed);
+            dataManager.EndFalling.RemoveListener(CheckIfPressed);
         }
 
         // Update is called once per frame

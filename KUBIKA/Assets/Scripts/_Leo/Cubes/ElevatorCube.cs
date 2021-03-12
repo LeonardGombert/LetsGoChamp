@@ -62,8 +62,8 @@ namespace Kubika.Game
         public override  void Start()
         {
             //ScannerSet();
-            _DataManager.instance.EndFalling.AddListener(CheckingIfCanPush);
-            _DataManager.instance.EndMoving.AddListener(ResetReadyToMove);
+            dataManager.EndFalling.AddListener(CheckingIfCanPush);
+            dataManager.EndMoving.AddListener(ResetReadyToMove);
 
             //call base.start AFTER assigning the cube's layers
             base.Start();
@@ -86,17 +86,17 @@ namespace Kubika.Game
         public override void HideCubeProcedure()
         {
             base.HideCubeProcedure();
-            _DataManager.instance.elevators.Remove(this as ElevatorCube);
-            _DataManager.instance.EndFalling.RemoveListener(CheckingIfCanPush);
-            _DataManager.instance.EndMoving.RemoveListener(ResetReadyToMove);
+            dataManager.elevators.Remove(this as ElevatorCube);
+            dataManager.EndFalling.RemoveListener(CheckingIfCanPush);
+            dataManager.EndMoving.RemoveListener(ResetReadyToMove);
         }
 
         public override void UndoProcedure()
         {
             base.UndoProcedure();
-            _DataManager.instance.elevators.Add(this as ElevatorCube);
-            _DataManager.instance.EndFalling.AddListener(CheckingIfCanPush);
-            _DataManager.instance.EndMoving.AddListener(ResetReadyToMove);
+            dataManager.elevators.Add(this as ElevatorCube);
+            dataManager.EndFalling.AddListener(CheckingIfCanPush);
+            dataManager.EndMoving.AddListener(ResetReadyToMove);
         }
 
         void CheckCubeType()
@@ -131,7 +131,7 @@ namespace Kubika.Game
                         isCheckingMove = true;
                         cubeIsStillInPlace = true;
                         CheckingMove(myIndex, _DirectionCustom.LocalScanner(facingDirection));
-                        StartCoroutine(_DataManager.instance.CubesAndElevatorAreCheckingMove());
+                        StartCoroutine(dataManager.CubesAndElevatorAreCheckingMove());
                     }
                     else
                     {
@@ -164,7 +164,7 @@ namespace Kubika.Game
 
                             isCheckingMove = true;
                             CheckingMove(myIndex, -_DirectionCustom.LocalScanner(facingDirection));
-                            StartCoroutine(_DataManager.instance.CubesAndElevatorAreCheckingMove());
+                            StartCoroutine(dataManager.CubesAndElevatorAreCheckingMove());
                         }
                         else
                         {
@@ -315,7 +315,7 @@ namespace Kubika.Game
         {
             isMoving = true;
 
-            _DataManager.instance.StartMoving.AddListener(MoveToTarget);
+            dataManager.StartMoving.AddListener(MoveToTarget);
             CheckSoloMove(index, nodeDirection);
         }
 
@@ -380,7 +380,7 @@ namespace Kubika.Game
                             {
 
                                 pushNextNodeCubeMove.soloMoveTarget = grid.kuboGrid[indexTargetNode - 1 + nodeDirection];
-                                _DataManager.instance.StartMoving.AddListener(pushNextNodeCubeMove.MoveToTarget);
+                                dataManager.StartMoving.AddListener(pushNextNodeCubeMove.MoveToTarget);
                                 pushNextNodeCubeMove.isReadyToMove = true;
                                 cubeMoveUpDown.Add(pushNextNodeCubeMove);
                             }
@@ -440,7 +440,7 @@ namespace Kubika.Game
 
 
                             pushNextNodeCubeMove.soloMoveTarget = grid.kuboGrid[indexTargetNode - 1 - nodeDirection];
-                            _DataManager.instance.StartMoving.AddListener(pushNextNodeCubeMove.MoveToTarget);
+                            dataManager.StartMoving.AddListener(pushNextNodeCubeMove.MoveToTarget);
                             pushNextNodeCubeMove.isReadyToMove = true;
                             cubeMoveUpDown.Add(pushNextNodeCubeMove);
 

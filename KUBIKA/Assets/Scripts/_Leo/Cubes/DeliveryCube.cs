@@ -27,8 +27,8 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
 
-            _DataManager.instance.EndFalling.AddListener(CheckForVictory);
-            _DataManager.instance.EndFalling.AddListener(ScannerSet);
+            dataManager.EndFalling.AddListener(CheckForVictory);
+            dataManager.EndFalling.AddListener(ScannerSet);
 
             SetFb();
             SetupSoundPastille();
@@ -38,15 +38,15 @@ namespace Kubika.Game
         public override void UndoProcedure()
         {
             base.UndoProcedure();
-            _DataManager.instance.EndFalling.AddListener(ScannerSet);
-            _DataManager.instance.EndFalling.AddListener(CheckForVictory);
+            dataManager.EndFalling.AddListener(ScannerSet);
+            dataManager.EndFalling.AddListener(CheckForVictory);
         }
 
         public override void HideCubeProcedure()
         {
             base.HideCubeProcedure();
-            _DataManager.instance.EndFalling.RemoveListener(CheckForVictory);
-            _DataManager.instance.EndFalling.RemoveListener(ScannerSet);
+            dataManager.EndFalling.RemoveListener(CheckForVictory);
+            dataManager.EndFalling.RemoveListener(ScannerSet);
         }
 
         // Update is called once per frame

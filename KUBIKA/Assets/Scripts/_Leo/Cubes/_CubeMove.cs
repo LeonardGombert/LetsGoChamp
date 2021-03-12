@@ -100,9 +100,9 @@ namespace Kubika.Game
         public override void Start()
         {
             base.Start();
-            _DataManager.instance.EndMoving.AddListener(ResetReadyToMove);
-            _DataManager.instance.StartFalling.AddListener(FallMoveFunction);
-            _DataManager.instance.EndSwipe.AddListener(ResetOutline);
+            dataManager.EndMoving.AddListener(ResetReadyToMove);
+            dataManager.StartFalling.AddListener(FallMoveFunction);
+            dataManager.EndSwipe.AddListener(ResetOutline);
 
             audioSourceCube.clip = _AudioManager.instance.Move;
         }
@@ -124,19 +124,19 @@ namespace Kubika.Game
         public override void HideCubeProcedure()
         {
             base.HideCubeProcedure();
-            _DataManager.instance.moveCube.Remove(this as _CubeMove);
-            _DataManager.instance.EndMoving.RemoveListener(ResetReadyToMove);
-            _DataManager.instance.StartFalling.RemoveListener(FallMoveFunction);
-            _DataManager.instance.EndSwipe.RemoveListener(ResetOutline);
+            dataManager.moveCube.Remove(this as _CubeMove);
+            dataManager.EndMoving.RemoveListener(ResetReadyToMove);
+            dataManager.StartFalling.RemoveListener(FallMoveFunction);
+            dataManager.EndSwipe.RemoveListener(ResetOutline);
         }
 
         public override void UndoProcedure()
         {
             base.UndoProcedure();
-            _DataManager.instance.moveCube.Add(this as _CubeMove);
-            _DataManager.instance.EndMoving.AddListener(ResetReadyToMove);
-            _DataManager.instance.StartFalling.AddListener(FallMoveFunction);
-            _DataManager.instance.EndSwipe.AddListener(ResetOutline);
+            dataManager.moveCube.Add(this as _CubeMove);
+            dataManager.EndMoving.AddListener(ResetReadyToMove);
+            dataManager.StartFalling.AddListener(FallMoveFunction);
+            dataManager.EndSwipe.AddListener(ResetOutline);
         }
 
 
@@ -322,8 +322,8 @@ namespace Kubika.Game
             yCoordLocal = Mathf.RoundToInt(fallFromMapPosition.y / grid.offset);
             zCoordLocal = Mathf.RoundToInt(fallFromMapPosition.z / grid.offset);
 
-            _DataManager.instance.moveCube.Remove(this);
-            _DataManager.instance.baseCube.Remove(this);
+            dataManager.moveCube.Remove(this);
+            dataManager.baseCube.Remove(this);
             StartCoroutine(PopOut(false));
             StartCoroutine(_BackgroundMaterialPreset.instance.FallBGFeedback());
 
@@ -424,7 +424,7 @@ namespace Kubika.Game
 
             isMoving = false;
 
-            //_DataManager.instance.EndChecking.Invoke();
+            //dataManager.EndChecking.Invoke();
 
         }
 
@@ -460,14 +460,14 @@ namespace Kubika.Game
             isMoving = true;
             isCheckingMove = true;
 
-            _DataManager.instance.StartMoving.AddListener(MoveToTarget);
+            dataManager.StartMoving.AddListener(MoveToTarget);
             CheckSoloMove(index, nodeDirection);
         }
         public void CheckingPile(int index, int nodeDirection)
         {
             isMoving = true;
             isCheckingMove = true;
-            _DataManager.instance.StartMoving.AddListener(MoveToTargetPile);
+            dataManager.StartMoving.AddListener(MoveToTargetPile);
             CheckPileMove(index, nodeDirection);
         }
 
@@ -663,7 +663,7 @@ namespace Kubika.Game
             if (!isStatic)
             {
                 // Calcul the swip angle
-                currentSwipePos = _DataManager.instance.inputPosition;
+                currentSwipePos = dataManager.inputPosition;
 
                 distanceTouch = Vector3.Distance(baseSwipePos, currentSwipePos);
 
@@ -721,7 +721,7 @@ namespace Kubika.Game
                     }
                 }
 
-                if (distanceTouch > _DataManager.instance.swipeMinimalDistance)
+                if (distanceTouch > dataManager.swipeMinimalDistance)
                     CheckDirection(enumSwipe);
             }
         }
@@ -729,7 +729,7 @@ namespace Kubika.Game
         public void GetBasePoint()
         {
             //Reset Base Touch position
-            baseSwipePos = _DataManager.instance.inputPosition;
+            baseSwipePos = dataManager.inputPosition;
         }
 
         public void CheckDirection(swipeDirection swipeDir)
@@ -767,7 +767,7 @@ namespace Kubika.Game
                 if (distanceTouch > (distanceBaseToNext * 0.5f) && isMoving == false)
                 {
                     CheckingMove(myIndex, direction);
-                    StartCoroutine(_DataManager.instance.CubesAreCheckingMove());
+                    StartCoroutine(dataManager.CubesAreCheckingMove());
                 }
 
 

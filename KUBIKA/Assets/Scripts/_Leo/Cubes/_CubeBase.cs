@@ -10,15 +10,18 @@ namespace Kubika.Game
     {
         //starts at 1
         public int myIndex;
+
         //use this to set node data
         public CubeTypes myCubeType;
         public CubeLayers myCubeLayer;
         public FacingDirection facingDirection;
 
         public bool isStatic;
-        public _Grid grid;
+        protected _Grid grid { get => _Grid.instance; }
+        protected _DataManager dataManager { get => _DataManager.instance; }
 
-        [Space][Header("MATERIAL INFOS")]
+        [Space]
+        [Header("MATERIAL INFOS")]
         public Texture _MainTex;
         public Mesh _MainMesh;
         public Color _MainColor;
@@ -81,7 +84,6 @@ namespace Kubika.Game
         // Start is called before the first frame update
         public virtual void Start()
         {
-            grid = _Grid.instance;
             SetScriptablePreset();
 
             audioSourceCube = gameObject.AddComponent<AudioSource>();
@@ -98,31 +100,31 @@ namespace Kubika.Game
         //Use to update Cube Info in Matrix, called on place and rotate cube
         public void SetRelevantNodeInfo()
         {
-            _Grid.instance.kuboGrid[myIndex - 1].cubeLayers = myCubeLayer;
-            _Grid.instance.kuboGrid[myIndex - 1].cubeType = myCubeType;
-            _Grid.instance.kuboGrid[myIndex - 1].cubeOnPosition = gameObject;
-            _Grid.instance.kuboGrid[myIndex - 1].facingDirection = facingDirection;
+            grid.kuboGrid[myIndex - 1].cubeLayers = myCubeLayer;
+            grid.kuboGrid[myIndex - 1].cubeType = myCubeType;
+            grid.kuboGrid[myIndex - 1].cubeOnPosition = gameObject;
+            grid.kuboGrid[myIndex - 1].facingDirection = facingDirection;
 
-            //_Grid.instance.kuboGrid[myIndex - 1].worldPosition = transform.position; -> DON'T RESET WORLDPOS because cubes must reset to nodePos
-            _Grid.instance.kuboGrid[myIndex - 1].worldRotation = transform.eulerAngles;
+            //grid.kuboGrid[myIndex - 1].worldPosition = transform.position; -> DON'T RESET WORLDPOS because cubes must reset to nodePos
+            grid.kuboGrid[myIndex - 1].worldRotation = transform.eulerAngles;
         }
 
         //called on Cube Destroy, which actives on editor deleteCube()
         public void ResetCubeInfo()
         {
-            _Grid.instance.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
-            _Grid.instance.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
+            grid.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
+            grid.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
 
-            //_Grid.instance.kuboGrid[myIndex - 1].worldPosition = Vector3.zero; -> DON'T RESET WORLDPOS because cubes must reset to nodePos
-            _Grid.instance.kuboGrid[myIndex - 1].worldRotation = Vector3.zero;
+            //grid.kuboGrid[myIndex - 1].worldPosition = Vector3.zero; -> DON'T RESET WORLDPOS because cubes must reset to nodePos
+            grid.kuboGrid[myIndex - 1].worldRotation = Vector3.zero;
         }
 
         //call when level is loaded, places cube in world
         public void OnLoadSetTransform()
         {
-            transform.position = _Grid.instance.kuboGrid[myIndex - 1].worldPosition;
-            transform.rotation = Quaternion.Euler(_Grid.instance.kuboGrid[myIndex - 1].worldRotation);
-            transform.parent = _Grid.instance.gameObject.transform;
+            transform.position = grid.kuboGrid[myIndex - 1].worldPosition;
+            transform.rotation = Quaternion.Euler(grid.kuboGrid[myIndex - 1].worldRotation);
+            transform.parent = grid.gameObject.transform;
         }
 
         public void DisableCube()
@@ -141,21 +143,21 @@ namespace Kubika.Game
         //gets called when you "hide"/"destroy a cube
         public virtual void HideCubeProcedure()
         {
-            _Grid.instance.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
-            _Grid.instance.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
-            _Grid.instance.kuboGrid[myIndex - 1].cubeOnPosition = null;
+            grid.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
+            grid.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
+            grid.kuboGrid[myIndex - 1].cubeOnPosition = null;
 
-            _DataManager.instance.baseCube.Remove(this);
+            dataManager.baseCube.Remove(this);
         }
 
         // call when "reactivating" cubes
         public virtual void UndoProcedure()
         {
-            _Grid.instance.kuboGrid[myIndex - 1].cubeLayers = myCubeLayer;
-            _Grid.instance.kuboGrid[myIndex - 1].cubeType = myCubeType;
-            _Grid.instance.kuboGrid[myIndex - 1].cubeOnPosition = gameObject;
+            grid.kuboGrid[myIndex - 1].cubeLayers = myCubeLayer;
+            grid.kuboGrid[myIndex - 1].cubeType = myCubeType;
+            grid.kuboGrid[myIndex - 1].cubeOnPosition = gameObject;
 
-            _DataManager.instance.baseCube.Add(this);
+            dataManager.baseCube.Add(this);
         }
 
 
@@ -1077,7 +1079,7 @@ namespace Kubika.Game
 
             if (timer == true)
             {
-                _DataManager.instance.timers.Remove(this as TimerCube);
+                dataManager.timers.Remove(this as TimerCube);
             }
 
 
@@ -1133,12 +1135,12 @@ namespace Kubika.Game
         public void RemoveCube(int indexToDestroy)
         {
 
-            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null 
+            if (grid.kuboGrid[indexToDestroy - 1].cubeOnPosition != null
                 && grid.kuboGrid[indexToDestroy - 1].cubeType != CubeTypes.DeliveryCube
                 /*&& grid.kuboGrid[indexToDestroy - 1].cubeType > CubeTypes.TimerCube1 
                 && grid.kuboGrid[indexToDestroy - 1].cubeType < CubeTypes.TimerCube9*/)
             {
-                willPOP = true; 
+                willPOP = true;
                 StartCoroutine(grid.kuboGrid[indexToDestroy - 1].cubeOnPosition.GetComponent<_CubeBase>().PopOut(false));
             }
 

@@ -23,7 +23,7 @@ namespace Kubika.Game
             //call base.start AFTER assigning the cube's layers
             base.Start();
 
-            _DataManager.instance.moveCube.Remove(this);
+            dataManager.moveCube.Remove(this);
             SetOutlineColor(false);
             ChangeEmoteFace(_EmoteIdleOffTex);
             isSelectable = false;
@@ -39,7 +39,7 @@ namespace Kubika.Game
         {
             if(!isActive)
             {
-                _DataManager.instance.moveCube.Remove(this);
+                dataManager.moveCube.Remove(this);
                 isStatic = true;
 
                 myCubeLayer = CubeLayers.cubeFull;
@@ -47,7 +47,7 @@ namespace Kubika.Game
 
             else if (isActive)
             {
-                _DataManager.instance.moveCube.Add(this);
+                dataManager.moveCube.Add(this);
                 isStatic = false;
                 myCubeLayer = CubeLayers.cubeMoveable;
 
@@ -55,7 +55,7 @@ namespace Kubika.Game
                 grid.kuboGrid[myIndex - 1].cubeLayers = CubeLayers.cubeEmpty;
                 grid.kuboGrid[myIndex - 1].cubeType = CubeTypes.None;
 
-                _DataManager.instance.MakeFall();
+                dataManager.MakeFall();
             }
 
             SetRelevantNodeInfo();

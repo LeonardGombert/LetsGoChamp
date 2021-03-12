@@ -17,19 +17,19 @@ namespace Kubika.Game
             base.Start();
 
             SetScanDirections();
-            _DataManager.instance.EndFalling.AddListener(CheckBlowUp);
+            dataManager.EndFalling.AddListener(CheckBlowUp);
         }
 
         public override void UndoProcedure()
         {
             base.UndoProcedure();
-            _DataManager.instance.EndFalling.AddListener(CheckBlowUp);
+            dataManager.EndFalling.AddListener(CheckBlowUp);
         }
 
         public override void HideCubeProcedure()
         {
             base.HideCubeProcedure();
-            _DataManager.instance.EndFalling.RemoveListener(CheckBlowUp);
+            dataManager.EndFalling.RemoveListener(CheckBlowUp);
         }
 
 
@@ -82,7 +82,7 @@ namespace Kubika.Game
 
             StartCoroutine(BombDeleteLatence());
 
-            _DataManager.instance.EndFalling.RemoveListener(CheckBlowUp);
+            dataManager.EndFalling.RemoveListener(CheckBlowUp);
         }
 
         IEnumerator BombDeleteLatence()
