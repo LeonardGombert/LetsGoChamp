@@ -8,13 +8,13 @@ namespace Kubika.CustomLevelEditor
 {
     public class LevelEditor : MonoBehaviour
     {
-        private static LevelEditor _instance;
-        public static LevelEditor instance { get { return _instance; } }
+        public static LevelEditor instance { get; private set; }
 
         RaycastHit hit;
         int hitIndex;
         int moveWeight;
-        _Grid grid;
+        _Grid grid { get => _Grid.instance; }
+        UIManager uiManager { get => UIManager.instance; }
 
         _CubeBase currentHitCube;
 
@@ -38,15 +38,10 @@ namespace Kubika.CustomLevelEditor
 
         private void Awake()
         {
-            if (_instance != null && _instance != this) Destroy(this);
-            else _instance = this;
+            if (instance != null && instance != this) Destroy(this);
+            else instance = this;
 
             currentCube = CubeTypes.FullStaticCube;
-        }
-
-        private void Start()
-        {
-            grid = _Grid.instance;
         }
 
         private void Update()
@@ -96,11 +91,11 @@ namespace Kubika.CustomLevelEditor
                     break;
             }
 
-            if (isDeleting == true && UIManager.instance != null) UIManager.instance.deleteLogo.color = Color.red;
-            else if (isDeleting == false && UIManager.instance != null) UIManager.instance.deleteLogo.color = Color.white;
+            if (isDeleting == true && uiManager != null) uiManager.deleteLogo.color = Color.red;
+            else if (isDeleting == false && uiManager != null) uiManager.deleteLogo.color = Color.white;
 
-            if (isRotating == true && UIManager.instance != null) UIManager.instance.rotateLogo.color = Color.red;
-            else if (isRotating == false && UIManager.instance != null) UIManager.instance.rotateLogo.color = Color.white;
+            if (isRotating == true && uiManager != null) uiManager.rotateLogo.color = Color.red;
+            else if (isRotating == false && uiManager != null) uiManager.rotateLogo.color = Color.white;
         }
 
         private void DetectInputs()
@@ -112,7 +107,7 @@ namespace Kubika.CustomLevelEditor
                 {
                     Debug.Log("isPlacing");
 
-                    GetUserPlatform();
+                    //GetUserPlatform();
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) PlaceCube(hit);
                     hitIndex = 0;
                 }
@@ -125,7 +120,7 @@ namespace Kubika.CustomLevelEditor
                 {
                     Debug.Log("isDeleting");
 
-                    GetUserPlatform();
+                    //GetUserPlatform();
                     if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) DeleteCube(hit);
                     hitIndex = 0;
                 }
@@ -133,14 +128,14 @@ namespace Kubika.CustomLevelEditor
 
             if (isRotating)
             {
-                if(Application.isMobilePlatform)
+                if (Application.isMobilePlatform)
                 {
                     // one release, set the rotation
                     if (Input.GetMouseButtonUp(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
                     {
                         Debug.Log("isRotating");
 
-                        GetUserPlatform();
+                        //GetUserPlatform();
                         if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
                         hitIndex = 0;
                     }
@@ -153,7 +148,7 @@ namespace Kubika.CustomLevelEditor
                     {
                         Debug.Log("Deleting");
 
-                        GetUserPlatform();
+                        //GetUserPlatform();
                         if (Physics.Raycast(Camera.main.ScreenPointToRay(GetUserPlatform()), out hit)) RotateCube(hit);
                         hitIndex = 0;
                     }
@@ -244,7 +239,6 @@ namespace Kubika.CustomLevelEditor
                 }
             }*/
             #endregion
-
 
             if (hitIndex != 0 && hit.collider.gameObject != null)
             {

@@ -9,8 +9,7 @@ namespace Kubika.CustomLevelEditor
 {
     public class _Grid : MonoBehaviour
     {
-        private static _Grid _instance;
-        public static _Grid instance { get { return _instance; } }
+        public static _Grid instance { get; private set; }
 
         Vector3Int gridSizeVector;
 
@@ -30,8 +29,8 @@ namespace Kubika.CustomLevelEditor
 
         private void Awake()
         {
-            if (_instance != null && _instance != this) Destroy(this);
-            else _instance = this;
+            if (instance != null && instance != this) Destroy(this);
+            else instance = this;
 
             gridSize = 12;
             gridMargin = 4;
